@@ -8,7 +8,12 @@
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-                    users
+                    users 
+                    @if(Session::has('bookingConfirmed'))
+                        {{ Session::get('user_email_checking') }}
+                        @else
+                            {{ "error" }}
+                    @endif
                 </div>
             </div>
         </div>

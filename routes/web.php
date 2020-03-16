@@ -58,3 +58,11 @@ Route::GET('/option_type_ajax','Admin\AdminoptionController@option_type_ajax');
 // dashboard option ajax
 Route::GET('/countAjaxCall','Admin\Dashboard_controller@countCateAjaxCall');
 Route::GET('/countAjaxQuesCall','Admin\Dashboard_controller@countQuesAjaxCall');
+
+
+// frontend country list ajax
+Route::GET('/countryAjaxCall','front\Country_controller@showAllCountry');
+// frontend timezone list ajax
+Route::GET('/timezoneAjaxCall','front\Country_controller@showAllZone');
+// frontend timezone ip jax
+Route::GET('/ipZoneAjaxCall','front\Country_controller@ipCheck');

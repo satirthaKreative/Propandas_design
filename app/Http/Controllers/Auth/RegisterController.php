@@ -28,7 +28,11 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    // protected $redirectTo = '/home';
+    public function redirectTo()
+    {
+        return '/home';
+    }
 
     /**
      * Create a new controller instance.
@@ -51,7 +55,12 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'phn_num' => ['required'],
+            'address1' => ['required'],
+            'city' => ['required'],
+            'zipcode' => ['required'],
+            'country' => ['required'],
+            'timezone' => ['required'],
         ]);
     }
 
@@ -63,11 +72,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $_SESSION['user_email_checking'] = $data['email'];
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'is_lawyer' => $data['is_laywer'],
+            'degree' => $data['degree'],
+            'phn_num' => $data['phn_num'],
+            'address1' => $data['address1'],
+            'address2' => $data['address2'],
+            'city' => $data['city'],
+            'zipcode' => $data['zipcode'],
+            'country' => $data['country'],
+            'timezone' => $data['timezone'],
+            'is_lawyer' => $data['is_lawyer']
         ]);
     }
 }
