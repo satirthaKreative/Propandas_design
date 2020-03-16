@@ -2932,8 +2932,32 @@ input{
     outline: none;
 }
 }
-
-
     
 }
+
+.ic-menu {
+    position: relative;
+    display: inline-block;
+    width: 35px;
+    float: left;
+	.dsh-menu {
+	    background: #fff;
+	    width: auto;
+	    display: inline-block;
+	    border: solid 1px #e4e1e1;
+	    padding: 10px;
+	    position: absolute;
+	    opacity: 0;
+	    top:0;
+	}
+	&:hover{
+		.dsh-menu{
+			 opacity: 1;
+		}
+
+	}
+
+}
+
+
 

@@ -21,6 +21,13 @@
               <div class="dsh-menu">
                  <ul>
                   <li><a href="javascript:void(0)">Dashboard</a></li>
+                  <li><a href="javascript:void(0)">Messages</a></li>
+                  <li><a href="javascript:void(0)">Documents</a></li>
+                  <li><a href="javascript:void(0)">My Jobs</a></li>
+                  <li><a href="javascript:void(0)">Invoices</a></li>
+                  <li><a href="javascript:void(0)">Transactions</a></li>
+                  <li><a href="javascript:void(0)">System Messages</a></li>
+                  
                </ul>
               </div>
 
