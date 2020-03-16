@@ -13,7 +13,7 @@
 <section class="dshbord-theme">
    <div class="container">
       <div class="row">
-         <div class="col-md-12">
+         <div class="col-md-12 sd-icon">
            <div class="ic-menu">
               <div class="icn-lst">
                 <i class="fa fa-bars" aria-hidden="true"></i>
@@ -55,7 +55,8 @@
   <div id="all-tab" class="tab-pane fade show active">
     <div class="inbox_chat">
             <div class="chat_list active_chat">
-              <div class="chat_people">
+               <a href="#">
+                  <div class="chat_people">
                 <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
                 <div class="chat_ib">
                   <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
@@ -63,6 +64,8 @@
                     astrology under one roof.</p>
                 </div>
               </div>
+               </a>
+              
             </div>
             <div class="chat_list">
               <div class="chat_people">

@@ -2942,6 +2942,10 @@ input{
     float: left;
     z-index: 1;
     cursor: pointer;
+    overflow: hidden;
+    &:hover{
+    	overflow:visible;
+    }
 	.dsh-menu {
 	    background: #fff;
 	    width: 150px;
@@ -3000,4 +3004,15 @@ input{
 
 }
 
+
+.sd-icon{
+	.fs-title{
+    width: calc(100% - 35px);
+    float: left;
+	}
+	hr{
+		display: inline-block;
+		width: 100%;
+	}
+}
 
