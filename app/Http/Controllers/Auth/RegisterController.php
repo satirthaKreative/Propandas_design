@@ -72,7 +72,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $_SESSION['user_email_checking'] = $data['email'];
+        
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
