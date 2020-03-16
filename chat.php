@@ -68,6 +68,7 @@
               
             </div>
             <div class="chat_list">
+                <a href="#">
               <div class="chat_people">
                 <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
                 <div class="chat_ib">
@@ -76,8 +77,10 @@
                     astrology under one roof.</p>
                 </div>
               </div>
+            </a>
             </div>
             <div class="chat_list">
+                <a href="#">
               <div class="chat_people">
                 <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
                 <div class="chat_ib">
@@ -86,8 +89,10 @@
                     astrology under one roof.</p>
                 </div>
               </div>
+           </a>
             </div>
             <div class="chat_list">
+                <a href="#">
               <div class="chat_people">
                 <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
                 <div class="chat_ib">
@@ -96,8 +101,10 @@
                     astrology under one roof.</p>
                 </div>
               </div>
+            </a>
             </div>
             <div class="chat_list">
+               <a href="#">
               <div class="chat_people">
                 <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
                 <div class="chat_ib">
@@ -106,8 +113,10 @@
                     astrology under one roof.</p>
                 </div>
               </div>
+            </a>
             </div>
             <div class="chat_list">
+               <a href="#">
               <div class="chat_people">
                 <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
                 <div class="chat_ib">
@@ -116,8 +125,10 @@
                     astrology under one roof.</p>
                 </div>
               </div>
+            </a>
             </div>
             <div class="chat_list">
+               <a href="#">
               <div class="chat_people">
                 <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
                 <div class="chat_ib">
@@ -126,6 +137,7 @@
                     astrology under one roof.</p>
                 </div>
               </div>
+            </a>
             </div>
           </div>
   </div>
