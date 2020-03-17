@@ -17,6 +17,8 @@ Auth::routes();
 Route::resource('search','front\StepController');
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/verification','HomeController@sendFeedback')->name('verification');
+
 Route::get('lawyer/routes', 'HomeController@lawyer')->middleware('lawyer');
 Route::get('/lawyer', 'HomeController@lawyer')->name('lawyer');
 

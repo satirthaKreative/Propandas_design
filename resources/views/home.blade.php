@@ -9,8 +9,8 @@
 
                 <div class="card-body">
                     users 
-                    @if(Session::has('bookingConfirmed'))
-                        {{ Session::get('user_email_checking') }}
+                    @if(Session::has('mysession'))
+                        {{ Session::get('mysession') }}
                         @else
                             {{ "error" }}
                     @endif

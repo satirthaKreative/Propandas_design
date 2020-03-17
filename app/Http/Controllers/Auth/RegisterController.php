@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
@@ -31,7 +32,7 @@ class RegisterController extends Controller
     // protected $redirectTo = '/home';
     public function redirectTo()
     {
-        return '/home';
+        return '/verification';
     }
 
     /**
@@ -72,7 +73,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        
+        Session::put('mysession', $data['email']);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
