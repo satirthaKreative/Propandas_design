@@ -9,11 +9,6 @@
 
                 <div class="card-body">
                     users 
-                    @if(Session::has('mysession'))
-                        {{ Session::get('mysession') }}
-                        @else
-                            {{ "error" }}
-                    @endif
                 </div>
             </div>
         </div>

@@ -66,6 +66,7 @@ $(function(){
 });
 
 
-$(function(){
-    
-})
+// captcha checking
+function recaptchaCallback() {
+    $('.captcha-submit-class').removeAttr('disabled');
+};

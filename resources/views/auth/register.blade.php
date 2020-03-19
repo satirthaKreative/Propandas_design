@@ -5,7 +5,7 @@
       <h1>SIGN UP</h1>
       <div class="breadcum-top">
          <ul class="breadcrumb">
-            <li><a href="#">Home {{ $_SERVER['REMOTE_ADDR'] }}</a></li>
+            <li><a href="#">Home</a></li>
             <li>Register</li>
          </ul>
       </div>
@@ -45,7 +45,7 @@
                   </div>
                   <div class="col-sm-5 plr-5">
                      <div class="form-group">
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="lname" value="{{ old('name') }}" required placeholder="Last Name"  />
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="lname" value="{{ old('lname') }}" required placeholder="Last Name"  />
                      </div>
                   </div>
                   <div class="col-sm-6 plr-5">
@@ -90,7 +90,6 @@
                      <div class="form-group">
                         <select class="form-control time-zone" name="timezone"  id="time-zone">
                            <option>Time Zone</option>
-                           
                         </select>
                         <p class="text-left"><small>Pick based on IP address</small></p>
                      </div>

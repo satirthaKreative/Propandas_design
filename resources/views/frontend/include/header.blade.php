@@ -12,7 +12,39 @@
          </div>
          <div class="col-md-6 col-sm-6">
             <ul class="top-info">
-               <li><span><i class="fa fa-user" aria-hidden="true"></i></span><a href="{{ route('login') }}">Login</a></li>
+               <li class="profile-dropdown">
+                  <span><i class="fa fa-user" aria-hidden="true"></i></span>
+                  @guest
+                  <a href="{{ route('login') }}" >Login</a>
+                  @else
+                  {{ Auth::user()->name }}
+
+                 
+
+                  <ul class="dropdown-profile">
+                  <!-- <li><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit Profile</a></li> -->                  
+                  <li><a  href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      @csrf
+                  </form>
+                  </ul>
+                  @endguest
+                 
+                     
+                     <!-- <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                     </form> -->
+                    <!--  <li> <a class="dropdown-item" href="{{ route('logout') }}"
+                     onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">
+                      {{ __('Logout') }}
+                  </a></li> -->
+                  
+
+
+               </li>
                <li>
                   <div class="dropdown lng-link">
                      <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

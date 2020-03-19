@@ -18,9 +18,12 @@ Route::resource('search','front\StepController');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/verification','HomeController@sendFeedback')->name('verification');
+Route::get('/password/{var1}','SetPassController@index')->name('password');
 
 Route::get('lawyer/routes', 'HomeController@lawyer')->middleware('lawyer');
+
 Route::get('/lawyer', 'HomeController@lawyer')->name('lawyer');
+
 
 Route::get('admin/home','AdminController@index')->name('admin.home');
 Route::get('admin','Admin\LoginController@showLoginForm')->name('admin.login');
@@ -37,7 +40,11 @@ Route::resource('admin-question','Admin\AdminquestionController');
 Route::resource('admin-option','Admin\AdminoptionController');
 Route::resource('admin-cateques','Admin\AdmincatequesController');
 Route::resource('admin-freelegaldoc','Admin\Freelegaldocx');
+Route::resource('password','SetPassController');
 
+
+Route::GET('/lawyer-registration','front\LawyerController@index')->name('lawyer-registration');
+Route::POST('/my-job','front\MyDashController@index')->name('my-job');
 // Admin category ajax
 Route::GET('/checking_category_exist','Admin\AdmincategoryController@checking_category_exist');
 Route::GET('/ajax_all_category','Admin\AdmincategoryController@ajax_all_category');

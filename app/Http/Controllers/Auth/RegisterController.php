@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
@@ -57,11 +58,9 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'phn_num' => ['required'],
-            'address1' => ['required'],
             'city' => ['required'],
             'zipcode' => ['required'],
             'country' => ['required'],
-            'timezone' => ['required'],
         ]);
     }
 
@@ -73,9 +72,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
         Session::put('mysession', $data['email']);
-        return User::create([
+        if($data['is_lawyer'] == '0'){
+        $arr = [
             'name' => $data['name'],
+            'lname' => $data['lname'],
             'email' => $data['email'],
             'degree' => $data['degree'],
             'phn_num' => $data['phn_num'],
@@ -86,6 +88,54 @@ class RegisterController extends Controller
             'country' => $data['country'],
             'timezone' => $data['timezone'],
             'is_lawyer' => $data['is_lawyer']
-        ]);
+        ];
+        }
+        else if($data['is_lawyer'] == '1')
+        {
+            $file = $data['upload']; 
+            $file_name = $file->getClientOriginalName();
+            $file_type = $file->getClientOriginalExtension();
+            $enc_type = $file->getClientOriginalExtension();
+            if($enc_type == 'docx' || $enc_type == 'doc' || $enc_type == 'pdf' || $enc_type == 'jpeg' || $enc_type == 'jpg' || $enc_type == 'webp' || $enc_type == 'png' || $enc_type == 'gif')
+            {
+                $real_path = $file->getRealPath();
+                $file_size = $file->getSize();
+                $meme_type = $file->getMimeType();
+                $destinationPath = 'uploads/lawyer_doc';
+                $file->move($destinationPath,$file->getClientOriginalName());
+
+                $myActualPath = $destinationPath.'/'.$file_name;
+                
+            }
+            else
+            {
+                $myActualPath = "";
+                $is_uploaded = '0';
+                $file_type = "";
+            }
+            // print_r($myActualPath);
+            // echo "<br/>";
+            // print_r($data['law_firm']);
+            // echo "<br/>";
+            // print_r($data['law_firm_address']);
+            
+           $arr = [
+               'name' => $data['name'],
+               'lname' => $data['lname'],
+               'email' => $data['email'],
+               'degree' => $data['degree'],
+               'phn_num' => $data['phn_num'],
+               'law_firm' => $data['law_firm'],
+               'law_firm_address' => $data['law_firm_address'],
+               'city' => $data['city'],
+               'zipcode' => $data['zipcode'],
+               'country' => $data['country'],
+               'file_upload' => $myActualPath,
+               'is_lawyer' => $data['is_lawyer']
+           ]; 
+
+          
+        }
+        return User::create($arr);
     }
 }
