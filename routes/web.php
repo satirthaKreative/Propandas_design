@@ -44,7 +44,7 @@ Route::resource('password','SetPassController');
 
 
 Route::GET('/lawyer-registration','front\LawyerController@index')->name('lawyer-registration');
-Route::POST('/my-job','front\MyDashController@index')->name('my-job');
+Route::GET('/job-desp','front\MyDashController@index')->name('job-desp');
 // Admin category ajax
 Route::GET('/checking_category_exist','Admin\AdmincategoryController@checking_category_exist');
 Route::GET('/ajax_all_category','Admin\AdmincategoryController@ajax_all_category');
