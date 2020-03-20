@@ -49,7 +49,7 @@
       <table style="width:600px; background-color: #fff;  margin: 0 auto" >
          <tr style="background-color: #f1ecec; padding: 45px 25px; display: inline-block; width: 100%;">
             <td style="text-align: center; width: 100%; display: inline-block;">
-               <img src="{{ asset('frontAssets/images/logo.png') }}" alt="#" style="max-width: 100%; margin-bottom: 35px">
+               <img src="http://weblogoshub.com/Propandas/frontAssets/images/logo.png" alt="#" style="max-width: 100%; margin-bottom: 35px">
                <p style="margin: 0;margin-top: 16px;width: 100%;text-transform: capitalize;font-size: 16px;color: #353434; font-weight: 600;line-height: 27px;"> please click on the button to confirm your email address</p>
                <p>
                   <a href="{{ $feedback }}" style="background: #13264e; display:inline-block; margin-top: 25px;  width: 220px;

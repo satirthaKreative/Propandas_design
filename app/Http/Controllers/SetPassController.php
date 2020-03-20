@@ -79,7 +79,7 @@ class SetPassController extends Controller
     {
         
         $result_db = DB::table('users')->where('email',$email_id)->update(['password' => Hash::make($request['pass']) ]);
-        return  redirect()->route("login");
+        return  redirect()->route('dashboard');
       
     }
 
