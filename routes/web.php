@@ -35,6 +35,7 @@ Route::get('admin-password/reset/{token}','Admin\ResetPasswordController@showRes
 Route::get('adminLogout','Admin\LoginController@logout')->name('admin.logout');
 
 
+
 Route::resource('admin-category','Admin\AdmincategoryController');
 Route::resource('admin-question','Admin\AdminquestionController');
 Route::resource('admin-option','Admin\AdminoptionController');
@@ -43,6 +44,9 @@ Route::resource('admin-freelegaldoc','Admin\Freelegaldocx');
 Route::resource('password','SetPassController');
 
 
+Route::get('/search-view', function () {
+    return view('frontend.front-pages.search');
+});
 Route::GET('/lawyer-registration','front\LawyerController@index')->name('lawyer-registration');
 Route::GET('/dashboard','front\MyDashController@index')->name('dashboard');
 // Admin category ajax
@@ -75,3 +79,7 @@ Route::GET('/countryAjaxCall','front\Country_controller@showAllCountry');
 Route::GET('/timezoneAjaxCall','front\Country_controller@showAllZone');
 // frontend timezone ip jax
 Route::GET('/ipZoneAjaxCall','front\Country_controller@ipCheck');
+
+
+// frontend ajax category/home page
+Route::GET('/homeCateAjax','front\ajax\FrontController@index');

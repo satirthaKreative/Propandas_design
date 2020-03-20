@@ -49,8 +49,8 @@
          <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. </p>
       </div>
       <div class="service-list">
-         <div class="row">
-            <div class="col-sm-3 plr-5">
+         <div class="row my-tt">
+            <!-- <div class="col-sm-3 plr-5">
                <div class="cr-box">
                   <a href="{{ route('search.index') }}">
                      <img src="{{ asset('frontAssets/images/service-1.jpg') }}" alt="images" class="img-fluid">
@@ -129,7 +129,7 @@
                      </div>
                   </a>
                </div>
-            </div>
+            </div> -->
          </div>
       </div>
    </div>

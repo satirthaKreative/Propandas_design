@@ -66,7 +66,7 @@
    <div class="container">
       <div class="row">
          <div class="col-xs-6 col-sm-6 logo-sec">
-            <a href="index.php"><img src="{{ asset('frontAssets/images/logo.png') }}" class="img-fluid lg-image " alt="logo-image"></a>
+            <a href="{{ url('/') }}"><img src="{{ asset('frontAssets/images/logo.png') }}" class="img-fluid lg-image " alt="logo-image"></a>
          </div>
          <div class=" col-xs-6 col-sm-6 nv-menu">
             <div class="hamburger">
@@ -81,9 +81,9 @@
                   <span></span>
                </div>
                <li><a href="{{ url('/') }}">Home</a></li>
-               <li><a href="about.php">About</a></li>
-               <li><a href="#">Info</a></li>
-               <li><a href="#">Contact</a></li>
+               <li><a href="javascript: ;">About</a></li>
+               <li><a href="javascript: ;">Info</a></li>
+               <li><a href="javascript: ;">Contact</a></li>
             </ul>
          </div>
       </div>
