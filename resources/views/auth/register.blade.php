@@ -30,11 +30,12 @@
                <div class="row">
                   <div class="col-sm-2 plr-5">
                      <div class="form-group">
-                        <select class="form-control" id="">
+                        <input type="text" name="degree" required="required" class="form-control" placeholder="Degree" id="">
+                        <!-- <select class="form-control" id="">
                            <option>Degree</option>
                            <option value="">Degree 1</option>
                            <option value="">Degree 2</option>
-                        </select>
+                        </select> -->
                      </div>
                   </div>
                   <div class="col-sm-5 plr-5">
@@ -44,7 +45,7 @@
                   </div>
                   <div class="col-sm-5 plr-5">
                      <div class="form-group">
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="lname" value="{{ old('name') }}" required placeholder="Last Name"  />
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="lname" value="{{ old('lname') }}" required placeholder="Last Name"  />
                      </div>
                   </div>
                   <div class="col-sm-6 plr-5">
@@ -54,54 +55,50 @@
                   </div>
                   <div class="col-sm-6 plr-5">
                      <div class="form-group">
-                        <input type="text" name="user" class="form-control" placeholder="Phone Number " value="" required="" />
+                        <input type="text" name="phn_num" class="form-control" required="required" placeholder="Phone Number " value=""/>
                      </div>
                   </div>
                   <div class="col-sm-12 plr-5">
                      <div class="form-group">
-                        <textarea name="" id="" class="form-control" placeholder="Address (Line 1)"  ></textarea>
+                        <textarea name="address1" id="" class="form-control" placeholder="Address (Line 1)"  required="required"></textarea>
                      </div>
                   </div>
                   <div class="col-sm-12 plr-5">
                      <div class="form-group">
-                        <textarea name="" id="" class="form-control" placeholder="Address (Line 2)"  ></textarea>
+                        <textarea name="address2" id="" class="form-control" placeholder="Address (Line 2)"  ></textarea>
                      </div>
                   </div>
                   <div class="col-sm-4 plr-5">
                      <div class="form-group">
-                        <input type="text" name="user" class="form-control" placeholder="City" value="" required="" />
+                        <input type="text" name="city" class="form-control" placeholder="City" value="" required=""  />
                      </div>
                   </div>
                   <div class="col-sm-4 plr-5">
                      <div class="form-group">
-                        <input type="text" name="user" class="form-control" placeholder="Zip Code" value="" required="" />
+                        <input type="text" name="zipcode" class="form-control" placeholder="Zip Code" value="" required="" />
                      </div>
                   </div>
                   <div class="col-sm-4 plr-5">
                      <div class="form-group">
-                        <select class="form-control" id="">
-                           <option>Country</option>
-                           <option value="">Australia</option>
-                           <option value="">Austria</option>
-                           <option value="">Barbados</option>
+                        <select class="form-control county_list" name="country" id="county_list">
+                           <option value="">Country</option>
+                           
                         </select>
                      </div>
                   </div>
                   <div class="col-sm-12 plr-5">
                      <div class="form-group">
-                        <select class="form-control" id="">
+                        <select class="form-control time-zone" name="timezone"  id="time-zone">
                            <option>Time Zone</option>
-                           <option value="">Time Zone 1</option>
-                           <option value="">Time Zone 2</option>
-                           <option value="">Time Zone 3</option>
                         </select>
                         <p class="text-left"><small>Pick based on IP address</small></p>
                      </div>
                   </div>
+                  <input type="hidden" name="is_lawyer" value="0">
                   <div class="col-sm-12 plr-5">
                      <div class="form-group">
                         <div class="checkbox">
-                           <label><input type="checkbox" name="remember"> By clicking on “Sign Up Now”, I agree to and understand the ProPandas <a href="#">Terms of Use</a>  & <a href="#">Privacy Policy</a> .</label>
+                           <label><input type="checkbox" name="remember" name="checked_block"> By clicking on “Sign Up Now”, I agree to and understand the ProPandas <a href="#">Terms of Use</a>  & <a href="#">Privacy Policy</a> .</label>
                         </div>
                      </div>
                   </div>
@@ -129,17 +126,13 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
-
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -147,13 +140,10 @@
                                 @enderror
                             </div>
                         </div>
-
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -161,13 +151,10 @@
                                 @enderror
                             </div>
                         </div>
-
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -175,24 +162,19 @@
                                 @enderror
                             </div>
                         </div>
-
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
-
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Choose User Tpe') }}</label>
-
                             <div class="col-md-6">
                                 <input type="radio" name="is_laywer"  value="1"> I'm a laywer
                                 <input type="radio" name="is_laywer" value="0"> I'm a customer
                             </div>
                         </div>
-
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

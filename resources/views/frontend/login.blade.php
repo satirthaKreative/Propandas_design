@@ -42,7 +42,7 @@
             <div class="google-login">
                <a href="#"><span><img src="{{ asset('frontAssets/images/g-logo.png') }}" alt="icon"></span>Sign in with google </a>
             </div>
-            <p>Don't have an account yet? <a href="{{ route('register') }}">Sign up Now</a></p>
+            <p>Don't have an account yet? <a href="client_register.php">Sign up Now</a></p>
          </div>
          <!-- end of col-sm-6 -->
          <div class="col-sm-6 login-box lwr-login">
@@ -72,7 +72,7 @@
             <div class="google-login">
                <a href="#"><span><img src="{{ asset('frontAssets/images/g-logo.png') }}" alt="icon"></span>Sign in with google </a>
             </div>
-            <p>Don't have an account yet? <a href="{{ route('register') }}">Sign up Now</a></p>
+            <p>Don't have an account yet? <a href="lawyer_register.php">Sign up Now</a></p>
          </div>
          <!-- end of col-sm-6 -->
       </div>

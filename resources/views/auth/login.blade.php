@@ -62,6 +62,7 @@
          <div class="col-sm-6 login-box lwr-login">
             <h1>lawyer login</h1>
             <form method="post" action="{{ route('login') }}">
+              @csrf
                <div class="form-group">
                   <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="User Email" value="" required="" />
                </div>
@@ -86,7 +87,7 @@
             <div class="google-login">
                <a href="#"><span><img src="{{ asset('frontAssets/images/g-logo.png') }}" alt="icon"></span>Sign in with google </a>
             </div>
-            <p>Don't have an account yet? <a href="{{ route('register') }}">Sign up Now</a></p>
+            <p>Don't have an account yet? <a href="{{ route('lawyer-registration') }}">Sign up Now</a></p>
          </div>
          <!-- end of col-sm-6 -->
       </div>

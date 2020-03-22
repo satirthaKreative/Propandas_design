@@ -33,10 +33,10 @@ class LoginController extends Controller
         switch($role)
         {
             case 1:
-                return '/lawyer';
+                return '/dashboard';
                 break;
             default: 
-                return '/home';
+                return '/dashboard';
                 break;
         }
         

@@ -302,3 +302,29 @@ option:disabled {
     border: 3px solid #eee;
     padding: 5px;
 }
+
+/*23.03.2020 Satirtha*/
+.profile-img{
+    text-align: center;
+}
+.profile-img img{
+    border-radius: 169px;
+    width: 52%;
+    height: 50%;
+}
+.profile-img .file {
+    position: relative;
+    overflow: hidden;
+    margin-top: -10%;
+    width: 52%;
+    border: none;
+    border-radius: 0;
+    font-size: 15px;
+    background: #212529b8;
+}
+.profile-img .file input {
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+}

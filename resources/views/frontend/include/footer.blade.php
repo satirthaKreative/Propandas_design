@@ -74,7 +74,13 @@
 <script src="{{ asset('frontAssets/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('frontAssets/js/owl.carousel.js') }}"></script>
 <script src="{{ asset('frontAssets/js/jquery.multiselect.js') }}"></script>
-
+<!-- country js -->
+<script src="{{ asset('frontAssets/js/country.js') }}"></script>
+<!-- front-home js -->
+<script src="{{ asset('frontAssets/js/home.js') }}"></script>
+<!-- select2 -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+<script src="{{ asset('frontAssets/js/mySelect2.js') }}"></script>
 <!-- <script src="js/custom.js"></script> -->
 
 <script> 
