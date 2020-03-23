@@ -84,7 +84,7 @@
                 <!-- Free Profile Details -->
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-file"></i>
+                        <i class="fa fa-user"></i>
                         <span>Profile</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>

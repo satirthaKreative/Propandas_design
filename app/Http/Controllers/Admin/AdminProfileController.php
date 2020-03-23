@@ -71,9 +71,55 @@ class AdminProfileController extends Controller
      * @param  \App\adminProfilePageModel  $adminProfilePageModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, adminProfilePageModel $adminProfilePageModel)
+    public function update(Request $request, $u_id)
     {
-        //
+        $request->validate([
+            'profile_name' => 'required',
+            'admin_email' => 'required',
+        ]);
+
+
+        // uploads files
+
+        if($request->upload != '')
+        {
+            $file = $request->file('upload');
+            $file_name = $file->getClientOriginalName();
+            $file_type = $file->getClientOriginalExtension();
+            $enc_type = $file->getClientOriginalExtension();
+            if($enc_type == 'jpeg' || $enc_type == 'jpg' || $enc_type == 'webp' || $enc_type == 'png' || $enc_type == 'gif')
+            {
+                $real_path = $file->getRealPath();
+                $file_size = $file->getSize();
+                $meme_type = $file->getMimeType();
+                $destinationPath = 'uploads/admin';
+                $file->move($destinationPath,$file->getClientOriginalName());
+
+                $myActualPath = $destinationPath.'/'.$file_name;
+                
+            }
+            else
+            {
+                $myActualPath = "";
+            }
+            $update_arr = [
+                'name' => $request->profile_name,
+                'email' => $request->admin_email,
+                'recovery_email' => $request->recovery_email,
+                'admin_img' => $myActualPath,
+            ];
+        }
+        else
+        {
+            $update_arr = [
+                'name' => $request->profile_name,
+                'email' => $request->admin_email,
+                'recovery_email' => $request->recovery_email
+            ];
+        }
+
+        $update_query = DB::table('admins')->where('id',$u_id)->update($update_arr);
+        return redirect()->route('admin-profile.index')->with('success','Profile Successfully Added');
     }
 
     /**
