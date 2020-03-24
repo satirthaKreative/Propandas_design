@@ -6,7 +6,15 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="{{ asset('backendAssets/img/avatar.png') }}" class="img-circle" alt="User Image" />
+                @if(isset($myProfile))
+                    @if($myP->admin_img != '')
+                        <img src="{{ asset($myP->admin_img) }}" alt=""/>
+                    @else
+                        <img src="{{ asset('backendAssets/img/avatar5.png') }}" alt=""/>
+                    @endif
+                @else
+                    <img src="{{ asset('backendAssets/img/avatar5.png') }}" class="img-circle" alt="User Image" />
+                @endif
                 </div>
                 <div class="pull-left info">
                     <p>Hello, Admin</p>

@@ -7,8 +7,8 @@
         <small>Preview</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Forms</a></li>
+        <li><a href="javascript: ;"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="javascript: ;">Forms</a></li>
         <li class="active">Profile Forms</li>
     </ol>
 </section>
@@ -117,14 +117,13 @@
 		                </div>
 		                @endif
 
-		                @if($message = Session::get('success-pass'))
+		                @if($message = Session::get('success_pass'))
 		                    <div class="alert alert-success">
 		                        <strong>{{ $message }}</strong>
 		                    </div>
 		                @endif
-			            <form action="{{ route('admin-category.store') }}" method="post">
+			            <form action="{{ route('admin-profile.edit',$myP->id) }}" method="get">
 		                    @csrf
-		                    @method('PUT')
 
 		                    <!-- phone mask -->
 		                    <div class="form-group">
@@ -133,7 +132,7 @@
 		                            <div class="input-group-addon">
 		                                <i class="fa fa-eye"></i>
 		                            </div>
-		                            <input type="text" class="form-control" placeholder="Enter Password" value="" name="category_title" />
+		                            <input type="password" class="form-control" placeholder="Enter Password" value="" name="p_pass" />
 		                        </div><!-- /.input group -->
 		                    </div><!-- /.form group -->
 
@@ -144,7 +143,7 @@
 		                            <div class="input-group-addon">
 		                                <i class="fa fa-eye"></i>
 		                            </div>
-		                            <input type="text" class="form-control" placeholder="Re-enter Password" value="" name="category_title" />
+		                            <input type="password" class="form-control" placeholder="Re-enter Password" value="" name="cp_pass" />
 		                        </div><!-- /.input group -->
 		                    </div><!-- /.form group -->
 

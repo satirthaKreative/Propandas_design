@@ -45,7 +45,7 @@ Route::resource('admin-freelegaldoc','Admin\Freelegaldocx');
 Route::resource('password','SetPassController');
 
 
-Route::get('/search-view', function () {
+Route::get('/search-view/{data}', function () {
     return view('frontend.front-pages.search');
 });
 Route::GET('/lawyer-registration','front\LawyerController@index')->name('lawyer-registration');

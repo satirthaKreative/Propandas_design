@@ -36,7 +36,7 @@ $(function(){
                     {
                         img = img3;
                     }
-                    html += '<div class="col-sm-3 plr-5"><div class="cr-box"><a href="/search-view"><img src="'+img+'" alt="images" class="img-fluid"><div class="text-overley"><p>'+event[i].category_name+'</p></div></a></div></div>';
+                    html += '<div class="col-sm-3 plr-5"><div class="cr-box"><a href="/search-view/'+event[i].id+'"><img src="'+img+'" alt="images" class="img-fluid"><div class="text-overley"><p>'+event[i].category_name+'</p></div></a></div></div>';
                 }
                 html += others;
 
@@ -73,7 +73,7 @@ $(function(){
                     {
                         img = img7;
                     }  
-                    html += '<div class="col-sm-3 plr-5"><div class="cr-box"><a href="#"><img src="'+img+'" alt="images" class="img-fluid"><div class="text-overley"><p>'+event[i].category_name+'</p></div></a></div></div>';
+                    html += '<div class="col-sm-3 plr-5"><div class="cr-box"><a href="/search-view/'+event[i].id+'"><img src="'+img+'" alt="images" class="img-fluid"><div class="text-overley"><p>'+event[i].category_name+'</p></div></a></div></div>';
                 }
                 html += others;
             }
@@ -109,7 +109,7 @@ $(function(){
                     {
                         img = img7;
                     }
-                    html += '<div class="col-sm-3 plr-5"><div class="cr-box"><a href="#"><img src="'+img+'" alt="images" class="img-fluid"><div class="text-overley"><p>'+event[i].category_name+'</p></div></a></div></div>';
+                    html += '<div class="col-sm-3 plr-5"><div class="cr-box"><a href="/search-view/'+event[i].id+'"><img src="'+img+'" alt="images" class="img-fluid"><div class="text-overley"><p>'+event[i].category_name+'</p></div></a></div></div>';
                 }
             }
 

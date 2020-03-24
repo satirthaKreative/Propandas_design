@@ -59,9 +59,29 @@ class AdminProfileController extends Controller
      * @param  \App\adminProfilePageModel  $adminProfilePageModel
      * @return \Illuminate\Http\Response
      */
-    public function edit(adminProfilePageModel $adminProfilePageModel)
+    public function edit(Request $request, $u_id)
     {
         //
+
+        $request->validate([
+            'p_pass' => 'required',
+            'cp_pass' => 'required',
+        ]);
+
+
+        $pass = $request->p_pass;
+        $cpass = $request->cp_pass;
+
+        if($pass != $cpass)
+        {
+
+        $update_arr = [
+            'password' => $request->p_pass,
+        ];
+
+        $update_query = DB::table('admins')->where('id',$u_id)->update($update_arr);
+        }
+        return redirect()->route('admin-profile.index')->with('success_pass','Password Successfully Changed');
     }
 
     /**
@@ -119,7 +139,7 @@ class AdminProfileController extends Controller
         }
 
         $update_query = DB::table('admins')->where('id',$u_id)->update($update_arr);
-        return redirect()->route('admin-profile.index')->with('success','Profile Successfully Added');
+        return redirect()->route('admin-profile.index')->with('success','Profile Successfully Updated');
     }
 
     /**
