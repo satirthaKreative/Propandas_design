@@ -84,3 +84,8 @@ Route::GET('/ipZoneAjaxCall','front\Country_controller@ipCheck');
 
 // frontend ajax category/home page
 Route::GET('/homeCateAjax','front\ajax\FrontController@index');
+// question added front ajax
+Route::GET('/jobQuestionSelect','front\ajax\FrontController@categoryFuncSelect');
+Route::GET('/jobQuesOptSelect','front\ajax\FrontController@jobQuesOptSelect');
+Route::GET('/mycountstate','front\ajax\FrontController@mycountstate');
+Route::GET('/myCategoryQ','front\ajax\FrontController@myCategoryQ');

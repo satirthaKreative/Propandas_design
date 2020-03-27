@@ -26,7 +26,7 @@
 
                <form id="msform">
                   <!-- fieldsets -->
-                  <fieldset>
+                  <!-- <fieldset>
                      <h2 class="fs-title">Startup Job Posting</h2>
                      <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium nam, ipsam voluptate ab iure qui veniam. Voluptatibus officiis voluptas in ipsum sed eum iusto architecto blanditiis eaque illum totam fugiat assumenda soluta et officia, ea, sequi nemo ad nihil perspiciatis eos quisquam mollitia cum facilis! Excepturi beatae nobis quo delectus nostrum ullam ad magnam tempora, laboriosam, expedita ex.</p>
                      <p class="text-justify">
@@ -41,8 +41,8 @@
                      </ul>
                      <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                      <input type="button" name="next" class="next action-button" value="Next"/>
-                  </fieldset>
-                  <fieldset>
+                  </fieldset> -->
+                 <!--  <fieldset>
                      <h2 class="fs-title">What kind of startup assistance do you need?</h2>
                      <h3 class="fs-subtitle">Tell us something more</h3>
                      <ul class="list-option">
@@ -148,7 +148,7 @@
                      </div>
                      <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                      <input type="submit" name="submit" class="submit action-button" value="Submit"/>
-                  </fieldset>                  
+                  </fieldset>    -->               
                </form>
                <!-- link to designify.me code snippets --> 
             </div>
@@ -157,4 +157,7 @@
       </div>
    </div>
 </section>
+@endsection
+@section('pagewishjs')
+<script src="{{ asset('frontAssets/js/jobCate.js') }}"></script>
 @endsection

@@ -86,4 +86,39 @@ class FrontController extends Controller
     {
         //
     }
+
+    // main job category select from home
+    public function categoryFuncSelect()
+    {
+        $data = $_GET['data'];
+        $category_count = DB::table('admincateques')
+                        ->join('admincategories','admincategories.id','admincateques.category_id')
+                        ->join('adminquestions','adminquestions.id','admincateques.question_id')
+                        ->where('admincateques.category_id',$data)
+                        ->get();
+        echo json_encode($category_count);
+    }
+
+    public function mycountstate()
+    {
+        $data = $_GET['data'];
+        $category_count1 = DB::table('admincateques')
+                        ->where('admincateques.category_id',$data)
+                        ->count();
+        echo json_encode($category_count1);
+    }
+
+    public function jobQuesOptSelect()
+    {
+        $data = $_GET['q_id'];
+        $get_data = DB::table('adminoptions')->where('ques_id',$data)->get();
+        echo json_encode($get_data);
+    }
+
+    public function myCategoryQ()
+    {
+        $data = $_GET['cate_id'];
+        $get_category = DB::table('admincategories')->where('id',$data)->get();
+        echo  json_encode($get_category);
+    }
 }
