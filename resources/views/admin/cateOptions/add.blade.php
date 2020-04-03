@@ -137,7 +137,8 @@
             data: {quescatechoose: quescatechoose},
             dataType: "json",
             success: function(resp){
-                if(resp.length>0)
+                console.log("re: "+resp);
+                if(resp.length)
                 {
                     $.ajax({
                         url: '/category_priority',
@@ -146,7 +147,7 @@
                         dataType: 'json',
                         success: function(response){
                             var html = '';
-                            html += '<option>Choose a options</option>';
+                            html += '<option value="">Choose a options</option>';
                             for(var i=0;i< resp.length;i++)
                             {
                                 if(jQuery.inArray((i+1),response) !== -1){
@@ -192,8 +193,9 @@
             data: {question_id: question_id, category_id: category_id},
             dataType: 'json',
             success: function(event){
+                console.log(event);
                 var html_new = '';
-                html_new += "<option>Choose your next question</option>";
+                html_new += "<option value=''>Choose your next question</option>";
                 for(var i=0; i<event.length; i++){
                     html_new += '<option value="'+event[i].id+'">'+event[i].question_name+'</option>';
                 }
@@ -214,7 +216,7 @@
             dataType: "json",
             success:  function(response){
                 var html_new = '';
-                html_new += "<option>Choose your questions</option>";
+                html_new += "<option value=''>Choose your questions</option>";
                 for(var i=0; i<response.length; i++){
                     html_new += '<option value="'+response[i].id+'">'+response[i].question_name+'</option>';
                 }
@@ -256,7 +258,7 @@
                     success: function(resp){
                         console.log(resp);
                         var html_new = "";
-                        html_new += "<option>Choose your priority</option>";
+                        html_new += "<option value=''>Choose your priority</option>";
                         for(var i=1; i<=response; i++){
                             if(jQuery.inArray(i,resp) !== -1){
                                 var dataTCheck = "disabled";

@@ -53,11 +53,17 @@ class AdmincatequesController extends Controller
         $option_id = $request->input('option_id');
         $ques_priority = $request->input('ques_priority');
         $next_ques_id = $request->input('next_ques_id');
+
+        if($next_ques_id == '' || $next_ques_id == 0)
+        {
+            $next_ques_id = 0;
+        }
+
         if($ques_priority != '')
         {
             $myOpt =  $ques_priority;
         }
-        else
+        else if($ques_priority == '' || $ques_priority == 0)
         {
             $myOpt =  0;
         }
@@ -148,8 +154,9 @@ class AdmincatequesController extends Controller
     public function quesCate_ajaxcall()
     {
         $data_id = $_GET['quescatechoose'];
-        $count_options = DB::table('adminoptions')->where('ques_id',$data_id)->count();
-        if($count_options > 0){
+        // $count_options = DB::table('adminoptions')->where('ques_id',$data_id)->count();
+        $count_options = DB::table('adminquestions')->where('id',$data_id)->first();
+        if(($count_options->question_type != 1) || ($count_options->question_type != 3)){
             $data_ques_load = DB::table('adminoptions')->where('ques_id',$data_id)->get();
         }else{
             $data_ques_load = "";
@@ -184,7 +191,6 @@ class AdmincatequesController extends Controller
 
                 $key = array();
                 $key[] = $data_id;
-               
                 foreach ($checking_next_query1 as $key_val) {
                     $key[] = $key_val->question_id;
                     
@@ -199,19 +205,30 @@ class AdmincatequesController extends Controller
             {
                 $fetchQc = DB::table('admincateques')->where(['next_ques_id' => $data_id, 'category_id' => $category_id])->get();
                 $countQc = DB::table('admincateques')->where(['next_ques_id' => $data_id, 'category_id' => $category_id])->count();
-
-                if($countQc){
+                $get_catewish_ques_id = DB::table('admincateques')->where('category_id',$category_id)->get();
+                if($countQc>0){
                     $key =  array();
                     $key[] = $data_id;
                     foreach ($fetchQc as $key_value) {
                         $key[] = $key_value->question_id;
                     }
+                    foreach ($get_catewish_ques_id as $key_val) {
+                        $key[] = $key_val->question_id;
+                    }
                     $cate_name = DB::table('adminquestions')->whereNotIn('id', $key)->get();
                 }else{
-                    $cate_name = DB::table('adminquestions')->where('id','!=',$data_id)->get();
+                    $cate_name = DB::table('adminquestions')->whereNotIn('id',$data_id)->get();
                 }
             }
             
+        }else if($result_set != 0){ 
+            $get_catewish_ques_id = DB::table('admincateques')->where('category_id',$category_id)->get();
+            $key = array();
+            
+            foreach ($get_catewish_ques_id as $key_val) {
+                $key[] = $key_val->question_id;
+            }
+            $cate_name = DB::table('adminquestions')->whereNotIn('id', $key)->get();
         }else{
             $cate_name = "";
         }

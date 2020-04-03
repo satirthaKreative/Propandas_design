@@ -89,3 +89,5 @@ Route::GET('/jobQuestionSelect','front\ajax\FrontController@categoryFuncSelect')
 Route::GET('/jobQuesOptSelect','front\ajax\FrontController@jobQuesOptSelect');
 Route::GET('/mycountstate','front\ajax\FrontController@mycountstate');
 Route::GET('/myCategoryQ','front\ajax\FrontController@myCategoryQ');
+Route::GET('/nextQuestionRound','front\ajax\FrontController@nextQuestionRound');
+Route::GET('/nextQuesInitId','front\ajax\FrontController@nextQuesInitId');

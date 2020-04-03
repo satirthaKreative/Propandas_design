@@ -42,11 +42,15 @@
                                 <td>{{ $cateData->category_name }}</td>
                                 <td>{{ $cateData->question_name }}</td>
                                 <td>
+                                @if($cateData->option_id != 0)
                                     @if(strlen($cateData->option_label)>100)
                                         {{ substr($cateData->option_label,0,100)."..." }}
                                         @else
                                             {{ $cateData->option_label }}
                                     @endif
+                                @else
+                                    {{ "No Option For This Question" }}
+                                @endif
                                 </td>
                                 <td>
                                     <form action="{{ route('admin-cateques.destroy',$cateData->id) }}" method="post">

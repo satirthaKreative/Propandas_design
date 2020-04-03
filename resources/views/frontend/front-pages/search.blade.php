@@ -95,13 +95,13 @@
                         <option value="4">Xmage</option>
                      </select>
                      <select name="" multiple="multiple" id="multy-select">
-                        <option value="1"> MTGA</option>
+                        <option value="1">MTGA</option>
                         <option value="2">MTGO</option>
                         <option value="3">Cockatrice</option>
                         <option value="4">Xmage</option>
                      </select>
                      <select name="" multiple  id="search-select">
-                        <option value="1"> MTGA</option>
+                        <option value="1">MTGA</option>
                         <option value="2">MTGO</option>
                         <option value="3">Cockatrice</option>
                         <option value="4">Xmage</option>
