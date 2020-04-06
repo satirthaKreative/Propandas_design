@@ -37,6 +37,7 @@
                    <h2>Welcome to ProPandas!</h2>
                <p>ProPandas is the easiest solution for any business to get cost-effective and high quality legal services.</p>
                </div>
+              
                <hr>
 
                <h3>Post a Job</h3>
@@ -44,58 +45,8 @@
                <hr>
                <h3>Get Proposals</h3>
                <p>Our proprietary algorithm matches you with attorneys most qualified to handle your specific legal work. You can review proposals and schedule free consultations with no obligation.</p>
-               <hr>
-               <h6>Recent Jobs</h6>
-               <ul>
-                  <li>
-                     <a href="javascript:void(0)">
-                        <span class="left-step">
-                           <h5>Trademark Search Services</h5>
-                           <p>Posted about 5 hours ago</p>
-                        </span>
-                        <span class="right-step">
-                           <p><label>10</label>Proposals</p>
-                        </span>
-                     </a>
-                  </li>
-                  <li>
-                     <a href="javascript:void(0)">
-                        <span class="left-step">
-                           <h5>Trademark Search Services</h5>
-                           <p>Posted about 5 hours ago</p>
-                        </span>
-                        <span class="right-step">
-                           <p><label>10</label>Proposals</p>
-                        </span>
-                     </a>
-                  </li>
-                  <li>
-                     <a href="javascript:void(0)">
-                        <span class="left-step">
-                           <h5>Trademark Search Services</h5>
-                           <p>Posted about 5 hours ago</p>
-                        </span>
-                        <span class="right-step">
-                           <p><label>10</label>Proposals</p>
-                        </span>
-                     </a>
-                  </li>
-                  <li>
-                     <div class="toolbox">
-                        <p><a href="javascript:void(0)" class="txt-blue">Learn more about these colors</a></p>
-                        <div class="tooltiptext">
-                           <ul class="jtl-legend">
-                              <li><i class="success-green-BG"></i>Open, accepting proposals</li>
-                              <li><i class="warning-yellow-BG"></i>Work in progress</li>
-                              <li><i class="danger-red-BG"></i>Canceled</li>
-                              <li><i class="grey-30-BG"></i>Completed</li>
-                           </ul>
-                        </div>
-                     </div>
-                  </li>
-               </ul>
-
-               <hr>
+               <hr> 
+               
                <h3>Hire your Lawyer</h3>
                <p>When you’re ready, instantly hire the attorney that’s right for you.</p>
                <div class="table-responsive theme-table">
