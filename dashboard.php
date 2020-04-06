@@ -113,7 +113,7 @@
             <td>Daniel Schwarzl</td>
             <td>Corporate Law</td>
             <td>$200.00</td>
-            <td><a target="_blank" href="javascript:void(0)" class="shrt-btn">Hire Now</a></td>
+            <td><a  href="javascript:void(0)" class="shrt-btn">Hire Now</a></td>
           </tr>
 
           <tr>
@@ -121,7 +121,7 @@
             <td>Eva Quasem</td>
             <td>Criminal Law</td>
             <td>$300.00</td>
-            <td><a target="_blank" href="javascript:void(0)" class="shrt-btn">Hire Now</a></td>
+            <td><a  href="javascript:void(0)" class="shrt-btn">Hire Now</a></td>
           </tr>
 
          
