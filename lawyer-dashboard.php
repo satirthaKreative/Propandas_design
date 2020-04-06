@@ -74,7 +74,9 @@
             <td>Eva Quasem</td>
             <td>Criminal Law</td>
             <td>$300.00</td>
-            <td><a  href="javascript:void(0)" class="shrt-btn">Hire Now</a></td>
+            <td>
+               <a  href="javascript:void(0)" data-toggle="modal" data-target="#myModal" class="shrt-btn">Hire Now</a>               
+            </td>
           </tr>
 
          
@@ -85,6 +87,29 @@
             </div>
          </div>
       </div>
+
+     <!-- The Modal -->
+  <div class="modal fade theme-modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content"> 
+        
+        <!-- Modal body -->
+        <div class="modal-body text-center">
+         <div class="center-part">
+              <h3>login first</h3>
+        <p>You need to login first</p>
+        <p><a href="#" class="cnt-btn">Login Now <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a></p>
+         </div>
+      
+        </div>
+        
+      
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
    </div>
 </section>
 <!-- end of dshbord-theme -->

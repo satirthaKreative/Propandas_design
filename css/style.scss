@@ -3295,3 +3295,56 @@ p{
     margin: 0 auto;
     line-height: 24px;
 	} }
+
+
+.theme-modal{
+	.modal-body {
+        min-height: 220px;
+    background: #faf9f3;
+    border-radius: 8px;
+    border: solid 5px #f6f6f6;
+    display: inline-grid;
+    align-items: center;
+
+    h3	{
+    font-size: 24px;
+    color: #18130d;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+    line-height: 33px;
+    }
+    p{
+    color: #000000;
+    font-size: 14px;
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 27px;
+    margin-bottom: 10px;
+    }
+
+    .cnt-btn{
+       background: #1f62de;
+    color: #fff;
+    padding: 6px 25px;
+    font-size: 14px;
+    min-width: 200px;
+    line-height: 28px;
+    border-radius: 0px;
+    text-decoration: none;
+    display: inline-block;
+    transition: 1s;
+    outline: none;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+   span {
+    margin-left: 5px;
+}
+&:hover{
+	 background: #000;
+    }
+}
+}
+}
