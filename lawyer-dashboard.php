@@ -89,25 +89,22 @@
       </div>
 
      <!-- The Modal -->
-  <div class="modal fade theme-modal" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content"> 
-        
-        <!-- Modal body -->
-        <div class="modal-body text-center">
-         <div class="center-part">
-              <h3>login first</h3>
-        <p>You need to login first</p>
-        <p><a href="#" class="cnt-btn">Login Now <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a></p>
-         </div>
-      
-        </div>
-        
-      
-        
+<div class="modal fade theme-modal" id="myModal">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         
+         <!-- Modal body -->
+         <div class="modal-body text-center">
+            <div class="center-part">
+               <h3>login first</h3>
+               <p>You need to login first</p>
+               <p><a href="#" class="cnt-btn">Login Now <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a></p>
+            </div>
+            
+         </div>          
       </div>
-    </div>
-  </div>
+   </div>
+</div>
   
 </div>
    </div>
