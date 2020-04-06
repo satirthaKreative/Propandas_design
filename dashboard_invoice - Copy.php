@@ -37,10 +37,10 @@
 				      <label for="">Showing</label>
 				      <select id="" class="dropdown-select">
 				        <option value="">All</option>
-				<option value="">Jobs</option>
-				<option value="">Lawyer</option>
-				<option value="">Date/Time</option>
-				<option value="">Value</option>
+				<option value="">Sent/Viewed</option>
+				<option value="">Processing</option>
+				<option value="">Paid</option>
+				<option value="">Deleted</option>
 				      </select>
          </div>
          <div class="table-responsive theme-table">
@@ -89,6 +89,3 @@
 </section>
 <!-- end of dshbord-theme -->
 <?php include ("inc/footer.php") ?>
-
-
-

@@ -33,6 +33,16 @@
          <!-- end of col-md-3 -->
          <div class="col-md-9">
             <div class="dsbrd-content">
+               <h3>Welcome to ProPandas!</h3>
+               <p>ProPandas is the easiest solution for any business to get cost-effective and high quality legal services.</p>
+               <hr>
+
+               <h3>Post a Job</h3>
+               <p>Get started by telling us about your business and legal needs. It only takes a minute and your information is strictly confidential.</p>
+               <hr>
+               <h3>Get Proposals</h3>
+               <p>Our proprietary algorithm matches you with attorneys most qualified to handle your specific legal work. You can review proposals and schedule free consultations with no obligation.</p>
+               <hr>
                <h6>Recent Jobs</h6>
                <ul>
                   <li>
@@ -82,6 +92,43 @@
                      </div>
                   </li>
                </ul>
+
+               <hr>
+               <h3>Hire your Lawyer</h3>
+               <p>When you’re ready, instantly hire the attorney that’s right for you.</p>
+               <div class="table-responsive theme-table">
+            <table class="table table-striped ">
+               <thead>
+              <tr>
+                <th>Serial</th>               
+                <th>Lawyer</th>
+                <th>Specialist </th>
+                <th>Value</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+               <tr>
+            <td>01</td>            
+            <td>Daniel Schwarzl</td>
+            <td>Corporate Law</td>
+            <td>$200.00</td>
+            <td><a target="_blank" href="javascript:void(0)" class="shrt-btn">Hire Now</a></td>
+          </tr>
+
+          <tr>
+            <td>02</td>            
+            <td>Eva Quasem</td>
+            <td>Criminal Law</td>
+            <td>$300.00</td>
+            <td><a target="_blank" href="javascript:void(0)" class="shrt-btn">Hire Now</a></td>
+          </tr>
+
+         
+            </tbody>
+
+            </table>
+         </div>
             </div>
          </div>
       </div>

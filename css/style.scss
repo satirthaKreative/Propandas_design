@@ -3009,7 +3009,7 @@ input{
 
 .sd-icon{
 	.fs-title{
-    width: calc(100% - 35px);
+    width: auto;
     float: left;
 	}
 	hr{
@@ -3114,4 +3114,144 @@ tr:nth-of-type(even) {
     }
     }
 	}
+}
+
+
+
+.theme-upload {
+    float: right;
+    width: auto;
+
+     label.custom-file-label {
+    border-radius: 0px;
+    font-size: 13px;
+    outline: none;
+        border: none;
+    padding: 5px 8px;
+    display: inline-grid;
+    align-items: center;
+    border-bottom: solid 1px #615e5e;
+    background: none;
+}
+
+.custom-file-label::after{
+	    color: #f9f1f1;
+    content: "Upload" !important;
+    background-color: #615e5e;
+    border-left: 1px solid #615e5e;
+    border-radius: 0px;
+    height: auto;
+    display: inline-grid;
+    align-items: center;
+}
+}
+
+.docs-list input{
+	    height: 40px !important;
+    border: solid 1px #cecece;
+    border-radius: 0px;
+    font-size: 13px;
+    outline: none;
+    padding: 5px 8px;
+}
+
+.theam-tab {
+
+	.active {
+    display: block;
+    opacity: 1;
+}
+}
+
+.docs-cnt-header{
+		.nav-link{
+		color: #4c4b4b;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 7px 15px;
+    display: inline-block;
+    background: none !important;
+    border: none !important;
+    flex: inherit;
+    font-weight: 400;
+    &.active{
+    color: #059af1;
+    font-weight: 600;
+    }
+	}
+		} 
+
+
+		.docs-list {
+    background: #fff;
+
+    .docs-cnt-header {
+    padding: 10px;
+    display: inline-block;
+    width: 100%;
+    border-bottom: solid 1px #eee;
+}
+.nav-tabs{
+	border-bottom:0px;
+}
+.docs-container {
+    padding: 15px;
+    min-height: 200px;
+    h3{
+    	    font-size: 18px;
+    color: #272727;
+    margin-bottom: 15px;
+    }
+    p{
+	font-size: 13px;
+    color: #313030;
+    line-height: 24px;
+        margin-bottom: 10px;
+}
+ul{
+
+	li{
+		list-style-type: square;
+		font-size: 13px;
+    color: #313030;
+    line-height: 24px;
+
+	}
+}
+.no-convertion{
+	margin: 0;   
+    height: 100%;
+    display: inline-grid;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    p{
+    	    font-size: 13px;
+    color: #949393;
+    line-height: 24px;
+    }
+}
+}
+
+}
+
+
+.dsbrd-content{
+	h3 {
+    font-size: 20px;
+    line-height: 30px;
+    color: #272727;
+    margin-bottom: 13px;
+}
+	} 
+
+
+	a.shrt-btn {
+    background: #484848;
+    padding: 5px 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 11px;
+    line-height: 20px;
+    border-radius: 5px;
 }

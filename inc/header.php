@@ -44,17 +44,7 @@
                   <div class="top-info">
                   <ul>
                      <li><span><i class="fa fa-user" aria-hidden="true"></i></span><a href="login.php">Login</a></li>
-                     <!-- <li>
-                        <div class="dropdown lng-link">
-                           <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           language
-                           </a>
-                           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                              <a class="dropdown-item" href="#"><span><img src="images/uk-flag.jpg" alt="flag" width="15"></span>English</a>
-                              <a class="dropdown-item" href="#"><span><img src="images/german-flag.jpg" alt="flag" width="15"></span>German</a>
-                           </div>
-                        </div>
-                     </li> -->
+                     
                   </ul>
 
                    <div class="lang-part">
