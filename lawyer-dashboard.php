@@ -21,11 +21,8 @@
             <div class="side-menu">
                <ul>
                   <li class="active"><a href="javascript:void(0)"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a></li>
-                  <li><a href="javascript:void(0)"><i class="fa fa-comments" aria-hidden="true"></i>Messages</a></li>
-                  <li><a href="javascript:void(0)"><i class="fa fa-file-text" aria-hidden="true"></i>Documents</a></li>
-                  <li><a href="javascript:void(0)"><i class="fa fa-briefcase" aria-hidden="true"></i>My Jobs</a></li>
                   <li><a href="javascript:void(0)"><i class="fa fa-file" aria-hidden="true"></i>Invoices</a></li>
-                  <li><a href="javascript:void(0)"><i class="fa fa-exchange" aria-hidden="true"></i>Transactions</a></li>
+                  <li><a href="javascript:void(0)"><i class="fa fa-exchange" aria-hidden="true"></i>Income Report</a></li>
                   <li><a href="javascript:void(0)"><i class="fa fa-comment" aria-hidden="true"></i>System Messages</a></li>
                </ul>
             </div>
@@ -39,6 +36,30 @@
                </div>
               
                <hr>
+
+               <div class="ft-part odd-bg">
+                  <h4>Create Client</h4>
+                  <form>
+                     <div class="row">                      
+                              <div class="col-md-6 plr-5">                                                                  
+                                    <input type="text" name="" id="" class="form-control" placeholder="First Name">
+                              </div>
+                              <div class="col-md-6 plr-5">                                                             
+                                    <input type="text" name="" id="" class="form-control" placeholder="Last Name">
+                              </div>  
+
+                              <div class="col-md-6 plr-5">                                                                  
+                                    <input type="Email" name="" id="" class="form-control" placeholder="Enter Email">
+                              </div>
+                              <div class="col-md-6 plr-5">                                                             
+                                    <input type="text" name="" id="" class="form-control" placeholder="Phone Number">
+                              </div> 
+                              <div class="col-md-12 plr-5">                                                             
+                                    <input type="submit" value="sends a request" class="sent-btn">
+                              </div>                        
+                     </div>
+                  </form>
+               </div>
 
                <h3>Post a Job</h3>
                <p>Get started by telling us about your business and legal needs. It only takes a minute and your information is strictly confidential.</p>

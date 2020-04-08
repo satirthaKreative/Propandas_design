@@ -11,7 +11,13 @@
    </div>
    </section> -->
 <section class="dshbord-theme">
-   <div class="container">
+   <div class="container">      
+         <div class="notifications-alert">
+            <ul>
+               <li><a href="javascript:void(0)" data-toggle="modal" data-target="#email-modal"><i class="fa fa-envelope fa-fw" aria-hidden="true" ></i>Email Verification</a></li>
+                <li><a href="javascript:void(0)" data-toggle="modal" data-target="#number-modal"><i class="fa fa-mobile fa-fw "  aria-hidden="true"></i>Number Verification</a></li>
+            </ul>
+         </div>     
       <div class="row">
          <div class="col-md-12">
             <h3 class="fs-title">Dashboard</h3>
@@ -32,6 +38,23 @@
          </div>
          <!-- end of col-md-3 -->
          <div class="col-md-9">
+            <div class="profile-content">
+               <div class="profile-picture">                 
+                  <img id="blah" src="images/clint-logo.jpg" alt="your image" class="profile-icon" />
+                   <input type='file' onchange="readURL(this);" />
+               </div>
+
+               <div class="short-profile">
+                  <h3>Mr. Rozer Lermond</h3>
+                  <p><i class="fa fa-envelope icn-show" aria-hidden="true" ></i>rozerlermond@gmail.com</p>
+                  <p><i class="fa fa-phone icn-show" aria-hidden="true" ></i>+1 6502509458</p>
+                  <p><i class="fa fa-map-marker icn-show" aria-hidden="true" ></i>2361  Brentwood Drive San Marcos Texas Usa</p>
+                  <p><a href="javascript:void(0)" class="edit-btn" data-toggle="modal" data-target="#Edit-profile-modal" data-toggle="tooltip" data-placement="top" data-tooltip="Edit-profile"><i class="fa fa-pencil" aria-hidden="true" ></i></a></p>
+
+               </div>
+            </div> 
+
+
             <div class="dsbrd-content">
                <div class="welcome-part text-center">
                    <h2>Welcome to ProPandas!</h2>
@@ -135,6 +158,119 @@
          </div>
       </div>
    </div>
+
+   <!-- Email Modal -->
+<div class="modal fade theme-modal" id="email-modal">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         
+         <!-- Modal body -->
+         <div class="modal-body text-center">
+            <div class="center-part">
+               <h3><span><i class="fa fa-envelope fa-3x" aria-hidden="true"></i></span>Email Confirmation</h3>
+               <p>We have sent email to <a href="#">support@gmailcom</a>to confirm to your email address.Please click the provided link t complete your verification</p>
+               
+               <hr>
+               <p>If you not got any email <a href="#"> Resend Email Link</a> </p>
+            </div>
+            
+         </div>          
+      </div>
+   </div>
+</div>
+
+
+<!-- Number Modal -->
+<div class="modal fade theme-modal" id="number-modal">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         
+         <!-- Modal body -->
+         <div class="modal-body text-center">
+            <div class="center-part">
+               <h3><span><i class="fa fa-mobile fa-3x" aria-hidden="true"></i></span>Number Confirmation</h3>
+               <p>Please Enter one time password  has been sent to 9831****** to verify your number</p>
+               <form>
+                  <input type="password" name="">
+                  <input type="submit" name="" value="validate" class="cnt-btn">
+               </form>
+               
+               <hr>
+               <p><a href="#"> Resend One time Password</a></p>
+            </div>
+            
+         </div>          
+      </div>
+   </div>
+</div>
+
+
+<!-- Edit profile Modal -->
+<div class="modal fade theme-modal" id="Edit-profile-modal">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         
+         <!-- Modal body -->
+         <div class="modal-body">
+                  <div class="edit-profile-part">
+                <h3>Edit All Information</h3>
+                <hr>
+                <form class="form-horizontal" role="form" method="post">         
+          <div class="form-group">
+            <label for="usr">Name :</label>           
+              <input type="text" class="form-control" placeholder="Rozer Lermond">           
+          </div>  
+
+                 
+                 
+           <div class="form-group">
+            <label for="usr">Email :</label>           
+              <input type="email" class="form-control" placeholder="rozerlermond@gmail.com">          
+          </div>    
+
+          <div class="form-group">
+            <label for="usr">Contact no :</label>           
+              <input type="text" class="form-control" placeholder="+919836174144">           
+          </div>
+
+          <div class="form-group">
+            <label for="usr">Address :</label> 
+            <textarea class="form-control" placeholder="Enter Address"></textarea>
+          </div>
+              
+            <div class="form-group edt-group">
+            <input class="btn  inquery-submit" value="Save" type="submit" name="submit">
+             <input class="btn  inquery-cancle" value="Cancel" type="button" name="submit">
+          </div>
+
+
+           </form>
+
+
+                </div> <!--end of col-md-12 -->
+                  </div>          
+      </div>
+   </div>
+</div>
 </section>
 <!-- end of dshbord-theme -->
 <?php include ("inc/footer.php") ?>
+
+<script >
+    function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+
+   
+</script>
+
