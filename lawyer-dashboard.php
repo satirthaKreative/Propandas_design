@@ -12,6 +12,11 @@
    </section> -->
 <section class="dshbord-theme">
    <div class="container">
+    <div class="notifications-alert">
+         <ul>            
+            <li><a href="javascript:void(0)" data-toggle="modal" data-target="#number-modal"><i class="fa fa-mobile fa-fw " aria-hidden="true"></i>Number Verification</a></li>           
+         </ul>
+      </div>
       <div class="row">
          <div class="col-md-12">
             <h3 class="fs-title">Dashboard</h3>
@@ -29,6 +34,20 @@
          </div>
          <!-- end of col-md-3 -->
          <div class="col-md-9">
+
+          <div class="profile-content">
+               <div class="profile-picture">                 
+                  <img id="blah" src="images/abt-img2.jpg" alt="your image" class="profile-icon">
+                  <input type="file" onchange="readURL(this);">
+               </div>
+               <div class="short-profile">
+                  <h3>Mr. Paul Hemming</h3>
+                  <p><i class="fa fa-envelope icn-show" aria-hidden="true"></i>paulhemming@gmail.com</p>
+                  <p><i class="fa fa-phone icn-show" aria-hidden="true"></i>+1 4582549656</p>
+                  <p><i class="fa fa-map-marker icn-show" aria-hidden="true"></i>33/1 New Road Bristol, United Kingdom</p>
+                  <p><a href="javascript:void(0)" class="edit-btn" data-toggle="modal" data-target="#Edit-profile-modal" data-placement="top" data-tooltip="Edit-profile"><i class="fa fa-pencil" aria-hidden="true"></i></a></p>
+               </div>
+            </div>
             <div class="dsbrd-content">
                <div class="welcome-part text-center">
                    <h2>Welcome to ProPandas!</h2>
@@ -61,50 +80,96 @@
                   </form>
                </div>
 
-               <h3>Post a Job</h3>
-               <p>Get started by telling us about your business and legal needs. It only takes a minute and your information is strictly confidential.</p>
-               <hr>
-               <h3>Get Proposals</h3>
-               <p>Our proprietary algorithm matches you with attorneys most qualified to handle your specific legal work. You can review proposals and schedule free consultations with no obligation.</p>
-               <hr> 
-               
-               <h3>Hire your Lawyer</h3>
-               <p>When you’re ready, instantly hire the attorney that’s right for you.</p>
-               <div class="table-responsive theme-table">
-            <table class="table table-striped ">
-               <thead>
+
+               <div class="ft-part even-bg">
+                  <h3>Track Time</h3>
+                  <p>List of all Lawyer projects</p>
+                  <div class="table-responsive theme-table">
+                  <table class="table table-striped ">
+                     <thead>
+                        <tr>
+                           <th>Select</th>
+                           <th>project ID</th>
+                           <th>project name</th>
+                           <th>Client Name</th>
+                           <th>Add a time</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td><input type="checkbox" name="remember"></td>
+                           <td>#232524</td>
+                           <td>Criminal</td>
+                           <td>Daniel Schwarzl</td>
+                           <td><a href="javascript:void(0)" class="shrt-btn">Add a time</a></td>
+                        </tr>
+                        <tr>
+                           <td><input type="checkbox" name="remember"></td>
+                           <td>#232526</td>
+                           <td>Derivatives</td>
+                           <td>Kery Bannet</td>
+                           <td><a href="javascript:void(0)" class="shrt-btn">Add a time</a></td>
+                        </tr>
+                        <tr>
+                           <td><input type="checkbox" name="remember"></td>
+                           <td>#232528</td>
+                           <td>David Brettle</td>
+                           <td>Daniel Schwarzl</td>
+                           <td><a href="javascript:void(0)" class="shrt-btn">Add a time</a></td>
+                        </tr>
+                        <tr>
+                           <td><input type="checkbox" name="remember"></td>
+                           <td>#232530</td>
+                           <td>James Oliver</td>
+                           <td>Kery Bannet</td>
+                           <td><a href="javascript:void(0)" class="shrt-btn">Add a time</a></td>
+                        </tr>
+                        
+                     </tbody>
+                  </table>
+               </div>
+               </div>
+
+              <div class="ft-part odd-bg">
+                <h3>Bill a Client</h3>
+                 <p>List of all Lawyer projects</p>
+                <div class="table-responsive theme-table">
+          <table class="table table-striped ">
+            <thead>            
               <tr>
-                <th>Serial</th>               
-                <th>Lawyer</th>
-                <th>Specialist </th>
-                <th>Value</th>
-                <th>Action</th>
-              </tr>
+               <th>Select</th>
+               <th>project ID</th>
+               <th>project name</th>
+               <th>Client Name</th>
+               <th>create an invoice</th>
+            </tr>
             </thead>
             <tbody>
-               <tr>
-            <td>01</td>            
-            <td>Daniel Schwarzl</td>
-            <td>Corporate Law</td>
-            <td>$200.00</td>
-            <td><a  href="javascript:void(0)" class="shrt-btn">Hire Now</a></td>
+              <tr>
+           <td><input type="checkbox" name="remember"></td>
+           <td>#232528</td>
+           <td>David Brettle</td>
+           <td>Daniel Schwarzl</td>
+            <td><a target="_blank" href="javascript:void(0)">create an invoice</a></td>
           </tr>
 
           <tr>
-            <td>02</td>            
-            <td>Eva Quasem</td>
-            <td>Criminal Law</td>
-            <td>$300.00</td>
-            <td>
-               <a  href="javascript:void(0)" data-toggle="modal" data-target="#myModal" class="shrt-btn">Hire Now</a>               
-            </td>
+           <td><input type="checkbox" name="remember"></td>
+           <td>#232530</td>
+           <td>Derivatives</td>
+           <td>Kery Bannet</td>
+           <td><a target="_blank" href="javascript:void(0)">create an invoice</a></td>
           </tr>
 
-         
             </tbody>
 
-            </table>
+          </table>
          </div>
+              </div>               
+
+         <h3>Post a Job</h3>
+         <p>Get started by telling us about your business and legal needs. It only takes a minute and your information is strictly confidential.</p>               
+               
             </div>
          </div>
       </div>
@@ -129,6 +194,83 @@
   
 </div>
    </div>
+
+   <!-- Number Modal -->
+   <div class="modal fade theme-modal" id="number-modal">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <!-- Modal body -->
+            <div class="modal-body text-center">
+               <div class="center-part">
+                  <h3><span><i class="fa fa-mobile fa-3x" aria-hidden="true"></i></span>Number Confirmation</h3>
+                  <p>Please Enter one time password  has been sent to 9831****** to verify your number</p>
+                  <form>
+                     <input type="password" name="">
+                     <input type="submit" name="" value="validate" class="cnt-btn">
+                  </form>
+                  <hr>
+                  <p><a href="#"> Resend One time Password</a></p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+<!-- Edit profile Modal -->
+   <div class="modal fade theme-modal" id="Edit-profile-modal">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <!-- Modal body -->
+            <div class="modal-body">
+               <div class="edit-profile-part">
+                  <h3>Edit All Information</h3>
+                  <hr>
+                  <form class="form-horizontal" role="form" method="post">
+                     <div class="form-group">
+                        <label for="usr">Name :</label>           
+                        <input type="text" class="form-control" placeholder="Mr. Paul Hemming ">           
+                     </div>
+                     <div class="form-group">
+                        <label for="usr">Email :</label>           
+                        <input type="email" class="form-control" placeholder="paulhemming@gmail.com">          
+                     </div>
+                     <div class="form-group">
+                        <label for="usr">Contact no :</label>           
+                        <input type="text" class="form-control" placeholder="+1 4582549656">           
+                     </div>
+                     <div class="form-group">
+                        <label for="usr">Address :</label> 
+                        <textarea class="form-control" placeholder="33/1 New Road Bristol, United Kingdom"></textarea>
+                     </div>
+                     <div class="form-group edt-group">
+                        <input class="btn  inquery-submit" value="Save" type="submit" name="submit">
+                        <input class="btn  inquery-cancle" value="Cancel" type="button" name="submit">
+                     </div>
+                  </form>
+               </div>
+               <!--end of col-md-12 -->
+            </div>
+         </div>
+      </div>
+   </div>
+
 </section>
 <!-- end of dshbord-theme -->
 <?php include ("inc/footer.php") ?>
+
+<script >
+   function readURL(input) {
+           if (input.files && input.files[0]) {
+               var reader = new FileReader();
+   
+               reader.onload = function (e) {
+                   $('#blah')
+                       .attr('src', e.target.result);
+               };
+   
+               reader.readAsDataURL(input.files[0]);
+           }
+       } 
+   
+</script>
