@@ -50,7 +50,7 @@
                   </div>
                   <div class="col-sm-6 plr-5">
                      <div class="form-group">
-                        <input type="email"  class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Email"  />
+                        <input type="email"  class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Email" id="email_client" onkeyup="email_client_check()"  required="required" />
                      </div>
                   </div>
                   <div class="col-sm-6 plr-5">
@@ -94,7 +94,7 @@
                         <p class="text-left"><small>Pick based on IP address</small></p>
                      </div>
                   </div>
-                  <input type="hidden" name="is_lawyer" value="0">
+                  <input type="hidden" name="is_lawyer" class="is_lawyer_class" value="0">
                   <div class="col-sm-12 plr-5">
                      <div class="form-group">
                         <div class="checkbox">
@@ -104,7 +104,7 @@
                   </div>
                   <div class="col-sm-12 plr-5">
                      <div class="form-group">
-                        <input type="submit" name="LGform2" class="sign in" value="Sign up" />
+                        <input type="submit" name="LGform2" id="email_wish_sign_up" class="sign in" value="Sign up" />
                      </div>
                   </div>
                </div>
@@ -188,4 +188,31 @@
         </div>
     </div>
 </div> -->
+<script>
+  function email_client_check()
+  {
+
+    var mail_check = jQuery("#email_client").val();
+    var lawyer_value = jQuery(".is_lawyer_class").val();
+    $.ajax({
+      url: '/checking_email_registration',
+      type: 'GET',
+      data: {mail_check: mail_check, lawyer_value: lawyer_value},
+      dataType: 'json',
+      success: function(event){
+        if(event == 1){
+          jQuery("#email_wish_sign_up").removeAttr('disabled', 'disabled');
+          $("#email_client").removeAttr('style');
+          $("#email_client").removeAttr('title');
+        }else if(event == 0){
+          jQuery("#email_wish_sign_up").attr('disabled', 'disabled');
+          $("#email_client").css({"color":"#e40f0f", "border-bottom": "solid 1px #e40f0f"});
+          $("#email_client").attr('title', 'Email Address Already Registered');
+        }
+      }, error: function(event){
+        console.log("Error Details...");
+      }
+    })
+  }
+</script>
 @endsection

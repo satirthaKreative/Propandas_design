@@ -71,7 +71,8 @@
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script src="{{ asset('frontAssets/js/popper.min.js') }}"></script>
-<script src="{{ asset('frontAssets/js/bootstrap.min.js') }}"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!-- <script src="{{ asset('frontAssets/js/bootstrap.min.js') }}"></script> -->
 <script src="{{ asset('frontAssets/js/owl.carousel.js') }}"></script>
 <script src="{{ asset('frontAssets/js/jquery.multiselect.js') }}"></script>
 <!-- country js -->
@@ -83,6 +84,10 @@
 
 <script src="{{ asset('frontAssets/js/mySelect2.js') }}"></script>
 <!-- <script src="js/custom.js"></script> -->
+
+<!-- New Addition -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/js/bootstrap-select.min.js"></script>
+<!-- /end new addition -->
 
 <script> 
    $('.review-slide').owlCarousel({
@@ -340,4 +345,18 @@ function wishCategoryCheck()
          
 
    });
+
+
+
+//  language select
+
+$(function(){
+    $('.selectpicker').selectpicker();
+});
+
+// client dashboard
+jQuery(document).ready(function() {
+   change_country_wishDashboard();
+});
+
 </script>

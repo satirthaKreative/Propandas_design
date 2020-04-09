@@ -11,7 +11,8 @@
             </ul>
          </div>
          <div class="col-md-6 col-sm-6">
-            <ul class="top-info">
+            <div class="top-info">
+               <ul>
                <li class="profile-dropdown">
                   <span><i class="fa fa-user" aria-hidden="true"></i></span>
                   @guest
@@ -22,13 +23,15 @@
                  
 
                   <ul class="dropdown-profile">
-                  <!-- <li><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit Profile</a></li> -->                  
-                  <li><a  href="{{ route('logout') }}"
-                  onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                      @csrf
-                  </form>
+                     <li><a href="{{ route('dashboard') }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Dashboard</a></li>                  
+                     <li>
+                        <a  href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
+                     </li>
+                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                     </form>
                   </ul>
                   @endguest
                  
@@ -45,18 +48,14 @@
 
 
                </li>
-               <li>
-                  <div class="dropdown lng-link">
-                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     language
-                     </a>
-                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#"><span><img src="{{ asset('frontAssets/images/uk-flag.jpg') }}" alt="flag" width="15"></span>English</a>
-                        <a class="dropdown-item" href="#"><span><img src="{{ asset('frontAssets/images/german-flag.jpg') }}" alt="flag" width="15"></span>German</a>               
-                     </div>
-                  </div>
-               </li>
-            </ul>
+               </ul>
+               <div class="lang-part">
+                      <select class="selectpicker" data-width="fit">
+                         <option data-content='<span class="flag-icon flag-icon-us"></span> English'>English</option>
+                       <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Español</option>
+                     </select> 
+               </div>
+            </div>
          </div>
       </div>
    </div>

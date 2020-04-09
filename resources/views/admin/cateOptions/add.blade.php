@@ -137,8 +137,7 @@
             data: {quescatechoose: quescatechoose},
             dataType: "json",
             success: function(resp){
-                console.log("re: "+resp);
-                if(resp.length)
+                if(resp.length > 0)
                 {
                     $.ajax({
                         url: '/category_priority',
@@ -150,7 +149,7 @@
                             html += '<option value="">Choose a options</option>';
                             for(var i=0;i< resp.length;i++)
                             {
-                                if(jQuery.inArray((i+1),response) !== -1){
+                                if(jQuery.inArray((i+1),response) !== -1) {
                                     var dataTCheck = "disabled";
                                 }else{
                                     var dataTCheck = "";
@@ -193,7 +192,6 @@
             data: {question_id: question_id, category_id: category_id},
             dataType: 'json',
             success: function(event){
-                console.log(event);
                 var html_new = '';
                 html_new += "<option value=''>Choose your next question</option>";
                 for(var i=0; i<event.length; i++){

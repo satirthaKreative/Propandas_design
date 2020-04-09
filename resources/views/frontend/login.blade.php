@@ -19,6 +19,7 @@
             <h1>Customer LOGIN</h1>
             <form method="post">
                <div class="form-group">
+                  <input type="hidden" name="is_lawyer" value="0">
                   <input type="text" name="user" class="form-control" placeholder="User Name Or Email" value="" required="" />
                </div>
                <div class="form-group">
@@ -49,6 +50,7 @@
             <h1>lawyer login</h1>
             <form method="post">
                <div class="form-group">
+                  <input type="hidden" name="is_lawyer" value="1">
                   <input type="text" name="user" class="form-control" placeholder="User Name Or Email" value="" required="" />
                </div>
                <div class="form-group">

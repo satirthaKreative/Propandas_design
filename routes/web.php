@@ -91,3 +91,9 @@ Route::GET('/mycountstate','front\ajax\FrontController@mycountstate');
 Route::GET('/myCategoryQ','front\ajax\FrontController@myCategoryQ');
 Route::GET('/nextQuestionRound','front\ajax\FrontController@nextQuestionRound');
 Route::GET('/nextQuesInitId','front\ajax\FrontController@nextQuesInitId');
+Route::GET('/multiOptionN','front\ajax\FrontController@multiOptionN');
+Route::GET('/submitClientJobData','front\ajax\FrontController@submitClientJobData');
+Route::GET('/checking_email_registration','front\ajax\FrontController@checking_email_registration');
+
+// front dashboard add ajax
+Route::GET('/checking_email_registration','front\ajax\FrontController@checking_email_registration');

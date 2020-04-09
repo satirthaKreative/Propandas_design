@@ -403,7 +403,7 @@
          </div>
          <div class="item ">
             <div class="brnd-img">
-               <img src="{{ asset('frontAssets/images/lg-2.jp') }}'" alt="images">
+               <img src="{{ asset('frontAssets/images/lg-2.jpg') }}" alt="images">
             </div>
          </div>
          <div class="item ">

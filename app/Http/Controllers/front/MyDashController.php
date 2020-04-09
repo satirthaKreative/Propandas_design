@@ -4,6 +4,9 @@ namespace App\Http\Controllers\front;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class MyDashController extends Controller
 {
@@ -14,7 +17,36 @@ class MyDashController extends Controller
      */
     public function index()
     {
+
         //
+        if(session('cart') && session('myClientPhoneCall') && session('myClientCate'))
+        {
+            $category_name = Session::get('myClientCate');
+            $redire= Session::get('cart');
+            $phone_number = Session::get('myClientPhoneCall');
+
+            $elements = array();
+            foreach( $redire as $key=>$data)
+            {
+               $elements[] = $data['question_name']."=>".$data['Answer'];
+
+            }
+            $dzz = implode(',', $elements);
+
+            $array_data = [
+                'client_id'=>Auth::user()->id,
+                'category_id'=>$category_name,
+                'quesAnsDescrip'=>$dzz,
+                'phone_number'=>$phone_number
+
+            ];
+            DB::table('jobanswerclinetdesc')->insert($array_data);
+            $dzz = "";
+            session()->forget('cart');  
+            session()->forget('myClientPhoneCall');
+            session()->forget('myClientCate');
+
+        }
         return view('frontend.front-pages.dashboard');
     }
 

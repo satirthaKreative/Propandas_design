@@ -206,7 +206,7 @@ class AdmincatequesController extends Controller
                 $fetchQc = DB::table('admincateques')->where(['next_ques_id' => $data_id, 'category_id' => $category_id])->get();
                 $countQc = DB::table('admincateques')->where(['next_ques_id' => $data_id, 'category_id' => $category_id])->count();
                 $get_catewish_ques_id = DB::table('admincateques')->where('category_id',$category_id)->get();
-                if($countQc>0){
+                if($countQc > 0){
                     $key =  array();
                     $key[] = $data_id;
                     foreach ($fetchQc as $key_value) {
@@ -246,7 +246,7 @@ class AdmincatequesController extends Controller
         if($count_qc_rows > 0){
             foreach ($fetch_qc_datas as $key_value) {
 
-                $checking_count_ques = DB::table('admincateques')->where('question_id',$key_value->question_id)->count();
+                $checking_count_ques = DB::table('admincateques')->where(['question_id'=>$key_value->question_id, 'category_id'=>$cate_id])->count();
                 $checking_count_main_qOptions = DB::table('adminoptions')->where('ques_id',$key_value->question_id)->count();
                 if($checking_count_ques >= $checking_count_main_qOptions){
                     $myQitems[] = $key_value->question_id;
@@ -287,9 +287,7 @@ class AdmincatequesController extends Controller
             foreach ($getPriority as $key_value) {
                 $count_array[] = $key_value->ques_priority; 
             }
-
             echo json_encode($count_array);
-
         }else{
             echo json_encode($count_array);
         }

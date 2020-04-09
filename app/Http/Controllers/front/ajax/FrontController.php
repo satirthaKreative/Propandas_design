@@ -6,6 +6,8 @@ use App\frontAjaxModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 
 class FrontController extends Controller
 {
@@ -124,48 +126,111 @@ class FrontController extends Controller
 
     public function nextQuestionRound()
     {
+
+         $category_count = array();   
+            
+                if(!session('myClientCate'))
+                {
+                    Session::put('myClientCate', $_GET['c_id']);
+                }
+        
+         
         if(isset($_GET['nxt_id']))
         {
            $nxt_id = $_GET['nxt_id']; 
         }
         if(isset($_GET['c_id']))
         {
-           $c_id = $_GET['c_id']; 
+           $c_id = $_GET['c_id'];
         }
         if(isset($_GET['opt_val']))
         {
            $opt_val = $_GET['opt_val'];
         }
-
-        $qti = DB::table('adminquestions')->where('id',$nxt_id)->first();
-        $fetch_quli = $qti->question_type;
-        
-        if($fetch_quli == 1 || $fetch_quli == 3){
-           $category_count = DB::table('admincateques')
-                           ->join('admincategories','admincategories.id','admincateques.category_id')
-                           ->join('adminquestions','adminquestions.id','admincateques.question_id')
-                           // ->join('adminoptions','adminquestions.id','adminoptions.ques_id')
-                           ->where('admincateques.question_id',$nxt_id)
-                           ->where('admincateques.category_id',$c_id)
-                           // ->where('admincateques.option_id',$data)
-                           ->get(); 
-        }else{
-            $category_count = DB::table('admincateques')
-                            ->leftJoin('admincategories','admincategories.id','admincateques.category_id')
-                            ->leftJoin('adminquestions','adminquestions.id','admincateques.question_id')
-                            ->leftJoin('adminoptions','adminquestions.id','adminoptions.ques_id')
-                            ->where('admincateques.question_id',$nxt_id)
-                            ->where('admincateques.category_id',$c_id)
-                            ->groupBy('adminoptions.id')
-                            // ->where('admincateques.option_id',$data)
-                            ->get();
+        if($nxt_id != 0 )
+        {
+            $qti = DB::table('adminquestions')->where('id',$nxt_id)->first();
+            $fetch_quli = $qti->question_type;
         }
+        else
+        {
+            $fetch_quli = 0;
+        }
+        
+        
+        
+        $checking_ques = DB::table('admincateques')->where(['category_id'=>$c_id, 'question_id'=>$nxt_id])->count();
+        if($checking_ques > 0)
+        {
+            $category_count['my_status'] = 5;
+            if($fetch_quli == 1 || $fetch_quli == 3){
+               $category_count['without_opt'] = DB::table('admincateques')
+                               ->join('admincategories','admincategories.id','admincateques.category_id')
+                               ->join('adminquestions','adminquestions.id','admincateques.question_id')
+                               // ->join('adminoptions','adminquestions.id','adminoptions.ques_id')
+                               ->where('admincateques.question_id',$nxt_id)
+                               ->where('admincateques.category_id',$c_id)
+                               // ->where('admincateques.option_id',$data)
+                               ->get(); 
+            }else{
+                $category_count['without_opt'] = DB::table('admincateques')
+                                ->join('admincategories','admincategories.id','admincateques.category_id')
+                                ->join('adminquestions','adminquestions.id','admincateques.question_id')
+                                ->where('admincateques.question_id',$nxt_id)
+                                ->where('admincateques.category_id',$c_id)
+                                ->get(); 
+                $category_count['with_opt'] = DB::table('adminoptions')->where('ques_id',$nxt_id)->get();               
+            }
+        }else{
+            $category_count['my_status'] = 10;
+            if (Auth::user())
+            {
+                $category_count['user_jio'] = 'success';
+            }
+            else
+            {
+                $category_count['user_jio'] = 'error';
+            }
+
+            // check
+            if($nxt_id != 0)
+            {
+                $category_count['my_log'] = 10;
+                if($fetch_quli == 1 || $fetch_quli == 3){
+                   $category_count['without_opt'] = DB::table('adminquestions')
+                                    ->where('adminquestions.id',$nxt_id)
+                                    ->get(); 
+                }else{
+                    $category_count['without_opt'] =DB::table('adminquestions')
+                                    ->where('adminquestions.id',$nxt_id)
+                                    ->get(); 
+                    $category_count['with_opt'] = DB::table('adminoptions')->where('ques_id',$nxt_id)->get();               
+                }
+            }else{
+                $category_count['my_log'] = 5;
+            }
+        } 
         
         echo json_encode($category_count);
     }
 
+    public function multiOptionN()
+    {
+        $nxt_id = $_GET['nxt_id']; 
+        $quesOpt = DB::table('adminoptions')->where('ques_id',$nxt_id)->get();
+        echo json_encode($quesOpt);
+    }
+
     public function nextQuesInitId()
     {
+        $quesAnsSessionClient = [
+            'question_name' => $_GET['q_id'],
+            'Answer' => $_GET['opt_id'],
+        ];   
+
+        Session::push('cart', $quesAnsSessionClient);   
+        
+
         $c_id = $_GET['c_id'];
         $q_id = $_GET['q_id'];
         if($q_id == 1 || $q_id == 3)
@@ -185,5 +250,47 @@ class FrontController extends Controller
                         ->get();
         }
         echo  json_encode($q_select);
+    }
+
+    public function submitClientJobData()
+    {
+        $redire['redirectTo_page1'] = Session::get('myClientCate');
+        $redire['son_id_json1'] = Session::get('cart');
+        if(isset($_GET['phn_no']) || $_GET['phn_no'] !=''){
+            $phn_no = $_GET['phn_no'];
+        }else{
+            $phn_no = 91;
+        }
+        
+        Session::put('myClientPhoneCall', $phn_no);
+        $redire['clientPhone'] = Session::get('myClientPhoneCall');
+
+       if (Auth::user())
+        {
+            $redire['redirectTo_page'] = 1;
+        }
+        else
+        {
+            $redire['redirectTo_page'] = 0;
+        }
+        echo  json_encode($redire);
+    }
+
+    public function checking_email_registration()
+    {
+        $mail_check = $_GET['mail_check'];
+        $lawyer_value = $_GET['lawyer_value'];
+
+        $count_exist = DB::table('users')->where(['is_lawyer' => $lawyer_value, 'email' => $mail_check])->count();
+        if($count_exist > 0)
+        {
+            $data = 0;
+        }
+        else
+        {
+            $data = 1;
+        }
+
+        echo json_encode($data);
     }
 }

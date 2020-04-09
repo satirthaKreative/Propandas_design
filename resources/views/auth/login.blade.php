@@ -20,6 +20,7 @@
             <form method="POST" action="{{ route('login') }}">
                 @csrf
                <div class="form-group">
+                <input type="hidden" name="is_lawyer" value="0">
                   <input type="email" name="email" value="{{ old('email') }}" class="form-control @error('email') is-invalid @enderror" placeholder="User Name Or Email" required="" />
                   @error('email')
                       <span class="invalid-feedback" role="alert">
@@ -64,6 +65,7 @@
             <form method="post" action="{{ route('login') }}">
               @csrf
                <div class="form-group">
+                <input type="hidden" name="is_lawyer" value="1">
                   <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="User Email" value="" required="" />
                </div>
                <div class="form-group">
