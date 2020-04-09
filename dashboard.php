@@ -267,11 +267,11 @@
                   <form class="form-horizontal" role="form" method="post">
                      <div class="form-group">
                         <label for="usr">Change Password:</label>           
-                        <input type="text" class="form-control" placeholder="Rozer Lermond">           
+                        <input type="password" class="form-control" >           
                      </div>
                      <div class="form-group">
                         <label for="usr">Confirm Password:</label>           
-                        <input type="email" class="form-control" placeholder="rozerlermond@gmail.com">          
+                        <input type="password" class="form-control" >          
                      </div>  
                      <div class="form-group edt-group">
                         <input class="btn  inquery-submit" value="Change Password" type="submit" name="submit">                       
