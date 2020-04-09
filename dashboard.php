@@ -255,7 +255,7 @@
       </div>
    </div>
 
-   <!-- Edit profile Modal -->
+   <!-- change password Modal -->
    <div class="modal fade theme-modal" id="change-password">
       <div class="modal-dialog">
          <div class="modal-content">
