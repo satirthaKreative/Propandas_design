@@ -3062,6 +3062,7 @@ input{
 
 .theme-table{
 	margin: 25px 0px;
+	margin-bottom: 0px;
 	thead{
 	    background: #252525;
     color: #fff;
@@ -3570,9 +3571,9 @@ p{
     color: #fff;
     position: absolute;
     top: 30px;
-    right: 30px;
-    width: 35px;
-    height: 35px;
+    right: 70px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     border: none;
     font-size: 13px;
@@ -3588,6 +3589,9 @@ p{
     color: #fff;
      transition: 0.5s;
 }
+}
+a.edit-btn2{
+	right: 30px;
 }
 }
 
@@ -3780,4 +3784,10 @@ input.btn{
 			}
 		}
 
+}
+
+
+.edit-profile-part .form-group{
+	    display: inline-block;
+    width: 100%;
 }

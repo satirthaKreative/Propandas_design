@@ -61,7 +61,7 @@
             <td>Daniel Schwarzl</td>
             <td><span class="label label-normal">Sent</span></td>
             <td>$200.00</td>
-            <td><a href="javascript:void(0)" class="shrt-btn">Create Invoice</a></td>
+            <td><a href="javascript:void(0)" class="shrt-btn creat-btn">Create Invoice</a></td>
           </tr>
 
           <tr>
@@ -72,7 +72,7 @@
             <td>Daniel Schwarzl</td>
             <td><span class="label label-normal">Sent</span></td>
             <td>$200.00</td>
-            <td><a href="javascript:void(0)" class="shrt-btn">Create Invoice</a></td>
+            <td><a href="javascript:void(0)" class="shrt-btn creat-btn">Create Invoice</a></td>
           </tr>
             </tbody>
 

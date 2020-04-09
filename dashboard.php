@@ -51,6 +51,8 @@
                   <p><i class="fa fa-phone icn-show" aria-hidden="true" ></i>+1 6502509458</p>
                   <p><i class="fa fa-map-marker icn-show" aria-hidden="true" ></i>2361  Brentwood Drive San Marcos Texas Usa</p>
                   <p><a href="javascript:void(0)" class="edit-btn" data-toggle="modal" data-target="#Edit-profile-modal" data-toggle="tooltip" data-placement="top" data-tooltip="Edit-profile"><i class="fa fa-pencil" aria-hidden="true" ></i></a></p>
+
+                  <p><a href="javascript:void(0)" class="edit-btn edit-btn2" data-toggle="modal" data-target="#change-password" data-toggle="tooltip" data-placement="top" data-tooltip="change-password"><i class="fa fa-cog" aria-hidden="true" ></i></a></p>
                </div>
             </div>
             <div class="dsbrd-content">
@@ -214,6 +216,7 @@
          </div>
       </div>
    </div>
+
    <!-- Edit profile Modal -->
    <div class="modal fade theme-modal" id="Edit-profile-modal">
       <div class="modal-dialog">
@@ -243,6 +246,35 @@
                      <div class="form-group edt-group">
                         <input class="btn  inquery-submit" value="Save" type="submit" name="submit">
                         <input class="btn  inquery-cancle" value="Cancel" type="button" name="submit">
+                     </div>
+                  </form>
+               </div>
+               <!--end of col-md-12 -->
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- Edit profile Modal -->
+   <div class="modal fade theme-modal" id="change-password">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <!-- Modal body -->
+            <div class="modal-body">
+               <div class="edit-profile-part">
+                  <h3>Change-password</h3>
+                  <hr>
+                  <form class="form-horizontal" role="form" method="post">
+                     <div class="form-group">
+                        <label for="usr">Change Password:</label>           
+                        <input type="text" class="form-control" placeholder="Rozer Lermond">           
+                     </div>
+                     <div class="form-group">
+                        <label for="usr">Confirm Password:</label>           
+                        <input type="email" class="form-control" placeholder="rozerlermond@gmail.com">          
+                     </div>  
+                     <div class="form-group edt-group">
+                        <input class="btn  inquery-submit" value="Change Password" type="submit" name="submit">                       
                      </div>
                   </form>
                </div>
