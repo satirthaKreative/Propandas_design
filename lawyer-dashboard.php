@@ -19,7 +19,7 @@
       </div>
       <div class="row">
          <div class="col-md-12">
-            <h3 class="fs-title" >Dashboard</h3>
+            <h3 class="fs-title">Dashboard</h3>
             <hr>
          </div>
          <div class="col-md-3">
@@ -43,7 +43,7 @@
                <div class="short-profile">
                   <h3>Mr. Paul Hemming</h3>
                   <p><i class="fa fa-envelope icn-show" aria-hidden="true"></i>paulhemming@gmail.com</p>
-                  <p><i class="fa fa-phone icn-show" aria-hidden="true"></i>+1 4582549656</p>
+                  <p data-title="Call Me Now"><i class="fa fa-phone icn-show" aria-hidden="true"></i>+1 4582549656</p>
                   <p><i class="fa fa-map-marker icn-show" aria-hidden="true"></i>33/1 New Road Bristol, United Kingdom</p>
                   <p><a href="javascript:void(0)" class="edit-btn" data-toggle="modal" data-target="#Edit-profile-modal" data-placement="top" data-tooltip="Edit-profile"><i class="fa fa-pencil" aria-hidden="true"></i></a></p>
                   <p><a href="javascript:void(0)" class="edit-btn edit-btn2" data-toggle="modal" data-target="#change-password" data-placement="top" data-tooltip="change-password"><i class="fa fa-cog" aria-hidden="true"></i></a></p>
