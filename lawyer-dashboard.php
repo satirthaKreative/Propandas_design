@@ -19,7 +19,7 @@
       </div>
       <div class="row">
          <div class="col-md-12">
-            <h3 class="fs-title">Dashboard</h3>
+            <h3 class="fs-title" >Dashboard</h3>
             <hr>
          </div>
          <div class="col-md-3">
@@ -46,6 +46,7 @@
                   <p><i class="fa fa-phone icn-show" aria-hidden="true"></i>+1 4582549656</p>
                   <p><i class="fa fa-map-marker icn-show" aria-hidden="true"></i>33/1 New Road Bristol, United Kingdom</p>
                   <p><a href="javascript:void(0)" class="edit-btn" data-toggle="modal" data-target="#Edit-profile-modal" data-placement="top" data-tooltip="Edit-profile"><i class="fa fa-pencil" aria-hidden="true"></i></a></p>
+                  <p><a href="javascript:void(0)" class="edit-btn edit-btn2" data-toggle="modal" data-target="#change-password" data-placement="top" data-tooltip="change-password"><i class="fa fa-cog" aria-hidden="true"></i></a></p>
                </div>
             </div>
             <div class="dsbrd-content">
@@ -217,6 +218,37 @@
    </div>
 
 
+   <!-- change password Modal -->
+   <div class="modal fade theme-modal" id="change-password">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <!-- Modal body -->
+            <div class="modal-body">
+               <div class="edit-profile-part">
+                  <h3>Change-password</h3>
+                  <hr>
+                  <form class="form-horizontal" role="form" method="post">
+                     <div class="form-group">
+                        <label for="usr">Change Password:</label>           
+                        <input type="password" class="form-control" >           
+                     </div>
+                     <div class="form-group">
+                        <label for="usr">Confirm Password:</label>           
+                        <input type="password" class="form-control" >          
+                     </div>  
+                     <div class="form-group edt-group">
+                        <input class="btn  inquery-submit" value="Change Password" type="submit" name="submit"> 
+                         <input class="btn  inquery-cancle" value="Cancel" type="button" name="submit">                      
+                     </div>
+                  </form>
+               </div>
+               <!--end of col-md-12 -->
+            </div>
+         </div>
+      </div>
+   </div>
+
+
 <!-- Edit profile Modal -->
    <div class="modal fade theme-modal" id="Edit-profile-modal">
       <div class="modal-dialog">
@@ -228,21 +260,37 @@
                   <hr>
                   <form class="form-horizontal" role="form" method="post">
                      <div class="form-group">
-                        <label for="usr">Name :</label>           
+                        <label for="usr">Name</label>           
                         <input type="text" class="form-control" placeholder="Mr. Paul Hemming ">           
                      </div>
                      <div class="form-group">
-                        <label for="usr">Email :</label>           
+                        <label for="usr">Email</label>           
                         <input type="email" class="form-control" placeholder="paulhemming@gmail.com">          
                      </div>
                      <div class="form-group">
-                        <label for="usr">Contact no :</label>           
+                        <label for="usr">Contact no</label>           
                         <input type="text" class="form-control" placeholder="+1 4582549656">           
                      </div>
                      <div class="form-group">
-                        <label for="usr">Address :</label> 
-                        <textarea class="form-control" placeholder="33/1 New Road Bristol, United Kingdom"></textarea>
+                        <label for="usr">Law firm Name</label> 
+                        <input type="text" class="form-control" placeholder="Romcade Law firm"> 
                      </div>
+
+                     <div class="form-group">
+                        <label for="usr">Law firm address</label> 
+                        <input type="text" class="form-control" placeholder="33/1 New Road Bristol"> 
+                     </div>
+
+                     <div class="form-group">
+                        <label for="usr">City</label> 
+                        <input type="text" class="form-control" placeholder="Bristol"> 
+                     </div>
+
+                     <div class="form-group">
+                        <label for="usr">Zip Code</label> 
+                        <input type="text" class="form-control" placeholder="743125"> 
+                     </div>
+
                      <div class="form-group edt-group">
                         <input class="btn  inquery-submit" value="Save" type="submit" name="submit">
                         <input class="btn  inquery-cancle" value="Cancel" type="button" name="submit">
