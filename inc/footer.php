@@ -9,13 +9,13 @@
                      <span class="icon-div"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
                      Wiedner Hauptstrasse 120
                   </p>
-                  <p class="icon-text">
+                  <!-- <p class="icon-text">
                      <span class="icon-div"><i class="fa fa-phone" aria-hidden="true"></i></span>
                      +1 6502509458
-                  </p>
+                  </p> -->
                   <p class="icon-text">
                      <span class="icon-div"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                     d.schwarzl@lumsden.at
+                     Office@propandas.com
                   </p>
                </div>
             </div>

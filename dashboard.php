@@ -12,14 +12,14 @@
    </section> -->
 <section class="dshbord-theme">
    <div class="container">
-      <div class="notifications-alert">
+      <!-- <div class="notifications-alert">
          <ul>
             <li><a href="javascript:void(0)" data-toggle="modal" data-target="#email-modal"><i class="fa fa-envelope fa-fw" aria-hidden="true" ></i>Email Verification</a></li>
             <li><a href="javascript:void(0)" data-toggle="modal" data-target="#number-modal"><i class="fa fa-mobile fa-fw "  aria-hidden="true"></i>Number Verification</a></li>
             <li><a href="javascript:void(0)" data-toggle="modal" data-target="#success-modal"><i class="fa  fa-check-circle fa-fw "  aria-hidden="true"></i>Success Modal</a></li>
             <li><a href="javascript:void(0)" data-toggle="modal" data-target="#Error-modal"><i class="fa fa-exclamation-circle fa-fw "  aria-hidden="true"></i>Error Modal</a></li>
          </ul>
-      </div>
+      </div> -->
       <div class="row">
          <div class="col-md-12">
             <h3 class="fs-title">Dashboard</h3>

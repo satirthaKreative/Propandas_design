@@ -16,27 +16,24 @@
    <div class="container">
       <div class="row">
          <div class="col-sm-5">
-            <img src="images/abt-img2.jpg" alt="about-image" class="img-fluid round-shape">
+          <div class="abt-shape">
+            <img src="images/big-logo.jpg" alt="about-image" class="img-fluid">
+          </div>            
          </div>
          <div class="col-sm-7">
             <div class="top-title">
-               <h1><small>ABOUT US</small>The Company's Mission<span></span></h1>
+               <h1><small>ABOUT US</small>PROPANDAS MISSION<span></span></h1>
             </div>
-            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. </p>
-            <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate.</p>
-
-            <p>Quis autem vel eum iure reprehenderit qui in ea voluptate. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit. quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.</p>            
+            <p>We believe that law has to be accessible for everyone. While our world is full ofbrilliant   lawyers,   the   traditional   law   firm   structure   makes  it   sometimes   hardlyaccessible for many people, especially for small businesses. Many small companiescannot afford to pay hourly rates that are largely composed of overhead costs forinflated law firm structures and are rather interested in a having narrowly definedlegal issues resolved in an efficient way. On the other hand, a big part of highlycapable lawyers find themselves stuck in the hierarchies of the corporate legalworld with few opportunities for their professional self-fulfillment.</p>            
+            <p>ProPandas mission is to streamline the process of hiring a lawyer through avoidingcostly law firm structures and digitalizing the way how clients and lawyers canmeet.</p>            
          </div>
       </div>
    </div>
 </section>  <!-- end of about-part -->
 
-<section class="counter-part">
+<!-- <section class="counter-part">
    <div class="container">
-     <div id="counter">
-  <!--   <div class="counter-value" data-count="300">0</div>
-    <div class="counter-value" data-count="400">100</div>
-    <div class="counter-value" data-count="1500">200</div> -->
+     <div id="counter">  
     <div class="row">
        <div class="col-sm-4">
          <div class="cnt-box">
@@ -70,9 +67,9 @@
     </div>
 </div>
    </div>
-</section>
+</section> -->
 
-<section class="owner-part">
+<!-- <section class="owner-part">
    <div class="container">
       <div class="top-title">
          <h1><small>Meet the People</small>Behind Propandas <span></span></h1>
@@ -119,9 +116,9 @@
          </div>
       </div>
    </div>
-</section>   <!-- end of owner-part -->
+</section> -->   <!-- end of owner-part -->
 
-<section class="subscribe-part">
+<!-- <section class="subscribe-part">
    <div class="container">
       <div class="top-title white-title">
          <h1><small>Start Using</small>ProPandas today <span></span></h1>
@@ -129,10 +126,10 @@
          <p><a href="#" class="learn-link free-btn">Get Free Proposals <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></p>
       </div>
    </div>
-</section>  <!-- end of subscribe-part -->
+</section> -->  <!-- end of subscribe-part -->
 
 
-<section class="brand-part">
+<!-- <section class="brand-part">
    <div class="container">
    <div class="top-title">
       <h1><small>Some Of</small>Our Clients <span></span></h1>
@@ -172,7 +169,7 @@
          </div>
       </div>
    </div>
-</section>
+</section> -->
 
 <!-- end of brand-part -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>

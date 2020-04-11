@@ -10,24 +10,24 @@
       <div class="carousel-item active">
          <img src="images/banner1.jpg" alt="" class="img-fluid" />
          <div class="carousel-caption">
-            <h1><span>The modern way to get  </span> legal work done</h1>
-            <p> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam</p>
+            <h1><span>Propandas the digital way to get</span>LEGAL WORK DONE</h1>
+            <p>ProPandas is the digital way to get your legal work done. Hire a lawyer online.Because future requires technology.</p>
             <a href="#" class="cnt-btn">Get Free Proposals <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
          </div>
       </div>
       <div class="carousel-item">
          <img src="images/banner2.jpg" alt="" class="img-fluid" />
          <div class="carousel-caption">
-            <h1><span>The modern way to get  </span> legal work done</h1>
-            <p> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam</p>
+            <h1><span>Propandas the digital way to get</span>LEGAL WORK DONE</h1>
+            <p>ProPandas is the digital way to get your legal work done. Hire a lawyer online.Because future requires technology.</p>
             <a href="#" class="cnt-btn">Get Free Proposals <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
          </div>
       </div>
       <div class="carousel-item">
          <img src="images/banner3.jpg" alt="" class="img-fluid" />
          <div class="carousel-caption">
-            <h1><span>The modern way to get  </span> legal work done</h1>
-            <p> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam</p>
+            <h1><span>Propandas the digital way to get</span>LEGAL WORK DONE</h1>
+            <p>ProPandas is the digital way to get your legal work done. Hire a lawyer online.Because future requires technology.</p>
             <a href="#" class="cnt-btn">Get Free Proposals <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
          </div>
       </div>
@@ -44,8 +44,8 @@
 <section class="lg-service">
    <div class="container">
       <div class="top-title">
-         <h1><small>Popular</small>Legal Services <span></span></h1>
-         <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. </p>
+         <h1><small>Popular</small>LEGAL SERVICES <span></span></h1>
+         <p>ProPanda’s algorithm connects you with the right lawyer for your legal problem.</p>
       </div>
       <div class="service-list">
          <div class="row">
@@ -142,10 +142,15 @@
          </div>
          <div class="col-sm-7">
             <div class="top-title">
-               <h1><small>How it works</small>Something About Law <span></span></h1>
+               <h1>How It Works <span></span></h1>
             </div>
-            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. </p>
-            <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate.</p>
+            <p>It’s the ProPandas way of doing legal work.</p>
+            <ul>
+            	<li>You post your legal need on ProPandas</li>
+            	<li>ProPandas will connect you with a lawyer through secure communication</li>
+            	<li>The lawyer will take care of your legal need at ProPandas virtual office</li>
+            </ul>
+            <p>We believe that streamlining and digitalizing the legal market will make it moretransparent, efficient and secure for everyone. Hire a lawyer shall be as easy andefficient as hailing a ride. ProPandas will guarantee that communication with yourlawyer will stay secure by using encryption technology.</p>
             <div class="inf-part">
                <div class="row">
                   <div class="col-md-6">
@@ -171,10 +176,10 @@
                <div class="item "> 
                         <img class="img-fluid clint-prf" src="images/clint-logo.jpg"  alt="brnd-images"> 
                         <figcaption>
-                           <p class="review-text">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. </p>
+                           <p class="review-text">I am looking forward to the launch of ProPandas as it will enable me to connect withspecialized lawyers on a case-to-case basis with no unnecessary overhead costs oroffice visits. </p>
                            <blockquote class="cnt-info">
-                              <h4>Howard K. Stern</h4>
-                              <p>CEO and Co-Founder</p>
+                              <h4>Sebastian Schwarzenegger</h4>
+                              <p>Investmentbanker and Entrepreneur</p>
                            </blockquote>
                         </figcaption>
               
@@ -191,29 +196,7 @@
               
                </div>
 
-               <div class="item "> 
-                        <img class="img-fluid clint-prf" src="images/clint-logo.jpg"  alt="brnd-images"> 
-                        <figcaption>
-                           <p class="review-text">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. </p>
-                           <blockquote class="cnt-info">
-                              <h4>Howard K. Stern</h4>
-                              <p>CEO and Co-Founder</p>
-                           </blockquote>
-                        </figcaption>
-              
-               </div>
-
-               <div class="item "> 
-                        <img class="img-fluid clint-prf" src="images/clint-logo.jpg"  alt="brnd-images"> 
-                        <figcaption>
-                           <p class="review-text">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.  Neque porro quisquam est. </p>
-                           <blockquote class="cnt-info">
-                              <h4>Howard K. Stern</h4>
-                              <p>CEO and Co-Founder</p>
-                           </blockquote>
-                        </figcaption>
-              
-               </div>
+               
             </div>
 
 
@@ -237,12 +220,12 @@
             <div class="col-sm-4">
                <div class="srvc-item">
                   <div class="img-part">
-                     <a href="#"><img src="images/owner-1.jpg" alt="images" class="img-fluid"></a>
+                     <a href="javascript:void(0)"><img src="images/owner-1.jpg" alt="images" class="img-fluid"></a>
                   </div>
                   <div class="img-info">
-                     <h5>Janet Jones</h5>
-                     <h6>Bank & Financial Lawyer</h6>
-                     <p> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos </p>
+                     <h5>Daniel Schwarzl</h5>
+                     <h6>co-founder</h6>
+                     <p>Daniel Schwarzl is co-founder of ProPandas and an admitted attorney in New York with experience in technology law, cryptocurrencies and the entertainment industry.Having graduated from Stanford University, Daniel is focused on bridging with technology.</p>
                   </div>
                </div>
             </div>
@@ -252,9 +235,9 @@
                      <a href="#"><img src="images/owner-2.jpg" alt="images" class="img-fluid"></a>
                   </div>
                   <div class="img-info">
-                     <h5>Jack Smith</h5>
-                     <h6>Bank & Financial Lawyer</h6>
-                     <p> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos </p>
+                     <h5>Robin Lumsden</h5>
+                     <h6>co-founder</h6>
+                     <p>Robin Lumsden is co-founder at ProPandas and managing partner of the business law firm Lumsden & Partner with offices in Vienna, New York and Silicon Valley and an investor to multiple technology companies and founder of a digital asset hedge fund. He completed degrees at the Universities Berkeley and Stanford was formerly a professional tennis player.</p>
                   </div>
                </div>
             </div>
@@ -264,8 +247,8 @@
                      <a href="#"><img src="images/owner-3.jpg" alt="images" class="img-fluid"></a>
                   </div>
                   <div class="img-info">
-                     <h5>Eric Peterson</h5>
-                     <h6>Bank & Financial Lawyer</h6>
+                     <h5>Deepak Mittal</h5>
+                     <h6>co-founder</h6>
                      <p> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos </p>
                   </div>
                </div>
@@ -275,7 +258,7 @@
    </div>
 </section>
 <!-- owner-part -->
-<section class="poposal-part">
+<!-- <section class="poposal-part">
    <div class="container">
       <div class="row">
          <div class="col-sm-5">
@@ -321,9 +304,9 @@
          </div>
       </div>
    </div>
-</section>
+</section> -->
 <!-- end poposal-part -->
-<section class="blog-section">
+<!-- <section class="blog-section">
    <div class="container">
       <div class="row">
          <div class="col-sm-6">
@@ -376,8 +359,8 @@
          </div>
       </div>
    </div>
-</section>
-<section class="subscribe-part">
+</section> -->
+<!-- <section class="subscribe-part">
    <div class="container">
       <div class="top-title white-title">
          <h1><small>Start Using</small>ProPandas today <span></span></h1>
@@ -385,9 +368,9 @@
          <p><a href="#" class="learn-link free-btn">Get Free Proposals <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></p>
       </div>
    </div>
-</section>
+</section> -->
 <!-- end subscribe-part -->
-<section class="brand-part">
+<!-- <section class="brand-part">
    <div class="container">
    <div class="top-title">
       <h1><small>Some Of</small>Our Clients <span></span></h1>
@@ -427,6 +410,6 @@
          </div>
       </div>
    </div>
-</section>
+</section> -->
 <!-- brand-part -->
 <?php include ("inc/footer.php") ?>
