@@ -394,6 +394,17 @@
     margin: 0;   
 }
 
+.side-register {
+    display: none;
+}
+
+.login-content .login-box {   
+    padding: 25px 15px;   
+    width: 100%;
+    max-width: 100%;
+    flex: inherit;
+}
+
 
 }
 
@@ -735,6 +746,24 @@ a.shrt-btn {
 
 .login-content .login-box {   
     padding: 15px;
+    width: 90%;
+    max-width: 90%;
+    flex: inherit;
+    margin: 0 auto;
+}
+
+.login-content .login-box input.form-control, .login-content .login-box textarea.form-control, .login-content .login-box select.form-control {
+  
+    font-size: 12px;   
+    padding: 5px 10px;  
+}
+
+.login-content .login-box .checkbox {
+    font-size: 11px;   
+}
+
+.login-content .login-box input[type="checkbox"] {   
+    margin-right: 10px;    
 }
 .login-content .lwr-login{
         margin-top: 15px;
