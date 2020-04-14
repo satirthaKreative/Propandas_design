@@ -19,6 +19,7 @@
             <li><a href="javascript:void(0)" data-toggle="modal" data-target="#otp-modal"><i class="fa fa-mobile fa-fw "  aria-hidden="true"></i>Otp Verification</a></li>
             <li><a href="javascript:void(0)" data-toggle="modal" data-target="#success-modal"><i class="fa  fa-check-circle fa-fw "  aria-hidden="true"></i>Success Modal</a></li>
             <li><a href="javascript:void(0)" data-toggle="modal" data-target="#Error-modal"><i class="fa fa-exclamation-circle fa-fw "  aria-hidden="true"></i>Error Modal</a></li>
+             <li><a href="javascript:void(0)" data-toggle="modal" data-target="#welcome-modal"><i class="fa fa-check-square-o fa-fw "  aria-hidden="true"></i>Welcome</a></li>
          </ul>
       </div> 
       <div class="row">
@@ -232,6 +233,22 @@
                <div class="center-part">
                   <h3><span><i class="fa fa-exclamation-circle" aria-hidden="true"></i></span> Sorry Wrong Update </h3>
                   <p>Sorry You are entered wrong OTP </p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+    <!-- welcome Modal -->
+   <div class="modal fade theme-modal" id="welcome-modal">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <!-- Modal body -->
+            <div class="modal-body text-center">
+               <div class="center-part">
+                  <h3><span><img src="images/logo.png" alt="logo" class="modal-logo"></span>Welcome to Propandas </h3>
+                  <h6>To being a propandas Family </h6>
+                  
                </div>
             </div>
          </div>
