@@ -31,7 +31,7 @@
       <section class="top-header">
          <div class="container">
             <div class="row">
-               <div class="col-md-6 col-sm-6">
+               <div class="col-6 col-md-6 col-sm-6">
                   <ul class="social-tab">
                      <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                      <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
@@ -40,7 +40,7 @@
                      <li><a href="#"><i class="fa fa-xing" aria-hidden="true"></i></a></li>
                   </ul>
                </div>
-               <div class="col-md-6 col-sm-6">
+               <div class="col-6 col-md-6 col-sm-6">
                   <div class="top-info">
                   <ul>
                      <li><span><i class="fa fa-user" aria-hidden="true"></i></span><a href="login.php">Login</a></li>
@@ -64,10 +64,10 @@
       <section class="header-menu">
          <div class="container">
             <div class="row">
-               <div class="col-xs-6 col-sm-6 logo-sec">
+               <div class="col-6 col-sm-6 logo-sec">
                   <a href="index.php"><img src="images/logo.png" class="img-fluid lg-image " alt="logo-image"></a>
                </div>
-               <div class=" col-xs-6 col-sm-6 nv-menu">
+               <div class=" col-6 col-sm-6 nv-menu">
                   <div class="hamburger">
                      <div class="hm-icon">
                         <span></span> <span></span> <span></span>

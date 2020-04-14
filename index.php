@@ -216,8 +216,8 @@
          <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. </p>
       </div>
       <div class="owner-list">
-         <div class="row">
-            <div class="col-sm-4">
+         <div class="row equal-row">
+            <div class="col-sm-6 equal-box">
                <div class="srvc-item">
                   <div class="img-part">
                      <a href="javascript:void(0)"><img src="images/owner-1.jpg" alt="images" class="img-fluid"></a>
@@ -229,7 +229,7 @@
                   </div>
                </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-6 equal-box">
                <div class="srvc-item">
                   <div class="img-part">
                      <a href="#"><img src="images/owner-2.jpg" alt="images" class="img-fluid"></a>
@@ -241,7 +241,7 @@
                   </div>
                </div>
             </div>
-            <div class="col-sm-4">
+           <!--  <div class="col-sm-4">
                <div class="srvc-item">
                   <div class="img-part">
                      <a href="#"><img src="images/owner-3.jpg" alt="images" class="img-fluid"></a>
@@ -252,7 +252,7 @@
                      <p> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos </p>
                   </div>
                </div>
-            </div>
+            </div> -->
          </div>
       </div>
    </div>

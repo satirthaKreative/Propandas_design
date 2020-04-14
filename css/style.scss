@@ -5,6 +5,7 @@ body {
 	overflow-x: hidden;
 }
 
+
 .equal-row {
 	display: flex;
 	flex-wrap: wrap;
@@ -681,7 +682,7 @@ ul.show_menu {
 .img-info {
 	background: #eaeaea;
 	text-align: center;
-	padding: 25px 10px;
+	padding: 25px;
 	display: inline-grid;
 	width: 100%;
 	align-items: center;
@@ -691,32 +692,35 @@ ul.show_menu {
 		color: #000000;
 	}
 	h6 {
-		font-size: 15px;
-		font-style: italic;
-		color: #2b2b2b;
-		margin-bottom: 15px;
+		    font-size: 14px;
+    font-style: italic;
+    color: #0d2c66;
+    margin-bottom: 15px;
+    text-transform: capitalize;
 	}
 	p {
-		font-size: 14px;
-		color: #141414;
-		margin-bottom: 0px;
-		line-height: 23px;
+		font-size: 13px;
+    color: #141414;
+    margin-bottom: 0px;
+    line-height: 26px;
+    text-align: center;
 	}
 }
 
 .img-part {
-	height: 240px;
+	height: 350px;
 	overflow: hidden;
 }
 
 .img-part img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	-webkit-transform: scale(1);
-	transform: scale(1);
-	-webkit-transition: 1s;
-	transition: 1s;
+	    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: 1s;
+    transition: 1s;
+    object-position: top;
 }
 
 .img-part:hover img {
@@ -3821,6 +3825,17 @@ input.btn{
 	    img {
 	    width: 100%;	    
 	    max-width: 350px;
+	    -webkit-transform: scale(1);
+	transform: scale(1);
+	transition: 1s;
+
+	    }
+	    &:hover{
+	    	img{
+-webkit-transform: scale(0.9);
+	transform: scale(0.9);
+	transition: 1s;
+	    	}
 	    }
     }
 
@@ -3833,3 +3848,12 @@ input.btn{
    }
 
 }
+
+
+.owner-part {
+	.srvc-item{
+		    background: #eaeaea;
+            margin: 10px 0px;
+	}
+}
+

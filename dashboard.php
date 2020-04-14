@@ -12,14 +12,15 @@
    </section> -->
 <section class="dshbord-theme">
    <div class="container">
-      <!-- <div class="notifications-alert">
+       <div class="notifications-alert">
          <ul>
             <li><a href="javascript:void(0)" data-toggle="modal" data-target="#email-modal"><i class="fa fa-envelope fa-fw" aria-hidden="true" ></i>Email Verification</a></li>
             <li><a href="javascript:void(0)" data-toggle="modal" data-target="#number-modal"><i class="fa fa-mobile fa-fw "  aria-hidden="true"></i>Number Verification</a></li>
+            <li><a href="javascript:void(0)" data-toggle="modal" data-target="#otp-modal"><i class="fa fa-mobile fa-fw "  aria-hidden="true"></i>Otp Verification</a></li>
             <li><a href="javascript:void(0)" data-toggle="modal" data-target="#success-modal"><i class="fa  fa-check-circle fa-fw "  aria-hidden="true"></i>Success Modal</a></li>
             <li><a href="javascript:void(0)" data-toggle="modal" data-target="#Error-modal"><i class="fa fa-exclamation-circle fa-fw "  aria-hidden="true"></i>Error Modal</a></li>
          </ul>
-      </div> -->
+      </div> 
       <div class="row">
          <div class="col-md-12">
             <h3 class="fs-title">Dashboard</h3>
@@ -50,9 +51,10 @@
                   <p><i class="fa fa-envelope icn-show" aria-hidden="true" ></i>rozerlermond@gmail.com</p>
                   <p><i class="fa fa-phone icn-show" aria-hidden="true" ></i>+1 6502509458</p>
                   <p><i class="fa fa-map-marker icn-show" aria-hidden="true" ></i>2361  Brentwood Drive San Marcos Texas Usa</p>
-                  <p><a href="javascript:void(0)" class="edit-btn" data-toggle="modal" data-target="#Edit-profile-modal" data-toggle="tooltip" data-placement="top" data-tooltip="Edit-profile"><i class="fa fa-pencil" aria-hidden="true" ></i></a></p>
 
-                  <p><a href="javascript:void(0)" class="edit-btn edit-btn2" data-toggle="modal" data-target="#change-password" data-toggle="tooltip" data-placement="top" data-tooltip="change-password"><i class="fa fa-cog" aria-hidden="true" ></i></a></p>
+                  <a href="javascript:void(0)" class="edit-btn" data-toggle="modal" data-target="#Edit-profile-modal" data-toggle="tooltip" data-placement="top" data-tooltip="Edit-profile"><i class="fa fa-pencil" aria-hidden="true" ></i></a>
+
+                  <a href="javascript:void(0)" class="edit-btn edit-btn2" data-toggle="modal" data-target="#change-password" data-toggle="tooltip" data-placement="top" data-tooltip="change-password"><i class="fa fa-cog" aria-hidden="true" ></i></a>
                </div>
             </div>
             <div class="dsbrd-content">
@@ -183,6 +185,25 @@
                   </form>
                   <hr>
                   <p><a href="#"> Resend One time Password</a></p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- Number Modal -->
+   <div class="modal fade theme-modal" id="otp-modal">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <!-- Modal body -->
+            <div class="modal-body text-center">
+               <div class="center-part">
+                  <h3><span><i class="fa fa-mobile fa-3x" aria-hidden="true"></i></span>Enter Your OTP</h3>
+                  <p>Please Enter Otp has been sent to 9831******</p>
+                  <form>
+                     <input type="password" name="">
+                     <input type="submit" name="" value="Submit" class="cnt-btn">
+                  </form>                 
                </div>
             </div>
          </div>
