@@ -20,6 +20,10 @@
             <li><a href="javascript:void(0)" data-toggle="modal" data-target="#success-modal"><i class="fa  fa-check-circle fa-fw "  aria-hidden="true"></i>Success Modal</a></li>
             <li><a href="javascript:void(0)" data-toggle="modal" data-target="#Error-modal"><i class="fa fa-exclamation-circle fa-fw "  aria-hidden="true"></i>Error Modal</a></li>
              <li><a href="javascript:void(0)" data-toggle="modal" data-target="#welcome-modal"><i class="fa fa-check-square-o fa-fw "  aria-hidden="true"></i>Welcome</a></li>
+             <li><a href="javascript:void(0)" data-toggle="modal" data-target="#forgot-modal"><i class="fa fa-lock fa-fw "  aria-hidden="true"></i>Forgot Password</a></li>
+
+
+             
          </ul>
       </div> 
       <div class="row">
@@ -155,6 +159,28 @@
          </div>
       </div>
    </div>
+
+<!-- forgot Modal -->
+   <div class="modal fade theme-modal" id="forgot-modal">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <!-- Modal body -->
+            <div class="modal-body text-center">
+               <div class="center-part">
+                  <h3><span><i class="fa fa-lock fa-3x" aria-hidden="true"></i></span>Forgot Password?</h3>
+                  <p>You can reset your Password here </p>
+                  <form>
+                     <input type="email" name="" placeholder="email address">
+                     <input type="submit" name="" value="Send My Password" class="cnt-btn">
+                  </form>
+                  <hr>
+                  <p>Remember Password? <a href="#">Login Here</a></p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
    <!-- Email Modal -->
    <div class="modal fade theme-modal" id="email-modal">
       <div class="modal-dialog">
