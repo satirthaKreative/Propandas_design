@@ -22,6 +22,9 @@
              <li><a href="javascript:void(0)" data-toggle="modal" data-target="#welcome-modal"><i class="fa fa-check-square-o fa-fw "  aria-hidden="true"></i>Welcome</a></li>
              <li><a href="javascript:void(0)" data-toggle="modal" data-target="#forgot-modal"><i class="fa fa-lock fa-fw "  aria-hidden="true"></i>Forgot Password</a></li>
 
+             <li><a href="javascript:void(0)" data-toggle="modal" data-target="#sent-modal" class="green-text"><i class="fa fa-lock fa-fw "  aria-hidden="true"></i>Password Sent</a></li>
+             
+
 
              
          </ul>
@@ -274,6 +277,23 @@
                <div class="center-part">
                   <h3><span><img src="images/logo.png" alt="logo" class="modal-logo"></span>Welcome to Propandas </h3>
                   <h6>To being a propandas Family </h6>
+                  
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+    <!-- sent Modal -->
+   <div class="modal fade theme-modal" id="sent-modal">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <!-- Modal body -->
+            <div class="modal-body text-center">
+               <div class="center-part">
+                  <h3><i class="fa fa-lock fa-3x" aria-hidden="true"></i>Your Password </h3>
+                  <h6>Successfully send to your email address </h6>
                   
                </div>
             </div>
