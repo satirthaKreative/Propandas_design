@@ -254,6 +254,69 @@
                </div>
             </div> -->
          </div>
+
+
+   <!-- slider-part  start -->
+
+   <div class="owl-carousel team-slide owl-theme ">
+         
+        <div class="item "> 
+         <div class="srvc-item">
+                  <div class="img-part">
+                     <a href="javascript:void(0)"><img src="images/owner-1.jpg" alt="images" class="img-fluid"></a>
+                  </div>
+                  <div class="img-info">
+                     <h5>Daniel Schwarzl</h5>
+                     <h6>co-founder</h6>
+                     <p>Daniel Schwarzl is co-founder of ProPandas and an admitted attorney in New York with experience in technology law, cryptocurrencies and the entertainment industry.Having graduated from Stanford University, Daniel is focused on bridging with technology.</p>
+                  </div>
+               </div>
+        </div>
+
+        <div class="item">
+           <div class="srvc-item">
+                  <div class="img-part">
+                     <a href="#"><img src="images/owner-2.jpg" alt="images" class="img-fluid"></a>
+                  </div>
+                  <div class="img-info">
+                     <h5>Robin Lumsden</h5>
+                     <h6>co-founder</h6>
+                     <p>Robin Lumsden is co-founder at ProPandas and managing partner of the business law firm Lumsden & Partner with offices in Vienna, New York and Silicon Valley and an investor to multiple technology companies and founder of a digital asset hedge fund. He completed degrees at the Universities Berkeley and Stanford was formerly a professional tennis player.</p>
+                  </div>
+               </div>
+        </div>
+
+        <div class="item">
+           <div class="srvc-item">
+                  <div class="img-part">
+                     <a href="#"><img src="images/abt-img2.jpg" alt="images" class="img-fluid"></a>
+                  </div>
+                  <div class="img-info">
+                     <h5>Deepak Mittal</h5>
+                     <h6>co-founder</h6>
+                     <p> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos </p>
+                  </div>
+               </div>
+        </div>
+
+        <div class="item">
+           <div class="srvc-item">
+                  <div class="img-part">
+                     <a href="#"><img src="images/abt-img2.jpg" alt="images" class="img-fluid"></a>
+                  </div>
+                  <div class="img-info">
+                     <h5>Deepak Mittal</h5>
+                     <h6>co-founder</h6>
+                     <p> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos </p>
+                  </div>
+               </div>
+        </div>
+
+   </div>
+
+   <!-- slider-part  end -->
+
+
       </div>
    </div>
 </section>
