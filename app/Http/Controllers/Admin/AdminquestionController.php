@@ -44,7 +44,6 @@ class AdminquestionController extends Controller
         $request->validate([
             'question_type' => 'required',
             'question_name' => 'required',
-            'question_description' => 'required'
         ]);
         adminquestion::create($request->all());
         return redirect()->route('admin-question.create')->with('success','Question Successfully Added');

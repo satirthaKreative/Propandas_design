@@ -15,6 +15,8 @@ class MyDashController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
+
     public function index()
     {
 
@@ -24,6 +26,7 @@ class MyDashController extends Controller
             $category_name = Session::get('myClientCate');
             $redire= Session::get('cart');
             $phone_number = Session::get('myClientPhoneCall');
+            Session::put('jobPostDataSent','12'); 
 
             $elements = array();
             foreach( $redire as $key=>$data)

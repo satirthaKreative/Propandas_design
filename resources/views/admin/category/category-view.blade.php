@@ -15,7 +15,7 @@
 <!-- Main content -->
 <section class="content">
     <div class="row">
-    	<div class="col-md-9">
+    	<div class="col-md-12">
     	    <div class="box">
     	        <div class="box-header">
     	            <h3 class="box-title">Category Table</h3> <span class="float-right-btn"><a href="{{ route('admin-category.create') }}" class="btn btn-sm btn-success text-white">Add Category</a></span>
@@ -30,9 +30,9 @@
     	                <tr>
     	                    <th style="width: 10px">#</th>
     	                    <th>Category Name</th>
-    	                    <th>Title</th>
-    	                    <th class="w40">Description</th>
-    	                    <th>Action</th>
+    	                    <th class="w20">Title</th>
+    	                    <th class="w30">Description</th>
+    	                    <th class="w20">Action</th>
     	                    <!-- <th style="width: 40px">Label</th> -->
     	                </tr>
                         @if(count($categoryData)>0)

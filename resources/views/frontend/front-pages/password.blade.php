@@ -1,7 +1,7 @@
 @extends('layouts.frontendLayouts.app')
 @section('content')
 <?php 
-   $link = $_SERVER['PHP_SELF'];
+   $link = $_SERVER['REQUEST_URI'];
    $link_array = explode('/',$link);
    $page = end($link_array);
    $my_id = base64_decode($page);

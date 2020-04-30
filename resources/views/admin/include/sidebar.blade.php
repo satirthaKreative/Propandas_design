@@ -19,7 +19,7 @@
                 <div class="pull-left info">
                     <p>Hello, Admin</p>
 
-                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    <a href="javascript: ;"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
             <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -78,7 +78,7 @@
                     </ul>
                 </li>
                 <!-- Free Legal Docx -->
-                <li class="treeview">
+                <!-- <li class="treeview">
                     <a href="#">
                         <i class="fa fa-file"></i>
                         <span>Free Legal Documents</span>
@@ -87,6 +87,64 @@
                     <ul class="treeview-menu">
                         <li><a href="{{ route('admin-freelegaldoc.index') }}"><i class="fa fa-angle-double-right"></i>View Legal Documents</a></li>
                        
+                    </ul>
+                </li> -->
+                 <!-- Banner -->
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-picture-o"></i>
+                        <span>Banner</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ url('/banner') }}"><i class="fa fa-angle-double-right"></i>View Banner</a></li>
+                       
+                    </ul>
+                </li>
+                 <!-- Testimonials -->
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-comment"></i>
+                        <span>Testimonials</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ url('/testimonials') }}"><i class="fa fa-angle-double-right"></i>View Testimonials</a></li>
+                       
+                    </ul>
+                </li>
+                <!-- How it works -->
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-pencil"></i>
+                        <span>How It Works</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ url('/howitwork') }}"><i class="fa fa-angle-double-right"></i>View Works Section</a></li>
+                       
+                    </ul>
+                </li>
+                <!-- Behind Propandas -->
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-eye"></i>
+                        <span>Behind Propandas</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ url('/behindpropandas') }}"><i class="fa fa-angle-double-right"></i>View Works Section</a></li>
+                    </ul>
+                </li>
+                <!-- About Us -->
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-users"></i>
+                        <span>About Us</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ route('admin-about.index') }}"><i class="fa fa-angle-double-right"></i>View About</a></li>
                     </ul>
                 </li>
                 <!-- Free Profile Details -->

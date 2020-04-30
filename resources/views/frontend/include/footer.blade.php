@@ -9,13 +9,13 @@
                      <span class="icon-div"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
                      Wiedner Hauptstrasse 120
                   </p>
-                  <p class="icon-text">
+                  <!-- <p class="icon-text">
                      <span class="icon-div"><i class="fa fa-phone" aria-hidden="true"></i></span>
                      +1 6502509458
-                  </p>
+                  </p> -->
                   <p class="icon-text">
                      <span class="icon-div"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                     d.schwarzl@lumsden.at
+                     Office@propandas.com
                   </p>
                </div>
             </div>
@@ -60,9 +60,39 @@
    </div>
    <div class="copy-part text-center">
       <div class="container">
-         <p>© 2020 <a href="#">propandas.com</a> &nbsp;|&nbsp; All Rights Reserved.</p>
+         <p>© 2020 <a href="{{ url('/') }}">propandas.com</a> &nbsp;|&nbsp; All Rights Reserved.</p>
       </div>
    </div>
+
+   <!-- success Modal -->
+   <div class="modal fade theme-modal" id="success-modal">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <!-- Modal body -->
+            <div class="modal-body text-center">
+               <div class="center-part">
+                  <h3><span><i class="fa fa-check-circle" aria-hidden="true"></i></span> <span>Number confirmed</span> </h3>
+                  <p>Your Number has been verified</p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- Error Modal -->
+   <div class="modal fade theme-modal" id="Error-modal">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <!-- Modal body -->
+            <div class="modal-body text-center">
+               <div class="center-part">
+                  <h3><span><i class="fa fa-exclamation-circle" aria-hidden="true"></i></span> <span>Sorry Wrong Update</span> </h3>
+                  <p>Sorry You are entered wrong OTP </p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- /end modal -->
 </footer>
 <!-- end footer-section -->
 <!-- Back to top button -->
@@ -70,6 +100,13 @@
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<!-- google language api -->
+<!-- <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+            <script type="text/javascript">
+            function googleTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false, includedLanguages: ''}, 'google_translate_element');}
+            </script> -->
+<!-- /google language api -->
+
 <script src="{{ asset('frontAssets/js/popper.min.js') }}"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <!-- <script src="{{ asset('frontAssets/js/bootstrap.min.js') }}"></script> -->
@@ -88,7 +125,23 @@
 <!-- New Addition -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/js/bootstrap-select.min.js"></script>
 <!-- /end new addition -->
-
+@if($msg_data = Session::get('jobPostDataSent'))
+<script>
+  $(function(){
+    $("#job-cate-post-data-modal").modal('show');
+    setTimeout(function(){ $("#job-cate-post-data-modal").modal('hide');  }, 5000);
+  })
+</script>
+@php session()->forget('jobPostDataSent') @endphp
+@endif
+@if($message = Session::get('welcomeSession'))
+<script>
+  $(function(){
+    $("#welcome-modal").modal('show');
+    setTimeout(function(){ $("#welcome-modal").modal('hide');  }, 5000);
+  })
+</script>
+@endif
 <script> 
    $('.review-slide').owlCarousel({
    loop:true,
@@ -111,6 +164,83 @@
      }
    }
    })
+
+   function owlCarousalCreate()
+   {
+      $('.review-slide').owlCarousel({
+      loop:true,
+      autoplay:true,
+      margin:0,
+      responsiveClass:true,
+      responsive:{
+        0:{
+            items:1,
+            nav:true
+        },
+        600:{
+            items:1,
+            nav:true
+        },
+        1000:{
+            items:1,
+            nav:true,
+            loop:true
+        }
+      }
+      });
+   }
+
+
+   $('.team-slide').owlCarousel({
+   loop:true,
+   autoplay:true,
+   margin:10,
+   responsiveClass:true,
+   responsive:{
+     0:{
+         items:1,
+         nav:true,
+        
+     },
+     600:{
+         items:2,
+         nav:true,
+         
+     },
+     1000:{
+         items:3,
+         nav:true,
+        
+     }
+   }
+   })
+
+   function owlteamCarousal()
+   {
+    $('.team-slide').owlCarousel({
+    loop:true,
+    autoplay:true,
+    margin:10,
+    responsiveClass:true,
+    responsive:{
+      0:{
+          items:1,
+          nav:true,
+         
+      },
+      600:{
+          items:2,
+          nav:true,
+          
+      },
+      1000:{
+          items:3,
+          nav:true,
+         
+      }
+    }
+    })
+   }
 </script>
 
 
@@ -356,7 +486,27 @@ $(function(){
 
 // client dashboard
 jQuery(document).ready(function() {
+  showAboutData();
    change_country_wishDashboard();
+
 });
 
+
 </script>
+<script type="text/javascript">
+  function showAboutData()
+  {
+    $.ajax({
+        url: '/showAboutDetails',
+        type: 'GET',
+        dataType: 'json',
+        success: function(event){
+            $(".about-part .abt-shape").html('<img src="'+event[0].about_image+'" alt="about-image" class="img-fluid">');
+            $(".my-about-title").html('');
+        $( ".my-about" ).html('<div class="top-title my-about-title"><h1><small>ABOUT US</small>'+event[0].about_title+'<span></span></h1></div>'+event[0].about_description);
+        }, error: function(event){
+
+        }
+    })
+  }
+  </script>

@@ -30,7 +30,7 @@
                <div class="row">
                   <div class="col-sm-2 plr-5">
                      <div class="form-group">
-                        <select class="form-control" name="degree"  id="">
+                        <select class="form-control" required="" name="degree"  id="">
                            <option value="">Degree</option>
                            <option value="Dr.">Dr.</option>
                            <option value="Mag.">Mag.</option>
@@ -66,13 +66,13 @@
                   </div>
                   <div class="col-sm-12 plr-5">
                      <div class="form-group">
-                        <textarea name="law_firm_address" id="" class="form-control" placeholder="Law firm address"  ></textarea>
+                        <textarea name="law_firm_address" id="" required="" class="form-control" placeholder="Law firm address"  ></textarea>
                         <p class="text-left"><small>Please put your residential address if you don’t have an office address</small></p>
                      </div>
                   </div>
                   <div class="col-sm-4 plr-5">
                      <div class="form-group">
-                        <input type="text" name="city" class="form-control" placeholder="City" value="" required="" />
+                        <input type="text" name="city"  class="form-control" placeholder="City" value="" required="" />
                      </div>
                   </div>
                   <div class="col-sm-4 plr-5">
@@ -82,7 +82,7 @@
                   </div>
                   <div class="col-sm-4 plr-5">
                      <div class="form-group">
-                        <select class="form-control county_list" name="country" id="county_list">
+                        <select class="form-control county_list" required="" name="country" id="county_list">
                            <option>Country</option>
                         </select>
                      </div>
@@ -91,12 +91,13 @@
                      <div class="form-group">
                         <div class="file-field">                                 
                            <span><i class="fa fa-upload" aria-hidden="true"></i>Upload Resume</span>
-                           <input type="file" name="upload">    
+                           <input type="file" name="upload" required>    
                         </div>
                         <div class="captcha-place">
-                        	<input type="hidden" name="is_lawyer" class="is_lawyer_class" value="1">
+                        	<input type="hidden" name="is_lawyer" required class="is_lawyer_class" value="1">
                            <form action="?" method="POST">
-                                <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LdmG-IUAAAAAHN-m47EwE4RVObxb_88bpcwoYdd"></div>                               
+                                <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LdmG-IUAAAAAHN-m47EwE4RVObxb_88bpcwoYdd"></div>  
+                             
                            </form>
                         </div>
                      </div>
@@ -106,7 +107,7 @@
                   <div class="col-sm-12 plr-5">
                      <div class="form-group">
                         <div class="checkbox">
-                           <label><input type="checkbox" name="remember">By clicking on “Sign Up Now”, I agree to and understand the ProPandas <a href="#">Terms of Use</a> & <a href="#">Privacy Policy</a>.</label>
+                           <label><input type="checkbox" checked="checked" name="remember">By clicking on “Sign Up Now”, I agree to and understand the ProPandas <a href="#">Terms of Use</a> & <a href="#">Privacy Policy</a>.</label>
                         </div>
                      </div>
                   </div>

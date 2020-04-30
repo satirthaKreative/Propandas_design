@@ -1,7 +1,7 @@
 <section class="top-header">
    <div class="container">
       <div class="row">
-         <div class="col-md-6 col-sm-6">
+         <div class="col-6 col-md-6 col-sm-6">
             <ul class="social-tab">
                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
@@ -10,7 +10,7 @@
                <li><a href="#"><i class="fa fa-xing" aria-hidden="true"></i></a></li>
             </ul>
          </div>
-         <div class="col-md-6 col-sm-6">
+         <div class="col-6 col-md-6 col-sm-6">
             <div class="top-info">
                <ul>
                <li class="profile-dropdown">
@@ -50,6 +50,7 @@
                </li>
                </ul>
                <div class="lang-part">
+                  <!-- <div id="google_translate_element" ></div> -->
                       <select class="selectpicker" data-width="fit">
                          <option data-content='<span class="flag-icon flag-icon-us"></span> English'>English</option>
                        <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Español</option>
@@ -64,10 +65,10 @@
 <section class="header-menu">
    <div class="container">
       <div class="row">
-         <div class="col-xs-6 col-sm-6 logo-sec">
+         <div class="col-6 col-sm-6 logo-sec">
             <a href="{{ url('/') }}"><img src="{{ asset('frontAssets/images/logo.png') }}" class="img-fluid lg-image " alt="logo-image"></a>
          </div>
-         <div class=" col-xs-6 col-sm-6 nv-menu">
+         <div class=" col-6 col-sm-6 nv-menu">
             <div class="hamburger">
                <div class="hm-icon">
                   <span></span> <span></span> <span></span>
@@ -80,7 +81,7 @@
                   <span></span>
                </div>
                <li><a href="{{ url('/') }}">Home</a></li>
-               <li><a href="javascript: ;">About</a></li>
+               <li><a href="{{ url('/about-us') }}">About</a></li>
                <li><a href="javascript: ;">Info</a></li>
                <li><a href="javascript: ;">Contact</a></li>
             </ul>

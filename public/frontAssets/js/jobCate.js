@@ -2,7 +2,8 @@ $(function(){
 	var segment_str = window.location.pathname; // return segment1/segment2/segment3/segment4
 	var segment_array = segment_str.split( '/' );
 	var last_segment = segment_array.pop();
-	var jcategory_id = atob(last_segment);
+	var jcategory_id = window.atob(last_segment);
+	// console.log(jcategory_id);
 	// mycountstate(jcategory_id);
 	var myDate;
 	$.ajax({
@@ -49,38 +50,57 @@ function myCallJobQuestion(jc_id, myDate)
 				data: {q_id: event[0].question_id},
 				dataType: 'json',
 				success: function(event1){
+					if(event[0].question_subheading != null)
+					{ 
+							var data_view1 = "display: block"; 
+					}else{ 
+							var data_view1 = "display: none";
+					}
 
-				 	var html = '<fieldset ><h2 class="fs-title">'+event[0].question_name+'</h2><p class="text-justify">'+event[0].question_subheading+'</p><p>'+event[0].question_description+'</p>';
+					if(event[0].question_description != null)
+					{ 
+							var data_view2 = "display: block"; 
+					}else{ 
+							var data_view2 = "display: none";
+					}
+
+
+				 	var html = '<fieldset ><h2 class="fs-title">'+event[0].question_name+'</h2><p class="text-justify" style="'+data_view1+'">'+event[0].question_subheading+'</p><p style="'+data_view2+'">'+event[0].question_description+'</p>';
 				 	if(event[0].question_type == 1)
 				 	{
-				 		html += '<input type="text" name="text_data" class="text_data s_data" placeholder="" />';
+				 		fieldsetcount = $('fieldset').length+1;
+				 		html += '<input type="text" name="text_data" class="text_data s_data'+fieldsetcount+'" placeholder="" onfocusout="myFunctest('+jc_id+','+event[0].question_id+',0)"/>';
 				 	} 
 				 	else if(event[0].question_type == 2)
 				 	{
-
+				 		fieldsetcount = $('fieldset').length+1;
 				 		html += '<ul class="list-option">';
 				 		for(var i = 0; i <event1.length; i++ )
 				 		{
-				 			html += '<li><label><input type="radio" value="'+event1[i].id+'" name="optradio" onchange="myFunctest('+jc_id+','+event[0].question_id+')" class="text_data s_data"> '+event1[i].option_label+'</label></li>';
+				 			html += '<li><label><input type="radio" value="'+event1[i].id+'" name="optradio" onchange="myFunctest('+jc_id+','+event[0].question_id+','+fieldsetcount+event1[i].id+')" class="text_data s_data'+fieldsetcount+event1[i].id+'"> '+event1[i].option_label+'</label></li>';
 				 		}
 				 		html += '</ul>';
 				 	}
 				 	else if(event[0].question_type == 3)
 				 	{
-				 		html += '<textarea name="" class="text_data s_data" placeholder="Message"></textarea>';
+				 		fieldsetcount = $('fieldset').length+1;
+				 		html += '<textarea name="" class="text_data s_data'+fieldsetcount+'" placeholder="Message" onfocusout="myFunctest('+jc_id+','+event[0].question_id+',0)"></textarea>';
 				 	}
 				 	else if(event[0].question_type == 4)
 				 	{
+				 		fieldsetcount = $('fieldset').length+1;
 				 		html += '<ul class="list-option">';
 				 		for(var i = 0; i <event1.length; i++ )
 				 		{
-				 			html += '<li><label><input type="checkbox" name="remember" onchange="myFunctest('+jc_id+','+event[0].question_id+')" value="'+event1[i].id+'"  class="text_data s_data"> '+event1[i].option_label+'</label></li>';
+				 			console.log();
+				 			html += '<li><label><input type="checkbox" name="remember" onclick="myFunctest('+jc_id+','+event[0].id+','+fieldsetcount+event1[i].id+')" value="'+event1[i].id+'"  class="text_data s_data'+fieldsetcount+event1[i].id+'"> '+event1[i].option_label+'</label></li>';
 				 		}
 				 		html += '</ul>';
 				 	}
 				 	else if(event[0].question_type == 5)
 				 	{
-				 		html += '<select name="" class="text_data s_data"  onchange="myFunctest('+jc_id+','+event[0].question_id+')"><option value="">Select</option>';
+				 		fieldsetcount = $('fieldset').length+1;
+				 		html += '<select name="" class="text_data s_data'+fieldsetcount+'"  onchange="myFunctest('+jc_id+','+event[0].question_id+','+fieldsetcount+')"><option value="">Select</option>';
                     	for(var i = 0; i <event1.length; i++ )
                     	{
                     		html += '<option value="'+event1[i].id+'">'+event1[i].option_label+'</option>';
@@ -88,7 +108,8 @@ function myCallJobQuestion(jc_id, myDate)
 				 	}
 				 	else if(event[0].question_type == 6)
 				 	{
-				 		html += '<select name="" class="text_data" multiple="multiple" id="multy-select" onchange="myFunctest('+jc_id+','+event[0].question_id+')"><option value="">Select</option>';
+				 		fieldsetcount = $('fieldset').length+1;
+				 		html += '<select name="" class="text_data s_data'+fieldsetcount+'" multiple="multiple" id="multy-select" onchange="myFunctest('+jc_id+','+event[0].question_id+','+fieldsetcount+')"><option value="">Select</option>';
                     	for(var i = 0; i <event1.length; i++ )
                     	{
                     		html += '<option value="'+event1[i].id+'"> '+event1[i].option_label+'</option>';
@@ -96,10 +117,11 @@ function myCallJobQuestion(jc_id, myDate)
 				 	}
 				 	else if(event[0].question_type == 7)
 				 	{
+				 		fieldsetcount = $('fieldset').length+1;
 				 		html += '<ul class="list-option">';
 				 		for(var i = 0; i <event1.length; i++ )
 				 		{
-				 			html += '<li><label><input type="checkbox" class="text_data" name="remember[]" onchange="myFunctest('+jc_id+','+event[0].question_id+')" value="'+event1[i].id+'"  class="text_data"> '+event1[i].option_label+'</label></li>';
+				 			html += '<li><label><input type="checkbox" class="text_data s_data'+fieldsetcount+'" name="remember[]" onchange="onclick('+jc_id+','+event[0].question_id+','+fieldsetcount+event1[i].id+')" value="'+event1[i].id+'"  class="text_data s_data'+fieldsetcount+event1[i].id+'"> '+event1[i].option_label+'</label></li>';
 				 		}
 				 		html += '</ul>';
 				 	}
@@ -131,26 +153,41 @@ var tmp_g = "";
 						console.log(event1);
 						var fieldsetcount = "";
 						if(event1.my_status == 5){
-					 	var html_new = '<h2 class="fs-title">'+event1.without_opt[0].question_name+'</h2><p class="text-justify">'+event1.without_opt[0].question_subheading+'</p><p>'+event1.without_opt[0].question_description+'</p>';
+						if(event1.without_opt[0].question_subheading != null)
+						{ 
+								var data_view1 = "display: block"; 
+						}else{ 
+								var data_view1 = "display: none";
+						}
+
+						if(event1.without_opt[0].question_description != null)
+						{ 
+								var data_view2 = "display: block"; 
+						}else{ 
+								var data_view2 = "display: none";
+						}
+
+					 	var html_new = '<h2 class="fs-title">'+event1.without_opt[0].question_name+'</h2><p class="text-justify" style="'+data_view1+'">'+event1.without_opt[0].question_subheading+'</p><p style="'+data_view2+'">'+event1.without_opt[0].question_description+'</p>';
 					 	if(event1.without_opt[0].question_type == '1' || event1.without_opt[0].question_type == 1)
 					 	{
 	                    	fieldsetcount = $('fieldset').length+1;
-					 		html_new += '<input type="text" name="twitter" id ="s_data"  class="s_data'+fieldsetcount+'" placeholder="Name" onkeyup="myFunctest1('+c_id+','+event1.without_opt[0].question_id+','+fieldsetcount+')"/>';
+					 		html_new += '<input type="text" name="twitter" id ="s_data"  class="s_data'+fieldsetcount+'" placeholder="Name" onfocusout="myFunctest1('+c_id+','+event1.without_opt[0].question_id+','+fieldsetcount+')"/>';
 					 	} 
 					 	else if(event1.without_opt[0].question_type == 2)
 					 	{
+
 					 		fieldsetcount = $('fieldset').length+1;
 					 		html_new += '<ul class="list-option">';
-					 		for(var i = 0; i <event1.length; i++ )
+					 		for(var i = 0; i <event1.with_opt.length; i++ )
 					 		{
-					 			html_new += '<li><label><input id ="s_data"  onclick="myFunctest1('+c_id+','+event1.without_opt[0].question_id+','+fieldsetcount+')" type="radio" value="'+event1[i].id+'" name="optradio" class="text_data s_data'+fieldsetcount+'"> '+event1[i].option_label+'</label></li>';
+					 			html_new += '<li><label><input id ="s_data"  onclick="myFunctest1('+c_id+','+event1.without_opt[0].question_id+','+fieldsetcount+event1.with_opt[i].id+')" type="radio" value="'+event1.with_opt[i].id+'" name="optradio" class="text_data s_data'+fieldsetcount+event1.with_opt[i].id+'"> '+event1.with_opt[i].option_label+'</label></li>';
 					 		}
 					 		html_new += '</ul>';
 					 	}
 					 	else if(event1.without_opt[0].question_type == 3)
 					 	{
 					 		fieldsetcount = $('fieldset').length+1;
-					 		html_new += '<textarea name="" id ="s_data"  class="text_data s_data'+fieldsetcount+'" placeholder="Message" onkeyup="myFunctest1('+c_id+','+event1.without_opt[0].question_id+','+fieldsetcount+')"></textarea>';
+					 		html_new += '<textarea name="" id ="s_data"  class="text_data s_data'+fieldsetcount+'" placeholder="Message" onfocusout="myFunctest1('+c_id+','+event1.without_opt[0].question_id+','+fieldsetcount+')"></textarea>';
 					 	}
 					 	else if(event1.without_opt[0].question_type == 4)
 					 	{
@@ -159,7 +196,7 @@ var tmp_g = "";
 					 		for(var i = 0; i <event1.with_opt.length; i++ )
 					 		{
 
-					 			html_new += '<li><label><input id ="s_data"  type="checkbox" onclick="myFunctest1('+c_id+','+event1.without_opt[0].question_id+','+fieldsetcount+')" name="remember" value="'+event1.with_opt[i].id+'"  class="text_data s_data'+fieldsetcount+'"> '+event1.with_opt[i].option_label+'</label></li>';
+					 			html_new += '<li><label><input id ="s_data"  type="checkbox" onclick="myFunctest1('+c_id+','+event1.without_opt[0].question_id+','+fieldsetcount+event1.with_opt[i].id+')" name="remember" value="'+event1.with_opt[i].id+'"  class="text_data s_data'+fieldsetcount+event1.with_opt[i].id+'"> '+event1.with_opt[i].option_label+'</label></li>';
 					 		}
 					 		html_new += '</ul>';
 					 	}
@@ -188,7 +225,7 @@ var tmp_g = "";
 					 		html_new += '<ul class="list-option">';
 					 		for(var i = 0; i <event1.with_opt.length; i++ )
 					 		{
-					 			html_new += '<li><label><input type="checkbox" id ="s_data"  class="text_data s_data'+fieldsetcount+'" name="remember[]" value="'+event1.with_opt[i].id+'"   onclick="myFunctest1('+c_id+','+event1.without_opt[0].question_id+','+fieldsetcount+')"> '+event1.with_opt[i].option_label+'</label></li>';
+					 			html_new += '<li><label><input type="checkbox" id ="s_data"  class="text_data s_data'+fieldsetcount+'" name="remember[]" value="'+event1.with_opt[i].id+'"   onclick="myFunctest1('+c_id+','+event1.without_opt[0].question_id+','+fieldsetcount+event1.with_opt[i].id+')"> '+event1.with_opt[i].option_label+'</label></li>';
 					 		}
 					 		html_new += '</ul>';
 					 	}
@@ -200,26 +237,39 @@ var tmp_g = "";
 	                    
 					}else if(event1.my_status == 10){
 						if(event1.my_log == 10){
-						var html_new = '<h2 class="fs-title">'+event1.without_opt[0].question_name+'</h2><p class="text-justify">'+event1.without_opt[0].question_subheading+'</p><p>'+event1.without_opt[0].question_description+'</p>';
+							if(event1.without_opt[0].question_subheading != null)
+							{ 
+									var data_view1 = "display: block"; 
+							}else{ 
+									var data_view1 = "display: none";
+							}
+
+							if(event1.without_opt[0].question_description != null)
+							{ 
+									var data_view2 = "display: block"; 
+							}else{ 
+									var data_view2 = "display: none";
+							}
+						var html_new = '<h2 class="fs-title">'+event1.without_opt[0].question_name+'</h2><p class="text-justify" style="'+data_view1+'">'+event1.without_opt[0].question_subheading+'</p><p style="'+data_view2+'">'+event1.without_opt[0].question_description+'</p>';
 					 	if(event1.without_opt[0].question_type == '1' || event1.without_opt[0].question_type == 1)
 					 	{
 	                    	fieldsetcount = $('fieldset').length+1;
-					 		html_new += '<input id ="s_data" class="s_data'+fieldsetcount+'" type="text" name="twitter" placeholder="Name" onkeyup="myFunctest1('+c_id+',0,'+fieldsetcount+')"/>';
+					 		html_new += '<input id ="s_data" class="s_data'+fieldsetcount+'" type="text" name="twitter" placeholder="Name" onfocusout="myFunctest1('+c_id+',0,'+fieldsetcount+')"/>';
 					 	} 
 					 	else if(event1.without_opt[0].question_type == 2)
 					 	{
-
+					 		fieldsetcount = $('fieldset').length+1;
 					 		html_new += '<ul class="list-option">';
-					 		for(var i = 0; i <event1.length; i++ )
+					 		for(var i = 0; i <event1.with_opt.length; i++ )
 					 		{
-					 			html_new += '<li><label><input id ="s_data"  type="radio" value="'+event1[i].id+'" onclick="myFunctest1('+c_id+',0,'+fieldsetcount+')" name="optradio" class="text_data s_data'+fieldsetcount+'"> '+event1.with_opt[i].option_label+'</label></li>';
+					 			html_new += '<li><label><input id ="s_data"  type="radio" value="'+event1.with_opt[i].id+'" onclick="myFunctest1('+c_id+',0,'+fieldsetcount+event1.with_opt[i].id+')" name="optradio" class="text_data s_data'+fieldsetcount+event1.with_opt[i].id+'"> '+event1.with_opt[i].option_label+'</label></li>';
 					 		}
 					 		html_new += '</ul>';
 					 	}
 					 	else if(event1.without_opt[0].question_type == 3)
 					 	{
 					 		fieldsetcount = $('fieldset').length+1;
-					 		html_new += '<textarea name="" id ="s_data" class="text_data s_data'+fieldsetcount+'" placeholder="Message" onkeyup="myFunctest1('+c_id+',0,'+fieldsetcount+')"></textarea>';
+					 		html_new += '<textarea name="" id ="s_data" class="text_data s_data'+fieldsetcount+'" placeholder="Message" onfocusout="myFunctest1('+c_id+',0,'+fieldsetcount+')"></textarea>';
 					 	}
 					 	else if(event1.without_opt[0].question_type == 4)
 					 	{
@@ -227,7 +277,7 @@ var tmp_g = "";
 					 		html_new += '<ul class="list-option">';
 					 		for(var i = 0; i <event1.with_opt.length; i++ )
 					 		{
-					 			html_new += '<li><label><input id ="s_data" type="checkbox" name="remember" onclick="myFunctest1('+c_id+',0,'+fieldsetcount+')" value="'+event1.with_opt[i].id+'"  class="text_data s_data'+fieldsetcount+'"> '+event1.with_opt[i].option_label+'</label></li>';
+					 			html_new += '<li><label><input id ="s_data" type="checkbox" name="remember" onclick="myFunctest1('+c_id+',0,'+fieldsetcount+event1.with_opt[i].id+')" value="'+event1.with_opt[i].id+'"  class="text_data s_data'+fieldsetcount+event1.with_opt[i].id+'"> '+event1.with_opt[i].option_label+'</label></li>';
 					 		}
 					 		html_new += '</ul>';
 					 	}
@@ -256,7 +306,7 @@ var tmp_g = "";
 					 		html_new += '<ul class="list-option">';
 					 		for(var i = 0; i <event1.length; i++ )
 					 		{
-					 			html_new += '<li><label><input id ="s_data" type="checkbox" class="text_data s_data'+fieldsetcount+'" onclick="myFunctest1('+c_id+',0,'+fieldsetcount+')" name="remember[]" value="'+event1.with_opt[i].id+'"  class="text_data"> '+event1.with_opt[i].option_label+'</label></li>';
+					 			html_new += '<li><label><input id ="s_data" type="checkbox" class="text_data s_data'+fieldsetcount+event1.with_opt[i].id+'" onclick="myFunctest1('+c_id+',0,'+fieldsetcount+event1.with_opt[i].id+')" name="remember[]" value="'+event1.with_opt[i].id+'"  class="text_data"> '+event1.with_opt[i].option_label+'</label></li>';
 					 		}
 					 		html_new += '</ul>';
 					 	}
@@ -297,17 +347,21 @@ function backHome()
 	window.location.href="/";
 }
 
-function myFunctest(c_id,q_id)
+function myFunctest(c_id,q_id,jq_id)
 {
-	var opt_id = $('.s_data').val();
-	alert(opt_id);
+	if(jq_id != 0 || jq_id != '0'){
+		var opt_id = $('.s_data'+jq_id).val();
+	}else{
+		var opt_id = 0;
+	}
+	
+	console.log(c_id +" "+opt_id+ " "+ q_id);
 	$.ajax({
 		url: '/nextQuesInitId',
 		type: 'get',
 		data: {c_id:  c_id, q_id: q_id, opt_id: opt_id},
 		dataType: 'json',
 		success:  function(rep){
-			console.log(rep);
 			$("#lastIdnext").attr('onclick', 'myFunction('+rep[0].next_ques_id+','+c_id+')');
 		}, error:  function(rep){
 
@@ -334,7 +388,7 @@ function myFunctest1(c_id,q_id,jq_id)
 {
 	// var opt_id = $(this).find('.s_data').val();
 	var opt_id = $('.s_data'+jq_id).val();
-	alert(opt_id);
+	
 	$.ajax({
 		url: '/nextQuesInitId',
 		type: 'get',

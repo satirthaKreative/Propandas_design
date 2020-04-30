@@ -80,7 +80,7 @@
                   </div>
                   <div class="col-sm-4 plr-5">
                      <div class="form-group">
-                        <select class="form-control county_list" name="country" id="county_list">
+                        <select class="form-control county_list" required="" name="country" id="county_list">
                            <option value="">Country</option>
                            
                         </select>
@@ -98,7 +98,7 @@
                   <div class="col-sm-12 plr-5">
                      <div class="form-group">
                         <div class="checkbox">
-                           <label><input type="checkbox" name="remember" name="checked_block"> By clicking on “Sign Up Now”, I agree to and understand the ProPandas <a href="#">Terms of Use</a>  & <a href="#">Privacy Policy</a> .</label>
+                           <label><input type="checkbox" checked="" name="remember" name="checked_block"> By clicking on “Sign Up Now”, I agree to and understand the ProPandas <a href="#">Terms of Use</a>  & <a href="#">Privacy Policy</a> .</label>
                         </div>
                      </div>
                   </div>

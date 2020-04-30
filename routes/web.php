@@ -33,9 +33,10 @@ Route::post('admin-password/reset','Admin\ForgotPasswordController@showLinkReque
 Route::post('admin-password/reset','Admin\ResetPasswordController@reset');
 Route::get('admin-password/reset/{token}','Admin\ResetPasswordController@showResetForm')->name('admin.password.reset');
 Route::get('adminLogout','Admin\LoginController@logout')->name('admin.logout');
+Route::get('about-us', 'Admin\AboutController@showFrontAbout');
 
 
-
+Route::resource('admin-about','Admin\AboutController');
 Route::resource('admin-category','Admin\AdmincategoryController');
 Route::resource('admin-question','Admin\AdminquestionController');
 Route::resource('admin-option','Admin\AdminoptionController');
@@ -44,6 +45,12 @@ Route::resource('admin-profile','Admin\AdminProfileController');
 Route::resource('admin-freelegaldoc','Admin\Freelegaldocx');
 Route::resource('password','SetPassController');
 
+/* backend ajax */
+// about
+Route::POST('/aboutUsDetailsAdd','Admin\AboutController@create');
+Route::GET('/showAboutDetails','Admin\AboutController@show');
+Route::POST('/aboutUsDetailsEdit','Admin\AboutController@update');
+/* end backend ajax */
 
 Route::get('/search-view/{data}', function () {
     return view('frontend.front-pages.search');
@@ -96,4 +103,57 @@ Route::GET('/submitClientJobData','front\ajax\FrontController@submitClientJobDat
 Route::GET('/checking_email_registration','front\ajax\FrontController@checking_email_registration');
 
 // front dashboard add ajax
-Route::GET('/checking_email_registration','front\ajax\FrontController@checking_email_registration');
+Route::GET('/country_change_dashboard','front\ajax\FrontController@country_change_dashboard');
+Route::GET('/updateProfilePage','front\ajax\FrontController@updateProfilePage');
+Route::GET('/updateProfilePassPage','front\ajax\FrontController@updateProfilePassPage');
+Route::GET('/updateLawyerProfilePage','front\ajax\FrontController@updateLawyerProfilePage');
+Route::POST('/myImgFileUploadProfile','front\ajax\FrontController@myImgFileUploadProfile');
+Route::POST('/ajaxPhoneVerifySendData','front\ajax\FrontController@ajaxPhoneVerifySendData');
+Route::POST('/ajaxPhoneVerifyData','front\ajax\FrontController@ajaxPhoneVerifyData');
+Route::GET('/myEmailForgotPasswordRecovery','ForgotPasswordMailAddress@sendFeedback');
+Route::GET('/homeBannerAjax','front\ajax\FrontController@ajaxHomeBanner');
+Route::GET('/homeItWorkAjax','front\ajax\FrontController@ajaxHomeWork');
+Route::GET('/homeTestimonialsAjax','front\ajax\FrontController@ajaxHomeTestimonials');
+Route::GET('/homeBehindPropandasAjax','front\ajax\FrontController@ajaxHomeBehindPropandas');
+
+// Backend Banner Data
+Route::GET('/banner','Admin\HomeBannerController@index');
+Route::GET('/banner/{id}','Admin\HomeBannerController@showBanner');
+Route::GET('/bannerAdd','Admin\HomeBannerController@showAddForm');
+Route::POST('/banner','Admin\HomeBannerController@createBanner');
+Route::DELETE('/banner/{banner}','Admin\HomeBannerController@deleteBanner');
+Route::PUT('/banner/{banner}','Admin\HomeBannerController@updateBanner');
+
+
+// Backend workHome Data
+Route::GET('/howitwork','Admin\HowItWorkController@index');
+Route::GET('/howitwork/{id}','Admin\HowItWorkController@showBanner');
+Route::GET('/howitworkAdd','Admin\HowItWorkController@showAddForm');
+Route::POST('/howitwork','Admin\HowItWorkController@createBanner');
+Route::DELETE('/howitwork/{howitwork}','Admin\HowItWorkController@deleteBanner');
+Route::PUT('/howitwork/{howitwork}','Admin\HowItWorkController@updateBanner');
+
+// Backend testimonials Data
+Route::GET('/testimonials','Admin\HomeTestimonialsController@index');
+Route::GET('/testimonials/{id}','Admin\HomeTestimonialsController@showBanner');
+Route::GET('/testimonialsAdd','Admin\HomeTestimonialsController@showAddForm');
+Route::POST('/testimonials','Admin\HomeTestimonialsController@createBanner');
+Route::DELETE('/testimonials/{testimonials}','Admin\HomeTestimonialsController@deleteBanner');
+Route::PUT('/testimonials/{testimonials}','Admin\HomeTestimonialsController@updateBanner');
+
+// Backend behind propandas Data
+Route::GET('/behindpropandas','Admin\HomeBehindPropandasController@index');
+Route::GET('/behindpropandas/{id}','Admin\HomeBehindPropandasController@showBanner');
+Route::GET('/behindpropandasAdd','Admin\HomeBehindPropandasController@showAddForm');
+Route::POST('/behindpropandas','Admin\HomeBehindPropandasController@createBanner');
+Route::DELETE('/behindpropandas/{behindpropandas}','Admin\HomeBehindPropandasController@deleteBanner');
+Route::PUT('/behindpropandas/{behindpropandas}','Admin\HomeBehindPropandasController@updateBanner');
+
+// heading
+Route::GET('/behindpropandasheading/{id}','Admin\HomeBehindPropandasController@showBeahindHeading');
+Route::GET('/behindpropandasheadingAdd','Admin\HomeBehindPropandasController@showBeahindHeadingAdd');
+Route::POST('/behindpropandasheading','Admin\HomeBehindPropandasController@createBanneromeHeading');
+Route::PUT('/behindpropandasheading/{behindpropandasheading}','Admin\HomeBehindPropandasController@updateBannerHeading');
+
+// lawyer dashboard
+Route::GET('/posted-jobs','front\lawyerDashboard\PostJobLawyerController@index');

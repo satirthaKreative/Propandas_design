@@ -97,3 +97,45 @@ li.profile-dropdown:hover ul.dropdown-profile{
     display: block;
     transition: 0.5s;
 }
+
+/* team-slide css*/
+.team-slide {
+    margin-top: 25px;
+}
+
+.team-slide .owl-stage{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.team-slide .owl-item{
+    display: inline-flex;
+}
+
+.team-slide .owl-item .srvc-item {   
+    height: 100%;
+}
+
+.team-slide .owl-nav {
+    display: none;
+}
+
+.team-slide .owl-dots {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.team-slide .owl-dots .owl-dot {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background-color:#e5e5e5;
+        margin:3px;
+        outline: none;      
+    }
+    .team-slide .owl-dots .owl-dot.active {
+        background-color: #8d919c;
+        width: 16px;
+        height: 16px;       
+    }
+/* end team-slide css*/

@@ -2,6 +2,8 @@
         <meta charset="UTF-8">
         <title>AdminLTE | Dashboard</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+        <!-- icon -->  
+        <link rel="icon" href="{{ asset('frontAssets/images/favicon.ico') }}" type="image/x-icon">
         <!-- bootstrap 3.0.2 -->
         <link href="{{ asset('backendAssets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- font Awesome -->
@@ -13,6 +15,8 @@
         <link href="{{ asset('backendAssets/css/custom.css') }}" rel="stylesheet" type="text/css" />
         <!-- Select Style -->
         <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
