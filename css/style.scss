@@ -2266,7 +2266,10 @@ figure {
 
      .right-step{
 	    float: left;
-	    width:100px;
+	    width: 100px;
+	    align-items: center;
+	    display: inline-flex;
+	    flex-wrap: wrap;
       
        p {
 		    margin-bottom: 5px;
@@ -3963,6 +3966,7 @@ img.modal-logo {
     border-radius: 50%;
     margin-right: 10px;
     border: solid 1px #e9e9e9;
+    object-fit: cover;
 }
 
 .vw-btn {
@@ -3992,7 +3996,7 @@ h5{
     line-height: 30px;
 }
 p{
-	color: #75808F;
+	color: #4c5561;
     margin-bottom: 10px;
     font-size: 13px;
     line-height: 22px;
@@ -4031,3 +4035,49 @@ a.dt-btn {
 
 
 }
+
+
+.dg-text {
+    font-size: 12px !important;
+    color: #093486 !important;    
+}
+
+.src-filter {
+    padding: 10px;
+    border-bottom: solid 1px #e6dfdf;
+    display: inline-block;
+    width: 100%;
+}
+
+.filter-result{
+	li{
+	display: flex !important;
+    flex-wrap: wrap;
+    align-content: center;
+	}
+}
+.detail-content {
+	h6{
+		 color: #0d2c67;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 22px;   
+		span{
+			 margin-right: 10px;
+
+		}
+	}
+
+	.dg-text {
+    font-size: 13px !important;
+    color: #5c6576 !important;
+    font-weight: 500;
+}
+p{
+	strong{
+		color: #0d2c67;
+    font-weight: 500;
+	}
+}
+}
+

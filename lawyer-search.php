@@ -14,7 +14,7 @@
    <div class="container">
       <div class="row">
          <div class="col-md-12">
-            <h3 class="fs-title">Posted Jobs</h3>
+            <h3 class="fs-title">Search Lawyer</h3>
             <hr>
          </div>
          <div class="col-md-3">
@@ -33,25 +33,23 @@
          <!-- end of col-md-3 -->
          <div class="col-md-9">
             <div class="dsbrd-content">
-               <h6>Post Jobs</h6>
-               <ul>
-                  <li>
-                     <div class="src-filter ">
+               <h6>Search a Lawyer</h6>
+               <div class="src-filter ">
                         <form action="">
                            <div class="row">
                               <div class="col-md-3 plr-5">
                                  <div class="form-group">
-                                    <label for="">Type of job</label>
+                                    <label for=""> Type of Lawyers</label>
                                     <select name="type" id="type"  class="form-control" aria-hidden="true">
-                                       <option selected="selected" value="mine">Select Job Type</option>
-                                       <option value="">Business</option>
-                                       <option value="">Intellectual Property</option>
-                                       <option value="">Employment </option>
-                                       <option value="">Contracts & Agreements</option>
-                                       <option value="">Immigration </option>
-                                       <option value="">Real Estate </option>
-                                       <option value="">Tax </option>
-                                       <option value="">Lawsuits & Disputes</option>
+                                       <option selected="selected" value="">Select Lawyers</option>
+                                       <option value="">Business Lawyers</option>
+                                       <option value="">Intellectual Property Lawyers</option>
+                                       <option value="">Employment Lawyers </option>
+                                       <option value="">Contracts & Agreements Lawyers</option>
+                                       <option value="">Immigration Lawyers</option>
+                                       <option value="">Real Estate Lawyers </option>
+                                       <option value="">Tax Lawyers</option>
+                                       <option value="">Lawsuits & Disputes Lawyers</option>
                                     </select>
                                  </div>
                               </div>
@@ -92,13 +90,14 @@
                            
                         </form>
                      </div>
-                  </li>
+               <ul class="filter-result">                 
                   <li>
                   	<div class="left-step">
                   		<div class="media">
-                  			 <img class="md-img" src="images/no-img.jpg" alt="image">
+                  			 <img class="md-img" src="https://image.freepik.com/free-photo/smiling-mature-lawyer-working-courtroom_23-2147898545.jpg" alt="image">
                   			  <div class="media-body">
-                  			  	 <h5>Employment Job</h5>
+                  			  	 <h5>Robert Hooks</h5>
+                  			  	 <p class="dg-text"><em>Business Lawyers</em></p>
                   			  	 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                   			  </div>
                   		</div>
@@ -106,17 +105,19 @@
 
                   	<div class="right-step">
                   		<br>
-                           <a href="job-detail.php" class="shrt-btn vw-btn">View Job</a>
+                           <a href="Lawyer-detail.php" class="shrt-btn vw-btn">View Details</a>
                         </div>  
                     
                   </li>
 
+
                   <li>
                   	<div class="left-step">
                   		<div class="media">
-                  			 <img class="md-img" src="images/no-img.jpg" alt="image">
+                  			 <img class="md-img" src="https://www.bestattorneysofamerica.com/wp-content/uploads/cache/images/for-attorneys-woman/for-attorneys-woman-1416831204.jpg" alt="image">
                   			  <div class="media-body">
-                  			  	 <h5>Contracts & Agreements</h5>
+                  			  	 <h5>Sara Najjar</h5>
+                  			  	 <p class="dg-text"><em>Tax Lawyers</em></p>
                   			  	 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                   			  </div>
                   		</div>
@@ -124,7 +125,7 @@
 
                   	<div class="right-step">
                   		<br>
-                           <a href="job-detail.php" class="shrt-btn vw-btn">View Job</a>
+                           <a href="Lawyer-detail.php" class="shrt-btn vw-btn">View Details</a>
                         </div>  
                     
                   </li>
@@ -132,27 +133,10 @@
                   <li>
                   	<div class="left-step">
                   		<div class="media">
-                  			 <img class="md-img" src="images/no-img.jpg" alt="image">
+                  			 <img class="md-img" src="https://www.jangattorneys.com/wp-content/themes/jang-2017/img/defaultinnerimgmob.jpg" alt="image">
                   			  <div class="media-body">
-                  			  	 <h5>Employment Job</h5>
-                  			  	 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                  			  </div>
-                  		</div>
-                  	</div>
-
-                  	<div class="right-step">                  		
-                           <a href="job-detail.php" class="shrt-btn vw-btn">View Job</a>
-                           <a href="job-detail.php" class="shrt-btn vw-btn">View Job</a>
-                        </div>  
-                    
-                  </li>
-
-                  <li>
-                  	<div class="left-step">
-                  		<div class="media">
-                  			 <img class="md-img" src="images/no-img.jpg" alt="image">
-                  			  <div class="media-body">
-                  			  	 <h5>Immigration</h5>
+                  			  	 <h5>Mitri Valentine </h5>
+                  			  	 <p class="dg-text"><em>Immigration Lawyers</em></p>
                   			  	 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                   			  </div>
                   		</div>
@@ -160,10 +144,31 @@
 
                   	<div class="right-step">
                   		<br>
-                           <a href="javascript:void(0)" class="shrt-btn vw-btn">View Job</a>
+                           <a href="Lawyer-detail.php" class="shrt-btn vw-btn">View Details</a>
                         </div>  
                     
                   </li>
+
+                  <li>
+                  	<div class="left-step">
+                  		<div class="media">
+                  			 <img class="md-img" src="https://freedomlaw.ca/wp-content/uploads/2018/06/corporate.jpg" alt="image">
+                  			  <div class="media-body">
+                  			  	 <h5>William David.</h5>
+                  			  	 <p class="dg-text"><em>Real Estate Lawyers</em></p>
+                  			  	 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  			  </div>
+                  		</div>
+                  	</div>
+
+                  	<div class="right-step">
+                  		<br>
+                           <a href="Lawyer-detail.php" class="shrt-btn vw-btn">View Details</a>
+                        </div>  
+                    
+                  </li>
+
+                  
                   
                </ul>
             </div>
