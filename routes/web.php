@@ -157,3 +157,7 @@ Route::PUT('/behindpropandasheading/{behindpropandasheading}','Admin\HomeBehindP
 
 // lawyer dashboard
 Route::GET('/posted-jobs','front\lawyerDashboard\PostJobLawyerController@index');
+
+
+// lawyer dashoboard ajax
+Route::GET('/all_posted_job_show','front\lawyerDashboard\ajax\LawyerDashboardAjaxController@index');

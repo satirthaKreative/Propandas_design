@@ -228,6 +228,7 @@ class FrontController extends Controller
 
     public function nextQuesInitId()
     {
+        
         $quesAnsSessionClient = [
             'question_name' => $_GET['q_id'],
             'Answer' => $_GET['opt_id'],
@@ -241,19 +242,29 @@ class FrontController extends Controller
         
         if($data_Query1 == 1 || $data_Query1 == 3)
         {
-
             $q_select = DB::table('admincateques')
                         ->where('admincateques.question_id',$q_id)
                         ->where('admincateques.category_id',$c_id)
                         ->get();
+            $q_select['next_del_next_id'] = 1;
         }else{
             $opt_id = $_GET['opt_id'];
 
-            $q_select = DB::table('admincateques')
+            $q_count_select = DB::table('admincateques')
+                        ->where('admincateques.question_id',$q_id)
+                        ->where('admincateques.category_id',$c_id)
+                        ->where('admincateques.option_id',$opt_id)
+                        ->count();
+            if($q_count_select>0){
+                $q_select = DB::table('admincateques')
                         ->where('admincateques.question_id',$q_id)
                         ->where('admincateques.category_id',$c_id)
                         ->where('admincateques.option_id',$opt_id)
                         ->get();
+                $q_select['next_del_next_id'] = 1;
+            } else {
+                $q_select['next_del_next_id'] = 0;
+            }
         }
         echo  json_encode($q_select);
     }

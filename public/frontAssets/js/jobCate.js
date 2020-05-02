@@ -143,6 +143,7 @@ function do_dump_c(nxt_qid,c_id){
 	
 var tmp_g = "";
 	var opt_val = jQuery('.text_data').val();
+	alert(opt_val);
 				$.ajax({
 					url: '/nextQuestionRound',
 					type: 'GET',
@@ -362,7 +363,11 @@ function myFunctest(c_id,q_id,jq_id)
 		data: {c_id:  c_id, q_id: q_id, opt_id: opt_id},
 		dataType: 'json',
 		success:  function(rep){
-			$("#lastIdnext").attr('onclick', 'myFunction('+rep[0].next_ques_id+','+c_id+')');
+			if(rep.next_del_next_id == 0){
+				$("#lastIdnext").attr('onclick', 'myFunction('+0+','+c_id+')');
+			}else{
+				$("#lastIdnext").attr('onclick', 'myFunction('+rep[0].next_ques_id+','+c_id+')');
+			}
 		}, error:  function(rep){
 
 		}
@@ -388,15 +393,21 @@ function myFunctest1(c_id,q_id,jq_id)
 {
 	// var opt_id = $(this).find('.s_data').val();
 	var opt_id = $('.s_data'+jq_id).val();
-	
+	console.log("question id : "+ q_id);
 	$.ajax({
 		url: '/nextQuesInitId',
 		type: 'get',
 		data: {c_id:  c_id, q_id: q_id, opt_id: opt_id},
 		dataType: 'json',
 		success:  function(rep){
-			console.log(rep);
-			$(".lastIdnext").attr('onclick', 'myFunction('+rep[0].next_ques_id+','+c_id+')');
+			console.log(rep.next_del_next_id);
+
+			if(rep.next_del_next_id == 0){
+				$(".lastIdnext").attr('onclick', 'myFunction('+0+','+c_id+')');
+			}else{
+				$(".lastIdnext").attr('onclick', 'myFunction('+rep[0].next_ques_id+','+c_id+')');
+			}
+			
 		}, error:  function(rep){
 
 		}
