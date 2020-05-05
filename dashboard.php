@@ -23,6 +23,8 @@
              <li><a href="javascript:void(0)" data-toggle="modal" data-target="#forgot-modal"><i class="fa fa-lock fa-fw "  aria-hidden="true"></i>Forgot Password</a></li>
 
              <li><a href="javascript:void(0)" data-toggle="modal" data-target="#sent-modal" class="green-text"><i class="fa fa-lock fa-fw "  aria-hidden="true"></i>Password Sent</a></li>
+
+              <li><a href="javascript:void(0)" data-toggle="modal" data-target="#coming-modal" class="green-text"><i class="fa fa-check-square-o fa-fw "  aria-hidden="true"></i>coming soon</a></li>
              
 
 
@@ -276,8 +278,7 @@
             <div class="modal-body text-center">
                <div class="center-part">
                   <h3><span><img src="images/logo.png" alt="logo" class="modal-logo"></span>Welcome to Propandas </h3>
-                  <h6>To being a propandas Family </h6>
-                  
+                  <h6>To being a propandas Family </h6>                  
                </div>
             </div>
          </div>
@@ -363,6 +364,22 @@
                   </form>
                </div>
                <!--end of col-md-12 -->
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+   <!-- coming-soon Modal -->
+   <div class="modal fade theme-modal" id="coming-modal">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <!-- Modal body -->
+            <div class="modal-body text-center">
+               <div class="center-part">
+                  <h3><span><img src="images/logo.png" alt="logo" class="modal-logo"></span>Coming Soon</h3>   
+                   <h6>We are coming to you very soon </h6>                               
+               </div>
             </div>
          </div>
       </div>
