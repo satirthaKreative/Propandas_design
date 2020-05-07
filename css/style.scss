@@ -2253,7 +2253,7 @@ figure {
 		    	 border-bottom: 0px;
 		    }
 		    h5{
-		    	font-size: 15px;
+		    	font-size: 14px;
 		        color: #272727;
 		        margin-bottom: 10px;
 		    }
@@ -4867,23 +4867,24 @@ span.date-text {
 .dshbrd-inner {
     max-height: 600px;  
     overflow: auto;
+    padding:0px 6px;
 
     &::-webkit-scrollbar-track{
 	 background-color: #ebebeb;
     -webkit-border-radius: 10px;
-    border-radius: 10px;
+    border-radius: 10px;    
   }
 
   &::-webkit-scrollbar{
-	 width: 6px;
+	 width: 4px;
+	
  }
 
  &::-webkit-scrollbar-thumb{
 	 -webkit-border-radius: 10px;
     border-radius: 10px;
-    background: #6d6d6d;
-    height: 80px; 
+    background: #a9a9a9;
+    max-height: 10%!important; 
 }
-
 
 }

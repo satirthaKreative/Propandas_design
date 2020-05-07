@@ -39,7 +39,7 @@
                <ul class="filter-result notification-list">
 
                   <li>
-                      <a href="javascript:void(0)" class="flex-anchore">
+                      <a href="notification-detail.php" class="flex-anchore">
                   	<div class="left-step">                        
                   		<div class="media">
                   			 <div class="close-circle"><i class="fa fa-times" aria-hidden="true"></i></div>                           
@@ -52,7 +52,7 @@
 
                   	 <div class="right-step">                     
                            <span class="date-text">
-                              <i class="fa fa-clock-o" aria-hidden="true"></i>20/04/2020
+                              <i class="fa fa-clock-o" aria-hidden="true"></i>25/04/2020
                            </span>
                         </div> 
                      </a>
@@ -61,7 +61,7 @@
 
 
                   <li>
-                      <a href="javascript:void(0)" class="flex-anchore">
+                      <a href="notification-detail.php" class="flex-anchore">
                      <div class="left-step">                        
                         <div class="media">
                             <div class="close-circle"><i class="fa fa-times" aria-hidden="true"></i></div>                           
@@ -74,7 +74,7 @@
 
                       <div class="right-step">                     
                            <span class="date-text">
-                              <i class="fa fa-clock-o" aria-hidden="true"></i>20/04/2020
+                              <i class="fa fa-clock-o" aria-hidden="true"></i>24/04/2020
                            </span>
                         </div> 
                      </a>
@@ -82,7 +82,7 @@
                   </li>
 
                   <li>
-                      <a href="javascript:void(0)" class="flex-anchore">
+                      <a href="notification-detail.php" class="flex-anchore">
                      <div class="left-step">                        
                         <div class="media">
                             <div class="close-circle"><i class="fa fa-times" aria-hidden="true"></i></div>                           
@@ -95,7 +95,7 @@
 
                       <div class="right-step">                     
                            <span class="date-text">
-                              <i class="fa fa-clock-o" aria-hidden="true"></i>20/04/2020
+                              <i class="fa fa-clock-o" aria-hidden="true"></i>23/04/2020
                            </span>
                         </div> 
                      </a>
@@ -103,7 +103,28 @@
                   </li>
 
                   <li>
-                      <a href="javascript:void(0)" class="flex-anchore">
+                      <a href="notification-detail.php" class="flex-anchore">
+                     <div class="left-step">                        
+                        <div class="media">
+                            <div class="close-circle"><i class="fa fa-times" aria-hidden="true"></i></div>                           
+                             <div class="media-body">
+                               <h5>Et harum quidem rerum facilis</h5>
+                               <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                             </div>
+                        </div>
+                     </div>
+
+                      <div class="right-step">                     
+                           <span class="date-text">
+                              <i class="fa fa-clock-o" aria-hidden="true"></i>22/04/2020
+                           </span>
+                        </div> 
+                     </a>
+                    
+                  </li>
+
+                   <li>
+                      <a href="notification-detail.php" class="flex-anchore">
                      <div class="left-step">                        
                         <div class="media">
                             <div class="close-circle"><i class="fa fa-times" aria-hidden="true"></i></div>                           
@@ -124,7 +145,7 @@
                   </li>
 
                   <li>
-                      <a href="javascript:void(0)" class="flex-anchore">
+                      <a href="notification-detail.php" class="flex-anchore">
                      <div class="left-step">                        
                         <div class="media">
                             <div class="close-circle"><i class="fa fa-times" aria-hidden="true"></i></div>                           
@@ -137,33 +158,13 @@
 
                       <div class="right-step">                     
                            <span class="date-text">
-                              <i class="fa fa-clock-o" aria-hidden="true"></i>20/04/2020
+                              <i class="fa fa-clock-o" aria-hidden="true"></i>18/04/2020
                            </span>
                         </div> 
                      </a>
                     
                   </li>
-
-                  <li>
-                      <a href="javascript:void(0)" class="flex-anchore">
-                     <div class="left-step">                        
-                        <div class="media">
-                            <div class="close-circle"><i class="fa fa-times" aria-hidden="true"></i></div>                           
-                             <div class="media-body">
-                               <h5>Et harum quidem rerum facilis</h5>
-                               <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                             </div>
-                        </div>
-                     </div>
-
-                      <div class="right-step">                     
-                           <span class="date-text">
-                              <i class="fa fa-clock-o" aria-hidden="true"></i>20/04/2020
-                           </span>
-                        </div> 
-                     </a>
-                    
-                  </li>
+                  
                   
                </ul>
             </div>
