@@ -82,8 +82,8 @@
                </div>
                <li><a href="{{ url('/') }}">Home</a></li>
                <li><a href="{{ url('/about-us') }}">About</a></li>
-               <li><a href="{{ url('/legal-info') }}">Info</a></li>
-               <li><a href="{{ url('/contact') }}">Contact</a></li>
+               <li><a href="javascript: ;">Info</a></li>
+               <li><a href="javascript: ;">Contact</a></li>
             </ul>
          </div>
       </div>

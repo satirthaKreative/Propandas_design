@@ -160,7 +160,7 @@ $(function(){
 
             var htmlImg = '<img src="'+event[0].howit_images+'" alt="about-image" class="img-fluid round-shape">';
             var html = '';
-                html += '<div class="top-title"><h1>'+event[0].heading_title+'<span></span></h1></div>'+event[0].descriptions+'<div class="inf-part"><div class="row"><div class="col-md-6"><h3><span><img src="/frontAssets/images/hmm-icon.png" alt="icon"></span>'+event[0].year_count+'<small>'+event[0].year_text+'</small></h3></div><div class="col-md-6"><h3 class="no-border cntct-text">'+event[0].contact_no+'<small>'+event[0].contact_text+'</small></h3></div></div></div>';
+                html += '<div class="top-title"><h1>'+event[0].heading_title+'<span></span></h1></div>'+event[0].descriptions+'<div class="inf-part"><div class="row"><div class="col-md-6"><h3 ><span><img src="/frontAssets/images/hmm-icon.png" alt="icon"></span>'+event[0].year_count+'<small>'+event[0].year_text+'</small></h3></div><div class="col-md-6"><h3 class="no-border cntct-text">'+event[0].contact_no+'<small>'+event[0].contact_text+'</small></h3></div></div></div>';
              
 
             $("#home-work-id").html(html);

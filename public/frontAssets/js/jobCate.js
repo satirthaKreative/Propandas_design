@@ -69,7 +69,7 @@ function myCallJobQuestion(jc_id, myDate)
 				 	if(event[0].question_type == 1)
 				 	{
 				 		fieldsetcount = $('fieldset').length+1;
-				 		html += '<input type="text" name="text_data" class="text_data s_data'+fieldsetcount+'" placeholder="" onfocusout="myFunctest('+jc_id+','+event[0].question_id+',0)"/>';
+				 		html += '<input type="text" name="text_data" class="text_data s_dataA161" placeholder="" onfocusout="myFunctest('+jc_id+','+event[0].question_id+',"A0")"/>';
 				 	} 
 				 	else if(event[0].question_type == 2)
 				 	{
@@ -84,7 +84,7 @@ function myCallJobQuestion(jc_id, myDate)
 				 	else if(event[0].question_type == 3)
 				 	{
 				 		fieldsetcount = $('fieldset').length+1;
-				 		html += '<textarea name="" class="text_data s_data'+fieldsetcount+'" placeholder="Message" onfocusout="myFunctest('+jc_id+','+event[0].question_id+',0)"></textarea>';
+				 		html += '<textarea name="" class="text_data s_dataA162" placeholder="Message" onfocusout="myFunctest('+jc_id+','+event[0].question_id+',0)"></textarea>';
 				 	}
 				 	else if(event[0].question_type == 4)
 				 	{
@@ -143,7 +143,6 @@ function do_dump_c(nxt_qid,c_id){
 	
 var tmp_g = "";
 	var opt_val = jQuery('.text_data').val();
-	alert(opt_val);
 				$.ajax({
 					url: '/nextQuestionRound',
 					type: 'GET',
@@ -350,13 +349,14 @@ function backHome()
 
 function myFunctest(c_id,q_id,jq_id)
 {
-	if(jq_id != 0 || jq_id != '0'){
+	if(jq_id == 'A0'){
+		var opt_id = $(".s_dataA161").val();
+	}else if(jq_id != 0 || jq_id != '0'){
 		var opt_id = $('.s_data'+jq_id).val();
-	}else{
-		var opt_id = 0;
+	}else  if(jq_id == 0){
+		var opt_id = $(".s_dataA162").val();
 	}
 	
-	console.log(c_id +" "+opt_id+ " "+ q_id);
 	$.ajax({
 		url: '/nextQuesInitId',
 		type: 'get',
@@ -365,9 +365,10 @@ function myFunctest(c_id,q_id,jq_id)
 		success:  function(rep){
 			if(rep.next_del_next_id == 0){
 				$("#lastIdnext").attr('onclick', 'myFunction('+0+','+c_id+')');
-			}else{
+			}else if(rep.next_del_next_id == 1){
 				$("#lastIdnext").attr('onclick', 'myFunction('+rep[0].next_ques_id+','+c_id+')');
 			}
+			
 		}, error:  function(rep){
 
 		}
@@ -393,21 +394,18 @@ function myFunctest1(c_id,q_id,jq_id)
 {
 	// var opt_id = $(this).find('.s_data').val();
 	var opt_id = $('.s_data'+jq_id).val();
-	console.log("question id : "+ q_id);
+	
 	$.ajax({
 		url: '/nextQuesInitId',
 		type: 'get',
 		data: {c_id:  c_id, q_id: q_id, opt_id: opt_id},
 		dataType: 'json',
 		success:  function(rep){
-			console.log(rep.next_del_next_id);
-
 			if(rep.next_del_next_id == 0){
 				$(".lastIdnext").attr('onclick', 'myFunction('+0+','+c_id+')');
-			}else{
+			}else if(rep.next_del_next_id == 1){
 				$(".lastIdnext").attr('onclick', 'myFunction('+rep[0].next_ques_id+','+c_id+')');
 			}
-			
 		}, error:  function(rep){
 
 		}
@@ -459,7 +457,6 @@ function submit_client_data(){
 		data: {phn_no: phn_no},
 		success: function(event)
 		{
-			console.log(event);
 			if(event.redirectTo_page == 1)
 			{
 				window.location.href="/dashboard";

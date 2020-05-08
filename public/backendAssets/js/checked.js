@@ -2,6 +2,7 @@ $(function(){
     jQuery("#upload_docx").hide();
     // ckeditor on textarea
     CKEDITOR.replace( 'docx-show-details' );
+    CKEDITOR.replaceClass = 'legal-info-text';
     function updateDiv(){
         var editorText = CKEDITOR.instances.editor1.getData();
         $('#trackingDiv').html(editorText);

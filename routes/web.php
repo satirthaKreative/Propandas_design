@@ -34,6 +34,8 @@ Route::post('admin-password/reset','Admin\ResetPasswordController@reset');
 Route::get('admin-password/reset/{token}','Admin\ResetPasswordController@showResetForm')->name('admin.password.reset');
 Route::get('adminLogout','Admin\LoginController@logout')->name('admin.logout');
 Route::get('about-us', 'Admin\AboutController@showFrontAbout');
+// contact front page
+Route::get('contact', 'front\ContactController@index');
 
 
 Route::resource('admin-about','Admin\AboutController');
@@ -115,6 +117,7 @@ Route::GET('/homeBannerAjax','front\ajax\FrontController@ajaxHomeBanner');
 Route::GET('/homeItWorkAjax','front\ajax\FrontController@ajaxHomeWork');
 Route::GET('/homeTestimonialsAjax','front\ajax\FrontController@ajaxHomeTestimonials');
 Route::GET('/homeBehindPropandasAjax','front\ajax\FrontController@ajaxHomeBehindPropandas');
+Route::GET('/ContactQueryMailControllerSendMail','ContactQueryMailController@sendFeedback');
 
 // Backend Banner Data
 Route::GET('/banner','Admin\HomeBannerController@index');
@@ -157,7 +160,47 @@ Route::PUT('/behindpropandasheading/{behindpropandasheading}','Admin\HomeBehindP
 
 // lawyer dashboard
 Route::GET('/posted-jobs','front\lawyerDashboard\PostJobLawyerController@index');
-
+Route::GET('/job-full-view/{jobview}','front\lawyerDashboard\PostJobLawyerController@job_full_view');
 
 // lawyer dashoboard ajax
-Route::GET('/all_posted_job_show','front\lawyerDashboard\ajax\LawyerDashboardAjaxController@index');
+Route::GET('/all_posted_job_show','front\lawyerDashboard\ajax\LawyerDashboardAjaxController@full_view_all_jobs');
+Route::GET('/current_selected_posted_job_show','front\lawyerDashboard\ajax\LawyerDashboardAjaxController@index');
+Route::GET('/search_job_ajax','front\lawyerDashboard\ajax\LawyerDashboardAjaxController@search_job_ajax');
+
+
+// all category ajax
+Route::GET('/jcategory_ajax','front\lawyerDashboard\ajax\LawyerDashboardAjaxController@jcategory_ajax');
+
+
+// client dashboard 
+Route::GET('/client-job-post','front\clientDashboard\PostJobClientController@index');
+
+
+// client dashboard ajax
+Route::GET('/categoryClientAjax','front\clientDashboard\ajax\ClientAjaxController@index');
+Route::GET('/searchNextQuestion','front\clientDashboard\ajax\ClientAjaxController@searchNextQuestion');
+Route::GET('/searchNextLast','front\clientDashboard\ajax\ClientAjaxController@searchNextLast');
+Route::GET('/submitQuesAnsData','front\clientDashboard\ajax\ClientAjaxController@submitQuesAnsData');
+
+
+
+// legal-info full front and backend
+Route::GET('/legal-info','front\LegalInfoController@index');
+Route::GET('/legal-info/{id}','front\LegalInfoController@showInfo');
+Route::PUT('/legal-info/{legalinfo}','front\LegalInfoController@updateLegalInfo');
+Route::GET('/frontLegalInfoFullDataShow','front\LegalInfoController@showLegalFrontInfo');
+
+
+// Terms front and backend
+Route::GET('/terms','front\TermsController@index');
+Route::GET('/terms/{id}','front\TermsController@showInfo');
+Route::PUT('/terms/{terms_condition}','front\TermsController@updateLegalInfo');
+Route::GET('/frontTermsPage','front\TermsController@showLegalFrontInfo');
+
+
+
+// Terms front and backend
+Route::GET('/how-it-works','front\HowItWorksController@index');
+Route::GET('/how-it-works/{id}','front\HowItWorksController@showInfo');
+Route::PUT('/how-it-works/{how_it_works}','front\HowItWorksController@updateLegalInfo');
+Route::GET('/frontHowItWorksPage','front\HowItWorksController@showLegalFrontInfo');

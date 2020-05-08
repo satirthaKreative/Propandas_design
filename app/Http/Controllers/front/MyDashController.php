@@ -28,6 +28,7 @@ class MyDashController extends Controller
             $phone_number = Session::get('myClientPhoneCall');
             Session::put('jobPostDataSent','12'); 
 
+
             $elements = array();
             foreach( $redire as $key=>$data)
             {

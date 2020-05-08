@@ -24,7 +24,7 @@
             <h3>Useful Links</h3>
             <div class="ft-content ft-cont">
                <ul>
-                  <li><a href="#">How it Works</a></li>
+                  <li><a href="{{ url('/how-it-works') }}">How it Works</a></li>
                   <li><a href="#">For Lawyers</a></li>
                   <li><a href="#">Free Legal Documents</a></li>
                   <li><a href="#">Blog </a></li>
@@ -40,7 +40,7 @@
                   <li><a href="#">Careers</a></li>
                   <li><a href="#">Customers</a></li>
                   <li><a href="#">Privacy Policy</a></li>
-                  <li><a href="#">Terms of Service</a></li>
+                  <li><a href="{{ url('/terms') }}">Terms of Service</a></li>
                </ul>
             </div>
          </div>
@@ -93,6 +93,36 @@
       </div>
    </div>
    <!-- /end modal -->
+   <!-- job data Modal -->
+   <div class="modal fade theme-modal" id="jobPostClientSuccessModal">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <!-- Modal body -->
+            <div class="modal-body text-center">
+               <div class="center-part">
+                  <h3><span><img src="{{ asset('frontAssets/images/logo.png') }}" alt="logo" class="modal-logo"></span>Thank You </h3>
+                  <h6>We send Your Queries To The Lawyers </h6>
+                  
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- coming-soon Modal -->
+      <div class="modal fade theme-modal" id="coming-modal">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <!-- Modal body -->
+               <div class="modal-body text-center">
+                  <div class="center-part">
+                     <h3><span><img src="{{ asset('frontAssets/images/logo.png') }}" alt="logo" class="modal-logo"></span>Coming Soon</h3>   
+                      <h6>We are coming to you very soon </h6>                               
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- /end comming soon model -->
 </footer>
 <!-- end footer-section -->
 <!-- Back to top button -->
@@ -508,5 +538,11 @@ jQuery(document).ready(function() {
 
         }
     })
+  }
+
+  function coming_soon_modal()
+  {
+    $("#coming-modal").modal('show');
+    setTimeout(function(){ $("#coming-modal").modal('hide'); }, 3000);
   }
   </script>

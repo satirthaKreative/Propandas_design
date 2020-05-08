@@ -12,4 +12,9 @@ class PostJobLawyerController extends Controller
     {
     	return view('frontend.front-pages.lawyer.post-job-view');
     }
+
+    public function job_full_view()
+    {
+    	return view('frontend.front-pages.lawyer.job-full-view');
+    }
 }

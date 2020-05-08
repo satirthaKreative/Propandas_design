@@ -117,7 +117,7 @@
                 <li class="treeview">
                     <a href="#">
                         <i class="fa fa-pencil"></i>
-                        <span>How It Works</span>
+                        <span>Home "How It Works"</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
@@ -125,6 +125,17 @@
                        
                     </ul>
                 </li>
+                <!-- How its works page details -->
+                <!-- <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-paperclip"></i>
+                        <span>How It Works Page</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ url('/how-it-works/1') }}"><i class="fa fa-angle-double-right"></i>View How it Works</a></li>
+                    </ul>
+                </li> -->
                 <!-- Behind Propandas -->
                 <li class="treeview">
                     <a href="#">
@@ -147,6 +158,29 @@
                         <li><a href="{{ route('admin-about.index') }}"><i class="fa fa-angle-double-right"></i>View About</a></li>
                     </ul>
                 </li>
+                <!-- Legal Info -->
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-file-text"></i>
+                        <span>Legal Info</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ url('/legal-info/1') }}"><i class="fa fa-angle-double-right"></i>View Legal Info</a></li>
+                    </ul>
+                </li>
+                <!-- terms -->
+                <!-- <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-pencil-square"></i>
+                        <span>Terms</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ url('/terms/1') }}"><i class="fa fa-angle-double-right"></i>View Terms</a></li>
+                    </ul>
+                </li> -->
+                
                 <!-- Free Profile Details -->
                 <li class="treeview">
                     <a href="#">

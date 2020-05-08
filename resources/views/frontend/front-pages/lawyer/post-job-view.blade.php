@@ -19,53 +19,32 @@
                <div class="src-filter ">
                   <form action="">
                      <div class="row">
-                        <div class="col-md-3 plr-5">
+                        <div class="col-md-12 alert-msg  job-alert-msg" style="display: none;">
+                           
+                        </div>
+                        <div class="col-md-4 plr-5">
                            <div class="form-group">
                               <label for="">Type of job</label>
-                              <select name="type" id="type"  class="form-control" aria-hidden="true">
-                                 <option selected="selected" value="mine">Select Job Type</option>
-                                 <option value="">Business</option>
-                                 <option value="">Intellectual Property</option>
-                                 <option value="">Employment </option>
-                                 <option value="">Contracts & Agreements</option>
-                                 <option value="">Immigration </option>
-                                 <option value="">Real Estate </option>
-                                 <option value="">Tax </option>
-                                 <option value="">Lawsuits & Disputes</option>
+                              <select name="type" id="type"  class="form-control  job-type-class" aria-hidden="true" onchange="change_job_type()">
+                                 <option selected="selected" value="">Select Job Type</option>
                               </select>
                            </div>
                         </div>
-                        <div class="col-md-3 plr-5">
+                        <div class="col-md-4 plr-5">
                           <div class="form-group">
-                              <label for="">Countries</label>
-                              <select name="type" id="type"  class="form-control" aria-hidden="true">
-                                 <option selected="selected" value="mine">Select Country</option>
-                                 <option value="">Germany</option>
-                                 <option value="">Austria</option>                                      
-                              </select>
-                           </div>
-                        </div>
-                        <div class="col-md-3 plr-5">
-                          <div class="form-group">
-                              <label for="">Popular Cities</label>
-                              <select name="type" id="type"  class="form-control" aria-hidden="true">
-                                 <option selected="selected" value="mine">Select Cities</option>
-                                 <option value="">Berlin</option>
-                                 <option value="">Munich</option> 
-                                 <option value="">Duesseldorf</option>
-                                 <option value="">Koeln</option>   
-                                 <option value="">Hamburg</option>
-                                 <option value="">Hannover</option>
-                                 <option value="">Stuttgart</option>
-                                 <option value="">Frankfurt</option>                                          
+                              <label for="">Sort by date</label>
+                              <select name="type" id="type"  class="form-control sort-type-class" aria-hidden="true" onchange="change_sort_by_date()">
+                                 <option selected="selected" value="">Select Sort By</option>
+                                 <option value="1">Newest</option>
+                                 <option value="2">Oldest</option>                                      
                               </select>
                            </div>
                         </div>
 
-                         <div class="col-md-3 plr-5">
+                         <div class="col-md-4 plr-5">
                           <div class="form-group">
                               <label for="">&nbsp;</label>
-                              <input type="submit" name="" value="Search" class="flt-search">
+                              <input type="button" name="" value="Search" class="flt-search" onclick="search_job_btn()">
                            </div>
                         </div>
                      </div>
@@ -73,7 +52,8 @@
                   </form>
                </div>
                <ul class="filter-result all-job-show-share">
-                  <li>
+                  <p class="pre-loading text-info text-center"><i class="fa fa-spinner"></i> Loading Posted Jobs ... </p>
+                  <!-- <li>
                   	<div class="left-step">
                   		<div class="media">
                   			 <img class="md-img" src="{{ asset('frontAssets/images/no-img.jpg') }}" alt="image">
@@ -89,61 +69,9 @@
                            <a href="job-detail.php" class="shrt-btn vw-btn">View Job</a>
                         </div>  
                     
-                  </li>
+                  </li> -->
 
-                  <li>
-                  	<div class="left-step">
-                  		<div class="media">
-                  			 <img class="md-img" src="{{ asset('frontAssets/images/no-img.jpg') }}" alt="image">
-                  			  <div class="media-body">
-                  			  	 <h5>Contracts & Agreements</h5>
-                  			  	 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                  			  </div>
-                  		</div>
-                  	</div>
-
-                  	<div class="right-step">
-                  		<br>
-                           <a href="job-detail.php" class="shrt-btn vw-btn">View Job</a>
-                        </div>  
-                    
-                  </li>
-
-                  <li>
-                  	<div class="left-step">
-                  		<div class="media">
-                  			 <img class="md-img" src="{{ asset('frontAssets/images/no-img.jpg') }}" alt="image">
-                  			  <div class="media-body">
-                  			  	 <h5>Employment Job</h5>
-                  			  	 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                  			  </div>
-                  		</div>
-                  	</div>
-
-                  	<div class="right-step">                  		
-                           <a href="job-detail.php" class="shrt-btn vw-btn">View Job</a>
-                           <a href="job-detail.php" class="shrt-btn vw-btn">View Job</a>
-                        </div>  
-                    
-                  </li>
-
-                  <li>
-                  	<div class="left-step">
-                  		<div class="media">
-                  			 <img class="md-img" src="{{ asset('frontAssets/images/no-img.jpg') }}" alt="image">
-                  			  <div class="media-body">
-                  			  	 <h5>Immigration</h5>
-                  			  	 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                  			  </div>
-                  		</div>
-                  	</div>
-
-                  	<div class="right-step">
-                  		<br>
-                           <a href="javascript:void(0)" class="shrt-btn vw-btn">View Job</a>
-                        </div>  
-                    
-                  </li>
+               
                   
                </ul>
             </div>
@@ -164,11 +92,90 @@
             type: 'GET',
             dataType: 'json',
             success: function(event_response){
-               console.log(event_response);
+               $(".all-job-show-share").html(event_response);
+            }, error: function(event_response){
+
+            }
+         })
+
+
+         $.ajax({
+            url: '/jcategory_ajax',
+            type: 'GET',
+            dataType: 'json',
+            success: function(event_response){
+               $(".job-type-class").html(event_response);
             }, error: function(event_response){
 
             }
          })
       })
+
+      function search_job_btn()
+      {
+         var job_type = $(".job-type-class").val();
+         var date_type = $(".sort-type-class").val();
+
+         if(job_type == ''){
+            $(".alert-msg").html("<p class='text-danger text-center'><span class=''><i  class='fa fa-times'></i> Please select job types.</span></p>").fadeIn().delay(3000).fadeOut('slow');
+         }else if(date_type == ''){ 
+            $(".alert-msg").html("<p class='text-danger text-center'><span class=''><i  class='fa fa-times'></i> Please select date types.</span></p>").fadeIn().delay(3000).fadeOut('slow');
+         }else{
+            $.ajax({
+               url: '/search_job_ajax',
+               type: 'GET',
+               data: {job_type: job_type, date_type: date_type},
+               dataType: 'json',
+               success: function(event_response){
+                  $(".all-job-show-share").html(event_response);
+               }, error: function(event_response){
+
+               }
+            })
+         }
+         
+      }
+
+      function change_job_type()
+      {
+         var job_type = $(".job-type-class").val();
+
+         if(job_type == ''){
+            $(".alert-msg").html("<p class='text-danger text-center'><span class=''><i  class='fa fa-times'></i> Please select job types.</span></p>").fadeIn().delay(3000).fadeOut('slow');
+         }else{
+            $.ajax({
+               url: '/search_job_ajax',
+               type: 'GET',
+               data: {job_type: job_type},
+               dataType: 'json',
+               success: function(event_response){
+                  $(".all-job-show-share").html(event_response);
+               }, error: function(event_response){
+
+               }
+            })
+         }
+      }
+
+      function change_sort_by_date()
+      {
+         var date_type = $(".sort-type-class").val();
+
+         if(date_type == ''){ 
+            $(".alert-msg").html("<p class='text-danger text-center'><span class=''><i  class='fa fa-times'></i> Please select date types.</span></p>").fadeIn().delay(3000).fadeOut('slow');
+         }else{
+            $.ajax({
+               url: '/search_job_ajax',
+               type: 'GET',
+               data: {date_type: date_type},
+               dataType: 'json',
+               success: function(event_response){
+                  $(".all-job-show-share").html(event_response);
+               }, error: function(event_response){
+
+               }
+            })
+         }
+      }
    </script>
 @endsection
