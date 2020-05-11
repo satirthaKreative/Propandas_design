@@ -2275,6 +2275,9 @@ figure {
     	color: #75808F;
     	 margin-bottom: 5px;
     	 font-size: 12px;
+    	 a{
+    	 	color: #75808F;
+    	 }
     }
      }
 
@@ -4849,7 +4852,8 @@ ul{
     margin-right: 10px;
     position: relative;
     border: solid 1px #e3e3e3;
-    text-decoration: none;
+    text-decoration: none !important;
+    
 }
 }
 
@@ -4949,7 +4953,7 @@ p.top-prsp-btn {
 
 .dsbrd-content{
 	.highlight-list {
-	font-size: 14px;
+	font-size: 13px;
     color: #484848;
     margin-bottom: 2px;
 		span {
@@ -4961,5 +4965,23 @@ p.top-prsp-btn {
 			padding-right: 5px;
 			}
 		}
+
+		.date-text{
+			font-weight: 300;
+           font-size: 11px;
+		}
 	}
+}
+
+
+.detail-content{
+	hr{
+		margin-top: 20px;
+    margin-bottom: 20px;
+	}
+}
+
+a.bid-text {
+    font-size: 12px;
+    color: #4a505b !important;
 }

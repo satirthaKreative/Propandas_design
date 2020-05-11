@@ -39,13 +39,13 @@
                <ul class="filter-result notification-list">
 
                   <li>
-                      <a href="notification-detail.php" class="flex-anchore">
+                      
                   	<div class="left-step">                        
                   		<div class="media">
-                  			 <div class="close-circle"><i class="fa fa-times" aria-hidden="true"></i></div>                           
+                  			 <a href="#"><div class="close-circle"><i class="fa fa-times" aria-hidden="true"></i></div></a>                        
                   			  <div class="media-body">
-                  			  	 <h5>At vero eos et accusamus et iusto odio</h5>
-                  			  	 <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                  			  	 <h5><a href="notification-detail.php">At vero eos et accusamus et iusto odio</a></h5>
+                  			  	 <p><a href="notification-detail.php">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</a></p>
                   			  </div>
                   		</div>
                   	</div>
@@ -55,7 +55,7 @@
                               <i class="fa fa-clock-o" aria-hidden="true"></i>25/04/2020
                            </span>
                         </div> 
-                     </a>
+                     
                     
                   </li>
 

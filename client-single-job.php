@@ -46,15 +46,17 @@
                  
                   </div>
                   <div class="col-md-4">
-                  <p class="top-prsp-btn"><span><a href="javascript:void(0)" class="dt-btn">View Proposal</a></span> </p>
+                  <p class="top-prsp-btn"><span><a href="proposal.php" class="dt-btn">View Proposal</a></span> </p>
                   </div>
-                </div>
+                </div>   
+                <hr>           
 
-                <p><strong>Job Details</strong></p>           
+                <h6>Job Details</h6>           
                 
                  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Excepteur sint occaecat cupidatat non.</p>
-                 <p><strong>Skills Required</strong></p>
+                 <hr>
+                  <h6>Skills Required </h6>
                  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Excepteur sint occaecat cupidatat non.</p>
                   <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                  <ul>

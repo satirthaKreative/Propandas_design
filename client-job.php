@@ -85,7 +85,7 @@
                      </div>
 
                       <div class="right-step">
-                           <p><a href="client-single-job.php"><label>10</label>Proposals</a></p>
+                           <p ><a href="client-single-job.php" class="bid-text"><label>10</label>Proposals</a></p>
                         </div>                       
                    
                   </li>
@@ -100,7 +100,7 @@
                      </div>
 
                       <div class="right-step">
-                           <p><a href="client-single-job.php"><label>10</label>Proposals</a></p>
+                           <p ><a href="client-single-job.php" class="bid-text"><label>10</label>Proposals</a></p>
                         </div>                       
                    
                   </li>
@@ -116,7 +116,7 @@
                      </div>
 
                       <div class="right-step">
-                           <p><a href="client-single-job.php"><label>10</label>Proposals</a></p>
+                           <p ><a href="client-single-job.php" class="bid-text"><label>10</label>Proposals</a></p>
                         </div>                       
                    
                   </li>                
@@ -130,7 +130,7 @@
                      </div>
 
                       <div class="right-step">
-                           <p><a href="client-single-job.php"><label>10</label>Proposals</a></p>
+                          <p ><a href="client-single-job.php" class="bid-text"><label>10</label>Proposals</a></p>
                         </div>                       
                    
                   </li>
@@ -145,7 +145,7 @@
                      </div>
 
                       <div class="right-step">
-                           <p><a href="client-single-job.php"><label>10</label>Proposals</a></p>
+                           <p ><a href="client-single-job.php" class="bid-text"><label>10</label>Proposals</a></p>
                         </div>                       
                    
                   </li>
@@ -161,7 +161,7 @@
                      </div>
 
                       <div class="right-step">
-                           <p><a href="client-single-job.php"><label>10</label>Proposals</a></p>
+                           <p ><a href="client-single-job.php" class="bid-text"><label>10</label>Proposals</a></p>
                         </div>                       
                    
                   </li>

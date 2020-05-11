@@ -86,7 +86,7 @@
                   		<div class="media">
                   			 <img class="md-img" src="https://image.freepik.com/free-photo/smiling-mature-lawyer-working-courtroom_23-2147898545.jpg" alt="image">
                   			  <div class="media-body">
-                  			  	 <h6>Robert Hooks</h6> 
+                  			  	 <h5>Robert Hooks</h5> 
 
                                <h6 class="highlight-list">
                                  <span>$80/per hr</span>
@@ -112,7 +112,12 @@
                   			 <img class="md-img" src="https://www.bestattorneysofamerica.com/wp-content/uploads/cache/images/for-attorneys-woman/for-attorneys-woman-1416831204.jpg" alt="image">
                   			  <div class="media-body">
                   			  	 <h5>Sara Najjar</h5>
-                  			  	 <p class="dg-text"><em>Tax Lawyers</em></p>
+
+                               <h6 class="highlight-list">
+                                 <span>$75/per hr</span>
+                                 <span class="date-text"><i class="fa fa-clock-o" aria-hidden="true"></i>28/04/2020</span>
+                              </h6> 
+
                   			  	 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                   			  </div>
                   		</div>
@@ -131,7 +136,10 @@
                   			 <img class="md-img" src="https://www.jangattorneys.com/wp-content/themes/jang-2017/img/defaultinnerimgmob.jpg" alt="image">
                   			  <div class="media-body">
                   			  	 <h5>Mitri Valentine </h5>
-                  			  	 <p class="dg-text"><em>Immigration Lawyers</em></p>
+                  			  	 <h6 class="highlight-list">
+                                 <span>$70/per hr</span>
+                                 <span class="date-text"><i class="fa fa-clock-o" aria-hidden="true"></i>28/04/2020</span>
+                              </h6>
                   			  	 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                   			  </div>
                   		</div>
@@ -150,7 +158,10 @@
                   			 <img class="md-img" src="https://freedomlaw.ca/wp-content/uploads/2018/06/corporate.jpg" alt="image">
                   			  <div class="media-body">
                   			  	 <h5>William David.</h5>
-                  			  	 <p class="dg-text"><em>Real Estate Lawyers</em></p>
+                  			  	 <h6 class="highlight-list">
+                                 <span>$90/per hr</span>
+                                 <span class="date-text"><i class="fa fa-clock-o" aria-hidden="true"></i>27/04/2020</span>
+                              </h6>
                   			  	 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                   			  </div>
                   		</div>
