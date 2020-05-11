@@ -1,0 +1,169 @@
+.captcha-place {
+    float: left;
+}
+
+.login-content .login-box .select2 .select2-selection--single {
+    border: none;
+    border-bottom: solid 1px #cccbcb;
+    border-radius: 0;
+    font-size: 14px;
+    color: #000;
+    padding: 8px 12px;
+    outline: none;
+    box-shadow: none;
+    height: 40px;
+}
+
+
+.login-content .login-box input.form-control, .login-content .login-box textarea.form-control, .login-content .login-box select.form-control {
+    height: 40px;
+}
+
+.login-content .login-box .form-group {  
+    display: inline-block;
+    width: 100%;
+}
+
+.file-field input[type="file"]
+{
+    width: 100%;
+}
+/* select 2 custom */
+
+.login-content .login-box .select2-container--default .select2-selection--single .select2-selection__arrow b {
+    border-color: #000 transparent transparent transparent;
+    border-style: solid;
+    border-width: 5px 3px 0 3px;
+    height: 0;
+    left: 50%;
+    margin-left: -4px;
+    margin-top: 5px;
+    position: absolute;
+    top: 50%;
+    width: 0;
+}
+
+li.profile-dropdown {
+    position: relative;
+}
+
+ul.dropdown-profile {
+    background: #edeaea;
+    padding: 0px;
+    top: 100%;
+    right: 0;
+    position: absolute;
+    display: none;
+    transition: 0.5s;
+    text-align: left;
+    z-index: 1;
+    width: 100%;
+    min-width: 120px;
+}
+
+
+
+ul.dropdown-profile li{
+    margin-left: 0px !important;
+    line-height: 23px;
+    display: block;
+    width: 100%;
+    padding: 0px;
+}
+
+ul.dropdown-profile a{
+    padding: 8px 10px;
+    font-size: 13px;
+    text-decoration: none;
+    width: 100%;
+    color:#181819 !important;
+    display: inline-block;
+   /* border-bottom: solid 1px #dad8d8;*/
+    background-color:transparent;
+    transition: 0.5s;
+}
+ul.dropdown-profile a:hover {
+    transition: 0.5s;
+    background-color: #070707;
+    color: #fff !important;
+}
+
+ul.dropdown-profile li:last-child a{
+    border-bottom: 0px;
+}
+
+ul.dropdown-profile a .fa {
+    margin-right: 5px;
+}
+li.profile-dropdown:hover ul.dropdown-profile{
+    display: block;
+    padding-top: 10px;
+    transition: 0.5s;
+}
+
+/* team-slide css*/
+.team-slide {
+    margin-top: 25px;
+}
+
+.team-slide .owl-stage{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.team-slide .owl-item{
+    display: inline-flex;
+}
+
+.team-slide .owl-item .srvc-item {   
+    height: 100%;
+}
+
+.team-slide .owl-nav {
+    display: none;
+}
+
+.team-slide .owl-dots {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.team-slide .owl-dots .owl-dot {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background-color:#e5e5e5;
+        margin:3px;
+        outline: none;      
+    }
+    .team-slide .owl-dots .owl-dot.active {
+        background-color: #8d919c;
+        width: 16px;
+        height: 16px;       
+    }
+    .banner_part{
+    	 overflow: hidden;
+    }
+
+
+    .banner_part .carousel-inner{
+       height: 100%;
+    }
+
+    .banner_part .carousel-item{
+          height: 100%;
+    }
+
+    .banner_part .carousel-item img{
+       height: 100%;
+       width: 100%;
+       object-fit: cover;
+    }
+/* end team-slide css*/
+/* satirtha css*/
+/*.step-structure{
+    max-height: 700px;
+    overflow-y: scroll;
+}*/
+
+/*End of satirtha css*/
