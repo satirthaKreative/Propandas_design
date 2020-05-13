@@ -14,7 +14,7 @@
    <div class="container">
       <div class="row">
          <div class="col-md-12">
-            <h3 class="fs-title">Search Lawyer</h3>
+            <h3 class="fs-title">Proposal List</h3>
             <hr>
          </div>
          <div class="col-md-3">
@@ -100,7 +100,7 @@
 
                   	<div class="right-step">
                   		<br>
-                           <a href="Lawyer-detail.php" class="shrt-btn vw-btn">View Details</a>
+                           <a href="single-proposal.php" class="shrt-btn vw-btn">View Details</a>
                         </div>  
                     
                   </li>
@@ -125,7 +125,7 @@
 
                   	<div class="right-step">
                   		<br>
-                           <a href="Lawyer-detail.php" class="shrt-btn vw-btn">View Details</a>
+                           <a href="single-proposal.php" class="shrt-btn vw-btn">View Details</a>
                         </div>  
                     
                   </li>
@@ -147,7 +147,7 @@
 
                   	<div class="right-step">
                   		<br>
-                           <a href="Lawyer-detail.php" class="shrt-btn vw-btn">View Details</a>
+                           <a href="single-proposal.php" class="shrt-btn vw-btn">View Details</a>
                         </div>  
                     
                   </li>
@@ -169,7 +169,7 @@
 
                   	<div class="right-step">
                   		<br>
-                           <a href="Lawyer-detail.php" class="shrt-btn vw-btn">View Details</a>
+                           <a href="single-proposal.php" class="shrt-btn vw-btn">View Details</a>
                         </div>  
                     
                   </li>
