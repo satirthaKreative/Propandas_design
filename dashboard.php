@@ -246,7 +246,7 @@
       <div class="modal-dialog">
          <div class="modal-content">
             <!-- Modal body -->
-            <div class="modal-body text-center">
+            <div class="modal-body contact-modal-design text-center">
                <div class="center-part">
                   <h3><span><i class="fa fa-check-circle" aria-hidden="true"></i></span> Number confirmed</h3>
                   <p>Your Number has been verified</p>

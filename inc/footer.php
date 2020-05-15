@@ -332,6 +332,12 @@ $(".submit").click(function(){
             search: true
         });
 
+        $('.lawyer-specialization').multiselect({
+            placeholder: 'lawyer specialization',
+            });
+
+
+
         $('a[href^="#"]').on('click', function(event) {
             var target = $(this.getAttribute('href'));
             if( target.length ) {

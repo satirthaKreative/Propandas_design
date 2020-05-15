@@ -55,7 +55,18 @@
                         <input type="text" name="user" class="form-control" placeholder="Phone Number " value="" required="" />
                      </div>
                   </div>
-                  <div class="col-sm-12 plr-5">
+
+                  <div class="col-sm-6 plr-5">
+                     <div class="form-group">
+                       <select name="" multiple="multiple"  class="form-control lawyer-specialization">                       
+                        <option value="1"> MTGA</option>
+                        <option value="2">MTGO</option>
+                        <option value="3">Cockatrice</option>
+                        <option value="4">Xmage</option>
+                     </select>
+                     </div>
+                  </div>
+                  <div class="col-sm-6 plr-5">
                      <div class="form-group">
                         <input type="text" name="user" class="form-control" placeholder=" Law firm  " value="" required="" />
                         <p class="text-left"><small>Please put your own name if not a law firm</small></p>

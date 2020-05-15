@@ -32,7 +32,27 @@
          </div>
          <!-- end of col-md-3 -->
          <div class="col-md-9">
-            <div class="dsbrd-content">             
+            <div class="dsbrd-content">  
+
+            <div class="table-responsive theme-table">
+            <table class="table table-striped ">
+               <thead>
+              <tr>
+                <th>Project Id</th>
+                <th>Client Name</th>
+                <th>Lawyer Name</th>               
+              </tr>
+            </thead>
+            <tbody>
+               <tr>
+               <td>PROPAN00002</td>
+               <td>Robert Hooks</td>
+               <td>Daniel Schwarzl</td>            
+             </tr>          
+            </tbody>
+
+            </table>
+         </div>           
                <div class="dsbrd-qststep">
                         <form action="">                         
 
@@ -43,7 +63,7 @@
                            	</div>
 
                            	<div class="form-group">
-                           		<label class="title-lable">Lawyer  Comments</label>
+                           		<label class="title-lable">Project description</label>
                                     <textarea name="" id=""></textarea>    
                            	</div>                           	
 
@@ -58,8 +78,8 @@
                                     <input type="text" name="" value="$100" >   
                            	</div>
                            	<div class="form-group">
-                           	<input type="submit" name="" value="Save Proposal" class="flt-search">
-                           </div>
+                           	<input type="submit" name="" value="Submit Proposal" class="flt-search">
+                              </div>
                                                                   
                               </div> 
                       
