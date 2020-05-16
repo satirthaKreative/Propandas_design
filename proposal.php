@@ -40,7 +40,14 @@
                               <div class="col-md-3 plr-5">
                                  <div class="form-group">
                                     <label for="">Budget</label>
-                                  <input type="text" name="" id="" class="form-control" placeholder="Enter budget">
+                                    <select id="cars" class="form-control">
+                                      <option >Select budget</option>
+                                      <option value=""><span><element>€</element>100</span></option>
+                                      <option value=""><span><element>€</element>100</span> <span> - </span> <span><element>€</element>200</span></option>
+                                      <option value=""><span><element>€</element>200</span> <span> - </span> <span><element>€</element>300</span></option>
+                                      <option value=""><span><element>€</element>400</span> <span> - </span> <span><element>€</element>500</span></option>
+                                      <option value=""><span>More than </span><span><element>€</element>500</span></option>
+                                    </select>                                
                                  </div>
                               </div>
                               <div class="col-md-3 plr-5">

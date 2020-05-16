@@ -5049,3 +5049,28 @@ a.bid-text {
 		}
 	}
 }
+
+
+
+
+
+
+.dshbord-theme{
+
+	.side-menu{
+		li.unread-notify{
+			 background-color: #279ce0;
+			 a{
+		    	color: #fff;
+		    	i{
+		    	color: #fff;
+		        }
+		        &:hover{
+		        	 background-color: #279ce0;
+		        }
+		        }
+
+		}
+	}
+
+}
