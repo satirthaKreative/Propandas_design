@@ -4911,8 +4911,6 @@ span.date-text {
     max-height: 10%!important; 
 }
 
-
-
 }
 
 
@@ -5073,4 +5071,44 @@ a.bid-text {
 		}
 	}
 
+}
+
+
+.short-font{
+	font-size: 10px !important;
+	padding:5px !important;
+}
+
+
+.reply-form {
+	display: none;
+    padding: 15px 0px;
+    border-top: dashed 1px #d0d0d0;
+    margin-top: 25px;
+
+    input, textarea, select {
+    padding: 6px 15px;
+    height: 45px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #2C3E50;
+    font-size: 14px;
+    outline: none;
+    box-shadow: none;
+}
+
+textarea {
+    height: 100px;
+}
+
+.flt-search {
+    height: 45px !important;
+    width: auto;
+    min-width: 150px;
+    margin: 0px;
+    border: none;
+}
 }
