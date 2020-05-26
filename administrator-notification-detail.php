@@ -1,15 +1,4 @@
 <?php include ("inc/header.php") ?>
-<!-- <section class="inner-banner">
-   <div class="container">
-      <h1>About Us</h1>
-      <div class="breadcum-top">
-         <ul class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li>About Us </li>
-         </ul>
-      </div>
-   </div>
-   </section> -->
 <section class="dshbord-theme">
    <div class="container">
       <div class="row">
