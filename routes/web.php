@@ -161,11 +161,16 @@ Route::PUT('/behindpropandasheading/{behindpropandasheading}','Admin\HomeBehindP
 // lawyer dashboard
 Route::GET('/posted-jobs','front\lawyerDashboard\PostJobLawyerController@index');
 Route::GET('/job-full-view/{jobview}','front\lawyerDashboard\PostJobLawyerController@job_full_view');
+Route::GET('/apply-job/{applyjob}','front\lawyerDashboard\PostJobLawyerController@apply_job');
+
+
+
 
 // lawyer dashoboard ajax
 Route::GET('/all_posted_job_show','front\lawyerDashboard\ajax\LawyerDashboardAjaxController@full_view_all_jobs');
 Route::GET('/current_selected_posted_job_show','front\lawyerDashboard\ajax\LawyerDashboardAjaxController@index');
 Route::GET('/search_job_ajax','front\lawyerDashboard\ajax\LawyerDashboardAjaxController@search_job_ajax');
+Route::GET('/apply-job-with-proposal','front\lawyerDashboard\ajax\LawyerDashboardAjaxController@apply_job_ajax');
 
 
 // all category ajax
@@ -204,3 +209,32 @@ Route::GET('/how-it-works','front\HowItWorksController@index');
 Route::GET('/how-it-works/{id}','front\HowItWorksController@showInfo');
 Route::PUT('/how-it-works/{how_it_works}','front\HowItWorksController@updateLegalInfo');
 Route::GET('/frontHowItWorksPage','front\HowItWorksController@showLegalFrontInfo');
+
+
+// Notification
+Route::GET('/notification','front\clientDashboard\NotificationController@index');
+Route::GET('/notify-all','front\clientDashboard\NotificationController@all_notification');
+Route::GET('/notify-remove','front\clientDashboard\NotificationController@remove_notification');
+Route::GET('/notification/{notify}','front\clientDashboard\NotificationController@current_notification');
+Route::GET('/notification-single-show/','front\clientDashboard\NotificationController@single_full_view');
+Route::GET('/unread-notify-count/','front\clientDashboard\NotificationController@unread_notify_count');
+
+
+// client my job
+Route::GET('/my-job','front\clientDashboard\ClientMyJobController@index');
+Route::GET('/my-job-full-view','front\clientDashboard\ClientMyJobController@my_job_full_view');
+Route::GET('/my-current-job/{mycurrentjob}','front\clientDashboard\ClientMyJobController@single_client_job');
+Route::GET('/client_myjob_category_ajax','front\clientDashboard\ClientMyJobController@client_myjob_category_ajax');
+Route::GET('/my_job_full_view_ajax','front\clientDashboard\ClientMyJobController@my_job_full_view_ajax');
+Route::GET('/client_myjob_input_search_ajax','front\clientDashboard\ClientMyJobController@client_myjob_input_search_ajax');
+Route::GET('/client_myjob_full_form_search_ajax','front\clientDashboard\ClientMyJobController@client_myjob_full_form_search_ajax');
+Route::GET('/single-job-rquirement-proposal-ajax','front\clientDashboard\ClientMyJobController@single_job_page_with_proposal_count');
+
+// client get proposal
+Route::GET('/all-proposal/{allproposals}','front\clientDashboard\JobProposalController@index');
+Route::GET('/all-proposal-ajax','front\clientDashboard\JobProposalController@project_id_wish_proposal');
+Route::GET('/proposal-view/{proposal_view}','front\clientDashboard\JobProposalController@proposal_view');
+Route::GET('/single-proposal-ajax','front\clientDashboard\JobProposalController@ajax_proposal_singlr_view');
+Route::GET('/all-lawyer-country-load-ajax','front\clientDashboard\JobProposalController@country_load');
+Route::GET('/all-lawyer-cities-load-ajax','front\clientDashboard\JobProposalController@cities_load');
+Route::GET('/proposal_search_update_ajax','front\clientDashboard\JobProposalController@proposal_search_update_ajax');

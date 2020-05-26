@@ -116,6 +116,7 @@
             $("#pre-loading").find("i").hide();
             $(".contact-form").load(location.href + " .contact-form");
             $("#success-modal").modal('show');
+            $("#success-modal").find('.modal-body').addClass('contact-modal-design');
             $("#success-modal h3").html('<span><i class="fa fa-check-circle" aria-hidden="true"></i></span> <span>Mail Send</span>');
             $("#success-modal p").html('We got your query. We will get back to you soon.');
             setTimeout(function(){ $("#success-modal").modal('hide');  }, 3000);

@@ -126,7 +126,7 @@
                     </ul>
                 </li>
                 <!-- How its works page details -->
-                <!-- <li class="treeview">
+                <li class="treeview">
                     <a href="#">
                         <i class="fa fa-paperclip"></i>
                         <span>How It Works Page</span>
@@ -135,7 +135,7 @@
                     <ul class="treeview-menu">
                         <li><a href="{{ url('/how-it-works/1') }}"><i class="fa fa-angle-double-right"></i>View How it Works</a></li>
                     </ul>
-                </li> -->
+                </li>
                 <!-- Behind Propandas -->
                 <li class="treeview">
                     <a href="#">

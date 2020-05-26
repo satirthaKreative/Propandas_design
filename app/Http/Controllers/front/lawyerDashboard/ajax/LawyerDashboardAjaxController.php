@@ -4,7 +4,12 @@ namespace App\Http\Controllers\front\lawyerDashboard\ajax;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\ProposalSendModel;
+use App\NotificationModel;
+use App\JobAnswerClinetDescModel;
 
 class LawyerDashboardAjaxController extends Controller
 {
@@ -14,10 +19,14 @@ class LawyerDashboardAjaxController extends Controller
     public function index(){
      
       $data = $_GET['data'];
+      $url_encode_id = base64_encode($data);
       $html = '';
     	$selectResultQuery = DB::table('jobanswerclinetdesc')->where('id',$data)->get();
     	foreach($selectResultQuery as $newQ)
     	{
+        
+
+
         $clientQuery = DB::table('users')->where('id',$newQ->client_id)->get();
           foreach($clientQuery as $user_name_via)
           {
@@ -44,7 +53,7 @@ class LawyerDashboardAjaxController extends Controller
         $selectCategoryQuery = DB::table('admincategories')->where('id',$cate_id_main)->get();
         foreach($selectCategoryQuery as $cate_name_data)
         {
-          $html .= "<h5>".$cate_name_data->category_name." Job</h5><p>".$cate_name_data->category_title."</p><p>".$cate_name_data->category_description."</p>";
+          $html .= "<h5>Job Id : ".$newQ->projectId." <small>(".$cate_name_data->category_name." Job)</small></h5><p>".$cate_name_data->category_title."</p><p>".$cate_name_data->category_description."</p>";
         }
         
         $html .= '<p><strong>Client Personal Details</strong></p><p>'.$client_name.'</p>'.$client_phone.'<p>'.$client_email.'</p><p><strong>Client Job Requirments :</strong></p>';
@@ -184,9 +193,16 @@ class LawyerDashboardAjaxController extends Controller
             
           }
 
+          $job_push_check = ProposalSendModel::where(['project_id'=>$newQ->id,'lawyer_id'=>Auth::user()->id,'active_status'=>1])->get();
+          if(count($job_push_check) > 0){
+              $actual_check_status = '<a href="javascript: ;" onclick="coming_soon_modal()" class="dt-btn">View Proposal </a>';
+          }else{
+              $actual_check_status = '<a href="/apply-job/'.$url_encode_id.'" class="dt-btn">Apply</a>';
+          }
+
     	}
     	
-    	$html1 = $html.'<p><span><a href="javascript:void(0)" onclick="coming_soon_modal()" class="dt-btn">Apply Job</a></span><span><a href="/posted-jobs" class="dt-btn">Back</a></span></p></div>';
+    	$html1 = $html.'<p><span>'.$actual_check_status.'</span><span><a href="/posted-jobs" class="dt-btn">Back</a></span></p></div>';
       echo  json_encode($html1);
     }
 
@@ -226,13 +242,21 @@ class LawyerDashboardAjaxController extends Controller
             }else{
               $category_details = $cate_name_data->category_title;
             }
-            $html .= '<div class="media-body"><h5>'.$cate_name_data->category_name.' Job</h5><p>'.$category_details.'</p></div>';
+            $html .= '<div class="media-body"><h5>Job Id : '.$newQ->projectId.' </h5><p>'.$category_details.'</p></div>';
+            // ('.$cate_name_data->category_name.' job)
           }
 
           $mydata= base64_encode($newQ->id); 
 
+          $job_push_check = ProposalSendModel::where(['project_id'=>$newQ->id,'lawyer_id'=>Auth::user()->id,'active_status'=>1])->get();
+          if(count($job_push_check) > 0){
+            $actual_check_status = '<a href="javascript: ;" onclick="coming_soon_modal()" class="shrt-btn vw-btn">View Proposal </a>';
+          }else{
+            $actual_check_status = '<a href="/apply-job/'.$mydata.'" class="shrt-btn vw-btn">Apply</a>';
+          }
+
           $html .= '</div></div>';
-          $html .= '<div class="right-step"><a href="/job-full-view/'.$mydata.'"  class="shrt-btn vw-btn">View Job</a><a href="javascript: ;" onclick="coming_soon_modal()" class="shrt-btn vw-btn">Apply</a></div></li>';
+          $html .= '<div class="right-step"><a href="/job-full-view/'.$mydata.'"  class="shrt-btn vw-btn">View Job</a>'.$actual_check_status.'</div></li>';
         }
         }else{
           $html .= '<p class="text-danger text-center"><i class="fa fa-times"></i> No jobs are posted yet </p>';
@@ -309,13 +333,21 @@ class LawyerDashboardAjaxController extends Controller
             }else{
               $category_details = $cate_name_data->category_title;
             }
-            $html .= '<div class="media-body"><h5>'.$cate_name_data->category_name.' Job</h5><p>'.$category_details.'</p></div>';
+            $html .= '<div class="media-body"><h5>Job Id : '.$newQ->projectId.'</h5><p>'.$category_details.'</p></div>';
           }
 
           $mydata= base64_encode($newQ->id); 
 
+
+          $job_push_check = ProposalSendModel::where(['project_id'=>$newQ->id,'lawyer_id'=>Auth::user()->id,'active_status'=>1])->get();
+          if(count($job_push_check) > 0){
+            $actual_check_status = '<a href="javascript: ;" onclick="coming_soon_modal()" class="shrt-btn vw-btn">View Proposal </a>';
+          }else{
+            $actual_check_status = '<a href="/apply-job/'.$mydata.'" class="shrt-btn vw-btn">Apply</a>';
+          }
+
           $html .= '</div></div>';
-          $html .= '<div class="right-step"><a href="/job-full-view/'.$mydata.'"  class="shrt-btn vw-btn">View Job</a><a href="javascript: ;" onclick="coming_soon_modal()" class="shrt-btn vw-btn">Apply</a></div></li>';
+          $html .= '<div class="right-step"><a href="/job-full-view/'.$mydata.'"  class="shrt-btn vw-btn">View Job</a>'.$actual_check_status.'</div></li>';
         }
       }else{
         $html .= '<li class="no-search-file"><h5 class="text-danger"><i class="fa fa-times"></i> No jobs are available according to your search</h5><p><a href="/posted-jobs" class="shrt-btn vw-btn">View all Jobs</a></p></li>';
@@ -323,5 +355,45 @@ class LawyerDashboardAjaxController extends Controller
       echo json_encode($html);
 
 
+    }
+
+
+    // lawyer proposal send
+    function apply_job_ajax(){
+      
+      $getJobFullDetails = JobAnswerClinetDescModel::where('id',$_GET['project_id'])->first();
+      $client_id = $getJobFullDetails->client_id;
+      $unit_arr = [
+        'lawyer_des'=>$_GET['lawyer_des'],
+        'lawyer_comment'=>$_GET['lawyer_comment'],
+        'billing_option'=>$_GET['billing_option'],
+        'billing_rate'=>$_GET['billing_rate'],
+        'lawyer_id'=>Auth::user()->id,
+        'project_id'=>$_GET['project_id'],
+        'client_id'=>$client_id,
+        'active_status'=>1
+      ];
+
+      $unit_arr1 = [
+        'lawyer_des'=>$_GET['lawyer_des'],
+        'lawyer_comment'=>$_GET['lawyer_comment'],
+        'billing_option'=>$_GET['billing_option'],
+        'billing_rate'=>$_GET['billing_rate'],
+        'lawyer_id'=>Auth::user()->id,
+        'project_id'=>$_GET['project_id'],
+        'client_id'=>$client_id,
+        'active_status'=>1,
+        'unread_status'=>'unread',
+        'notify_type' => 'proposal'
+      ];
+
+      $insert_query_notify = NotificationModel::insert($unit_arr1);
+      $insert_query = ProposalSendModel::insert($unit_arr);
+      if($insert_query){
+        $succ_msg = 1;
+      }else{
+        $succ_msg = 0;
+      }
+      echo json_encode($succ_msg);
     }
 }

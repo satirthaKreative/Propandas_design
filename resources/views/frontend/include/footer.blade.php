@@ -155,6 +155,48 @@
 <!-- New Addition -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/js/bootstrap-select.min.js"></script>
 <!-- /end new addition -->
+@guest
+
+@else
+  @if(Auth::user()->is_lawyer == 0)
+  <script>
+    $(function(){
+      unread_notify_count();
+      setInterval(function(){ 
+         unread_notify_count();
+      },1000);
+   })
+
+    // notification show
+
+    // count unread notify
+
+    function unread_notify_count(){
+      $.ajax({
+         url: '/unread-notify-count',
+         type: 'GET',
+         dataType: 'json',
+         success: function(event_res){
+            if(event_res > 0){
+               if(event_res < 10){
+                  $(".unread-notify-count-class").html("( 0"+event_res+" )");
+               }else if(event_res > 10){
+                  $(".unread-notify-count-class").html("( "+event_res+" )");
+               }
+               
+            }
+         }
+      })
+   }
+
+    // end  notify
+  </script>
+  @else
+  <script>
+    
+  </script>
+  @endif
+@endguest
 @if($msg_data = Session::get('jobPostDataSent'))
 <script>
   $(function(){

@@ -38,108 +38,155 @@
                         </div>
                     @endif
                     @foreach($totalResult as $tot)
-    	            <form action="{{ url('/legal-info/'.$tot->id) }}" method="post">
+    	            <form action="{{ url('/how-it-works/'.$tot->id) }}" method="post">
                         @csrf
                         @method('PUT')
+
                         <div class="form-group">
-                            <label>Address1:</label>
+                            <label>Video Iframe Links:</label>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <i class="fa fa-info"></i>
                                 </div>
-                                <textarea  required="required" class="form-control legal-info-text"  name="address_one" rows="5" placeholder="Enter first address">{{ $tot->address_one }}</textarea>
+                                <textarea type="text" required="required"  name="video_iframe_links" class="form-control" id="">{{ $tot->video_iframe_links }}</textarea>
                             </div><!-- /.input group -->
-
-                            <label>Google Link:</label>
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-map-marker"></i>
-                                </div>
-                                <textarea  required="required" class="form-control"  name="google_link1" rows="2" placeholder="Enter This Google Address Link">{{ $tot->address_one }}</textarea>
-                            </div><!-- /.input group -->
+                            <small class="text-danger">* Enter only iframe links</small>
                         </div><!-- /.form group -->
-                       
+
+
                         <div class="form-group">
-                            <label>Address2:</label>
+                            <label>Post Your Job Details1:</label>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <i class="fa fa-info"></i>
                                 </div>
-                                <textarea  required="required" class="form-control legal-info-text" name="address_two" rows="5" placeholder="Enter second address">{{ $tot->address_two }}</textarea>
-                            </div><!-- /.input group -->
-                            <label>Google Link:</label>
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-map-marker"></i>
-                                </div>
-                                <textarea  required="required" class="form-control"  name="google_link2" rows="2" placeholder="Enter This Google Address Link">{{ $tot->address_one }}</textarea>
+                                <textarea  required="required" class="form-control legal-info-text"  name="post_your_job_detail1" rows="5" >{{ $tot->post_your_job_detail1 }}</textarea>
                             </div><!-- /.input group -->
                         </div><!-- /.form group -->
-
-                        <div class="form-group">
-                            <label>Email:</label>
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-info"></i>
-                                </div>
-                                <input type="email" required="required"  name="email_address" value="{{ $tot->email_address }}" class="form-control" id="">
-                            </div><!-- /.input group -->
-                        </div><!-- /.form group -->
-
-                        <div class="form-group">
-                            <label>Contact Number:</label>
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-info"></i>
-                                </div>
-                                <input type="text" required="required"  name="phone_number" value="{{ $tot->phone_number }}" class="form-control" id="">
-                            </div><!-- /.input group -->
-                        </div><!-- /.form group -->
-
-                        <div class="form-group">
-                            <label>Heading:</label>
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-info"></i>
-                                </div>
-                                <input type="text" required="required"  name="legal_heading" value="{{ $tot->legal_heading }}" class="form-control" id="">
-                            </div><!-- /.input group -->
-                        </div><!-- /.form group -->
-
-                        <div class="form-group">
-                            <label>Heading Details:</label>
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-info"></i>
-                                </div>
-                                <textarea  required="required" class="form-control legal-info-text" name="heading_details" rows="5" placeholder="Enter details">{{ $tot->heading_details }}</textarea>
-                            </div><!-- /.input group -->
-                        </div><!-- /.form group -->
-
-                        <div class="form-group">
-                            <label>Copyright:</label>
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-info"></i>
-                                </div>
-                                <textarea required="required"  class="form-control legal-info-text" name="copyright" rows="10" placeholder="Enter copyright details">{{ $tot->copyright }}</textarea>
-                            </div><!-- /.input group -->
-                        </div><!-- /.form group -->
-
-                        <div class="form-group">
-                            <label>External Links:</label>
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-info"></i>
-                                </div>
-                                <textarea  required="required" class="form-control legal-info-text" name="external_links" rows="10" placeholder="Enter external links">{{ $tot->external_links }}</textarea>
-                            </div><!-- /.input group -->
-                        </div><!-- /.form group -->
-
                         
 
+                        <div class="form-group">
+                            <label>Post Your Job Details2:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-info"></i>
+                                </div>
+                                <textarea  required="required" class="form-control legal-info-text"  name="post_your_job_detail2" rows="5" >{{ $tot->post_your_job_detail2 }}</textarea>
+                            </div><!-- /.input group -->
+                        </div><!-- /.form group -->
+
+                        <div class="form-group">
+                            <label>Get Proposal1:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-info"></i>
+                                </div>
+                                <textarea  required="required" class="form-control legal-info-text"  name="get_proposal1" rows="5">{{ $tot->get_proposal1 }}</textarea>
+                            </div><!-- /.input group -->
+                        </div><!-- /.form group -->
+
+
+                        <div class="form-group">
+                            <label>Get Proposal2:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-info"></i>
+                                </div>
+                                <textarea  required="required" class="form-control legal-info-text"  name="get_proposal2" rows="5" >{{ $tot->get_proposal2 }}</textarea>
+                            </div><!-- /.input group -->
+                        </div><!-- /.form group -->
+
+
+
+                        <div class="form-group">
+                            <label>Hire Lawyer1:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-info"></i>
+                                </div>
+                                <textarea  required="required" class="form-control legal-info-text"  name="hire_lawyer1" rows="5">{{ $tot->hire_lawyer1 }}</textarea>
+                            </div><!-- /.input group -->
+                        </div><!-- /.form group -->
+                        
+
+                        <div class="form-group">
+                            <label>Hire Lawyer2:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-info"></i>
+                                </div>
+                                <textarea  required="required" class="form-control legal-info-text"  name="hire_lawyer2" rows="5">{{ $tot->hire_lawyer2 }}</textarea>
+                            </div><!-- /.input group -->
+                        </div><!-- /.form group -->
+
+                        <div class="form-group">
+                            <label>Register Yourself1:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-info"></i>
+                                </div>
+                                <textarea  required="required" class="form-control legal-info-text"  name="register_yourself1" rows="5" >{{ $tot->register_yourself1 }}</textarea>
+                            </div><!-- /.input group -->
+                        </div><!-- /.form group -->
+
+
+                        <div class="form-group">
+                            <label>Register Yourself2:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-info"></i>
+                                </div>
+                                <textarea  required="required" class="form-control legal-info-text"  name="register_yourself2" rows="5" >{{ $tot->register_yourself2 }}</textarea>
+                            </div><!-- /.input group -->
+                        </div><!-- /.form group -->
+
+
+
+                        <div class="form-group">
+                            <label>Search Job1:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-info"></i>
+                                </div>
+                                <textarea  required="required" class="form-control legal-info-text"  name="search_job1" rows="5" >{{ $tot->search_job1 }}</textarea>
+                            </div><!-- /.input group -->
+                        </div><!-- /.form group -->
+                        
+
+                        <div class="form-group">
+                            <label>Search Job2:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-info"></i>
+                                </div>
+                                <textarea  required="required" class="form-control legal-info-text"  name="search_job2" rows="5" >{{ $tot->search_job2 }}</textarea>
+                            </div><!-- /.input group -->
+                        </div><!-- /.form group -->
+
+                        <div class="form-group">
+                            <label>Get A Client1:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-info"></i>
+                                </div>
+                                <textarea  required="required" class="form-control legal-info-text"  name="get_a_client1" rows="5">{{ $tot->get_a_client1 }}</textarea>
+                            </div><!-- /.input group -->
+                        </div><!-- /.form group -->
+
+
+                        <div class="form-group">
+                            <label>Get A Client2:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-info"></i>
+                                </div>
+                                <textarea  required="required" class="form-control legal-info-text"  name="get_a_client2" rows="5">{{ $tot->get_a_client2 }}</textarea>
+                            </div><!-- /.input group -->
+                        </div><!-- /.form group -->
+
+
                         <div class="clearfix">
-                            <button class="btn btn-success btn-sm float-right-btn text-white" type="submit">Submit</button>
+                            <button class="btn btn-success btn-sm float-right-btn text-white" type="submit">Update</button>
                         </div>   
                     </form>
                     @endforeach

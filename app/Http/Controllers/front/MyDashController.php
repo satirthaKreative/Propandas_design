@@ -41,8 +41,8 @@ class MyDashController extends Controller
                 'client_id'=>Auth::user()->id,
                 'category_id'=>$category_name,
                 'quesAnsDescrip'=>$dzz,
-                'phone_number'=>$phone_number
-
+                'phone_number'=>$phone_number,
+                'projectId'=>"PROPAN".rand(10000,999999)
             ];
             DB::table('jobanswerclinetdesc')->insert($array_data);
             $dzz = "";

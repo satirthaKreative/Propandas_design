@@ -1,3 +1,45 @@
+
+
+@media (min-width: 1199px) {
+
+    .banner_part{
+        height: 700px;   
+    }
+      
+}
+
+@media (max-width: 1198px) {
+
+     .banner_part{
+        height: 450px;    
+    }
+    .banner_part .carousel-caption{
+            top: 20%;
+    }
+    .banner_part .carousel-caption h1 {    
+    font-size: 30px;
+    line-height: 40px;   
+    letter-spacing: 0px;   
+    margin-bottom: 15px;    
+}
+
+.banner_part a.cnt-btn{
+        margin-top: 20px;
+}
+
+    }
+
+    @media (max-width: 1024px) {
+
+        .banner_part{
+        height: 400px;    
+    }
+    .cr-box{
+            height: 150px;
+    }
+    }
+
+
 @media (max-width: 991px) {
     .top-header ul li{
     font-size: 13px;
@@ -65,6 +107,9 @@
     line-height: 21px;
 }
 
+.cr-box{
+    height: 115px;
+    }
 
 .text-overley p {  
     font-size: 13px;
@@ -219,10 +264,21 @@
     font-size: 13px;
     line-height: 23px;   
 }
+ul.dropdown-profile li:first-child {  
+    padding-left: 0 !important;
+}
+
+ul.dropdown-profile a {
+    padding: 5px 7px;
+    font-size: 12px;
+    }
 
 }
 
 @media (max-width: 768px){
+     .banner_part{
+        height: 320px;    
+    }
 .banner_part .carousel-caption h1 {
     font-size: 16px;
     line-height: 26px;
@@ -251,6 +307,10 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
+.cr-box{
+    height: 85px;
+    }
+
 
 .text-overley p {
     font-size: 10px;
@@ -407,9 +467,21 @@
 
 
 }
+@media (max-width: 650px){
+.banner_part{
+        height: 300px;    
+    }
+    }
 
 
 @media (max-width: 575px){
+
+    .cr-box{
+    height: 70px;
+    }
+    .banner_part {
+    height: 200px;
+}
     .top-header ul li {
     border: none!important;
     line-height: 19px;
@@ -822,9 +894,17 @@ a.shrt-btn {
     line-height: 23px;   
 }
 
+ul.dropdown-profile li {
+    padding: 3px 0px;
+}
+
 }
 
 @media (max-width: 450px){
+
+     .banner_part {
+    height: 150px;
+}
 .top-header .col-6{
 width: 100%;
     max-width: 100%;
@@ -840,7 +920,7 @@ width: 100%;
     text-align: center;
 }
 .banner_part .carousel-caption {
-    top: 3%;
+    top: 5%;
     width: 95%;    
 }
 
@@ -861,6 +941,10 @@ width: 100%;
 .banner_part ol.carousel-indicators {
     display: none;
 }
+
+.cr-box{
+    height: 60px;
+    }
 
 
 
