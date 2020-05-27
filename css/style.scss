@@ -5112,3 +5112,47 @@ textarea {
     border: none;
 }
 }
+
+
+
+
+
+.invite-part{
+
+	input.shrt-btn{
+	background: #0d2c67;
+    padding: 5px 10px;
+    color: #fff !important;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    border-radius: 5px;
+    transition: 0.3s;
+    min-width: 70px;
+    border: none;
+    margin: 0px 4px;
+    cursor: pointer;
+    outline: none!important;
+    box-shadow:none!important;
+    &.declin-btn {
+    background: #a7a3a3;
+    }
+   }
+
+	li{
+	   display: flex !important;
+       flex-wrap: wrap;
+       align-content: center;
+	}
+	.left-step{
+		width: calc(100% - 200px);
+        padding-right: 20px;
+	}
+	.right-step{
+		width: 200px;
+		justify-content: center;
+	}
+
+   
+
+}
