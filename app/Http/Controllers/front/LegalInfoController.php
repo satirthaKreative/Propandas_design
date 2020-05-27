@@ -24,7 +24,9 @@ class LegalInfoController extends Controller
     {
     	$array_data_upload = [
     		'address_one'=>$request->input('address_one'),
+            'google_link1'=>$request->input('google_link1'),
     		'address_two'=>$request->input('address_two'),
+            'google_link2'=>$request->input('google_link2'),
     		'email_address'=>$request->input('email_address'),
     		'phone_number'=>$request->input('phone_number'),
     		'legal_heading'=>$request->input('legal_heading'),

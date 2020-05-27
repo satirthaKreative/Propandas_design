@@ -12,6 +12,6 @@ class AdminLegalinfoModel extends Model
 
 
     protected $fillable = [
-    	'address_one', 'address_two', 'email_address', 'phone_number', 'legal_heading', 'heading_details', 'copyright', 'external_links', 'created_at', 'updated_at'
+    	'address_one', 'google_link1', 'address_two', 'google_link2', 'email_address', 'phone_number', 'legal_heading', 'heading_details', 'copyright', 'external_links', 'created_at', 'updated_at'
     ];
 }

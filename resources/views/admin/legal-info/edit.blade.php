@@ -55,7 +55,8 @@
                                 <div class="input-group-addon">
                                     <i class="fa fa-map-marker"></i>
                                 </div>
-                                <textarea  required="required" class="form-control"  name="google_link1" rows="2" placeholder="Enter This Google Address Link">{{ $tot->address_one }}</textarea>
+                                <textarea  required="required" class="form-control"  
+                                name="google_link1" rows="2" placeholder="Enter This Google Address Link">{{ $tot->google_link1 }}</textarea>
                             </div><!-- /.input group -->
                         </div><!-- /.form group -->
                        
@@ -72,7 +73,8 @@
                                 <div class="input-group-addon">
                                     <i class="fa fa-map-marker"></i>
                                 </div>
-                                <textarea  required="required" class="form-control"  name="google_link2" rows="2" placeholder="Enter This Google Address Link">{{ $tot->address_one }}</textarea>
+                                <textarea  required="required" class="form-control"  
+                                name="google_link2" rows="2" placeholder="Enter This Google Address Link">{{ $tot->google_link2 }}</textarea>
                             </div><!-- /.input group -->
                         </div><!-- /.form group -->
 

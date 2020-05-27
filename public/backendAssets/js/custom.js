@@ -101,6 +101,54 @@ $(function(){
             console.log('errors on line 81');
         }
     })
+
+    // new lawyer show
+    $.ajax({
+        url: '/countlawyerAjaxCall',
+        type: 'get',
+        dataType: 'json',
+        success:  function(event)
+        {
+            var count_flag;
+            if(event < 10)
+            {
+                count_flag = "0"+event;
+            }
+            else
+            {
+                count_flag = event;
+            }
+            jQuery("#dash-lawyer-count").html(count_flag);
+        },
+        error: function(event)
+        {
+            console.log('errors on line 106');
+        }
+    })
+
+    // new client show
+    $.ajax({
+        url: '/countclientAjaxCall',
+        type: 'get',
+        dataType: 'json',
+        success:  function(event)
+        {
+            var count_flag;
+            if(event < 10)
+            {
+                count_flag = "0"+event;
+            }
+            else
+            {
+                count_flag = event;
+            }
+            jQuery("#dash-client-count").html(count_flag);
+        },
+        error: function(event)
+        {
+            console.log('errors on line 130');
+        }
+    })
     // all category fetch
     $.ajax({
         url: '/ajax_all_category',

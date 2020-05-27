@@ -69,10 +69,10 @@
       type: "GET",
       dataType: "json",
       success: function(event){
-        $("#address1").html(event[0].address_one);
+        $("#address1").html("<a href='"+event[0].google_link1+"' target='_blank'>"+event[0].address_one+"</a>");
         $("#email-legal").html('<span class="icon-div"><i class="fa fa-envelope" aria-hidden="true"></i></span> '+event[0].email_address);
         $("#phone-legal").html('<span class="icon-div"><i class="fa fa-phone" aria-hidden="true"></i></span>'+event[0].phone_number);
-        $("#address2").html(event[0].address_two);
+        $("#address2").html("<a href='"+event[0].google_link2+"' target='_blank'>"+event[0].address_two+"</a>");
         $("#heading-legal").html(event[0].legal_heading);
         $("#details-legal").html(event[0].heading_details);
         $("#copy-legal").html(event[0].copyright);

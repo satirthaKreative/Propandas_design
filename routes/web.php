@@ -81,7 +81,8 @@ Route::GET('/option_type_ajax','Admin\AdminoptionController@option_type_ajax');
 // dashboard option ajax
 Route::GET('/countAjaxCall','Admin\Dashboard_controller@countCateAjaxCall');
 Route::GET('/countAjaxQuesCall','Admin\Dashboard_controller@countQuesAjaxCall');
-
+Route::GET('/countlawyerAjaxCall','Admin\Dashboard_controller@countlawyerAjaxCall');
+Route::GET('/countclientAjaxCall','Admin\Dashboard_controller@countclientAjaxCall');
 
 // frontend country list ajax
 Route::GET('/countryAjaxCall','front\Country_controller@showAllCountry');
@@ -93,6 +94,8 @@ Route::GET('/ipZoneAjaxCall','front\Country_controller@ipCheck');
 
 // frontend ajax category/home page
 Route::GET('/homeCateAjax','front\ajax\FrontController@index');
+
+
 // question added front ajax
 Route::GET('/jobQuestionSelect','front\ajax\FrontController@categoryFuncSelect');
 Route::GET('/jobQuesOptSelect','front\ajax\FrontController@jobQuesOptSelect');

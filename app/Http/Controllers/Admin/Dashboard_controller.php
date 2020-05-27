@@ -95,4 +95,16 @@ class Dashboard_controller extends Controller
         $count = DB::table('adminquestions')->count();
         echo  json_encode($count);
     }
+
+    public function countlawyerAjaxCall()
+    {
+        $count = DB::table('users')->where(['is_lawyer'=>1])->count();
+        echo  json_encode($count);
+    }
+
+    public function countclientAjaxCall()
+    {
+        $count = DB::table('users')->where(['is_lawyer'=>0])->count();
+        echo  json_encode($count);
+    }
 }

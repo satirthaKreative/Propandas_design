@@ -59,11 +59,11 @@
             <!-- small box -->
             <div class="small-box bg-yellow">
                 <div class="inner">
-                    <h3>
-                        44
+                    <h3 id="dash-lawyer-count">
+                        0
                     </h3>
                     <p>
-                        User Registrations
+                        Total Lawyers
                     </p>
                 </div>
                 <div class="icon">
@@ -78,11 +78,11 @@
             <!-- small box -->
             <div class="small-box bg-red">
                 <div class="inner">
-                    <h3>
-                        65
+                    <h3 id="dash-client-count">
+                        0
                     </h3>
                     <p>
-                        Unique Visitors
+                        Total Clients
                     </p>
                 </div>
                 <div class="icon">
