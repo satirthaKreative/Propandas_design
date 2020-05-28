@@ -169,8 +169,19 @@
                         <li><a href="{{ url('/legal-info/1') }}"><i class="fa fa-angle-double-right"></i>View Legal Info</a></li>
                     </ul>
                 </li>
+                <!-- Legal Info -->
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-comments-o "></i>
+                        <span>System Message</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ url('/admin/system-message/') }}"><i class="fa fa-angle-double-right"></i>System Message</a></li>
+                    </ul>
+                </li>
                 <!-- terms -->
-                <!-- <li class="treeview">
+                <li class="treeview">
                     <a href="#">
                         <i class="fa fa-pencil-square"></i>
                         <span>Terms</span>
@@ -179,7 +190,7 @@
                     <ul class="treeview-menu">
                         <li><a href="{{ url('/terms/1') }}"><i class="fa fa-angle-double-right"></i>View Terms</a></li>
                     </ul>
-                </li> -->
+                </li>
                 
                 <!-- Free Profile Details -->
                 <li class="treeview">

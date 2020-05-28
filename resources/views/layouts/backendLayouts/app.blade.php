@@ -8,5 +8,6 @@
     	@yield('content') 
     </aside>
     @include('admin.include.footer')
+    @yield('adminPageWishJs')
 </body>
 </html>

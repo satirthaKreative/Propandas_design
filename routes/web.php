@@ -241,3 +241,17 @@ Route::GET('/single-proposal-ajax','front\clientDashboard\JobProposalController@
 Route::GET('/all-lawyer-country-load-ajax','front\clientDashboard\JobProposalController@country_load');
 Route::GET('/all-lawyer-cities-load-ajax','front\clientDashboard\JobProposalController@cities_load');
 Route::GET('/proposal_search_update_ajax','front\clientDashboard\JobProposalController@proposal_search_update_ajax');
+
+
+// System Message
+
+// frontend  
+
+// backend
+Route::GET('/admin/system-message/','Admin\AdminSystemMsg@create');
+Route::GET('/admin/system-message/ajax','Admin\AdminSystemMsg@show_client_by_type');
+Route::GET('/admin/system-message/ajax-project','Admin\AdminSystemMsg@show_project_by_client');
+Route::POST('/admin/system-message/create-project','Admin\AdminSystemMsg@store');
+
+
+// end of system message
