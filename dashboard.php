@@ -56,8 +56,20 @@
                   <img id="blah" src="images/clint-logo.jpg" alt="your image" class="profile-icon" />
                   <input type='file' onchange="readURL(this);" />
                </div>
+
                <div class="short-profile">
                   <h3>Mr. Rozer Lermond</h3>
+
+                    <div class="profile-progress">
+                     <p>60% Completed</p>
+                       <div class="progress">
+                         <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:60%">                          
+                         </div>
+                       </div>
+                    </div>
+                      
+
+                  
                   <p><i class="fa fa-envelope icn-show" aria-hidden="true" ></i>rozerlermond@gmail.com</p>
                   <p><i class="fa fa-phone icn-show" aria-hidden="true" ></i>+1 6502509458</p>
                   <p><i class="fa fa-map-marker icn-show" aria-hidden="true" ></i>2361  Brentwood Drive San Marcos Texas Usa</p>
