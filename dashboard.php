@@ -336,6 +336,17 @@
                         <label for="usr">Contact no :</label>           
                         <input type="text" class="form-control" placeholder="+1 6502509458">           
                      </div>
+
+                      <div class="form-group">
+                        <label for="usr">Specialialization :</label>           
+                        <select name="" multiple="multiple" class="form-control theme-select">
+                                 <option value="1">Attended 1</option>
+                                 <option value="2">Attended 2</option>
+                                 <option value="3">Attended 3</option>
+                                 <option value="4">Attended 4</option>
+                              </select>          
+                     </div>
+                     
                      <div class="form-group">
                         <label for="usr">Address :</label> 
                         <textarea class="form-control" placeholder="2361 Brentwood Drive San Marcos Texas Usa"></textarea>
