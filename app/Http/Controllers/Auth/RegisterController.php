@@ -76,6 +76,7 @@ class RegisterController extends Controller
     {
 
         Session::put('mysession', $data['email']);
+        Session::put('mysession_islawyer_data', $data['is_lawyer']);
         if($data['is_lawyer'] == '0'){
         $arr = [
             'name' => $data['name'],
@@ -115,6 +116,8 @@ class RegisterController extends Controller
                 $is_uploaded = '0';
                 $file_type = "";
             }
+
+            Session::put('mySessionLawyer_Category', $data['lawyer_specialization']);
             // print_r($myActualPath);
             // echo "<br/>";
             // print_r($data['law_firm']);

@@ -58,6 +58,7 @@ Route::get('/search-view/{data}', function () {
     return view('frontend.front-pages.search');
 });
 Route::GET('/lawyer-registration','front\LawyerController@index')->name('lawyer-registration');
+Route::GET('/lawyer-register-specialization','front\LawyerController@category_lawyer_type');
 Route::GET('/dashboard','front\MyDashController@index')->name('dashboard');
 // Admin category ajax
 Route::GET('/checking_category_exist','Admin\AdmincategoryController@checking_category_exist');
@@ -190,6 +191,10 @@ Route::GET('/searchNextQuestion','front\clientDashboard\ajax\ClientAjaxControlle
 Route::GET('/searchNextLast','front\clientDashboard\ajax\ClientAjaxController@searchNextLast');
 Route::GET('/submitQuesAnsData','front\clientDashboard\ajax\ClientAjaxController@submitQuesAnsData');
 
+// lawyers list after job posted from client-end
+Route::GET('/related-lawyers','front\clientDashboard\PostJobClientController@related_lawyers');
+Route::GET('/related-lawyers-ajax','front\clientDashboard\PostJobClientController@related_lawyers_ajax');
+Route::GET('/notification-send-to-related-lawyer','front\clientDashboard\PostJobClientController@notification_send_to_related_lawyer');
 
 
 // legal-info full front and backend
@@ -246,6 +251,14 @@ Route::GET('/proposal_search_update_ajax','front\clientDashboard\JobProposalCont
 // System Message
 
 // frontend  
+Route::GET('/system-message','front\SystemMsgController@index');
+Route::GET('/current-system-message-details/{system_msg_id}','front\SystemMsgController@single_view');
+Route::GET('/system-message/all-msg','front\SystemMsgController@all_msg_show');
+Route::GET('/system-single-msg-ajax','front\SystemMsgController@single_msg_ajax');
+Route::GET('/unseen-status-ajax','front\SystemMsgController@unseen_to_seen_function');
+Route::GET('/unread-system-msg-count','front\SystemMsgController@unread_system_msg_count');
+Route::GET('/count-system-msg-session','front\SystemMsgController@count_system_msg_session');
+Route::GET('/close-system-msg','front\SystemMsgController@close_system_msg');
 
 // backend
 Route::GET('/admin/system-message/','Admin\AdminSystemMsg@create');
@@ -255,3 +268,11 @@ Route::POST('/admin/system-message/create-project','Admin\AdminSystemMsg@store')
 
 
 // end of system message
+
+
+// send direct invite notication  to lawyer (lawyer end)
+
+Route::GET('/lawyer-notification','front\lawyerDashboard\NotificationController@index');
+Route::GET('/lawyer-notification-ajax','front\lawyerDashboard\NotificationController@lawyer_notify');
+Route::GET('/lawyer-notification-count-ajax','front\lawyerDashboard\NotificationController@count_unread_notification');
+// end of invite lawyer notification (lawyer end)

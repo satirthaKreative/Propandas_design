@@ -46,6 +46,12 @@
 <script>
 function chooseCategory(){
    var choose_category = $("#choose_category").val();
+   if(choose_category == ''){
+      choose_category = 0;
+   }else if(choose_category != ''){
+      choose_category = choose_category;
+   }
+   
    var total_div_count = document.getElementsByClassName('step-box').length;
    $.ajax({
       // headers: {
@@ -169,7 +175,8 @@ function goToNextQues(cate_id)
          if(event == 'Success'){
             $(".step-structure").load(location.href + " .step-structure");
             $("#jobPostClientSuccessModal").modal('show');
-            setTimeout(function(){ $("#jobPostClientSuccessModal").modal('hide'); location.reload(); }, 5000);
+            // setTimeout(function(){ $("#jobPostClientSuccessModal").modal('hide'); location.reload(); }, 3000);
+            setTimeout(function(){ window.location.href='/related-lawyers'; }, 3000);
          }
       }, error: function(event){
 

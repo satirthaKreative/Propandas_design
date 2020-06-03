@@ -4,6 +4,7 @@ namespace App\Http\Controllers\front;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\admincategory;
 
 class LawyerController extends Controller
 {
@@ -82,5 +83,11 @@ class LawyerController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function category_lawyer_type()
+    {
+        $query = admincategory::all();
+        echo json_encode($query);
     }
 }

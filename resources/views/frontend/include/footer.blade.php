@@ -161,9 +161,12 @@
   @if(Auth::user()->is_lawyer == 0)
   <script>
     $(function(){
+      count_system_msg();
       unread_notify_count();
+      unread_system_msg_count();
       setInterval(function(){ 
          unread_notify_count();
+         unread_system_msg_count();
       },1000);
    })
 
@@ -189,11 +192,111 @@
       })
    }
 
+   function unread_system_msg_count(){
+      $.ajax({
+         url: '/unread-system-msg-count',
+         type: 'GET',
+         dataType: 'json',
+         success: function(event_res){
+            if(event_res > 0){
+               if(event_res < 10){
+                  $(".unread-system-msg-count-class").html("( 0"+event_res+" )");
+               }else if(event_res > 10){
+                  $(".unread-system-msg-count-class").html("( "+event_res+" )");
+               }
+               
+            }
+         }
+      })
+   }
+
+
+   // count session
+   function count_system_msg()
+   {
+      $.ajax({
+         url: '/count-system-msg-session',
+         type: 'GET',
+         dataType: 'json',
+         success: function(event_res){
+            console.log(event_res);
+         }, error: function(event_res){
+
+         }
+      })
+   }
+
     // end  notify
   </script>
   @else
   <script>
-    
+     $(function(){
+       count_system_msg();
+       unread_system_msg_count();
+       setInterval(function(){ 
+          unread_system_msg_count();
+          notifying_lawyer_count();
+       },1000);
+    })
+     // count session
+     function count_system_msg()
+     {
+        $.ajax({
+           url: '/count-system-msg-session',
+           type: 'GET',
+           dataType: 'json',
+           success: function(event_res){
+              console.log(event_res);
+           }, error: function(event_res){
+
+           }
+        })
+     }
+
+     // count lawyer notify
+     function notifying_lawyer_count()
+     {
+        $.ajax({
+           url: '/lawyer-notification-count-ajax',
+           type: 'GET',
+           dataType: 'json',
+           success: function(event_res){
+              if(event_res != 0)
+              {
+                if(event_res > 0 && event_res < 10){
+                  var actual_count = '0'+event_res;
+                }else{
+                  var actual_count = event_res;
+                }
+                $(".lawyer-notify-class").html('('+actual_count+')');
+              }
+              else
+              {
+
+              }
+           }, error: function(event_res){
+
+           }
+        })
+     }
+
+     function unread_system_msg_count(){
+      $.ajax({
+         url: '/unread-system-msg-count',
+         type: 'GET',
+         dataType: 'json',
+         success: function(event_res){
+            if(event_res > 0){
+               if(event_res < 10){
+                  $(".unread-system-msg-count-class").html("( 0"+event_res+" )");
+               }else if(event_res > 10){
+                  $(".unread-system-msg-count-class").html("( "+event_res+" )");
+               }
+               
+            }
+         }
+      })
+   }
   </script>
   @endif
 @endguest
@@ -519,6 +622,8 @@ function wishCategoryCheck()
             placeholder: 'Select',
             search: true
         });
+
+        
 
         $('a[href^="#"]').on('click', function(event) {
             var target = $(this.getAttribute('href'));

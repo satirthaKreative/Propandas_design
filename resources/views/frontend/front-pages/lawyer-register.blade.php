@@ -58,7 +58,14 @@
                         <input type="text" name="phn_num" class="form-control" required="required" placeholder="Phone Number"/>
                      </div>
                   </div>
-                  <div class="col-sm-12 plr-5">
+                  <div class="col-sm-6 plr-5">
+                     <div class="form-group">
+                        <select name="lawyer_specialization[]" multiple="multiple"  class="form-control lawyer-specialization">                       
+                          
+                        </select>
+                     </div>
+                  </div>
+                  <div class="col-sm-6 plr-5">
                      <div class="form-group">
                         <input type="text" name="law_firm" class="form-control" placeholder="Law firm" required="" />
                         <p class="text-left"><small>Please put your own name if not a law firm</small></p>
@@ -156,5 +163,30 @@
       }
     })
   }
+</script>
+@endsection
+@section('pagewishjs')
+<script type="text/javascript">
+
+  $(function(){
+    $.ajax({
+      url: '/lawyer-register-specialization',
+      type: 'GET',
+      dataType: 'json',
+      success: function(event){
+        var html = '';
+        for(var i=0; i<event.length; i++)
+        {
+          html += '<option value="'+event[i].id+'">'+event[i].category_name+'</option>'; 
+        }
+        $(".lawyer-specialization").html(html);
+        $('.lawyer-specialization').multiselect({
+            placeholder: 'lawyer specialization',
+        });
+      }, error: function(event){
+
+      }
+    })
+  })
 </script>
 @endsection

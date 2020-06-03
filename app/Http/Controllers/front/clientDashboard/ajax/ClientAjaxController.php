@@ -23,6 +23,17 @@ class ClientAjaxController extends Controller
     		session()->forget('totalQuesAnsSession');  
     	}
 
+        
+
+        if($_GET['choose_category'] != 0){
+
+            if(session('related_lawyers_after_job_session')){
+                session()->forget('related_lawyers_after_job_session');  
+            }
+            
+        Session::put('related_lawyers_after_job_session',$_GET['choose_category']);
+        
+
     	$total_div_count = $_GET['total_div_count'];
     	$categoryWishQuestion = admincateques::where('category_id',$_GET['choose_category'])->first();
     	$first_ques_cate = $categoryWishQuestion->question_id;
@@ -93,6 +104,10 @@ class ClientAjaxController extends Controller
     	}
     	// $structure_html .= '<input type="button" name="" value="Next" onclick="goToNextQues('.$first_ques_cate.')" disabled class="flt-search" id="next-btn'.$total_div_count.'"> ';
     	$structure_html .= '</div>';
+
+        }else{
+            $structure_html = '';
+        }
 
     	echo  json_encode($structure_html);
     }
