@@ -336,6 +336,10 @@ $(".submit").click(function(){
             placeholder: 'lawyer specialization',
             });
 
+         $('.theme-select').multiselect({
+              
+               });
+
 
 
         $('a[href^="#"]').on('click', function(event) {
