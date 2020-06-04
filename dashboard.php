@@ -73,6 +73,7 @@
                   <p><i class="fa fa-envelope icn-show" aria-hidden="true" ></i>rozerlermond@gmail.com</p>
                   <p><i class="fa fa-phone icn-show" aria-hidden="true" ></i>+1 6502509458</p>
                   <p><i class="fa fa-map-marker icn-show" aria-hidden="true" ></i>2361  Brentwood Drive San Marcos Texas Usa</p>
+                  <p><a href="#" class="acdm-btn"><i class="fa fa-user icn-show" aria-hidden="true"></i>Academic-profile</a></p>
 
                   <a href="javascript:void(0)" class="edit-btn" data-toggle="modal" data-target="#Edit-profile-modal" data-toggle="tooltip" data-placement="top" data-tooltip="Edit-profile"><i class="fa fa-pencil" aria-hidden="true" ></i></a>
 
