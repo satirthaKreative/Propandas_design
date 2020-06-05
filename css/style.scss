@@ -5453,6 +5453,30 @@ a.bid-text {
 	}
 }
 
+.academic-error-msg {
+    color: #ce0303 !important;
+    font-size: 14px !important;
+    text-align: center;
+    width: 100%;
+    padding: 7px 10px;
+    line-height: 25px !important;
+    background: rgba(255,60,0,0.11);
+    margin-top: 15px;
+    border: solid 1px #f1ccc2;
+}
+
+.academic-success-msg {
+    color: #058e05 !important;
+    font-size: 14px !important;
+    text-align: center;
+    width: 100%;
+    padding: 7px 10px;
+    line-height: 25px !important;
+    background: #76a7764f;
+    margin-top: 15px;
+    border: solid 1px #b3d2b3;
+}
+
 
 
 .acdm-btn{

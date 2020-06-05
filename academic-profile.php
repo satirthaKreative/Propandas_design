@@ -178,6 +178,9 @@
                            <input type="submit" name="" value="Add Account" class="flt-search">
                            <input type="submit" name="" value="Cancel" class="flt-search">
                            <a href="javascript:void(0)" class="dt-btn">Back</a>
+                              <p class="academic-error-msg">error text</p>
+
+                              <p class="academic-success-msg">Successfuly sent</p>
                         </div>
                      </div>
                   </form>
