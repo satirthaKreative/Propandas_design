@@ -184,11 +184,23 @@
                  <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> 
               </div>
               <div class="cont-msg">
+                <div class="shrt-view ">
+                <ul>
+                  <!-- <li><a href="#" class="has-tooltip">
+                    <i class="fa fa-times-circle-o" aria-hidden="true"></i>
+                    <span class="tooltip-wrapper"><span class="tooltip">
+                  </a></li> -->
+                  <li class="tooltip">
+                    <a href="#">
+                     <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                      <span class="tooltiptext">Tooltip text</span>
+                   </a></li>
+                  <li><a href="#" data-placement="top" data-tooltip="42kb"><i class="fa fa-file-image-o" aria-hidden="true"></i></a></li>
+                </ul>
+              </div>
                 <div class="usg-name">
                   <h6><a href="#"><strong>User Name</strong></a> <span class="date-usg">11:01 AM | June 9</span></h6>
-                  <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                  consequat.</p>
+                  <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                   <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
                   cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                   proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -222,13 +234,9 @@
 
                 </div>
 
-                <div class="shrt-view ">
-                <ul>
-                  <li><a href="#" data-placement="top" data-tooltip="Remove"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></li>
-                  <li><a href="#" data-placement="top" data-tooltip="Start a Reply"><i class="fa fa-commenting-o" aria-hidden="true"></i></a></li>
-                  <li><a href="#" data-placement="top" data-tooltip="42kb"><i class="fa fa-file-image-o" aria-hidden="true"></i></a></li>
-                </ul>
-              </div>
+                 
+
+                
               </div>
                
             </div>

@@ -49,7 +49,7 @@
                         <div class="col-md-6 plr-5">
                            <div class="form-group">
                               <label for="">Law Schools Attended</label>
-                              <select name="" multiple="multiple" class="form-control theme-select">
+                              <select name="" class="form-control ">
                                  <option value="1">Attended 1</option>
                                  <option value="2">Attended 2</option>
                                  <option value="3">Attended 3</option>
@@ -177,6 +177,7 @@
                         <div class="col-md-12 plr-5">
                            <input type="submit" name="" value="Add Account" class="flt-search">
                            <input type="submit" name="" value="Cancel" class="flt-search">
+                           <a href="javascript:void(0)" class="dt-btn">Back</a>
                         </div>
                      </div>
                   </form>
