@@ -5870,3 +5870,37 @@ a.bid-text {
 			}
 		}
 }
+
+.green-mdl-text{
+	.modal-body {
+		h3{
+    font-size: 24px;
+    color: #07af05;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+    line-height: 41px;
+    }
+	}	
+	
+}
+
+.anchr-btn{
+	    background: #279ce0;
+    color: #fff;
+    padding: 7px 25px;
+    font-size: 14px;
+    min-width: 200px;
+    line-height: 28px;
+    border-radius: 0px;
+    text-decoration: none;
+    display: inline-block;
+    transition: 1s;
+    margin-top: 10px;
+    clear: both;
+    &:hover{
+    	background: #000;
+    	 transition: 1s;
+    	 color: #fff;
+    }
+    }

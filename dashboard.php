@@ -25,6 +25,8 @@
              <li><a href="javascript:void(0)" data-toggle="modal" data-target="#sent-modal" class="green-text"><i class="fa fa-lock fa-fw "  aria-hidden="true"></i>Password Sent</a></li>
 
               <li><a href="javascript:void(0)" data-toggle="modal" data-target="#coming-modal" class="green-text"><i class="fa fa-check-square-o fa-fw "  aria-hidden="true"></i>coming soon</a></li>
+
+              <li><a href="javascript:void(0)" data-toggle="modal" data-target="#accept-modal" class="green-text"><i class="fa fa-check-square-o fa-fw "  aria-hidden="true"></i>Accept modal</a></li>
              
 
 
@@ -408,6 +410,25 @@
          </div>
       </div>
    </div>
+
+
+   <!-- accept-soon Modal -->
+   <div class="modal fade theme-modal green-mdl-text" id="accept-modal">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <!-- Modal body -->          
+
+            <div class="modal-body text-center">
+               <div class="center-part">
+                  <h3><span><img src="images/logo.png" alt="logo" class="modal-logo"></span>Thank you</h3>   
+                   <h6>For accepting a lawyer's proposal. Please check your message channel. </h6>
+                   <p><a href="#" class="anchr-btn">Go to Chat</a></p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
 </section>
 <!-- end of dshbord-theme -->
 <?php include ("inc/footer.php") ?>
