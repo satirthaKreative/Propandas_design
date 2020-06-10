@@ -5,7 +5,7 @@
       <div class="breadcum-top">
          <ul class="breadcrumb">
             <li><a href="#">Home</a></li>
-            <li>Careers</li>
+            <li>Career</li>
          </ul>
       </div>
    </div>
@@ -19,38 +19,31 @@
          <p>Are you ready to disrupt a highly protected and traditional industry? Join the legal tech movement.</p>       
       </div>
 
-      <div class="col-md-8 offset-2 text-center">
-      	<p>Send us your elevator pitch and become part of Propandas!</p>
-
-      	<div class="contact-form">
+      <div class="col-md-8 offset-2 text-center career-form">
+      	<p>Send us your elevator pitch and become part of Propandas!</p>      
                <form>
                   <div class="row">
                      <div class="col-lg-6 plr-5">             
-                        <input type="text" name="" value="" class="form-control" placeholder="Name">
+                        <input type="text" name="" value="" class="form-control" placeholder="First Name">
+                     </div>
+                     <div class="col-lg-6 plr-5">             
+                        <input type="text" name="" value="" class="form-control" placeholder="Last Name">
                      </div>
                      <div class="col-lg-6 plr-5">             
                         <input type="email" name="" value="" class="form-control" placeholder="Email">
-                     </div>
-                     <div class="col-lg-6 plr-5">
-                        <select name="type" id="type" class="form-control" aria-hidden="true">
-                           <option selected="selected" value="mine">Regarding</option>
-                           <option value="">Option 1</option>
-                           <option value="">Option 2</option>
-                           <option value="">Option 3</option>
-                        </select>
-                     </div>
+                     </div>                   
                      <div class="col-lg-6 plr-5">             
-                        <input type="text" name="" value="" class="form-control" placeholder="Subject">
+                        <input type="text" name="" value="" class="form-control" placeholder="Phone Number">
                      </div>
                      <div class="col-lg-12 plr-5">
                         <textarea name="comment" rows="2" class="form-control" placeholder="Your Message "></textarea>
                      </div>
                      <div class="col-lg-12 plr-5">
-                        <input type="submit" value="submit">
+                        <input type="submit" value="submit" >
                      </div>
                   </div>
                </form>
-            </div>
+            
       </div>
 
       

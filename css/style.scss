@@ -5808,3 +5808,65 @@ a.bid-text {
     }
 }
 	
+
+
+
+	.career-form {
+    padding: 40px 25px;
+    margin-top: 25px;
+    background: #eee;
+    outline: solid 1px #ededed;
+    box-shadow: 0 4px 7px #bab3b3;
+    border: 7px solid #fdfdfd;
+
+    p{
+    	color: #615f5f;
+    font-size: 14px;
+    line-height: 24px;
+    font-style: italic;
+    }
+
+    .row {
+			margin-right: 0px;
+			margin-left: 0px;
+		}
+		form{
+			margin-top: 30px;
+		}
+		input,
+		textarea,
+		select {
+			height: 42px !important;
+			border: 1px solid #d2d2d2;
+			background-color: #f5f4f4;
+			border-radius: 0;
+			font-size: 14px;
+			color: #797979;
+			margin-bottom: 12px;
+			box-shadow: none !important;
+			outline: none !important;
+		}
+		textarea {
+			height: 80px!important;
+		}
+		input[type="submit"] {
+			padding: 7px 12px;
+			display: inline-block;
+			line-height: 26px;
+			text-decoration: none;
+			border: 1px solid #23375a;
+			background-color: #23375a;
+			min-width: 150px;
+			text-align: center;
+			color: #ffffff;
+			font-size: 15px;
+			font-weight: 500;
+			transition: 0.5s;
+			margin-top: 15px;
+			&:hover {
+				background: #0e1424;
+				border: solid 1px #070707;
+				transition: 0.5s;
+			}
+		}
+}
