@@ -5585,14 +5585,44 @@ a.bid-text {
 
 .reply-box {
     background: #f7f0f0;
-    display: inline-block;
+    display:inline-block;
     width: 100%;
-    padding: 15px;
+    padding: 0px;
     border: solid 1px #ddd;
     margin: 25px 0px;
-    position: relative;
+    position: relative; 
+    
+
+    .close-box {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    width: 30px;
+    height: 30px;
+    background: #e7e6e6;
+    border-radius: 50%;
+    display: inline-grid;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+
+    a{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    color: #3b4b5a;
+    font-size: 13px;
+    }
+}
+
+	.rply-content{
+	position: relative;
     height: 300px;
     overflow: auto;
+    padding: 15px;
 
     &::-webkit-scrollbar-track {
 		background-color: #ebebeb;
@@ -5608,6 +5638,8 @@ a.bid-text {
 		background: #a9a9a9;
 		max-height: 10%!important;
 	} 
+
+	}
 }
 
 .chat-content .message-content .chat_list{

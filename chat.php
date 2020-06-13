@@ -187,6 +187,9 @@
                      </div>
                   </div>
                   <div class="reply-box">
+                     <div class="close-box">
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="close"><i class="fa fa-times" aria-hidden="true"></i></a>
+                     </div>
                      <div class="rply-content">
                         <div class="front-msg">
                            <div class="usg-img">
@@ -255,14 +258,14 @@
                               </div>
                               <div class="shrt-view">
                                  <ul>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remove"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="42kb"><i class="fa fa-file-image-o" aria-hidden="true"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="Remove"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="42kb"><i class="fa fa-file-image-o" aria-hidden="true"></i></a></li>
                                  </ul>
                               </div>
                            </div>
                         </div>
-                     </div>
-                     <div class="type_msg">
+
+                        <div class="type_msg">
                         <div class="input_msg_write">
                            <form action="">
                               <textarea name="" class="form-control write_msg" placeholder="Type your message..."></textarea>
@@ -276,6 +279,8 @@
                            </form>
                         </div>
                      </div>
+                     </div>
+                     
                   </div>  <!-- end of reply-box -->
                </div>
                <div class="front-msg">
