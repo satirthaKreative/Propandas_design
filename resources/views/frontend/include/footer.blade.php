@@ -231,6 +231,7 @@
   @else
   <script>
      $(function(){
+       lawyer_profile_speacialization_function();
        count_system_msg();
        unread_system_msg_count();
        setInterval(function(){ 
@@ -238,6 +239,21 @@
           notifying_lawyer_count();
        },1000);
     })
+     // my specialization profile
+     function lawyer_profile_speacialization_function()
+     {
+        $.ajax({
+          url: '/category-lawyer-speacialization-ajax',
+          type: 'GET',
+          dataType: 'json',
+          success: function(event){
+            $(".lawyer-specialization-class-id").html(event);
+            $(".lawyer-specialization-class-id").multiselect({ placeholder: 'Select Specialization'});
+          }, error: function(event){
+
+          }
+        })
+     }
      // count session
      function count_system_msg()
      {
@@ -296,7 +312,7 @@
             }
          }
       })
-   }
+    }
   </script>
   @endif
 @endguest

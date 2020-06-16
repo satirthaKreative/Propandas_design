@@ -45,5 +45,19 @@
          }
       })
    }
+   function changeNotityLawyer(id)
+   {
+      $.ajax({
+         url: '/change-notify-lawyer-ajax',
+         type: 'GET',
+         data: {id: id},
+         dataType: 'json',
+         success: function(event){
+            invite_page_load();
+         }, error:  function(event){
+
+         }
+      })
+   }
 </script>
 @endsection

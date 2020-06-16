@@ -12,6 +12,9 @@ use App\User;
 use App\Country_model;
 use App\LawyerCountryModel;
 use App\LawyerCitiesModel;
+use App\models\ChatModel;
+use App\models\ChatProjectModel;
+use App\models\ChatJobQAModel;
 
 class JobProposalController extends Controller
 {
@@ -423,11 +426,11 @@ class JobProposalController extends Controller
                                           <div class="modal-body text-center">
                                              <div class="center-part">
                                                 <h3><span><i class="fa fa-user fa-3x" aria-hidden="true"></i></span>You have choose lawyer</h3>                                               
-                                                  <h6><strong>Robert Hooks</strong> </h6>
+                                                  <h6><strong>'.$user_data->name.' '.$user_data->lname.'</strong> </h6>
                                                    <h6><span>Price :</span>€ '.$main_data->billing_rate.' / '.$main_content.'</h6>                                                    
                                               
                                                 <p>please confirm to click</p>
-                                                <a href="javascript:void(0)"  onclick="coming_soon_modal()" class="cnt-btn">Accept Lawyer</a>
+                                                <a href="javascript:void(0)"  onclick="accept_lawyer_proposal_function('.$proposal_id.','.$main_data->project_id.','.$main_data->lawyer_id.','.$main_data->client_id.')" class="cnt-btn">Accept Lawyer</a>
                                              </div>
                                           </div>
                                        </div>
@@ -474,5 +477,67 @@ class JobProposalController extends Controller
 
         echo json_encode($country_view);
     }
+
+
+    // Accepting Proposals
+
+    public function accepting_proposal_ajax()
+    {
+        $proposal_id = $_GET['proposal_id'];
+        $project_id = $_GET['project_id'];
+        $lawyer_id = $_GET['lawyer_id'];
+        $client_id = $_GET['client_id'];
+
+        // updating project 
+        $updateProject = ChatJobQAModel::where('id', $project_id)->update(['status'=>0,'active_status'=>0,'project_status'=>'accepting']);
+
+        // getting project
+        $getting_project = ChatJobQAModel::where('id',$project_id)->get();
+        foreach($getting_project as $get_proj)
+        {
+            $project_mainId = $get_proj->projectId;
+        }
+
+        // get proposal details
+        $get_proposal_details = ProposalSendModel::where(['id' => $proposal_id, 'client_id' => Auth::user()->id])->get();
+        foreach($get_proposal_details as $get_propo)
+        {
+            $price = $get_propo->billing_rate;
+            if($get_propo->billing_option == 1)
+            {
+                $main_price = ' / hrs';
+            }
+            else if($get_propo->billing_option == 0)
+            {
+                $main_price = ' / fixed';
+            }
+        }
+        // update proposal details
+        $updateQuery = ProposalSendModel::where('id', $proposal_id)->update(['active_status' => 0]);
+        // total proposal users id
+        $my_Array_query = array($client_id, $lawyer_id);
+        $my_implode = implode(",",$my_Array_query);
+
+        // insert array in chat project table
+        $insertArr = [
+            'client_id' =>$client_id,
+            'lawyer_id' =>$lawyer_id,
+            'project_id' =>$project_id,
+            'project_name' =>$project_mainId,
+            'budget_of_project' => $price.$main_price,
+            'work_status' => 'started',
+            'project_start_date' => date('Y-m-d'),
+            'created_at' =>date('Y-m-d'),
+            'updated_at' =>date('Y-m-d'),
+            'total_users_ids' =>$my_implode,
+      ];
+
+      // insert query 
+      $insertQuery = ChatProjectModel::insert($insertArr);
+
+      echo json_encode("Success");
+    }
+
+    
 
 }

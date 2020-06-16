@@ -53,6 +53,23 @@
             
          }
       })
-   })
+   });
+
+   function accept_lawyer_proposal_function(proposal_id, project_id, lawyer_id, client_id)
+   {
+      $.ajax({
+        url: "/accepting-proposal-ajax",
+        type: "GET",
+        data: {proposal_id: proposal_id, project_id: project_id, lawyer_id: lawyer_id, client_id: client_id},
+        dataType: 'json',
+        success: function(response){
+            $("#success-modal .modal-body").html('<div class="center-part"><h3><span><i class="fa fa-check-circle" aria-hidden="true"></i></span> <span>Successfully Done</span> </h3><p>Your proposal submitted</p></div>');
+            $("#success-modal").modal('show');
+            setTimeout(function(){$("#success-modal").modal('hide');},3000);
+        }, error: function(response){
+
+        }
+      })
+   }
 </script>
 @endsection

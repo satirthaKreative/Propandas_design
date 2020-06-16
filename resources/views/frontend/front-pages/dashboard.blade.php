@@ -442,9 +442,21 @@
 
                <div class="short-profile">
                   <h3>{{ Auth::user()->name }} {{ Auth::user()->lname }}</h3>
+                  <!-- Profile Page Complete Status -->
+                  <div class="profile-progress">
+                   <p>60% Completed</p>
+                     <div class="progress">
+                       <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:60%">                          
+                       </div>
+                     </div>
+                  </div>
+                  <!-- / End Complete Status -->
                   <p><i class="fa fa-envelope icn-show" aria-hidden="true"></i>{{ Auth::user()->email }}</p>
                   <p><i class="fa fa-phone icn-show" aria-hidden="true"></i><span class="country-phn-code"></span>{{ Auth::user()->phn_num }}</p>
                   <p><i class="fa fa-map-marker icn-show" aria-hidden="true"></i>{{ $total_address }}<span class="country-name-dashboard"></span>.</p>
+                  <!-- Academic PRofile -->
+                  <p><a href="/profile-details" class="acdm-btn"><i class="fa fa-user icn-show" aria-hidden="true"></i>Detailed-profile</a></p>
+                  <!-- / academic profile -->
                   <p><a href="javascript:void(0)" class="edit-btn" data-toggle="modal" data-target="#Edit-profile-modal" data-placement="top" data-tooltip="Edit-profile"><i class="fa fa-pencil" aria-hidden="true"></i></a></p>
                   <p><a href="javascript:void(0)" class="edit-btn edit-btn2" data-toggle="modal" data-target="#change-password" data-placement="top" data-tooltip="change-password"><i class="fa fa-cog" aria-hidden="true"></i></a></p>
                </div>
@@ -717,6 +729,12 @@
                      <div class="form-group">
                         <label for="usr">Last Name</label>           
                         <input type="text" class="form-control" name="lname" value="{{ Auth::user()->lname }}" placeholder="Doe">           
+                     </div>
+                     <div class="form-group">
+                        <label for="usr">Specialization</label> 
+                        <select multiple class="form-control lawyer-specialization-class-id" name="specializaion[]" > 
+                           <option value="">Specialization</option>
+                        </select>
                      </div>
                      <div class="form-group">
                         <label for="usr">Contact no</label>           

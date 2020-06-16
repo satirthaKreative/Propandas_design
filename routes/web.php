@@ -275,4 +275,39 @@ Route::POST('/admin/system-message/create-project','Admin\AdminSystemMsg@store')
 Route::GET('/lawyer-notification','front\lawyerDashboard\NotificationController@index');
 Route::GET('/lawyer-notification-ajax','front\lawyerDashboard\NotificationController@lawyer_notify');
 Route::GET('/lawyer-notification-count-ajax','front\lawyerDashboard\NotificationController@count_unread_notification');
+Route::GET('/lawyer-notification-count-ajax','front\lawyerDashboard\NotificationController@count_unread_notification');
+Route::GET('/change-notify-lawyer-ajax','front\lawyerDashboard\NotificationController@change_notify_lawyer_ajax');
+	// lawyer speacialization category
+	Route::GET('/category-lawyer-speacialization-ajax','front\lawyerDashboard\NotificationController@category_lawyer_speacialization_ajax');
+	// end of
 // end of invite lawyer notification (lawyer end)
+
+
+// academic profile page 
+Route::GET('/profile-details','front\lawyerDashboard\AcademicProfileController@index');
+Route::POST('/profile-details','front\lawyerDashboard\AcademicProfileController@store');
+Route::GET('/profile-language-ajax','front\lawyerDashboard\AcademicProfileController@language');
+Route::GET('/law-school-ajax','front\lawyerDashboard\AcademicProfileController@law_school');
+Route::GET('/law-school-ajax-cate-special','front\lawyerDashboard\AcademicProfileController@category_lawyer_speacialization_ajax');
+Route::GET('/academic-profile-checking-data-ajax','front\lawyerDashboard\AcademicProfileController@academic_profile_checking_data_ajax');
+// end of academic profile page
+
+
+// chat profile page
+Route::GET('/chat','front\chats\ChatController@index');
+	// Accepting proposal
+		Route::GET('accepting-proposal-ajax','front\clientDashboard\JobProposalController@accepting_proposal_ajax');
+	// end accepting proposal
+Route::GET('/chat-sideboard-ajax','front\chats\ChatController@chat_sideboard_ajax');
+Route::GET('/project-chat-ajax','front\chats\ChatController@project_chat_ajax');
+Route::GET('/count-chat-member-ajax','front\chats\ChatController@count_chat_member_ajax');
+	// insert chat text type
+	Route::GET('/insert-chat-text-add-ajax','front\chats\ChatController@insert_chat_text_add_ajax');
+	// chat loading time every second
+	Route::GET('/every-second-chat-loading','front\chats\ChatController@every_second_chat_loading');
+	// end loading every time second
+	// Adding chatting members
+	Route::GET('/add-member-to-chat','front\chats\ChatController@add_member_to_chat');
+	Route::GET('/adding-members-form-chat-ajax','front\chats\ChatController@adding_members_form_chatting');
+	// end adding chatting members
+// end chat profile page
