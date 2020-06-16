@@ -5584,13 +5584,15 @@ a.bid-text {
 
 
 .reply-box {
-    background: #f7f0f0;
-    display:inline-block;
-    width: 100%;
+   background: #f4f4f4;
+    width: 400px !important;
+    height: 600px;
     padding: 0px;
     border: solid 1px #ddd;
-    margin: 25px 0px;
-    position: relative; 
+    margin: 0;
+    position: relative;
+    display: inline-block; 
+     word-break: break-word;
     
 
     .close-box {
@@ -5620,9 +5622,10 @@ a.bid-text {
 
 	.rply-content{
 	position: relative;
-    height: 300px;
+    height: 550px;
     overflow: auto;
     padding: 15px;
+
 
     &::-webkit-scrollbar-track {
 		background-color: #ebebeb;
@@ -5936,3 +5939,68 @@ a.bid-text {
     	 color: #fff;
     }
     }
+
+.chat-content{
+	.message-content{
+
+		.reply-box{
+	.rply-content{
+		.front-msg{
+
+			 .usg-img {			 	
+			    width: 30px ;
+			    height: 30px;
+			 }
+			 .cont-msg {
+			    float: left;
+			    width: calc(100% - 30px);
+			    padding-left: 7px ;		    
+			    
+			 }
+
+			 .upload-kit ul li{
+			 	width: 100px;
+                height: 100px;
+
+                 img {
+				    width: 100%;
+				    height: 100%;
+				    object-fit: cover;
+				}
+			 }
+    
+        }
+
+        .type_msg{
+        	.setd-tag{
+        		    width: 90px;
+        		    right: 5px;        		   
+        	}
+        	.input_msg_write .write_msg{
+        		    padding-right: 110px;
+        	}
+        	} 
+
+
+	}
+}
+
+
+	}
+}
+
+.reply-box{
+display: none;
+}
+
+.chat-content {
+	.side-reply{
+		.mesgs{
+			width: calc(100% - 700px);
+		}
+
+		.reply-box{
+			display: block;
+		}
+	}
+}
