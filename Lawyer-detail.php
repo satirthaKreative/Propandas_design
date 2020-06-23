@@ -37,11 +37,32 @@
                    <div class="media ">
                             <img class="md-img" src="https://image.freepik.com/free-photo/smiling-mature-lawyer-working-courtroom_23-2147898545.jpg" alt="image">
                              <div class="media-body">
-                               <h5>Robert Hooks</h5>
-                                <p class="dg-text"><em>Business Lawyers</em></p>
-                               <h6><span>Location :</span>London, United Kingdom. </h6>
+                              <div class="row">
+                                <div class="col-md-8">
+                                   <h5>Robert Hooks</h5>
+                                <p class="dg-text"><em>Business Lawyers</em></p> 
+                                <h6><span>Location :</span>London, United Kingdom. </h6>
 
                                 <h6><span>Price :</span><label>$100</label> / per hr </h6>
+                                </div>
+
+                                <div class="col-md-4">
+                                  <div class="rating-bx sidertng"> 
+                                  <div class="rtng-bg">
+                                 <span><i class="fa fa-star" aria-hidden="true"></i></span>
+                                <span><i class="fa fa-star" aria-hidden="true"></i></span>
+                                <span><i class="fa fa-star" aria-hidden="true"></i></span>
+                                <span><i class="fa fa-star-half-o" aria-hidden="true"></i></span>
+                                <span><i class="fa fa-star-o" aria-hidden="true"></i></span>
+                                  </div>                              
+                                
+                                <label class="rv-number"><a href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i>10 Reviews</a></label>
+                             </div>
+                                </div>
+                                
+                              </div>
+                                                             
+                               
                                <p>Ut enim ad minim veniam,
                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
@@ -56,9 +77,10 @@
                                  <li>Sunt in culpa qui officia deserunt mollit anim</li>
                                  <li>Sunt in culpa qui officia deserunt mollit anim</li>
                                  <li>Sunt in culpa qui officia deserunt mollit anim</li>
-                              </ul>
+                              </ul> 
+                            
 
-                              <p>
+                               <p>
                                  <span><a href="javascript:void(0)" class="dt-btn">Select Lawyer</a></span>
                                  <span><a href="javascript:void(0)" class="dt-btn">Cancel Lawyer</a></span>
                                  </p>

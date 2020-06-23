@@ -1,15 +1,4 @@
 <?php include ("inc/header.php") ?>
-<!-- <section class="inner-banner">
-   <div class="container">
-      <h1>About Us</h1>
-      <div class="breadcum-top">
-         <ul class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li>About Us </li>
-         </ul>
-      </div>
-   </div>
-   </section> -->
 <section class="dshbord-theme">
    <div class="container">
       <div class="row">
@@ -61,9 +50,18 @@
                       <div class="media">
                          <img class="md-img" src="https://image.freepik.com/free-photo/smiling-mature-lawyer-working-courtroom_23-2147898545.jpg" alt="image">
                           <div class="media-body">
-                             <h5>Robert Hooks</h5>
-                             <p class="dg-text"><em>Business Lawyers</em></p>
-                             <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                             <h5><a href="single-lawyer.php">Robert Hooks</a></h5>
+                             <div class="rating-bx">                             	
+                             		<i class="fa fa-star" aria-hidden="true"></i>
+                             		<i class="fa fa-star" aria-hidden="true"></i>
+                             		<i class="fa fa-star" aria-hidden="true"></i>
+                             		<i class="fa fa-star-half-o" aria-hidden="true"></i>
+                             		<i class="fa fa-star-o" aria-hidden="true"></i>
+                             		<label class="rv-number"><a href="single-lawyer.php"><i class="fa fa-plus-circle" aria-hidden="true"></i>14 Reviews</a></label>
+                             </div>
+
+                             <p class="dg-text">30 similar projects completed <span>&nbsp;|&nbsp;</span>12 years experience</p>
+                             <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                           </div>
                       </div>
                     </div>
@@ -81,8 +79,17 @@
                       <div class="media">
                          <img class="md-img" src="https://www.bestattorneysofamerica.com/wp-content/uploads/cache/images/for-attorneys-woman/for-attorneys-woman-1416831204.jpg" alt="image">
                           <div class="media-body">
-                             <h5>Sara Najjar</h5>
-                             <p class="dg-text"><em>Business Lawyers</em></p>
+                             <h5><a href="single-lawyer.php">Sara Najjar</a></h5>
+                             <div class="rating-bx">                             	
+                             		<i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                             		<label class="rv-number"><a href="single-lawyer.php"><i class="fa fa-plus-circle" aria-hidden="true"></i>10 Reviews</a></label>
+                             </div>
+
+                             <p class="dg-text">10 similar projects completed <span>&nbsp;|&nbsp;</span>8 years experience</p>
                              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                           </div>
                       </div>
@@ -100,8 +107,17 @@
                       <div class="media">
                          <img class="md-img" src="https://www.jangattorneys.com/wp-content/themes/jang-2017/img/defaultinnerimgmob.jpg" alt="image">
                           <div class="media-body">
-                             <h5>Mitri Valentine </h5>
-                              <p class="dg-text"><em>Business Lawyers</em></p>
+                             <h5><a href="single-lawyer.php">Mitri Valentine</a> </h5>
+                              <div class="rating-bx">                             	
+                             		<i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                             		<label class="rv-number"><a href="single-lawyer.php"><i class="fa fa-plus-circle" aria-hidden="true"></i>14 Reviews</a></label>
+                             </div>
+
+                             <p class="dg-text">30 similar projects completed <span>&nbsp;|&nbsp;</span>12 years experience</p>
                              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                           </div>
                       </div>
@@ -119,8 +135,17 @@
                       <div class="media">
                          <img class="md-img" src="https://freedomlaw.ca/wp-content/uploads/2018/06/corporate.jpg" alt="image">
                           <div class="media-body">
-                             <h5>William David.</h5>
-                             <p class="dg-text"><em>Business Lawyers</em></p>
+                             <h5><a href="single-lawyer.php">William David.</a></h5>
+                              <div class="rating-bx">                             	
+                             		<i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                             		<label class="rv-number"><a href="single-lawyer.php"><i class="fa fa-plus-circle" aria-hidden="true"></i>5 Reviews</a></label>
+                             </div>
+
+                             <p class="dg-text">15 similar projects completed <span>&nbsp;|&nbsp;</span>2 years experience</p>
                              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                           </div>
                       </div>
