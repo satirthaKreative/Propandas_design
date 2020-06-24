@@ -6108,15 +6108,30 @@ a.bid-text {
 	    }
 	}
 
-	.prj-review{
-		margin-top: 50px;
+	
+
+	
+}
+
+
+.prj-list-table{
+	margin-top: 0px;
+	.short-font{
+		    padding: 3px !important;
+	}
+
+}
+
+.prj-review{		
 		.rtang-part{
 			h6{
-				font-size: 18px;
-			    font-weight: 500;
-			    color: #0d2c67;
-			    border-bottom: solid 1px #dadbdb;
-			    padding-bottom: 15px;
+				    font-size: 18px;
+				    font-weight: 700;
+				    color: #0e3276;
+				    padding-bottom: 15px;
+				    padding: 10px;
+				    margin-bottom: 18px;
+				    border-bottom: solid 1px #0e3276;
 			}
 
 			h4{
@@ -6131,12 +6146,13 @@ a.bid-text {
 			.rating-bx{
 				
 				p{
-					    font-size: 15px;
+					    font-size: 14px;
 					    line-height: 25px;
 					    margin: 6px 0px;
 					    display: inline-block;
 					    width: 100%;
 					    font-weight: 500;
+					    text-align: left;
 					.strs-rate{
 						margin-left: 25px;
 						i{
@@ -6192,6 +6208,3 @@ a.bid-text {
 
 		}
 	}
-
-	
-}
