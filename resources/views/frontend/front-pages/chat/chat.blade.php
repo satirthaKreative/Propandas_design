@@ -71,7 +71,7 @@
                </div>
             </div>
          </div>
-         <div class="mesgs">
+         <div class="mesgs chat-main-mesgs">
             <div class="mesg-top">
                <div class="msg-top-left accept-project">
                   <h6>Project Name <input type="hidden" class="project-name-hidden-class" name="project_name_hidden" value="" /></h6>
@@ -360,13 +360,18 @@
             </div>
             <div class="type_msg">
                <div class="input_msg_write">
-                  <form action="" id="write_msg_form">
+                  <form id="main-chat-file-id" enctype="multipart/form-data" method="POST" action="{{ url('/main-chat-file-insert-ajax') }}">
                      <textarea name="write_msg_text" id="write-msg-text-id" class="form-control write_msg" placeholder="Type your message..."></textarea>
                      <input type="hidden" name="project_name_hide" id="project-name-hide-id">
                      <input type="hidden" name="project_id_hide" id="project-hide-id">
                      <div class="setd-tag">
+                        
                         <div class="attach-icn" data-toggle="tooltip" data-placement="top" title="Attach file">
-                           <input type="file" name="">
+                           
+                             
+                              <input type="file" name="attach_file_main_chat" id="attach-file-main-chat-id">
+                              
+                           
                            <span class="file-span"><i class="fa fa-paperclip" aria-hidden="true"></i></span>
                         </div>
                         <button class="msg_send_btn" type="button" onclick="send_msg_to_project()"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
@@ -375,6 +380,115 @@
                </div>
             </div>
          </div>
+
+         <!-- reply message -->
+         <div class="mesgs reply-box">                     
+            <div class="mesg-top">
+               <div class="msg-top-left">
+                  <h6>Project Name</h6>
+               </div>
+               <div class="user-dtls">
+                 <div class="close-box">
+                     <a href="#" data-toggle="tooltip" data-placement="top" title="close">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                     </a>
+                  </div>
+               </div>
+            </div>
+                     <div class="msg_history rply-content">
+                        <div class="front-msg">
+                           <div class="usg-img">
+                              <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> 
+                           </div>
+                           <div class="cont-msg">
+                              <div class="usg-name">
+                                 <h6><a href="#"><strong>User Name</strong></a> <span class="date-usg">11:01 AM | June 9</span></h6>
+                                 <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                 </p>
+                                 <p><a href="#">https://www.cupidatat.com/images/excepteur.png</a></p>
+                                 <ul>
+                                    <li>Excepteur sint occaecat cupidatat non proident</li>
+                                    <li>Aute irure dolor in reprehenderit in voluptate velit esse</li>
+                                    <li>Sed do eiusmod tempor incididunt ut labore</li>
+                                 </ul>
+                                 <div class="upload-kit">
+                                    <ul>
+                                       <li>
+                                          <img src="images/blog-2.jpg" alt="images" class="img-fluid">
+                                          <div class="upld-btn">
+                                             <span><a href="javascript:void(0)"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
+                                          </div>
+                                       </li>
+                                       <li>
+                                          <video controls>
+                                             <source src="https://files.slack.com/files-pri/TKJL2HUJK-F014HJVN64T/untitled__may_29_2020_8_38_pm.webm" type="video/mp4">
+                                          </video>
+                                          <div class="upld-btn">
+                                             <span><a href="javascript:void(0)"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
+                                          </div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                              <div class="shrt-view">
+                                 <ul>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="Remove"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="42kb"><i class="fa fa-file-image-o" aria-hidden="true"></i></a></li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="front-msg">
+                           <div class="reply-count">
+                              <p>1 replies</p>
+                              <hr>
+                           </div>
+                           <div class="usg-img">
+                              <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> 
+                           </div>
+                           <div class="cont-msg">
+                              <div class="usg-name">
+                                 <h6><a href="#"><strong>User Name</strong></a> <span class="date-usg">11:01 AM | June 9</span></h6>
+                                 <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    consequat.
+                                 </p>
+                                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                 </p>
+                              </div>
+                              <div class="shrt-view">
+                                 <ul>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="Remove"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="42kb"><i class="fa fa-file-image-o" aria-hidden="true"></i></a></li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+
+                     <div class="type_msg">
+                        <div class="input_msg_write">
+                           <form action="">
+                              <textarea name="" class="form-control write_msg" placeholder="Type your message..."></textarea>
+                              <div class="setd-tag">
+                                 <div class="attach-icn" data-toggle="tooltip" data-placement="top" title="Attach file">
+                                    <input type="file" name="">
+                                    <span class="file-span"><i class="fa fa-paperclip" aria-hidden="true"></i></span>
+                                 </div>
+                                 <button class="msg_send_btn" type="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                     </div>
+                     
+                  </div>
+
+                  <!-- end of reply-box -->
       </div>
    </div>
    <!-- add Modal -->
@@ -407,12 +521,167 @@
          </div>
       </div>
    </div>
+   <!-- filesize success Modal -->
+   <div class="modal fade theme-modal" id="success-filesize-modal">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <!-- Modal body -->
+            <div class="modal-body text-center">
+               <div class="center-part">
+                  <h3><span><i class="fa fa-check-circle" aria-hidden="true"></i></span> <span>01 GB fully filled up. You need to buy more time.</span> </h3>
+                  <div id="paypal-button-container"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="modal fade theme-modal" id="success-file-pay-modal">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <!-- Modal body -->
+            <div class="modal-body text-center">
+               <div class="center-part">
+                  <h3><span><img src="{{ asset('frontAssets/images/logo.png') }}" alt="logo" class="modal-logo"></span>Thank You </h3>
+                  <h6>For buy more space, start your chat now</h6>
+                  
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- end of model -->
 </section>
+
 <!-- end of dshbord-theme -->
 @endsection
 @section('pagewishjs')
+<!-- Paypal start -->
+<script src="https://www.paypal.com/sdk/js?client-id=Ac4D5vnEM8k_yYAfrS4tz2lb42lCbTYwQKK5sag1Vrs8JLfKU3rBZh8y2a2g0lYHbsZgSc50dt1aOY9g"></script>
 <script>
+      paypal.Buttons({
+        createOrder: function(data, actions) {
+          return actions.order.create({
+            purchase_units: [{
+              amount: {
+                value: '100'
+              }
+            }]
+          });
+        },
+        onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+            $("#success-filesize-modal").modal("hide");
+            paypal_add_file_size();
+          });
+        }
+      }).render('#paypal-button-container'); // Display payment options on your web page
+   </script>
+<!-- /Paypal End -->
+<script>
+   function paypal_add_file_size()
+   {
+      var proj_name = $("#project-name-hide-id").val();
+      var proj_id = $("#project-hide-id").val();
+      $.ajax({
+         url: "/paypal-add-file-size",
+         type: "GET",
+         data: {proj_name: proj_name, proj_id: proj_id},
+         dataType: "json",
+         success:  function(event_pay){
+            if(event_pay == "success"){
+               $("#success-file-pay-modal").modal("show");
+               setTimeout(function(){ $("#success-file-pay-modal").modal("hide"); }, 3000);
+            }
+         }, error: function(event_pay){
+
+         }
+      })
+   }
+</script>
+<script>
+   // Attached file
+   $("input[name = 'attach_file_main_chat']").change(function(){
+      var totalformData = new FormData($("#main-chat-file-id")[0]);
+      // end of main file submit part
+      $.ajax({
+         headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+         url: "/main-chat-file-insert-ajax",
+         type: "POST",
+         data: totalformData,
+         dataType: 'json',
+         contentType: false,
+         cache: false,
+         processData:false,
+         success: function(data_file){
+            console.log(data_file);
+            if(data_file == 'success'){
+               $("#write-msg-text-id").val("");
+               every_second_chat_loading();
+            }else if(data_file == 'new_payment'){
+               $("#success-filesize-modal").modal("show");
+            }
+         }, error: function(data_file){
+
+         }
+      })
+   })
+
+   function attached_file_reply_change()
+   {
+      var totalformData = new FormData($("#reply-chat-file-id")[0]);
+      // end of main file submit part
+      $.ajax({
+         headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+         url: "/reply-chat-file-insert-ajax",
+         type: "POST",
+         data: totalformData,
+         dataType: 'json',
+         contentType: false,
+         cache: false,
+         processData:false,
+         success: function(data_file){
+            every_sec_ajax_reply();
+         }, error: function(data_file){
+
+         }
+      })
+      // Attached file reply chat
+   }
+   
+   // end of attached file
+   function reply_thread_function(chat_tbl_id, project_id, project_name)
+   {
+      $(".message-content").addClass("side-reply");
+      $.ajax({
+         url: "/chat-reply-thread-ajax",
+         type: "GET",
+         data: {chat_tbl_id: chat_tbl_id, project_id: project_id, project_name: project_name},
+         dataType: "json",
+         success: function(event)
+         {
+            $(".reply-box .rply-content").html(event);
+            $("#reply-hide-proj-id").val(project_id);
+            $("#reply-hide-proj-name").val(project_name);
+            $("#reply-hide-chat-id").val(chat_tbl_id);
+
+
+
+            $("#msg-reply-text-btn").attr('onclick','rly_chat_proj('+chat_tbl_id+', '+project_id+', "'+project_name+'")');
+         },
+         error: function(event)
+         {
+
+         }
+      })
+   }
    $(document).ready(function(){
+      $(".close-box").click(function(){
+         $(".message-content").removeClass("side-reply");
+      });
      $('[data-toggle="tooltip"]').tooltip();
      $('.msg_history').scrollTop($('.msg_history')[0].scrollHeight);
      $('.theme-select').multiselect({
@@ -420,16 +689,81 @@
      });
 
      chat_chat_sideboard_check();
+     chat_active_proj_sideboard_ajax();
+     chat_completed_proj_sideboard_ajax();
+
+
      first_chat_popup_without_project_select(); 
  
 
      // every chat loading section
       setInterval(function(){ 
          every_second_chat_loading(); 
+         every_second_ajax_check_reply_class();
       }, 30000);
-     // end of loading seconds
-     
+     // end of loading seconds       
+      
+     // side_reply_chat();
    });
+
+   // side reply chat
+   // function side_reply_chat()
+   // {
+      
+   // }
+
+   // checking repling 
+   function every_second_ajax_check_reply_class()
+   {
+      if($(".message-content").hasClass("side-reply") == true)
+      {
+         every_sec_ajax_reply();
+      }
+      else
+      {
+         console.log("no log event calls");
+      }
+   } 
+   // loading replied
+   function every_sec_ajax_reply()
+   {
+      $.ajax({
+         url: "/every-sec-ajax-reply",
+         type: "GET",
+         dataType: "json",
+         success: function(event){
+            console.log(event);
+            if(event.main_msg == "no_response")
+            {
+
+            }
+            else if(event.main_msg == "response")
+            {
+               $(".reply-main-chat-center").append(event.my_content);
+               $("#msg-reply-text-btn").val('');
+               $(".reply-count").val('<p>'+event.main_count_part+' replies</p>');
+            }
+         },error: function(event){
+
+         }
+      })
+   }
+   // end of side reply chat
+   function rly_chat_proj(chat_tbl_id, proj_id, proj_name)
+   {
+      var main_text = $("#reply-chat-main-text").val();
+      $.ajax({
+         url: "/insert-rly-chat-ajax",
+         type: "GET",
+         data: {chat_tbl_id: chat_tbl_id, proj_id: proj_id, proj_name: proj_name, main_text: main_text},
+         dataType: "json",
+         success: function(response){
+            every_sec_ajax_reply();
+         }, error: function(response){
+
+         }
+      })
+   }
 
    function chat_chat_sideboard_check()
    {
@@ -456,8 +790,58 @@
       })
    }
 
+   function chat_active_proj_sideboard_ajax()
+   {
+      $.ajax({
+         url: '/chat_active_proj_sideboard_ajax',
+         type: 'GET',
+         dataType: 'json',
+         success: function(event){
+            if(event.length > 0){
+               var html = '';
+               for(var i = 0; i < event.length; i++){
+                  html += '<div class="chat_list"><a href="javascript:;" onclick=project_chat_click('+event[i].id+',"'+event[i].project_name+'")><div class="chat_ib"><h5><i class="fa fa fa-lock" aria-hidden="true"></i>'+event[i].project_name+'</h5></div></a></div>';
+               }
+               $("#active-chatting-projects").html(html);
+            }else{
+               $("#active-chatting-projects").html('<div class="no-convertion"><p>No conversation selected</p></div>');
+
+            }
+            
+         }, error: function(event){
+
+         }
+      })
+   }
+
+   function chat_completed_proj_sideboard_ajax()
+   {
+      $.ajax({
+         url: '/chat_completed_proj_sideboard_ajax',
+         type: 'GET',
+         dataType: 'json',
+         success: function(event){
+            if(event.length > 0){
+               var html = '';
+               for(var i = 0; i < event.length; i++){
+                  html += '<div class="chat_list"><a href="javascript:;" onclick=project_chat_click('+event[i].id+',"'+event[i].project_name+'")><div class="chat_ib"><h5><i class="fa fa fa-lock" aria-hidden="true"></i>'+event[i].project_name+'</h5></div></a></div>';
+               }
+               $("#cancel-chatting-projects").html(html);
+            }else{
+               $("#cancel-chatting-projects").html('<div class="no-convertion"><p>No conversation selected</p></div>');
+
+            }
+            
+         }, error: function(event){
+
+         }
+      })
+   }
+
+
    function project_chat_click(project_id, project_name)
    {
+      $(".message-content").removeClass("side-reply");
       $(".accept-project").html('<h6>'+project_name+' <input type="hidden" class="project-name-hidden-class" name="project_name_hidden" value="" /></h6><input type="hidden" name="chat_fill_hide_id" id="chat-main-hidden-p-id" /><input type="hidden" name="chat_fill_hide_name" id="chat-main-hidden-p-name" />');
 
       $("#chat-main-hidden-p-id").val(project_id);
@@ -471,7 +855,7 @@
             add_more_members_in_chat();
                if(event == "no_data")
                {
-                  $(".msg_history").html('<div class="inbox_chat"><div class="no-convertion"><p>No conversation yet</p></div></div>');
+                  $(".chat-main-mesgs .msg_history").html('<div class="inbox_chat"><div class="no-convertion"><p>No conversation yet</p></div></div>');
                   $("#project-name-hide-id").val(project_name);
                   $("#project-hide-id").val(project_id);
 
@@ -480,7 +864,7 @@
                }
                else
                {
-                  $(".msg_history").html(event);
+                  $(".chat-main-mesgs .msg_history").html(event);
                   $("#project-name-hide-id").val(project_name);
                   $("#project-hide-id").val(project_id);
 
@@ -497,7 +881,7 @@
                      $("#msg-top-user-class").show();
                      $("#msg-top-user-class").html('<li><a data-toggle="tooltip" data-placement="top" title="'+response.count_total+' Member" href="#" ><i class="fa fa-user-o" aria-hidden="true"></i><label>'+response.count_total+'</label></a></li><li><a href="#" data-toggle="modal" data-target="#add-people" >Add Member</a></li>');
                      $('[data-toggle="tooltip"]').tooltip();
-                     $('.msg_history').scrollTop($('.msg_history')[0].scrollHeight);
+                     $('.chat-main-mesgs .msg_history').scrollTop($('.chat-main-mesgs .msg_history')[0].scrollHeight);
                   }, error: function(response){
 
                   }
@@ -523,8 +907,8 @@
                }
                else
                {
-                  $(".msg_history").append(event);
-                  $('.msg_history').scrollTop($('.msg_history')[0].scrollHeight);
+                  $(".chat-main-mesgs .msg_history").append(event);
+                  $('.chat-main-mesgs .msg_history').scrollTop($('.chat-main-mesgs .msg_history')[0].scrollHeight);
                }
          }, error: function(event){
 
@@ -538,7 +922,7 @@
       var main_data = $(".project-name-hidden-class").val();
 
       if(main_data == ""){
-         $(".msg_history").html('<div class="inbox_chat"><div class="no-convertion"><p>No conversation yet</p></div></div>');
+         $(".chat-main-mesgs .msg_history").html('<div class="inbox_chat"><div class="no-convertion"><p>No conversation yet</p></div></div>');
       }else{
          $.ajax({
             url: "/first-chat-popup",
@@ -560,7 +944,7 @@
       var main_text = $("#write-msg-text-id").val();
       
       if(proj_name == ""){
-         $(".msg_history").html('<div class="inbox_chat"><div class="no-convertion"><p>No Project Selected</p></div></div>');
+         $(".chat-main-mesgs .msg_history").html('<div class="inbox_chat"><div class="no-convertion"><p>No Project Selected</p></div></div>');
       }else if(main_text == ""){
          $("#write-msg-text-id").attr("title","No message in your box");
       }else{

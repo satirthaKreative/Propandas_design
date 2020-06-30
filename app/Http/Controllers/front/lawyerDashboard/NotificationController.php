@@ -70,8 +70,8 @@ class NotificationController extends Controller
 
                   <div class="right-step">
                      <br>
-                           <span> <input type="button" onclick="coming_soon_modal()" name="" value="Accept" class="shrt-btn acpt-btn "></span>
-                           <span> <input type="button" onclick="coming_soon_modal()" name="" value="Decline" class="shrt-btn declin-btn"></span>
+                           <span> <a href="/apply-job/'.base64_encode($key_value->project_id).'" class="shrt-btn acpt-btn ">Accept</a></span>
+                           <span>&nbsp;&nbsp;&nbsp;<a href="javascript: ;" onclick="coming_soon_modal()" class="shrt-btn declin-btn">Decline</a></span>
                         </div>
                   </li>';
     		}

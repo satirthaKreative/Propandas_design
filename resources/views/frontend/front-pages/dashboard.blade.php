@@ -443,10 +443,10 @@
                <div class="short-profile">
                   <h3>{{ Auth::user()->name }} {{ Auth::user()->lname }}</h3>
                   <!-- Profile Page Complete Status -->
-                  <div class="profile-progress">
-                   <p>60% Completed</p>
+                  <div class="profile-progress" >
+                   <p id="dashboard-profile-progress-id">60% Completed</p>
                      <div class="progress">
-                       <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:60%">                          
+                       <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" id="dashboard-profile-progress-id-attr" style="width:60%">                          
                        </div>
                      </div>
                   </div>
@@ -776,7 +776,7 @@
 <!-- end of dshbord-theme -->
 
 <script >
-
+   
    function phn_number_verify_modal()
    {
       var phn_num_send = <?= Auth::user()->phn_num; ?>;
@@ -957,4 +957,32 @@
 
 @endguest
 <!-- end of dshbord-theme -->
+@endsection
+
+@section('pagewishjs')
+@guest
+
+@else
+@if(Auth::user()->is_lawyer == 1)
+<script>
+   $(function(){
+      setInterval(function(){ progress_report_every_time(); }, 5000);   
+   })
+   function progress_report_every_time()
+   {
+      $.ajax({
+         url: "/progress-bar-status-every-time",
+         type: "GET",
+         dataType: "json",
+         success: function(event_report)
+         {
+            $("#dashboard-profile-progress-id").html(event_report+" completed");
+            $("#dashboard-profile-progress-id-attr").attr('style','width:'+event_report);
+         }
+      })
+   }
+</script>
+@endif
+@endguest
+
 @endsection

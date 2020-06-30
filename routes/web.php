@@ -299,6 +299,9 @@ Route::GET('/chat','front\chats\ChatController@index');
 		Route::GET('accepting-proposal-ajax','front\clientDashboard\JobProposalController@accepting_proposal_ajax');
 	// end accepting proposal
 Route::GET('/chat-sideboard-ajax','front\chats\ChatController@chat_sideboard_ajax');
+Route::GET('/chat_active_proj_sideboard_ajax','front\chats\ChatController@chat_active_proj_sideboard_ajax');
+Route::GET('/chat_completed_proj_sideboard_ajax','front\chats\ChatController@chat_completed_proj_sideboard_ajax');
+
 Route::GET('/project-chat-ajax','front\chats\ChatController@project_chat_ajax');
 Route::GET('/count-chat-member-ajax','front\chats\ChatController@count_chat_member_ajax');
 	// insert chat text type
@@ -310,4 +313,51 @@ Route::GET('/count-chat-member-ajax','front\chats\ChatController@count_chat_memb
 	Route::GET('/add-member-to-chat','front\chats\ChatController@add_member_to_chat');
 	Route::GET('/adding-members-form-chat-ajax','front\chats\ChatController@adding_members_form_chatting');
 	// end adding chatting members
+	// Route for reply chat thread
+	Route::GET('/chat-reply-thread-ajax','front\chats\ChatController@chat_reply_thread_ajax');
+	// end of reply chat thread
+	// insert reply 
+	Route::GET('/insert-rly-chat-ajax','front\chats\ChatController@insert_rly_chat_ajax');
+	// end of insert reply
+	// every second reply chart
+	Route::GET('/every-sec-ajax-reply','front\chats\ChatController@every_sec_ajax_reply');
+	//  end of every second reply chart
+	// main chat file insert
+	Route::POST('/main-chat-file-insert-ajax','front\chats\ChatController@main_chat_file_insert_ajax');
+	// reply chat file insert
+	Route::POST('/reply-chat-file-insert-ajax','front\chats\ChatController@reply_chat_file_insert_ajax');
+	// payapl add more size
+	Route::GET('/paypal-add-file-size','front\chats\ChatController@paypal_add_file_size');
+	
 // end chat profile page
+
+
+// project status page 
+Route::GET('/project-status','front\projectStatus\ProjectStatusController@index');
+Route::GET('/page-load-proj-status','front\projectStatus\ProjectStatusController@page_load_proj_status');
+Route::GET('/my-project-status','front\projectStatus\ProjectStatusController@client_index');
+Route::GET('/page-load-client-proj-status','front\projectStatus\ProjectStatusController@page_load_client_proj_status');
+Route::GET('/complete-project-ajax-submit','front\projectStatus\ProjectStatusController@complete_project_ajax_submit');
+Route::GET('/give-client-review-ajax-submit','front\projectStatus\ProjectStatusController@give_client_review_ajax_submit');
+// end project status page
+
+// Invoice page
+Route::GET('/invoice','front\invoice\InvoiceController@index');
+Route::GET('/lawyer-invoice','front\invoice\InvoiceController@lawyer_index');
+
+Route::GET('/client_page_invoice_load','front\invoice\InvoiceController@client_page_invoice_load');
+Route::GET('/lawyer_page_invoice_load','front\invoice\InvoiceController@lawyer_page_invoice_load');
+
+	// pdf generator
+	Route::GET('/invoice-print-pdf','front\invoice\InvoiceController@printPDF');
+
+// end of invoice page
+
+// dashboard progress bar report
+Route::GET('/progress-bar-status-every-time','ProgressBarController@index');
+// end of progress bar
+
+// lawyer review
+Route::GET('/lawyer-review/{lawyer_review}','ProgressBarController@lawyer_review');
+Route::GET('/lawyer-review-ajax','ProgressBarController@lawyer_review_ajax');
+// end of lawyer review

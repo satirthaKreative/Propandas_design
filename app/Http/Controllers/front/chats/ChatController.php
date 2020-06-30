@@ -15,6 +15,8 @@ use App\LawyerCitiesModel;
 use App\models\ChatModel;
 use App\models\ChatProjectModel;
 use App\models\ChatJobQAModel;
+use App\models\FileSizeModel;
+use App\models\FileWithPriceModel;
 
 class ChatController extends Controller
 {
@@ -28,6 +30,18 @@ class ChatController extends Controller
             session()->forget('project_chat_session_name');
             session()->forget('chat_last_session_id');
     	}
+
+    	if(session('chat_reply_hide_tbl_id') && session('project_reply_hide_tbl_name') && session('project_reply_hide_tbl_id') )
+    	{
+    		session()->forget('chat_reply_hide_tbl_id');  
+            session()->forget('project_reply_hide_tbl_name');
+            session()->forget('project_reply_hide_tbl_id');
+    	}
+
+    	if(session('reply_chat_lastID_session'))
+    	{
+    		session()->forget('reply_chat_lastID_session');
+    	}
     	return view('frontend.front-pages.chat.chat');
     }
 
@@ -38,15 +52,29 @@ class ChatController extends Controller
         echo json_encode($querySidebar);
     }
 
+    // side bar active project
+    public function chat_active_proj_sideboard_ajax()
+    {
+        $querySidebar = ChatProjectModel::where('total_users_ids', 'like', '%'.Auth::user()->id.'%')->where('work_status','<>','completed')->get();
+        echo json_encode($querySidebar);
+    }
+
+    // side bar completed project
+    public function chat_completed_proj_sideboard_ajax()
+    {
+        $querySidebar = ChatProjectModel::where('total_users_ids', 'like', '%'.Auth::user()->id.'%')->where('work_status','completed')->get();
+        echo json_encode($querySidebar);
+    }
+
     // chat show first time
     public function project_chat_ajax()
     {
     	$project_id = $_GET['project_id'];
     	$project_name = $_GET['project_name'];
     	// session data
-    	$sessionQuery = ChatModel::where(['projectID' => $project_id, 'projectNameID' => $project_name])->orderBy('id','DESC')->limit(1)->get();
+    	$sessionQuery = ChatModel::where(['projectID' => $project_id, 'projectNameID' => $project_name, 'parenID' => 0])->orderBy('id','DESC')->limit(1)->get();
     		// count data
-    		$countQuery = ChatModel::where(['projectID' => $project_id, 'projectNameID' => $project_name])->count();
+    		$countQuery = ChatModel::where(['projectID' => $project_id, 'projectNameID' => $project_name, 'parenID' => 0])->count();
     	if($countQuery > 0)
     	{
     		foreach($sessionQuery as $session_query)
@@ -59,12 +87,12 @@ class ChatController extends Controller
     	}
     	
     	// Session data
-    	$queryCount = ChatModel::where(['projectID'=>$project_id, 'projectNameID'=>$project_name])->count();
+    	$queryCount = ChatModel::where(['projectID'=>$project_id, 'projectNameID'=>$project_name, 'parenID' => 0])->count();
     	if($queryCount > 0)
     	{
-    		$countMainChat = ChatModel::where(['projectID'=>$project_id, 'projectNameID'=>$project_name])->where('chatting_visible_ids', 'like', '%'.Auth::user()->id.'%')->count();
+    		$countMainChat = ChatModel::where(['projectID'=>$project_id, 'projectNameID'=>$project_name , 'parenID' => 0])->where('chatting_visible_ids', 'like', '%'.Auth::user()->id.'%')->count();
     		if($countMainChat > 0){
-    			$getMainChat = ChatModel::where(['projectID'=>$project_id, 'projectNameID'=>$project_name])->where('chatting_visible_ids', 'like', '%'.Auth::user()->id.'%')->get();
+    			$getMainChat = ChatModel::where(['projectID'=>$project_id, 'projectNameID'=>$project_name, 'parenID' => 0])->where('chatting_visible_ids', 'like', '%'.Auth::user()->id.'%')->get();
     			$html = '';
     			foreach($getMainChat as $mainChat){
     				$getUser = User::where('id',$mainChat->senderID)->get();
@@ -114,16 +142,62 @@ class ChatController extends Controller
     							$days = "Last reply on '".$dateOne."'";
     						}
     					}
-    					$mainCountReply = '<div class="rpl-box"><a href="#">
+    					$mainCountReply = '<div class="rpl-box"><a href="javascript: ;" onclick=reply_thread_function('.$mainChat->id.','.$mainChat->projectID.',"'.$mainChat->projectNameID.'")>
                         <span class="rptext"><i class="fa fa-user" aria-hidden="true"></i>'.$countTotalReply.' replies</span> <span class="date-usg">'.$days.'</span></a></div>';
     				}
     				else if($countTotalReply == 0)
     				{
     					$mainCountReply = "";
     				}
+
+
+
     				//  end user sender details
     				if($mainChat->parenID == 0){
     					if($mainChat->msg_type == "txt"){
+    						$main_content_chatting = '<p>'.$mainChat->msg_content.'</p>';
+    					}else if($mainChat->msg_type == "webm" || $mainChat->msg_type == "mp4"){
+    						$main_content_chatting = '<div class="upload-kit"><ul><li><li>
+                                          <video controls>
+                                             <source src="'.$mainChat->msg_content.'" type="video/mp4">
+                                          </video>
+                                          <div class="upld-btn">
+                                             <span><a href="'.$mainChat->msg_content.'"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
+                                          </div>
+                                       </li>
+                                    </ul>
+                                </div>';
+    					}else if($mainChat->msg_type == "mpeg" || $mainChat->msg_type == "mp3"){
+    						$main_content_chatting = '<div class="upload-kit"><ul><li>
+                                 <audio controls>
+                                    <source src="'.$mainChat->msg_content.'" type="audio/mpeg">
+                                 </audio>
+                                 <div class="upld-btn">
+                                    <span><a href="'.$mainChat->msg_content.'"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
+                                 </div>
+                              </li>
+                              </ul>
+                            </div>';
+    					}else if($mainChat->msg_type == "jpeg" || $mainChat->msg_type == "jpg" || $mainChat->msg_type == "png" || $mainChat->msg_type == "gif"){
+    						$main_content_chatting = '<div class="upload-kit"><ul><li>
+                                 <img src="'.$mainChat->msg_content.'" alt="images" class="img-fluid">
+                                          <div class="upld-btn">
+                                             <span><a href="'.$mainChat->msg_content.'"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
+                                          </div>
+                              </li>
+                              </ul>
+                            </div>';
+    					}else if($mainChat->msg_type == "doc" || $mainChat->msg_type == "docx" || $mainChat->msg_type == "pdf" || $mainChat->msg_type == "text"){
+    						$main_content_chatting = '<div class="upload-kit"><ul><li>
+                                 <object data="'.$mainChat->msg_content.'" width="300" height="200"></object>                       
+                                 <div class="upld-btn">
+                                    <span><a href="'.$mainChat->msg_content.'"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
+                                 </div>
+                              </li>
+                              </ul>
+                            </div>';
+    					}
+
     						$html .= '<div class="front-msg">
                   <div class="usg-img">
                      <img src="'.$client_img.'" alt="'.$fullname.'" title="'.$fullname.'"> 
@@ -131,19 +205,18 @@ class ChatController extends Controller
                   <div class="cont-msg">
                      <div class="usg-name">
                         <h6><a href="#"><strong>'.$fullname.'</strong></a> <span class="date-usg">'.date("H:i a",strtotime($mainChat->updated_at)).' | '.date("F d",strtotime($mainChat->updated_at)).'</span></h6>
-                        <p>'.$mainChat->msg_content.'</p>
+                        '.$main_content_chatting.'
                      </div>
                      '.$mainCountReply.'
                      <div class="shrt-view">
                         <ul>
                            <li><a href="#" data-toggle="tooltip" data-placement="top" title="Remove"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></li>
-                           <li><a href="#" data-toggle="tooltip" data-placement="top" title="Start a Reply"><i class="fa fa-commenting-o" aria-hidden="true"></i></a></li>
-                           <li><a href="#" data-toggle="tooltip" data-placement="top" title="42kb"><i class="fa fa-file-image-o" aria-hidden="true"></i></a></li>
+                           <li><a href="javascript: ;" onclick=reply_thread_function('.$mainChat->id.','.$mainChat->projectID.',"'.$mainChat->projectNameID.'") class="reply-thread"  data-toggle="tooltip" data-placement="top" title="Start a Reply"><i class="fa fa-commenting-o" aria-hidden="true"></i></a></li>
+                           <li><a href="javascript: ;" data-toggle="tooltip" data-placement="top" title="42kb"><i class="fa fa-file-image-o" aria-hidden="true"></i></a></li>
                         </ul>
                      </div>
                   </div>
                </div>';
-    					}
     				}
     			}
     			echo json_encode($html);
@@ -167,7 +240,7 @@ class ChatController extends Controller
     		$project_id = Session::get('project_chat_session_id');
     		$project_name = Session::get('project_chat_session_name');
     		// end of project variables
-    		$mainQuery = ChatModel::where(['projectID' => $project_id, 'projectNameID' => $project_name])->orderBy('id','DESC')->limit(1)->get();
+    		$mainQuery = ChatModel::where(['projectID' => $project_id, 'projectNameID' => $project_name, 'parenID' => 0])->orderBy('id','DESC')->limit(1)->get();
     		
 	    	foreach($mainQuery as $session_query)
 	    	{
@@ -179,7 +252,7 @@ class ChatController extends Controller
 
 	    	if($mainChatID != $main_last_id_of_project)
 	    	{
-	    		$getMainChat = ChatModel::where(['projectID'=>$project_id, 'projectNameID'=>$project_name])->where('chatting_visible_ids', 'like', '%'.Auth::user()->id.'%')->orderBy('id','DESC')->limit(1)->get();
+	    		$getMainChat = ChatModel::where(['projectID'=>$project_id, 'projectNameID'=>$project_name, 'parenID' => 0])->where('chatting_visible_ids', 'like', '%'.Auth::user()->id.'%')->orderBy('id','DESC')->limit(1)->get();
 
     			$html = '';
     			foreach($getMainChat as $mainChat){
@@ -200,6 +273,49 @@ class ChatController extends Controller
     				//  end user sender details
     				if($mainChat->parenID == 0){
     					if($mainChat->msg_type == "txt"){
+    						$main_content_chatting = '<p>'.$mainChat->msg_content.'</p>';
+    					}else if($mainChat->msg_type == "webm" || $mainChat->msg_type == "mp4"){
+    						$main_content_chatting = '<div class="upload-kit"><ul><li><li>
+                                          <video controls>
+                                             <source src="'.$mainChat->msg_content.'" type="video/mp4">
+                                          </video>
+                                          <div class="upld-btn">
+                                             <span><a href="'.$mainChat->msg_content.'"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
+                                          </div>
+                                       </li>
+                                    </ul>
+                                </div>';
+    					}else if($mainChat->msg_type == "mpeg" || $mainChat->msg_type == "mp3"){
+    						$main_content_chatting = '<div class="upload-kit"><ul><li>
+                                 <audio controls>
+                                    <source src="'.$mainChat->msg_content.'" type="audio/mpeg">
+                                 </audio>
+                                 <div class="upld-btn">
+                                    <span><a href="'.$mainChat->msg_content.'"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
+                                 </div>
+                              </li>
+                              </ul>
+                            </div>';
+    					}else if($mainChat->msg_type == "jpeg" || $mainChat->msg_type == "jpg" || $mainChat->msg_type == "png" || $mainChat->msg_type == "gif"){
+    						$main_content_chatting = '<div class="upload-kit"><ul><li>
+                                 <img src="'.$mainChat->msg_content.'" alt="images" class="img-fluid">
+                                          <div class="upld-btn">
+                                             <span><a href="'.$mainChat->msg_content.'"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
+                                          </div>
+                              </li>
+                              </ul>
+                            </div>';
+    					}else if($mainChat->msg_type == "doc" || $mainChat->msg_type == "docx" || $mainChat->msg_type == "pdf" || $mainChat->msg_type == "text"){
+    						$main_content_chatting = '<div class="upload-kit"><ul><li>
+                                 <object data="'.$mainChat->msg_content.'" width="300" height="200"></object>                       
+                                 <div class="upld-btn">
+                                    <span><a href="'.$mainChat->msg_content.'"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
+                                 </div>
+                              </li>
+                              </ul>
+                            </div>';
+    					}
+
     						$html .= '<div class="front-msg">
                   <div class="usg-img">
                      <img src="'.$client_img.'" alt="'.$fullname.'" title="'.$fullname.'"> 
@@ -207,22 +323,21 @@ class ChatController extends Controller
                   <div class="cont-msg">
                      <div class="usg-name">
                         <h6><a href="#"><strong>'.$fullname.'</strong></a> <span class="date-usg">'.date("H:i a",strtotime($mainChat->updated_at)).' | '.date("F d",strtotime($mainChat->updated_at)).'</span></h6>
-                        <p>'.$mainChat->msg_content.'</p>
+                        '.$main_content_chatting.'
                      </div>
                      <div class="shrt-view">
                         <ul>
                            <li><a href="#" data-toggle="tooltip" data-placement="top" title="Remove"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></li>
-                           <li><a href="#" data-toggle="tooltip" data-placement="top" title="Start a Reply"><i class="fa fa-commenting-o" aria-hidden="true"></i></a></li>
-                           <li><a href="#" data-toggle="tooltip" data-placement="top" title="42kb"><i class="fa fa-file-image-o" aria-hidden="true"></i></a></li>
+                           <li><a href="javascript: ;" onclick=reply_thread_function('.$mainChat->id.','.$mainChat->projectID.',"'.$mainChat->projectNameID.'") class="reply-thread"  data-toggle="tooltip" data-placement="top" title="Start a Reply"><i class="fa fa-commenting-o" aria-hidden="true"></i></a></li>
+                           <li><a href="javascript: ;" data-toggle="tooltip" data-placement="top" title="42kb"><i class="fa fa-file-image-o" aria-hidden="true"></i></a></li>
                         </ul>
                      	</div>
                   	</div>
                	</div>';
-    					}
     				}
     			}
     			// changing time 
-    			$timeChangingQuery = ChatModel::where(['projectID' => $project_id, 'projectNameID' => $project_name])->orderBy('id','DESC')->limit(1)->get();
+    			$timeChangingQuery = ChatModel::where(['projectID' => $project_id, 'projectNameID' => $project_name, 'parenID' => 0])->orderBy('id','DESC')->limit(1)->get();
     			foreach($timeChangingQuery as $changingTimeQuery){
     				Session::put('chat_last_session_id', $changingTimeQuery->id);
     				Session::put('project_chat_session_id', $project_id);
@@ -295,6 +410,138 @@ class ChatController extends Controller
    		$insertTextChat = ChatModel::insert($insertTextChat);
 
    		echo json_encode("success");
+    }
+
+    // insert main file chat
+    public function main_chat_file_insert_ajax(Request $request)
+    {
+    	$data_new = $request->file('attach_file_main_chat');
+    	// echo  json_encode($data_new);
+    	if($request->hasFile('attach_file_main_chat'))
+    	{
+
+    		$project_name = $request->input('project_name_hide');
+    		$project_id = $request->input('project_id_hide');
+
+    		$getProjectUserIds = ChatProjectModel::where(['id'=>$project_id, 'project_name'=>$project_name])->get();
+    		foreach ($getProjectUserIds as $get_user_ids) {
+    			$user_ids = $get_user_ids->total_users_ids;
+    		}
+    		$rand_var = rand(10000,99999);
+    		$file = $request->file('attach_file_main_chat');
+    		$file_name = $file->getClientOriginalName();
+    		$file_type = $file->getClientOriginalExtension();
+    		$enc_type = $file->getClientOriginalExtension();
+    		$real_path = $file->getRealPath();
+    		$file_size = $file->getSize();
+    		$meme_type = $file->getMimeType();
+    		$destinationPath = 'uploads/chat/main';
+    		$file->move($destinationPath,$rand_var.$file->getClientOriginalName());
+
+    		// chat extra
+
+    		$count_checking_filesize = FileSizeModel::where(['project_id' => $project_id, 'project_name' => $project_name, 'user_main_id' => Auth::user()->id])->count();
+    		 		$file_in_kb = (int)($file_size/1024);
+    		 		if($count_checking_filesize > 0){
+    		 			$get_checking_filesize = FileSizeModel::where(['project_id' => $project_id, 'project_name' => $project_name, 'user_main_id' => Auth::user()->id])->get();
+    		 			foreach($get_checking_filesize as $main_file_size)
+    		 			{
+    		 				$client_fileSize = $main_file_size->file_size;
+    		 				$actual_fileSize = $main_file_size->actual_file_size;
+    		 			}
+    		 			$file_size_arr = [
+    		 				'file_size' => intval($file_in_kb)+intval($client_fileSize),
+    		 				'updated_at' => date('Y-m-d H:i:s'),
+    					];
+    					$insertFilesize = FileSizeModel::where(['project_id'=> $project_id,'project_name' => $project_name,'user_main_id' => Auth::user()->id])->update($file_size_arr);
+    		 		}else{
+    		 			$get_actual_file_size = FileWithPriceModel::where(['id' => 1])->get();
+    		 			foreach($get_actual_file_size as $getAFileSize)
+    		 			{
+    		 				$aproj_size = $getAFileSize->size_in_kb;
+    		 			} 
+    		 			$file_size_arr = [
+    		 				'file_size' => $file_in_kb,
+    		 				'project_id' => $project_id,
+    		 				'project_name' => $project_name,
+    		 				'actual_file_size' => $aproj_size,
+    		 				'user_main_id' => Auth::user()->id,
+    		 				'created_at' => date('Y-m-d H:i:s'),
+    		 				'updated_at' => date('Y-m-d H:i:s'),
+    					];
+    					$insertFilesize = FileSizeModel::insert($file_size_arr);
+    		 		}
+
+    		// end of chat extra
+
+    		 		// continue
+    		 		$contineQuery = FileSizeModel::where(['project_id' => $project_id, 'project_name' => $project_name, 'user_main_id' => Auth::user()->id])->get();
+    		 			foreach($contineQuery as $cQuery)
+    		 			{
+    		 				$continue_fileSize = $cQuery->file_size;
+    		 				$continue_actual_fileSize = $cQuery->actual_file_size;
+    		 			}
+
+    	if((int)$continue_fileSize < (int)$continue_actual_fileSize){
+    		 		// end of continue
+
+    		
+
+    		$myActualPath = $destinationPath.'/'.$rand_var.$file_name;
+
+    		if($enc_type == 'docx'){
+				$chat_type_data = "docx";    			
+    		}else if($enc_type == 'txt'){
+				$chat_type_data = "text";
+    		}else if($enc_type == 'doc'){
+				$chat_type_data = "doc";
+    		}else if($enc_type == 'pdf'){
+				$chat_type_data = "pdf";
+    		}else if($enc_type == 'jpeg'){
+				$chat_type_data = "jpeg";
+    		}else if($enc_type == 'jpg'){
+				$chat_type_data = "jpg";
+    		}else if($enc_type == 'webp'){
+				$chat_type_data = "webp";
+    		}else if($enc_type == 'png'){
+				$chat_type_data = "png";
+    		}else if($enc_type == 'gif'){
+				$chat_type_data = "gif";
+    		}else if($enc_type == 'mp4'){
+				$chat_type_data = "mp4";
+    		}else if($enc_type == 'mpeg'){
+				$chat_type_data = "mpeg";
+    		}else if($enc_type == 'mp3'){
+    			$chat_type_data = "mp3";	
+    		}else{
+    			$chat_type_data = "txt";
+    		}
+                       
+    		
+    		$insertTextChat = [
+    		    		'senderID' => Auth::user()->id,
+    		    		'projectID' => $project_id,
+    		    		'projectNameID' => $project_name,
+    		    		'msg_type' => $chat_type_data,
+    		    		'msg_content' => $myActualPath,
+    		    		'chatting_visible_ids' => $user_ids,
+    		    		'created_at' => date('y-m-d H:i:s'),
+    		    		'updated_at' => date('y-m-d H:i:s')
+    		   		];
+
+    		   		$insertTextChat = ChatModel::insert($insertTextChat);
+
+    		 		// chatting text for file impllode
+    		 		
+    		   		echo json_encode("success");
+    		   	}else if((int)$continue_fileSize > (int)$continue_actual_fileSize){
+    		   		echo json_encode("new_payment");
+    		   	}
+    	}
+    	else
+    	{
+    		echo json_encode('invalid');
+    	}
     }
 
     // adding chat members
@@ -405,5 +652,502 @@ class ChatController extends Controller
     	}
     }
 
+    // reply thread 
+    public function chat_reply_thread_ajax()
+    {
+    	
+    	$chat_tbl_id = $_GET['chat_tbl_id'];
+    	$project_id = $_GET['project_id'];
+    	$project_name = $_GET['project_name'];
 
+    	Session::put('chat_reply_hide_tbl_id', $chat_tbl_id);
+    	Session::put('project_reply_hide_tbl_id', $project_id);
+    	Session::put('project_reply_hide_tbl_name', $project_name);
+    	// last query getting last-id
+    	$count_lastIDQuery = ChatModel::where(['parenID' => $chat_tbl_id])->count();
+    	if($count_lastIDQuery > 0)
+    	{
+    		$lastIDQuery = ChatModel::where(['parenID' => $chat_tbl_id])->orderBy('id', 'DESC')->limit(1)->get();
+    		foreach($lastIDQuery as $get_last_row)
+    		{
+    			$lastInsertReplyId = $get_last_row->id;
+    		}
+    	}
+    	else if($count_lastIDQuery == 0)
+    	{
+    		$lastInsertReplyId = "zero_select";
+    	}
+
+    	Session::put('reply_chat_lastID_session', $lastInsertReplyId);
+    	
+    	// chatting message 
+    	$chatMainTopic = ChatModel::where(['id' => $chat_tbl_id])->get();
+    	foreach($chatMainTopic as $chat_topic)
+    	{
+    		$msg_content = $chat_topic->msg_content;
+    	}
+
+    	// chatting wih reply tbl
+    	$chattingReply = ChatModel::where(['parenID' => $chat_tbl_id])->get();
+    	$chattingReplyCount = ChatModel::where(['parenID' => $chat_tbl_id])->count();
+    	if($chattingReplyCount == 0)
+    	{
+    		$main_count_context = "No reply";
+    	}
+    	else if($chattingReplyCount == 1)
+    	{
+    		$main_count_context = "1 reply";
+    	}
+    	else if($chattingReplyCount > 1)
+    	{
+    		$main_count_context = $chattingReplyCount." replies";
+    	}
+    	$html = "";
+    	$html .= '<div class="front-msg">
+                           <div class="usg-img">
+                              
+                           </div>
+                           <div class="cont-msg">
+                              <div class="usg-name">
+                                 <p>'.$msg_content.'</p>
+                              </div>
+                           </div>
+                           <div class="reply-count">
+                              <p>'.$main_count_context.'</p>
+                              <hr>
+                           </div>
+                        </div>';
+        $html .= '<div class="reply-main-chat-center">';
+    	foreach($chattingReply as $chat_reply)
+    	{	
+    		$user_times_date = date("F d",strtotime($chat_reply->updated_at));
+    		$user_times_zone = date("H:i a",strtotime($chat_reply->updated_at));
+
+    		if($chat_reply->msg_type == "txt"){
+    						$main_content_chatting = '<p>'.$chat_reply->msg_content.'</p>';
+    					}else if($chat_reply->msg_type == "webm" || $chat_reply->msg_type == "mp4"){
+    						$main_content_chatting = '<div class="upload-kit"><ul><li><li>
+                                          <video controls>
+                                             <source src="'.$chat_reply->msg_content.'" type="video/mp4">
+                                          </video>
+                                          <div class="upld-btn">
+                                             <span><a href="'.$chat_reply->msg_content.'"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
+                                          </div>
+                                       </li>
+                                    </ul>
+                                </div>';
+    					}else if($chat_reply->msg_type == "mpeg" || $chat_reply->msg_type == "mp3"){
+    						$main_content_chatting = '<div class="upload-kit"><ul><li>
+                                 <audio controls>
+                                    <source src="'.$chat_reply->msg_content.'" type="audio/mpeg">
+                                 </audio>
+                                 <div class="upld-btn">
+                                    <span><a href="'.$chat_reply->msg_content.'"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
+                                 </div>
+                              </li>
+                              </ul>
+                            </div>';
+    					}else if($chat_reply->msg_type == "jpeg" || $chat_reply->msg_type == "jpg" || $chat_reply->msg_type == "png" || $chat_reply->msg_type == "gif"){
+    						$main_content_chatting = '<div class="upload-kit"><ul><li>
+                                 <img src="'.$chat_reply->msg_content.'" alt="images" class="img-fluid">
+                                          <div class="upld-btn">
+                                             <span><a href="'.$chat_reply->msg_content.'"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
+                                          </div>
+                              </li>
+                              </ul>
+                            </div>';
+    					}else if($chat_reply->msg_type == "doc" || $chat_reply->msg_type == "docx" || $chat_reply->msg_type == "pdf" || $chat_reply->msg_type == "text"){
+    						$main_content_chatting = '<div class="upload-kit"><ul><li>
+                                 <object data="'.$chat_reply->msg_content.'" width="300" height="200"></object>                       
+                                 <div class="upld-btn">
+                                    <span><a href="'.$chat_reply->msg_content.'"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
+                                 </div>
+                              </li>
+                              </ul>
+                            </div>';
+    					}
+
+    		$userQuery = User::where("id",$chat_reply->senderID)->get();
+    		foreach($userQuery as $userQueryOne)
+    		{
+    			if($userQueryOne->profileImg == "")
+    			{
+    				$user_img = 'frontAssets/images/no-img.jpg';
+    			}else{
+    				$user_img = $userQueryOne->profileImg;
+    			}
+
+    			$user_full_name = $userQueryOne->name." ".$userQueryOne->lname;
+    		}
+    		$html .= '<div class="front-msg">
+                           <div class="usg-img">
+                              <img src="'.$user_img.'" alt="'.$user_full_name.'"> 
+                           </div>
+                           <div class="cont-msg">
+                              <div class="usg-name">
+                                 <h6><a href="#"><strong>'.$user_full_name.'</strong></a> <span class="date-usg">'.$user_times_zone.' | '.$user_times_date.'</span></h6>
+                                 '.$main_content_chatting.'
+                              </div>
+                           </div>
+                      </div>';
+    	}
+    	$html .= '</div>';
+    	$html .= '<div class="type_msg">
+                        <div class="input_msg_write">
+                           <form id="reply-chat-file-id" enctype="multipart/form-data" method="POST">
+                           	<input type="hidden" id="reply-hide-proj-id" name="reply_hide_proj_id" value="" />
+                           	<input type="hidden" id="reply-hide-chat-id" name="reply_hide_chat_id" value="" />
+                           	<input type="hidden" id="reply-hide-proj-name" name="reply_hide_proj_name" value="" />
+                              <textarea id="reply-chat-main-text" name="reply_chat_main_text" class="form-control write_msg" placeholder="Type your message..."></textarea>
+                              <div class="setd-tag">
+                                 <div class="attach-icn" data-toggle="tooltip" data-placement="top" title="Attach file">
+                                    <input type="file" name="attach_file_reply_chat"  id="attach-file-main-reply-id" onchange="attached_file_reply_change()">
+                                    <span class="file-span"><i class="fa fa-paperclip" aria-hidden="true"></i></span>
+                                 </div>
+                                 <button class="msg_send_btn" type="button" id="msg-reply-text-btn"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                     </div>';
+    	$completeHtml = $html; 
+    	// end of chatting reply tbl
+
+    	echo json_encode($completeHtml);
+    }
+    // end of reply thread
+
+    // insert reply thread
+    public function insert_rly_chat_ajax()
+    {
+    	$project_id = $_GET['proj_id'];
+    	$project_name = $_GET['proj_name'];
+    	$main_text = $_GET['main_text'];
+    	$chat_tbl_id = $_GET['chat_tbl_id'];
+
+
+    	$getProjectUserIds = ChatProjectModel::where(['id'=>$project_id, 'project_name'=>$project_name])->get();
+    	foreach ($getProjectUserIds as $get_user_ids) {
+    		$user_ids = $get_user_ids->total_users_ids;
+    	}
+
+    	$insertTextChat = [
+    		'senderID' => Auth::user()->id,
+    		'projectID' => $project_id,
+    		'projectNameID' => $project_name,
+    		'msg_type' => "txt",
+    		'msg_content' => $main_text,
+    		'parenID' => $chat_tbl_id,
+    		'chatting_visible_ids' => $user_ids,
+    		'created_at' => date('y-m-d H:i:s'),
+    		'updated_at' => date('y-m-d H:i:s')
+   		];
+
+   		$insertTextChat = ChatModel::insert($insertTextChat);
+
+   		echo json_encode("success");
+    }
+    // reply file insert
+    public function reply_chat_file_insert_ajax(Request $request)
+    {
+    	$project_id = $request->input('reply_hide_proj_id');
+    	$project_name = $request->input('reply_hide_proj_name');
+    	$chat_tbl_id = $request->input('reply_hide_chat_id');
+
+    		$rand_var = rand(10000,99999);
+    		$file = $request->file('attach_file_reply_chat');
+    		$file_name = $file->getClientOriginalName();
+    		$file_type = $file->getClientOriginalExtension();
+    		$enc_type = $file->getClientOriginalExtension();
+    		$real_path = $file->getRealPath();
+    		$file_size = $file->getSize();
+    		$meme_type = $file->getMimeType();
+    		$destinationPath = 'uploads/chat/reply';
+    		$file->move($destinationPath,$rand_var.$file->getClientOriginalName());
+
+    		$myActualPath = $destinationPath.'/'.$rand_var.$file_name;
+
+    		if($enc_type == 'docx'){
+				$chat_type_data = "docx";    			
+    		}else if($enc_type == 'txt'){
+				$chat_type_data = "text";
+    		}else if($enc_type == 'doc'){
+				$chat_type_data = "doc";
+    		}else if($enc_type == 'pdf'){
+				$chat_type_data = "pdf";
+    		}else if($enc_type == 'jpeg'){
+				$chat_type_data = "jpeg";
+    		}else if($enc_type == 'jpg'){
+				$chat_type_data = "jpg";
+    		}else if($enc_type == 'webp'){
+				$chat_type_data = "webp";
+    		}else if($enc_type == 'png'){
+				$chat_type_data = "png";
+    		}else if($enc_type == 'gif'){
+				$chat_type_data = "gif";
+    		}else if($enc_type == 'mp4'){
+				$chat_type_data = "mp4";
+    		}else if($enc_type == 'mpeg'){
+				$chat_type_data = "mpeg";
+    		}else if($enc_type == 'mp3'){
+    			$chat_type_data = "mp3";	
+    		}else{
+    			$chat_type_data = "txt";
+    		}
+    	$getProjectUserIds = ChatProjectModel::where(['id'=>$project_id, 'project_name'=>$project_name])->get();
+    	foreach ($getProjectUserIds as $get_user_ids) {
+    		$user_ids = $get_user_ids->total_users_ids;
+    	}
+
+    	$insertTextChat = [
+    		'senderID' => Auth::user()->id,
+    		'projectID' => $project_id,
+    		'projectNameID' => $project_name,
+    		'msg_type' => $chat_type_data,
+    		'msg_content' => $myActualPath,
+    		'parenID' => $chat_tbl_id,
+    		'chatting_visible_ids' => $user_ids,
+    		'created_at' => date('y-m-d H:i:s'),
+    		'updated_at' => date('y-m-d H:i:s')
+   		];
+
+   		$insertTextChat = ChatModel::insert($insertTextChat);
+
+
+
+   		echo json_encode("success");
+    }
+    // end of reply thread
+
+    // loading every second on chatting reply
+    public function every_sec_ajax_reply()
+    {
+    	
+    	if(session('chat_reply_hide_tbl_id') && session('project_reply_hide_tbl_name') && session('project_reply_hide_tbl_id') && session('reply_chat_lastID_session'))
+    	{
+
+    		$main_chat_tbl_id = Session::get('chat_reply_hide_tbl_id');
+    		$the_last_reply_id = Session::get('reply_chat_lastID_session');
+
+    		if($the_last_reply_id != "zero_select"){
+	    		$lastIDQuery = ChatModel::where(['parenID' => $main_chat_tbl_id])->orderBy('id', 'DESC')->limit(1)->get();
+	    		$countTestlastIDQuery = ChatModel::where(['parenID' => $main_chat_tbl_id])->count();
+	    		foreach($lastIDQuery as $get_last_row)
+	    		{
+	    			$lastInsertReplyId = $get_last_row->id;
+	    		}
+
+	    		if($the_last_reply_id == $lastInsertReplyId){
+	    			$mainReturnData['main_msg'] = 'no_response'; 
+	    		}else if($the_last_reply_id != $lastInsertReplyId){
+	    			Session::put('reply_chat_lastID_session', $lastInsertReplyId);
+	    			$lastIDQueryExec = ChatModel::where(['id' => $lastInsertReplyId])->get();
+	    			foreach($lastIDQueryExec as $execLastID)
+	    			{
+
+	    				$lastMsgReplyDetails = $execLastID->msg_content;
+	    				if($execLastID->msg_type == "txt"){
+    						$main_content_chatting = '<p>'.$execLastID->msg_content.'</p>';
+    					}else if($execLastID->msg_type == "webm" || $execLastID->msg_type == "mp4"){
+    						$main_content_chatting = '<div class="upload-kit"><ul><li><li>
+                                          <video controls>
+                                             <source src="'.$execLastID->msg_content.'" type="video/mp4">
+                                          </video>
+                                          <div class="upld-btn">
+                                             <span><a href="'.$execLastID->msg_content.'"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
+                                          </div>
+                                       </li>
+                                    </ul>
+                                </div>';
+    					}else if($execLastID->msg_type == "mpeg" || $execLastID->msg_type == "mp3"){
+    						$main_content_chatting = '<div class="upload-kit"><ul><li>
+                                 <audio controls>
+                                    <source src="'.$execLastID->msg_content.'" type="audio/mpeg">
+                                 </audio>
+                                 <div class="upld-btn">
+                                    <span><a href="'.$execLastID->msg_content.'"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
+                                 </div>
+                              </li>
+                              </ul>
+                            </div>';
+    					}else if($execLastID->msg_type == "jpeg" || $execLastID->msg_type == "jpg" || $execLastID->msg_type == "png" || $execLastID->msg_type == "gif"){
+    						$main_content_chatting = '<div class="upload-kit"><ul><li>
+                                 <img src="'.$execLastID->msg_content.'" alt="images" class="img-fluid">
+                                          <div class="upld-btn">
+                                             <span><a href="'.$execLastID->msg_content.'"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
+                                          </div>
+                              </li>
+                              </ul>
+                            </div>';
+    					}else if($execLastID->msg_type == "doc" || $execLastID->msg_type == "docx" || $execLastID->msg_type == "pdf" || $execLastID->msg_type == "text"){
+    						$main_content_chatting = '<div class="upload-kit"><ul><li>
+                                 <object data="'.$execLastID->msg_content.'" width="300" height="200"></object>                       
+                                 <div class="upld-btn">
+                                    <span><a href="'.$execLastID->msg_content.'"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
+                                 </div>
+                              </li>
+                              </ul>
+                            </div>';
+    					}
+	    				// users start
+	    				$user_times_date = date("F d",strtotime($execLastID->updated_at));
+	    				$user_times_zone = date("H:i a",strtotime($execLastID->updated_at));
+	    				$userQuery = User::where("id",$execLastID->senderID)->get();
+	    				foreach($userQuery as $userQueryOne)
+	    				{
+	    					if($userQueryOne->profileImg == "")
+	    					{
+	    						$user_img = 'frontAssets/images/no-img.jpg';
+	    					}else{
+	    						$user_img = $userQueryOne->profileImg;
+	    					}
+
+	    					$user_full_name = $userQueryOne->name." ".$userQueryOne->lname;
+	    				}
+	    				// ending the users
+	    			}
+	    			$mainReturnData['main_msg'] = 'response';
+	    			$mainReturnData['my_content'] = '<div class="front-msg">
+	                           <div class="usg-img">
+	                              <img src="'.$user_img.'" alt="'.$user_full_name.'"> 
+	                           </div>
+	                           <div class="cont-msg">
+	                              <div class="usg-name">
+	                                 <h6><a href="#"><strong>'.$user_full_name.'</strong></a> <span class="date-usg">'.$user_times_zone.' | '.$user_times_date.'</span></h6>
+	                                 '.$main_content_chatting.'
+	                              </div>
+	                           </div>
+	                      </div>';
+
+	    		}
+	    		$mainReturnData['main_count_part'] = $countTestlastIDQuery;
+	    		echo json_encode($mainReturnData);
+    		}else if($the_last_reply_id == "zero_select"){
+    			
+	    		$countTestlastIDQuery = ChatModel::where(['parenID' => $main_chat_tbl_id])->count();
+	    		if($countTestlastIDQuery > 0){
+	    			$lastIDQuery = ChatModel::where(['parenID' => $main_chat_tbl_id])->orderBy('id', 'DESC')->limit(1)->get();
+	    		foreach($lastIDQuery as $get_last_row)
+	    		{
+	    			$lastInsertReplyId = $get_last_row->id;
+	    		}
+
+	    		if($the_last_reply_id == $lastInsertReplyId){
+	    			$mainReturnData['main_msg'] = 'no_response'; 
+	    		}else if($the_last_reply_id != $lastInsertReplyId){
+	    			Session::put('reply_chat_lastID_session', $lastInsertReplyId);
+	    			$lastIDQueryExec = ChatModel::where(['id' => $lastInsertReplyId])->get();
+	    			foreach($lastIDQueryExec as $execLastID)
+	    			{
+
+	    				$lastMsgReplyDetails = $execLastID->msg_content;
+	    				if($execLastID->msg_type == "txt"){
+    						$main_content_chatting = '<p>'.$execLastID->msg_content.'</p>';
+    					}else if($execLastID->msg_type == "webm" || $execLastID->msg_type == "mp4"){
+    						$main_content_chatting = '<div class="upload-kit"><ul><li><li>
+                                          <video controls>
+                                             <source src="'.$execLastID->msg_content.'" type="video/mp4">
+                                          </video>
+                                          <div class="upld-btn">
+                                             <span><a href="'.$execLastID->msg_content.'"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
+                                          </div>
+                                       </li>
+                                    </ul>
+                                </div>';
+    					}else if($execLastID->msg_type == "mpeg" || $execLastID->msg_type == "mp3"){
+    						$main_content_chatting = '<div class="upload-kit"><ul><li>
+                                 <audio controls>
+                                    <source src="'.$execLastID->msg_content.'" type="audio/mpeg">
+                                 </audio>
+                                 <div class="upld-btn">
+                                    <span><a href="'.$execLastID->msg_content.'"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
+                                 </div>
+                              </li>
+                              </ul>
+                            </div>';
+    					}else if($execLastID->msg_type == "jpeg" || $execLastID->msg_type == "jpg" || $execLastID->msg_type == "png" || $execLastID->msg_type == "gif"){
+    						$main_content_chatting = '<div class="upload-kit"><ul><li>
+                                 <img src="'.$execLastID->msg_content.'" alt="images" class="img-fluid">
+                                          <div class="upld-btn">
+                                             <span><a href="'.$execLastID->msg_content.'"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
+                                          </div>
+                              </li>
+                              </ul>
+                            </div>';
+    					}else if($execLastID->msg_type == "doc" || $execLastID->msg_type == "docx" || $execLastID->msg_type == "pdf" || $execLastID->msg_type == "text"){
+    						$main_content_chatting = '<div class="upload-kit"><ul><li>
+                                 <object data="'.$execLastID->msg_content.'" width="300" height="200"></object>                       
+                                 <div class="upld-btn">
+                                    <span><a href="'.$execLastID->msg_content.'"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
+                                 </div>
+                              </li>
+                              </ul>
+                            </div>';
+    					}
+	    				// users start
+	    				$user_times_date = date("F d",strtotime($execLastID->updated_at));
+	    				$user_times_zone = date("H:i a",strtotime($execLastID->updated_at));
+	    				$userQuery = User::where("id",$execLastID->senderID)->get();
+	    				foreach($userQuery as $userQueryOne)
+	    				{
+	    					if($userQueryOne->profileImg == "")
+	    					{
+	    						$user_img = 'frontAssets/images/no-img.jpg';
+	    					}else{
+	    						$user_img = $userQueryOne->profileImg;
+	    					}
+
+	    					$user_full_name = $userQueryOne->name." ".$userQueryOne->lname;
+	    				}
+	    				// ending the users
+	    			}
+	    			$mainReturnData['main_msg'] = 'response';
+	    			$mainReturnData['my_content'] = '<div class="front-msg">
+	                           <div class="usg-img">
+	                              <img src="'.$user_img.'" alt="'.$user_full_name.'"> 
+	                           </div>
+	                           <div class="cont-msg">
+	                              <div class="usg-name">
+	                                 <h6><a href="#"><strong>'.$user_full_name.'</strong></a> <span class="date-usg">'.$user_times_zone.' | '.$user_times_date.'</span></h6>
+	                                 '.$main_content_chatting.'
+	                              </div>
+	                           </div>
+	                      </div>';
+
+	    		}
+	    		$mainReturnData['main_count_part'] = $countTestlastIDQuery;
+	    		echo json_encode($mainReturnData);
+    		}else{
+    			$mainReturnData['main_msg'] = 'no_response';
+    			echo json_encode($mainReturnData); 
+    		}
+    		}
+    	}
+    }
+    // ending loading every seconds on reply
+
+    // paypal add more size
+    public function paypal_add_file_size()
+    {
+    	$proj_name = $_GET['proj_name'];
+    	$proj_id = $_GET['proj_id'];
+
+    	// main add size - price
+    	$query = FileWithPriceModel::where('id',1)->get();
+    	foreach($query as $q1){
+    		$file_size = $q1->size_in_kb;
+    	}
+    	// end of main size - price
+    	$contineQuery = FileSizeModel::where(['project_id' => $proj_id, 'project_name' => $proj_name, 'user_main_id' => Auth::user()->id])->get();
+    		foreach($contineQuery as $cQuery)
+    		{
+    			$continue_fileSize = $cQuery->file_size;
+    			$continue_actual_fileSize = $cQuery->actual_file_size;
+    		}
+    		$total_file_size = (int)$continue_actual_fileSize+(int)$file_size;
+
+    	$updateQuery = FileSizeModel::where(['project_id' => $proj_id, 'project_name' => $proj_name, 'user_main_id' => Auth::user()->id])->update(['actual_file_size' => $total_file_size]);
+    	echo json_encode("success");
+    }
+    // paypal end
 }

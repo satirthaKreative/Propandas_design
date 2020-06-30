@@ -116,12 +116,56 @@ class PostJobClientController extends Controller
            			$send_invitation = '<a href="javascript:void(0)" class="shrt-btn vw-btn short-font" onclick="send_invite('.$project_id.','.$main_details->user_id.','.$my_id.','.$count.')">Send Invitation</a>';
            		}
 
+              $count_review_query = DB::table('clienttolawyerreview_tbls')->where('review_id',$main_details->user_id)->count();
+              if($count_review_query > 0)
+              {
+                $my_review_query = DB::table('clienttolawyerreview_tbls')->where('review_id',$main_details->user_id)->get();
+
+                $main_review = 0;
+
+                foreach($my_review_query as $m1)
+                {
+                  $review1 = $m1->review_service_count;
+                  $review2 = $m1->review_value_count;
+                  $review3 = $m1->review_time_count;
+
+                  $main_review1 = (($review3+$review2+$review1)/3)+$main_review;
+                  $main_review = (int)$main_review1;
+                }
+
+                $count_review = $main_review/$count_review_query;
+
+                $star_view = '';
+                for($r = 1; $r < 6; $r++)
+                {
+                  if($r < ($count_review+1)){
+                    $star_view .= '<i class="fa fa-star" aria-hidden="true"></i>';
+                  }else{
+                    $star_view .= '<i class="fa fa-star-o" aria-hidden="true"></i>';
+                  }
+                }
+              }
+              else
+              {
+                $star_view = '';
+                for($r = 1; $r < 6; $r++)
+                {
+                  
+                    $star_view .= '<i class="fa fa-star-o" aria-hidden="true"></i>';
+                }
+              }
+
            		$html .= '<li>
                     <div class="left-step">
                       <div class="media">
                          <img class="md-img" src="'.$profile_img.'" alt="image">
+
                           <div class="media-body">
                              <h5>'.$main_details->name.' '.$main_details->lname.'</h5>
+                             <div class="rating-bx">                              
+                                '.$star_view.'
+                                <label class="rv-number"><a href="/lawyer-review/'.$main_details->user_id.'"><i class="fa fa-plus-circle" aria-hidden="true"></i>'.$count_review_query.' Reviews</a></label>
+                             </div>
                              <p class="dg-text"><em>'.$category_name.' Lawyer</em></p>
                              <p><i class="fa fa-map-marker icn-show" aria-hidden="true" style="margin-right: 5px;"></i> '.$main_details->law_firm.' '.$main_details->law_firm_address.' '.$country_name.'</p>
                           </div>
