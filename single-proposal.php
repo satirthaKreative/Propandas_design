@@ -37,6 +37,9 @@
                    <div class="media ">
                             <img class="md-img" src="https://image.freepik.com/free-photo/smiling-mature-lawyer-working-courtroom_23-2147898545.jpg" alt="image">
                              <div class="media-body">
+                              <div class="back-page">
+                                <a href="#"><i class="fa fa-arrow-left" aria-hidden="true"></i>back</a>
+                              </div>
                                <h5>Robert Hooks</h5>
                                 <p class="dg-text"><em>Business Lawyers</em></p>
                                <h6><span>Location :</span>London, United Kingdom. </h6>
@@ -59,8 +62,9 @@
                               </ul>
 
                               <p>
-                                 <span><a href="javascript:void(0)" class="dt-btn" data-toggle="modal" data-target="#lawyer-modal">Select Lawyer</a></span>
-                                 <span><a href="javascript:void(0)" class="dt-btn">Cancel Lawyer</a></span>
+                                 <span><a href="javascript:void(0)" class="dt-btn" data-toggle="modal" data-target="#lawyer-modal">Accept</a></span>
+                                 <span><a href="javascript:void(0)" class="dt-btn">Decline</a></span>
+                                  <span><a href="javascript:void(0)" class="dt-btn">Chat</a></span>
                                  </p>
 
                                   <!-- lawyer-modal start -->

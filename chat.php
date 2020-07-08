@@ -132,11 +132,12 @@
                <div class="user-dtls">
                   <ul>
                      <li>
-                        <a data-toggle="tooltip" data-placement="top" title="5 Member" href="#">
+                     	<!-- data-toggle="tooltip" data-placement="top" title="5 Member" -->
+                        <a  href="#" data-toggle="modal" data-target="#member-modal">
                         <i class="fa fa-user-o" aria-hidden="true"></i><label>5</label>                      
                         </a>                        
                      </li>
-                     <li><a href="#" data-toggle="modal" data-target="#add-people" >Add Member</a></li>
+                     <li><a href="#" data-toggle="modal" data-target="#add-people" >add Member</a></li>
                   </ul>
                </div>
             </div>
@@ -478,6 +479,78 @@
       </div>
    </div>
 </section>
+
+<!-- accept-soon Modal -->
+   <div class="modal fade theme-modal green-mdl-text" id="member-modal">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-body listing-md">
+            	<h6 class="text-left">Member <span>5</span></h6>
+               <ul class="md-list-member">
+               	<li>
+               		<a href="javascript:void(0)">
+                	<span class="member-img">
+                    <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> 
+                   </span>
+
+                   <span class="member-info">
+                   	<p>Mr. Rozer Lermond</p>
+                   </span>
+                    </a>
+               	</li>
+
+               	<li>
+               		<a href="javascript:void(0)">
+                	<span class="member-img">
+                    <img src="https://www.bestattorneysofamerica.com/wp-content/uploads/cache/images/for-attorneys-woman/for-attorneys-woman-1416831204.jpg" alt="sunil"> 
+                   </span>
+
+                   <span class="member-info">
+                   	<p>Sara Najjar</p>
+                   </span>
+                   </a> 
+               	</li>
+
+               	<li>
+               		<a href="javascript:void(0)">
+                	<span class="member-img">
+                    <img src="https://www.jangattorneys.com/wp-content/themes/jang-2017/img/defaultinnerimgmob.jpg" alt="sunil"> 
+                   </span>
+
+                   <span class="member-info">
+                   	<p>Mitri Valentine</p>
+                   </span> 
+               </a>
+               	</li>
+
+               	<li>
+               		<a href="javascript:void(0)">
+                	<span class="member-img">
+                    <img src="https://freedomlaw.ca/wp-content/uploads/2018/06/corporate.jpg" alt="sunil"> 
+                   </span>
+
+                   <span class="member-info">
+                   	<p>William David.</p>
+                   </span>
+                   </a> 
+               	</li>
+
+               	<li>
+               		<a href="javascript:void(0)">
+                	<span class="member-img">
+                    <img src="https://image.freepik.com/free-photo/smiling-mature-lawyer-working-courtroom_23-2147898545.jpg" alt="sunil"> 
+                   </span>
+
+                   <span class="member-info">
+                   	<p>Robert Hooks</p>
+                   </span> 
+               </a>
+               	</li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
 <!-- end of dshbord-theme -->
 <?php include ("inc/footer.php") ?>
 <script>
