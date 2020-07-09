@@ -6373,3 +6373,58 @@ span.member-info {
 }
 
 }
+
+.detail-content{
+	.bl-top{
+	     font-size: 15px;
+	    color: #ffffff;
+	    line-height: 25px;
+	    margin-bottom: 15px;
+	    background: rgb(39, 156, 224);
+	    padding: 10px;
+    }
+    }
+
+    .job-status{
+    		    background: white;
+			    margin-left: 5px;
+			    color: #fff;
+			    font-size: 10px;
+			    line-height: 14px;
+			    padding: 3px 10px;
+			    border-radius: 5px;
+			    border: solid 1px #f1f1f1;
+		    label{
+		    	margin-bottom: 0;
+                font-weight: 500;
+		    }
+
+		    &.initiated{
+		    	background: #cc449c;
+               border: solid 1px #cc449c;
+		    }
+
+		   &.proposal {
+		   	background: #f29869;
+		   	border: solid 1px #f29869;			    
+			}
+
+		    &.in-progress {
+		    	background: #1584c5;
+		    	border: solid 1px #1584c5;
+			    
+			}
+
+		    &.completed {
+		    	background: #02d402;
+		    	border: solid 1px #02d402;
+				   
+				}
+
+		    &.closed {
+		    	background: #ea0202;
+		    	border: solid 1px #ea0202;
+			   
+			}
+    }
+

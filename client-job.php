@@ -77,7 +77,7 @@
 
                         <li>
                       <div class="left-step">
-                        <h5><a href="client-single-job.php">Trademark Search Services</a></h5>
+                        <h5><a href="client-single-job.php">Trademark Search Services</a><span class="job-status initiated">Initiated</span></h5>
                                <p class="dg-text"><span class="date-text">
                               <i class="fa fa-clock-o" aria-hidden="true"></i>29/04/2020
                            </span></p>
@@ -92,7 +92,7 @@
 
                   <li>
                       <div class="left-step">
-                        <h5><a href="client-single-job.php">Et harum quidem rerum facilis</a></h5>
+                        <h5><a href="client-single-job.php">Et harum quidem rerum facilis</a><span class="job-status proposal">Proposal</span></h5>
                                <p class="dg-text"><span class="date-text">
                               <i class="fa fa-clock-o" aria-hidden="true"></i>27/04/2020
                            </span></p>
@@ -108,7 +108,7 @@
 
                   <li>
                       <div class="left-step">
-                        <h5><a href="client-single-job.php">Quis autem vel eum iure</a></h5>
+                        <h5><a href="client-single-job.php">Quis autem vel eum iure</a><span class="job-status in-progress">In Progress</span></h5>
                                <p class="dg-text"><span class="date-text">
                               <i class="fa fa-clock-o" aria-hidden="true"></i>26/04/2020
                            </span></p>
@@ -122,7 +122,7 @@
                   </li>                
                   <li>
                       <div class="left-step">
-                        <h5><a href="client-single-job.php">Trademark Search Services</a></h5>
+                        <h5><a href="client-single-job.php">Trademark Search Services</a><span class="job-status completed">Completed</span></h5>
                                <p class="dg-text"><span class="date-text">
                               <i class="fa fa-clock-o" aria-hidden="true"></i>25/04/2020
                            </span></p>
@@ -137,7 +137,7 @@
 
                   <li>
                       <div class="left-step">
-                        <h5><a href="client-single-job.php">Et harum quidem rerum facilis</a></h5>
+                        <h5><a href="client-single-job.php">Et harum quidem rerum facilis</a> <span class="job-status closed">Closed</span></h5>
                                <p class="dg-text"><span class="date-text">
                               <i class="fa fa-clock-o" aria-hidden="true"></i>20/04/2020
                            </span></p>

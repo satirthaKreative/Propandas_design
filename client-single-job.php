@@ -36,8 +36,17 @@
 
               <div class="detail-content">
                 <div class="row">
+                	<div class="col-md-12">
+                		 <h5 class="bl-top">Trademark Search Services
+                		  <span class="job-status initiated">Initiated</span>
+                		  <span class="job-status proposal">Proposal</span>
+                		  <span class="job-status in-progress">In Progress</span>
+                		  <span class="job-status completed">Completed</span>
+                		  <span class="job-status closed">Closed</span>
+                		</h5> 
+                	</div>
                   <div class="col-md-8">
-                     <h5>Trademark Search Services</h5> 
+                    
                      <p><span class="date-text text-left">
                               <i class="fa fa-clock-o" aria-hidden="true"></i>20/04/2020
                            </span></p>

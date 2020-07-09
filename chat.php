@@ -480,7 +480,7 @@
    </div>
 </section>
 
-<!-- accept-soon Modal -->
+<!-- member-modal Modal -->
    <div class="modal fade theme-modal green-mdl-text" id="member-modal">
       <div class="modal-dialog">
          <div class="modal-content">
