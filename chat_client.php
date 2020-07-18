@@ -71,21 +71,21 @@
                      <div class="chat_list prject-line">
                         <a href="#">
                            <div class="chat_ib">
-                              <h5> <i class="fa fa fa-lock" aria-hidden="true"></i>Project 3</h5>
+                              <h5> <i class="fa fa-unlock-alt" aria-hidden="true"></i>Project 3</h5>
                            </div>
                         </a>
                      </div>
                      <div class="chat_list prject-line">
                         <a href="#">
                            <div class="chat_ib">
-                              <h5> <i class="fa fa fa-lock" aria-hidden="true"></i>Project 4</h5>
+                              <h5> <i class="fa fa-unlock-alt" aria-hidden="true"></i>Project 4</h5>
                            </div>
                         </a>
                      </div>
                      <div class="chat_list prject-line">
                         <a href="#">
                            <div class="chat_ib">
-                              <h5> <i class="fa fa fa-lock" aria-hidden="true"></i>Project 5</h5>
+                              <h5> <i class="fa fa-unlock-alt" aria-hidden="true"></i>Project 5</h5>
                            </div>
                         </a>
                      </div>
@@ -205,7 +205,7 @@
          <div class="mesgs">
             <div class="mesg-top">
                <div class="msg-top-left">
-                  <h6 >Project Name</h6>
+                  <h6 >Project Name <span class="top-usr"><i class="fa fa fa-user" aria-hidden="true"></i>Lawyer Name</span></h6>
                </div>
                <div class="user-dtls">
                   <ul>
@@ -222,13 +222,23 @@
                            <span></span>
 
                            <div class="drop-menu">
-                              <ul>
-                                 <li>
-                              <a href="#" data-toggle="modal" data-target="#add-people" ><i class="fa fa-user" aria-hidden="true"></i>Add Member</a>
+                              <ul>                               
+
+                                  <li>
+                              <a href="single-proposal.php"  ><i class="fa fa-paper-plane" aria-hidden="true"></i>Accept a Proposal</a>
                                  </li>
                                  <li>
-                                     <a href="#"><i class="fa fa-file-text" aria-hidden="true"></i>Raise An Invoice</a>   
+                              <a href="#" data-toggle="modal" data-target="#add-people" ><i class="fa fa-user" aria-hidden="true"></i>Add a Member</a>
                                  </li>
+                                 <li>
+                                     <a href="#"><i class="fa fa-file-text" aria-hidden="true"></i>Settle an Invoice</a>   
+                                 </li>
+
+                                 <li>
+                                     <a href="#"><i class="fa fa-stop-circle" aria-hidden="true"></i>End the Chat</a>   
+                                 </li>
+
+                                 
                               </ul>
                               
                                                          

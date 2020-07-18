@@ -6388,14 +6388,17 @@ span.member-info {
     }
 
     .job-status{
-    		    background: white;
-			    margin-left: 5px;
-			    color: #fff;
-			    font-size: 10px;
-			    line-height: 14px;
-			    padding: 3px 10px;
-			    border-radius: 5px;
-			    border: solid 1px #f1f1f1;
+    		        background: white;
+				    margin-left: 5px;
+				    color: #fff;
+				    font-size: 10px;
+				    line-height: 14px;
+				    padding: 3px 10px;
+				    border-radius: 5px;
+				    border: solid 1px #f1f1f1;
+				    min-width: 80px;
+				    display: inline-block;
+				    text-align: center;
 		    label{
 		    	margin-bottom: 0;
                 font-weight: 500;
@@ -6520,7 +6523,7 @@ span.member-info {
     position: absolute;
     right: 0;
     top: 110%;
-    width: 160px;
+    width: 170px;
     padding: 13px 10px;
         background: #f8f8f8;
     border: solid 1px #d5d5d5;
@@ -6632,4 +6635,88 @@ span.member-info {
    .all-prj-list{
 	    display: none !important;   
    }
+}
+
+
+.top-usr{
+  margin-left: 10px;
+    color: #53606b;
+    font-weight: 400;
+    font-size: 12px;
+    i{
+    	margin-right: 5px;
+    }
+}
+
+
+.chat-content .message-content .mesgs .msg_history .front-msg:last-child {
+    margin-bottom: 70px;
+}
+
+.chat-content .message-content .mesgs .msg_history{
+	padding-bottom:10px;
+}
+
+.chat-content .message-content .chat_list .chat_ib h5 i {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.theme-table td {    
+    vertical-align: middle;
+}
+
+.short-link-btn{
+	padding: 3px 10px !important;
+    font-size: 11px !important;
+    line-height: 20px !important;
+    min-width: 72px;
+    display: inline-block;
+    text-align: center;
+     margin-right: 3px;
+}
+
+.danger-btn {
+    background: #c32424 !important;
+}
+
+.dlt-icn{
+	color: #c75151!important ;
+    font-size: 15px;
+}
+
+
+.shrt-control{
+	width: 100px;
+    height: 30px !important;
+    padding: 3px 5px;
+    font-size: 11px;
+    line-height: 18px;
+    background: #f2f4f6;
+    outline: none !important;
+    box-shadow: none !important;
+    border: solid 1px #dadada;
+}
+
+
+.short-anchr{
+	background: #279ce0;
+    color: #fff !important;
+    padding: 6px 25px;
+    font-size: 14px;
+    min-width: 110px;
+    line-height: 22px;
+    border-radius: 0px;
+    text-decoration: none;
+    display: inline-block;
+    transition: 1s;
+    margin: 3px;
+    margin-top: 10px;
+    clear: both;
+}
+
+.transparent-anchr{
+	background: transparent;
+    border: solid 1px #bdbbbb;
+    color: #131313 !important;
 }
