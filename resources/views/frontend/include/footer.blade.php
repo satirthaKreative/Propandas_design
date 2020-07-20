@@ -37,9 +37,9 @@
             <div class="ft-content ft-cont">
                <ul>
                   <li><a href="#">The Company</a></li>
-                  <li><a href="#">Careers</a></li>
+                  <li><a href="{{ url('/career') }}">Careers</a></li>
                   <li><a href="#">Customers</a></li>
-                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="{{ url('/privacy-policy') }}">Privacy Policy</a></li>
                   <li><a href="{{ url('/terms') }}">Terms of Service</a></li>
                </ul>
             </div>

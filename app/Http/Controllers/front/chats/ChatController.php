@@ -12,11 +12,11 @@ use App\User;
 use App\Country_model;
 use App\LawyerCountryModel;
 use App\LawyerCitiesModel;
-use App\models\ChatModel;
-use App\models\ChatProjectModel;
-use App\models\ChatJobQAModel;
-use App\models\FileSizeModel;
-use App\models\FileWithPriceModel;
+use App\Models\ChatModel;
+use App\Models\ChatProjectModel;
+use App\Models\ChatJobQAModel;
+use App\Models\FileSizeModel;
+use App\Models\FileWithPriceModel;
 
 class ChatController extends Controller
 {

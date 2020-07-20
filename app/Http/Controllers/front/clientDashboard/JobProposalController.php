@@ -12,9 +12,9 @@ use App\User;
 use App\Country_model;
 use App\LawyerCountryModel;
 use App\LawyerCitiesModel;
-use App\models\ChatModel;
-use App\models\ChatProjectModel;
-use App\models\ChatJobQAModel;
+use App\Models\ChatModel;
+use App\Models\ChatProjectModel;
+use App\Models\ChatJobQAModel;
 
 class JobProposalController extends Controller
 {

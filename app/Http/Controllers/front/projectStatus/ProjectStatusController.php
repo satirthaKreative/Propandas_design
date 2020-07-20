@@ -12,13 +12,13 @@ use App\User;
 use App\Country_model;
 use App\LawyerCountryModel;
 use App\LawyerCitiesModel;
-use App\models\ChatModel;
-use App\models\ChatProjectModel;
-use App\models\ChatJobQAModel;
-use App\models\FileSizeModel;
-use App\models\FileWithPriceModel;
-use App\models\reviews\CtoLmodel;
-use App\models\reviews\LtoCmodel;
+use App\Models\ChatModel;
+use App\Models\ChatProjectModel;
+use App\Models\ChatJobQAModel;
+use App\Models\FileSizeModel;
+use App\Models\FileWithPriceModel;
+use App\Models\reviews\CtoLmodel;
+use App\Models\reviews\LtoCmodel;
 
 
 class ProjectStatusController extends Controller

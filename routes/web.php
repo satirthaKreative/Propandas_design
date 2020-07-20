@@ -361,3 +361,16 @@ Route::GET('/progress-bar-status-every-time','ProgressBarController@index');
 Route::GET('/lawyer-review/{lawyer_review}','ProgressBarController@lawyer_review');
 Route::GET('/lawyer-review-ajax','ProgressBarController@lawyer_review_ajax');
 // end of lawyer review
+
+
+// privacy policy
+Route::GET('/privacy-policy','front\PrivacyPolicyController@index');
+// end of privacy policy
+
+// career
+Route::GET('/career','front\CareerController@index');
+Route::GET('/career-ajax','front\CareerController@career_ajax');
+Route::GET('/admin-career','front\CareerController@admin_career_index');
+Route::GET('/admin-career-ajax','front\CareerController@admin_career_ajax');
+Route::GET('/admin-career-delete-ajax','front\CareerController@admin_career_del_ajax');
+// end of career

@@ -191,6 +191,18 @@
                         <li><a href="{{ url('/terms/1') }}"><i class="fa fa-angle-double-right"></i>View Terms</a></li>
                     </ul>
                 </li>
+
+                <!-- Career -->
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-file-text"></i>
+                        <span>Career</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ url('/admin-career') }}"><i class="fa fa-angle-double-right"></i>View Careers</a></li>
+                    </ul>
+                </li>
                 
                 <!-- Free Profile Details -->
                 <li class="treeview">
