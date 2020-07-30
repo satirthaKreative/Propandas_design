@@ -5999,6 +5999,8 @@ a.bid-text {
 	}
 }
 
+
+
 .detail-content {
 	.reviews-box {
 			background: #f4f4f4;
@@ -6262,3 +6264,459 @@ a.bid-text {
 	    width: 100%;
 	        margin: 3px 0px;
 	}
+	
+
+
+
+	.back-page {
+    text-align: right;
+    font-size: 13px;
+    color: #0d2c67;
+    font-weight: 400;
+    display: inline-block;
+    float: right;
+    text-transform: capitalize;
+    a{
+	    color: #0d2c67;
+	    font-weight: 400;
+	    text-decoration: none;
+    }
+    i{
+    	margin-right: 7px;
+	    font-weight: 100;
+	    font-size: 11px;
+	    color: #0d2c67;
+    }
+}
+
+// for member list
+.theme-modal{
+.listing-md{
+	h6{
+	color: #4c5863;
+    font-size: 16px;
+    width: 100%;
+    margin: 0 auto;
+    line-height: 27px;
+    margin-bottom: 10px;
+    letter-spacing: 0;
+    font-weight: 400;
+    border-bottom: dashed 1px #c1bfbf;
+    padding-bottom: 10px;
+    text-transform: capitalize;
+    span{
+    	    float: right;
+		    font-size: 11px;
+		    color: #545454;
+		    width: 25px;
+		    height: 25px;
+		    background: #ececec;
+		    text-align: center;
+		    border-radius: 50%;
+		    line-height: 25px;
+    }
+	}
+}
+}
+
+.md-list-member{
+	    list-style-type: none;
+    text-align: left;
+    padding-left: 0px;
+    margin-bottom: 0px;
+    max-height: 350px;
+    overflow-y: auto;
+    &::-webkit-scrollbar-track {
+					background-color: #ebebeb;
+					-webkit-border-radius: 10px;
+					border-radius: 10px;
+				}
+				&::-webkit-scrollbar {
+					width: 4px;
+				}
+				&::-webkit-scrollbar-thumb {
+					-webkit-border-radius: 10px;
+					border-radius: 10px;
+					background: #a9a9a9;
+					max-height: 10%!important;
+				}
+    li{
+   display: inline-block;
+    width: 100%;
+    margin: 8px 0px;
+    }
+
+
+.member-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    float: left;
+    overflow: hidden;
+    img{
+    	width: 100%;
+    	height: 100%;
+    	object-fit: cover;
+    }
+}
+
+span.member-info {
+    text-align: left;
+    float: left;
+    padding-left: 15px;
+    p{
+    color: #000000;
+    font-size: 14px;
+    width: 100%;
+    text-align: left;
+    line-height: 30px;
+    margin-bottom: 0;
+    }
+}
+
+}
+
+.detail-content{
+	.bl-top{
+	     font-size: 15px;
+	    color: #ffffff;
+	    line-height: 25px;
+	    margin-bottom: 15px;
+	    background: rgb(39, 156, 224);
+	    padding: 10px;
+    }
+    }
+
+    .job-status{
+    		        background: white;
+				    margin-left: 5px;
+				    color: #fff;
+				    font-size: 10px;
+				    line-height: 14px;
+				    padding: 3px 10px;
+				    border-radius: 5px;
+				    border: solid 1px #f1f1f1;
+				    min-width: 80px;
+				    display: inline-block;
+				    text-align: center;
+		    label{
+		    	margin-bottom: 0;
+                font-weight: 500;
+		    }
+
+		    &.initiated{
+		    	background: #cc449c;
+               border: solid 1px #cc449c;
+		    }
+
+		   &.proposal {
+		   	background: #f29869;
+		   	border: solid 1px #f29869;			    
+			}
+
+		    &.in-progress {
+		    	background: #1584c5;
+		    	border: solid 1px #1584c5;
+			    
+			}
+
+		    &.completed {
+		    	background: #02d402;
+		    	border: solid 1px #02d402;
+				   
+				}
+
+		    &.closed {
+		    	background: #ea0202;
+		    	border: solid 1px #ea0202;
+			   
+			}
+    }
+
+.single-project{
+
+.chat_list{
+	display: inline-block;
+    width: 100%;
+    a{
+    	    display: inherit;
+    	margin-bottom: -8px !important;
+    }
+
+    &.active_chat{
+        padding: 10px 5px;
+        margin-bottom: -6px;
+    	a{
+    		margin-bottom: 0px !important;
+    	}
+    }
+}
+
+	.prv-arow{
+	width: 23px;
+    display: inline-block;  
+    a{
+    	color: #fff;
+    	text-decoration: none;
+    }
+   }
+
+   span.pj-title {
+    width: calc(100% - 27px);
+    display: inline-block;
+    a{
+    	color: #fff;
+    	text-decoration: none;
+    }
+}
+
+.includ-member{
+	.member-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    float: left;
+    margin-right: 8px;
+    img{
+    	 width: 100%;
+	    height: 100%;
+	    object-fit: cover;
+    }
+ }
+
+}
+ 
+}
+
+
+
+.chat-content .message-content .mesgs .user-dtls ul {
+       list-style-type: none;
+    padding-left: 0px;
+    margin-bottom: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+
+.dots-drop {
+	cursor: pointer;
+    width: 15px;
+    display: inline-grid;
+    align-items: center;
+    justify-content: center;
+    position:relative;
+    span{
+    	width: 3px;
+    height: 3px;
+    background: #243b60;
+    display: block;
+    clear: both;
+    margin-bottom: 2px;
+    border-radius: 50%;
+    }    
+
+    .drop-menu {
+   display: none;
+    position: absolute;
+    right: 0;
+    top: 110%;
+    width: 170px;
+    padding: 13px 10px;
+        background: #f8f8f8;
+    border: solid 1px #d5d5d5;
+    border-radius: 6px;
+    box-shadow: 0 4px 2px 0 rgba(187,187,187,0.05);
+    text-align: left;
+    z-index: 9;
+    ul{
+    	padding-left: 0px !important;
+    display: inline-block !important;
+    	li{
+	    display: inline-block !important;
+	    width: 100%;
+	    margin: 5px 0px;
+	    padding: 0px !important;
+	    border:none!important;
+	   
+	    a{
+	    line-height: 25px !important;
+	    font-size: 13px !important;
+	    text-decoration: none;
+	    i{
+	    	    width: 18px;
+			    color: #3b4b5a;
+			    font-size: 14px;
+	    }
+	    }
+    	}
+    }
+}
+.show-dropdown{
+	 display: block;
+}
+
+}
+
+
+
+.theme-modal .form-control{
+	    outline: none !important;
+    box-shadow: none;
+}
+
+.pj-staus {
+    width: 96%;
+    display: inline-block;
+    margin: 0 auto;
+    p{
+    font-size: 14px;
+    margin-bottom: 0;
+    line-height: 30px;
+    padding-left: 10px;
+    font-weight: 500;
+    }
+    .form-control{
+    	background: transparent;
+    color: #21374a;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    box-shadow: none;
+    font-size: 14px;
+    font-weight: 100;
+    height: 40px !important;
+
+    }
+    select option { 
+      background-color:#f9f1f1;
+      color: #21374a;
+       line-height: 25px;
+        border:none !important;
+        outline: none;
+        box-shadow:none !important;
+         font-size: 14px;
+        font-weight: 100;
+        &:focus{
+        	background:none!important;
+        	} 
+
+        	&:hover{
+        	background:none!important;
+        	} 
+        }
+}
+
+.chat-content .message-content .inbox_people .nav-tabs {
+        background: #f5f5f5;
+    width: 100%;
+    height: 50px;
+    border-bottom: solid 1px #4b5c6b;
+}
+
+.all-prj-list{
+	    display: inline-block;
+    width: 100%;
+}
+
+.single-project {	
+    width: 100%;
+    display: none !important;
+}
+
+.show-single-project{
+	 .single-project {
+	display: inline-block !important;
+    width: 100%;   
+   }
+
+   .all-prj-list{
+	    display: none !important;   
+   }
+}
+
+
+.top-usr{
+  margin-left: 10px;
+    color: #53606b;
+    font-weight: 400;
+    font-size: 12px;
+    i{
+    	margin-right: 5px;
+    }
+}
+
+
+.chat-content .message-content .mesgs .msg_history .front-msg:last-child {
+    margin-bottom: 70px;
+}
+
+.chat-content .message-content .mesgs .msg_history{
+	padding-bottom:10px;
+}
+
+.chat-content .message-content .chat_list .chat_ib h5 i {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.theme-table td {    
+    vertical-align: middle;
+}
+
+.short-link-btn{
+	padding: 3px 10px !important;
+    font-size: 11px !important;
+    line-height: 20px !important;
+    min-width: 72px;
+    display: inline-block;
+    text-align: center;
+     margin-right: 3px;
+}
+
+.danger-btn {
+    background: #c32424 !important;
+}
+
+.dlt-icn{
+	color: #c75151!important ;
+    font-size: 15px;
+}
+
+
+.shrt-control{
+	width: 100px;
+    height: 30px !important;
+    padding: 3px 5px;
+    font-size: 11px;
+    line-height: 18px;
+    background: #f2f4f6;
+    outline: none !important;
+    box-shadow: none !important;
+    border: solid 1px #dadada;
+}
+
+
+.short-anchr{
+	background: #279ce0;
+    color: #fff !important;
+    padding: 6px 25px;
+    font-size: 14px;
+    min-width: 110px;
+    line-height: 22px;
+    border-radius: 0px;
+    text-decoration: none;
+    display: inline-block;
+    transition: 1s;
+    margin: 3px;
+    margin-top: 10px;
+    clear: both;
+}
+
+.transparent-anchr{
+	background: transparent;
+    border: solid 1px #bdbbbb;
+    color: #131313 !important;
+}

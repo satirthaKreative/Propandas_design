@@ -11,6 +11,7 @@ use App\admincategory;
 use App\admincateques;
 use App\adminquestion;
 use App\adminoption;
+use App\User;
 
 class ClientAjaxController extends Controller
 {
@@ -338,6 +339,18 @@ class ClientAjaxController extends Controller
 
     	if(session('totalQuesAnsSession'))
     	{
+
+            // insert 10 users 
+            $insert_ques_ans = User::where('is_lawyer',1)->limit(10)->get();
+
+            $array_of_users = array();
+            foreach($insert_ques_ans as $iqa)
+            {
+                $array_of_users[] = $iqa->id;
+            }
+            // end of insert 10 users
+            $array_of_user10 = implode(',', $array_of_users);
+
     	    $category_name = $cate_id;
     	    $redire= Session::get('totalQuesAnsSession');
     	    $phone_number = $con_id; 
@@ -356,6 +369,7 @@ class ClientAjaxController extends Controller
     	        'category_id'=>$category_name,
     	        'quesAnsDescrip'=>$dzz,
     	        'phone_number'=>$phone_number,
+                'inserted_ids'=>$array_of_user10,
                 'projectId'=>"PROPAN".rand(10000,999999)
     	    ];
     	    DB::table('jobanswerclinetdesc')->insert($array_data);

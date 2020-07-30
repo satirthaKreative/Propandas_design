@@ -84,6 +84,7 @@
 @section('pagewishjs')
    <script>
       $(function(){
+         checking_days_left();
          $.ajax({
             // headers: {
             //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -110,6 +111,22 @@
             }
          })
       })
+
+      // checking time limit
+      function checking_days_left()
+      {
+         $.ajax({
+            url: '/checking-days-left',
+            type: 'GET',
+            dataType: 'json',
+            success: function(event){
+               console.log(event);
+            }, error: function(event){
+
+            }
+         })
+      }
+      // end checking time limit
 
       function search_job_btn()
       {

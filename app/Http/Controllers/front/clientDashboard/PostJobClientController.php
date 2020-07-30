@@ -167,7 +167,7 @@ class PostJobClientController extends Controller
                                 <label class="rv-number"><a href="/lawyer-review/'.$main_details->user_id.'"><i class="fa fa-plus-circle" aria-hidden="true"></i>'.$count_review_query.' Reviews</a></label>
                              </div>
                              <p class="dg-text"><em>'.$category_name.' Lawyer</em></p>
-                             <p><i class="fa fa-map-marker icn-show" aria-hidden="true" style="margin-right: 5px;"></i> '.$main_details->law_firm.' '.$main_details->law_firm_address.' '.$country_name.'</p>
+                             <p><i class="fa fa-map-marker icn-show" aria-hidden="true" style="margin-right: 5px;"></i> '.$main_details->law_firm.' '.$main_details->law_firm_address.'</p>
                           </div>
                       </div>
                     </div>

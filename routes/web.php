@@ -164,6 +164,9 @@ Route::PUT('/behindpropandasheading/{behindpropandasheading}','Admin\HomeBehindP
 
 // lawyer dashboard
 Route::GET('/posted-jobs','front\lawyerDashboard\PostJobLawyerController@index');
+	// days left part
+	Route::GET('/checking-days-left','front\lawyerDashboard\ajax\LawyerDashboardAjaxController@checking_days_left');
+	// end days left part
 Route::GET('/job-full-view/{jobview}','front\lawyerDashboard\PostJobLawyerController@job_full_view');
 Route::GET('/apply-job/{applyjob}','front\lawyerDashboard\PostJobLawyerController@apply_job');
 

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use App\ProposalSendModel;
 use App\NotificationModel;
 use App\JobAnswerClinetDescModel;
+use App\User;
 
 class LawyerDashboardAjaxController extends Controller
 {
@@ -45,7 +46,7 @@ class LawyerDashboardAjaxController extends Controller
             }
             
             $client_email = "Email Address : <a href='mailto:".$user_name_via->email."'>".$user_name_via->email."</a>";
-            $html .= '<img class="md-img" src="'.asset($newImg).'" alt="image"><div class="media-body">';
+            $html .= '<img class="md-img" src="'.asset($newImg).'" alt="image"><div class="media-body"><div class="back-page"><a href="/posted-jobs"><i class="fa fa-arrow-left" aria-hidden="true"></i>back</a></div>';
         }
 
 
@@ -64,6 +65,8 @@ class LawyerDashboardAjaxController extends Controller
     		$arr1 = array();
         $arr2 = array();
         $arr3 = array();
+
+        
         $final_arr1 = array();
         $final_arr2 = array();
 
@@ -202,9 +205,167 @@ class LawyerDashboardAjaxController extends Controller
 
     	}
     	
-    	$html1 = $html.'<p><span>'.$actual_check_status.'</span><span><a href="/posted-jobs" class="dt-btn">Back</a></span></p></div>';
+    	$html1 = $html.'<p><span>'.$actual_check_status.'</span><span><a href="javascript:void(0)" class="dt-btn">Decline</a></span><span><a href="javascript: ;" class="dt-btn">Chat</a></span></p></div>';
       echo  json_encode($html1);
     }
+
+
+    // 2 days left
+    public function checking_days_left()
+    {
+      $selectResultQuery = DB::table('jobanswerclinetdesc')->get();
+
+      foreach($selectResultQuery as $sRQuery)
+      {
+        $blank_arr = array();
+        if($sRQuery->inserted_ids !== null){
+          $explode_arr = explode(",",$sRQuery->inserted_ids);
+          foreach($explode_arr as $got_arr)
+          {
+            $blank_arr[] = $got_arr;
+          }
+        }
+
+        $blank_arr2 = array();
+        if($sRQuery->not_action_ids !== null){
+          $explode_arr2 = explode(",",$sRQuery->not_action_ids);
+          foreach($explode_arr2 as $got_arr2)
+          {
+            $blank_arr2[] = $got_arr2;
+          }
+        }
+
+        $blank_arr3 = array();
+        if($sRQuery->chat_Or_act_ids !== null){
+          $explode_arr3 = explode(",",$sRQuery->chat_Or_act_ids);
+          foreach($explode_arr3 as $got_arr3)
+          {
+            $blank_arr3[] = $got_arr3;
+          }
+        }
+        
+
+        if(in_array(Auth::user()->id, $blank_arr))
+        {
+          $today_date = date('Y-m-d H:i:s');
+          $enc_today_date = strtotime($today_date);
+
+          $update_date = strtotime($sRQuery->updated_at);
+          $compare_date = strtotime('+ 2 days', $update_date);
+
+          if($enc_today_date > $compare_date)
+          {
+            if($sRQuery->chat_Or_act_ids !== null)
+            {
+
+              $blank_final_arr = array();
+              $explode_final_1st_arr = explode(",",$sRQuery->inserted_ids);
+              $explode_final_2nd_arr = explode(",",$sRQuery->chat_Or_act_ids);
+              // start this 
+              foreach($explode_final_1st_arr as $final_array1)
+              {
+                $final_check_1st_data = $final_array1;
+                foreach ($explode_final_2nd_arr as $final_array2) {
+                  if($final_array2 !== $final_check_1st_data)
+                  {
+                    $blank_final_arr[] = $final_check_1st_data;
+                  }
+                }
+              }
+              // end of this
+
+              $blank_not_action_final_arr = array();
+              if($sRQuery->not_action_ids !== null)
+              {
+                $final_not_action_ids_arr = explode(",",$sRQuery->not_action_ids);
+                foreach($final_not_action_ids_arr as $final_not_ids_array)
+                {
+                  $blank_not_action_final_arr[] = $final_not_ids_array;
+                }
+              }
+
+              // final not appear array format
+              $final_where_not_array = array_merge($blank_final_arr, $blank_not_action_final_arr);
+
+              $final_not_id_store = implode(",",$blank_final_arr);
+
+              $new_insert_ids = array();
+              $new_elements_query =  User::whereNotIn('id', $final_where_not_array)->where('is_lawyer',1)->limit(10)->get();
+
+              foreach($new_elements_query as $newE1)
+              {
+                $new_insert_ids[] = $newE1->id;
+              }
+
+              $implode_final_new_insert_ids = implode(",",$new_insert_ids);
+              $main_date = date('Y-m-d H:i:s',strtotime($sRQuery->updated_at.'+2 days'));
+              $insert_arr_make_new = [
+                'inserted_ids' => $implode_final_new_insert_ids,
+                'not_action_ids' => $final_not_id_store,
+                'updated_at' => $main_date
+              ];
+
+               $final_insert_query = JobAnswerClinetDescModel::where('id',$sRQuery->id)->update($insert_arr_make_new);
+
+
+            }
+            else if($sRQuery->chat_Or_act_ids == null)
+            {
+              $blank_final_arr = array();
+              $explode_final_1st_arr = explode(",",$sRQuery->inserted_ids);
+              // start this 
+              foreach($explode_final_1st_arr as $final_array1)
+              {
+                $blank_final_arr[] = $final_array1;
+              }
+              // end of this
+
+              $blank_not_action_final_arr = array();
+              if($sRQuery->not_action_ids !== null)
+              {
+                $final_not_action_ids_arr = explode(",",$sRQuery->not_action_ids);
+                foreach($final_not_action_ids_arr as $final_not_ids_array)
+                {
+                  $blank_not_action_final_arr[] = $final_not_ids_array;
+                }
+              }
+
+              // final not appear array format
+              $final_where_not_array = array_merge($blank_final_arr, $blank_not_action_final_arr);
+
+              $final_not_id_store = implode(",",$final_where_not_array);
+
+              $new_insert_ids = array();
+              $new_elements_query =  User::whereNotIn('id', $final_where_not_array)->where('is_lawyer',1)->limit(10)->get();
+
+              foreach($new_elements_query as $newE1)
+              {
+                $new_insert_ids[] = $newE1->id;
+              }
+
+              $implode_final_new_insert_ids = implode(",",$new_insert_ids);
+              $main_date = date('Y-m-d H:i:s',strtotime($sRQuery->updated_at.'+2 days'));
+              $insert_arr_make_new = [
+                'inserted_ids' => $implode_final_new_insert_ids,
+                'not_action_ids' => $final_not_id_store,
+                'updated_at' => $main_date     
+              ];
+
+               $final_insert_query = JobAnswerClinetDescModel::where('id',$sRQuery->id)->update($insert_arr_make_new);
+
+            }
+
+            echo json_encode("success");
+          }
+          echo json_encode("success");
+        }else{
+          echo json_encode("error");
+        }
+
+
+      }
+    }
+    // end of 2 days left
 
 
     public function full_view_all_jobs()
@@ -215,6 +376,39 @@ class LawyerDashboardAjaxController extends Controller
         if(count($selectResultQuery) > 0){
         foreach($selectResultQuery as $newQ)
         {
+
+          // 
+          $show_array = explode(",",$newQ->inserted_ids);
+          $ele_arr = array();
+          foreach($show_array as $s_arr1)
+          {
+            $ele_arr[] = $s_arr1;
+          }
+
+          // 
+          $ele_arr1 = array();
+          if($newQ->not_action_ids !== null){
+              $show_array1 = explode(",",$newQ->not_action_ids);
+          
+              foreach($show_array1 as $s_arr2)
+              {
+                $ele_arr1[] = $s_arr2;
+              }
+          }
+
+          // 
+          $ele_arr2 = array();
+          if($newQ->chat_Or_act_ids !== null){
+              $show_array2 = explode(",",$newQ->chat_Or_act_ids);
+          
+              foreach($show_array2 as $s_arr3)
+              {
+                $ele_arr2[] = $s_arr3;
+              }
+          }
+
+          if((in_array(Auth::user()->id, $ele_arr) && !in_array(Auth::user()->id, $ele_arr1)) && (in_array(Auth::user()->id, $ele_arr2) || !in_array(Auth::user()->id, $ele_arr2))){
+
           $html .= '<li><div class="left-step"><div class="media">';
           $cate_id_main = $newQ->category_id;
           $client_id = $newQ->client_id;
@@ -252,11 +446,37 @@ class LawyerDashboardAjaxController extends Controller
           if(count($job_push_check) > 0){
             $actual_check_status = '<a href="javascript: ;" onclick="coming_soon_modal()" class="shrt-btn vw-btn">View Proposal </a>';
           }else{
-            $actual_check_status = '<a href="/apply-job/'.$mydata.'" class="shrt-btn vw-btn">Apply</a>';
+            $main_date_occur = date('Y-m-d H:i:s',strtotime($newQ->updated_at.'+2 days'));
+            $today_date = date('Y-m-d H:i:s');
+            $date1_occur=date_create($main_date_occur);
+            $date2_occur=date_create($today_date);
+            $diff_occur=date_diff($date1_occur,$date2_occur);
+
+            $days_left = $diff_occur->format("%a");
+
+            // 
+            if($days_left > 0){
+              $main_date_reflect = $days_left." days left to apply";
+            }else{
+              $main_date_reflect = "last day to apply";
+            }
+            // 
+
+            if(in_array(Auth::user()->id, $ele_arr2)){
+              $day_class_data = "(".$main_date_reflect.")";
+            }
+            else if(!in_array(Auth::user()->id, $ele_arr2))
+            {
+              $day_class_data = "(chat started)";
+            }
+            
+
+            $actual_check_status = '<a href="/apply-job/'.$mydata.'" class="shrt-btn vw-btn">Apply<span id="day-class"><br>'.$day_class_data.' </span></a>';
           }
 
           $html .= '</div></div>';
           $html .= '<div class="right-step"><a href="/job-full-view/'.$mydata.'"  class="shrt-btn vw-btn">View Job</a>'.$actual_check_status.'</div></li>';
+        }
         }
         }else{
           $html .= '<p class="text-danger text-center"><i class="fa fa-times"></i> No jobs are posted yet </p>';

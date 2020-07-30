@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class MyDashController extends Controller
 {
@@ -28,6 +29,16 @@ class MyDashController extends Controller
             $phone_number = Session::get('myClientPhoneCall');
             Session::put('jobPostDataSent','12'); 
 
+            // insert 10 users 
+            $insert_ques_ans = User::where('is_lawyer',1)->limit(10)->get();
+
+            $array_of_users = array();
+            foreach($insert_ques_ans as $iqa)
+            {
+                $array_of_users[] = $iqa->id;
+            }
+            // end of insert 10 users
+            $array_of_user10 = implode(',', $array_of_users);
 
             $elements = array();
             foreach( $redire as $key=>$data)
@@ -42,6 +53,7 @@ class MyDashController extends Controller
                 'category_id'=>$category_name,
                 'quesAnsDescrip'=>$dzz,
                 'phone_number'=>$phone_number,
+                'inserted_ids'=>$array_of_user10,
                 'projectId'=>"PROPAN".rand(10000,999999)
             ];
             DB::table('jobanswerclinetdesc')->insert($array_data);
