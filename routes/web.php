@@ -176,6 +176,13 @@ Route::GET('/apply-job/{applyjob}','front\lawyerDashboard\PostJobLawyerControlle
 // lawyer dashoboard ajax
 Route::GET('/all_posted_job_show','front\lawyerDashboard\ajax\LawyerDashboardAjaxController@full_view_all_jobs');
 Route::GET('/current_selected_posted_job_show','front\lawyerDashboard\ajax\LawyerDashboardAjaxController@index');
+Route::GET('/decline_project_by_particular_client','front\lawyerDashboard\ajax\LawyerDashboardAjaxController@decline_project_by_particular_client');
+	// lawyer checked proposal modal
+	Route::GET('/lawyer-checked-proposal-modal','front\lawyerDashboard\ajax\LawyerDashboardAjaxController@lawyer_checked_proposal_modal');
+	// end of lawyer checked proposal modal
+	// chat data id insert to job table
+	Route::GET('/chat-insert-id-function','front\lawyerDashboard\ajax\LawyerDashboardAjaxController@chat_insert_id_function');
+	// end of id insert of job chat
 Route::GET('/search_job_ajax','front\lawyerDashboard\ajax\LawyerDashboardAjaxController@search_job_ajax');
 Route::GET('/apply-job-with-proposal','front\lawyerDashboard\ajax\LawyerDashboardAjaxController@apply_job_ajax');
 
@@ -302,6 +309,7 @@ Route::GET('/chat','front\chats\ChatController@index');
 		Route::GET('accepting-proposal-ajax','front\clientDashboard\JobProposalController@accepting_proposal_ajax');
 	// end accepting proposal
 Route::GET('/chat-sideboard-ajax','front\chats\ChatController@chat_sideboard_ajax');
+Route::GET('/chat-sideboard-client-new-ajax','front\chats\ChatController@chat_sideboard_client_new_ajax');
 Route::GET('/chat_active_proj_sideboard_ajax','front\chats\ChatController@chat_active_proj_sideboard_ajax');
 Route::GET('/chat_completed_proj_sideboard_ajax','front\chats\ChatController@chat_completed_proj_sideboard_ajax');
 
@@ -377,3 +385,9 @@ Route::GET('/admin-career','front\CareerController@admin_career_index');
 Route::GET('/admin-career-ajax','front\CareerController@admin_career_ajax');
 Route::GET('/admin-career-delete-ajax','front\CareerController@admin_career_del_ajax');
 // end of career
+
+
+
+// chat invite
+Route::GET('/chat-invite-send','front\chats\ChatInvitationsController@index');
+// chat invite end 

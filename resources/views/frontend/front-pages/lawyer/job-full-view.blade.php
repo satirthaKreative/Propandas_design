@@ -61,6 +61,30 @@
          </div>
       </div>
    </div>
+   <!-- The proposal Modal -->
+   <div class="modal" id="proposal-particular-modal">
+     <div class="modal-dialog">
+       <div class="modal-content">
+
+         <!-- Modal Header -->
+         <div class="modal-header">
+           <h4 class="modal-title">Proposal View</h4>
+           <button type="button" class="close" data-dismiss="modal">&times;</button>
+         </div>
+
+         <!-- Modal body -->
+         <div class="modal-body proposal-show-class">
+           
+         </div>
+
+         <!-- Modal footer -->
+         <div class="modal-footer">
+           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+         </div>
+
+       </div>
+     </div>
+   </div>
 </section>
 <!-- end of dshbord-theme -->
 @endsection
@@ -81,6 +105,57 @@
            }, error: function(event_response){
 
            }
+        })
+      }
+
+      function decline_status_check()
+      {
+        var get_arg01 = "<?= $get_arg_id; ?>";
+        $.ajax({
+          url: '/decline_project_by_particular_client',
+          type: 'GET',
+          data: {get_arg01: get_arg01},
+          dataType: 'json',
+          success: function(event_res){
+            $(".dt-btn").css({'pointer-events': 'none','cursor':'not-allowed'});
+          }, error: function(event_res){
+            
+          }
+        })
+      }
+
+      function lawyer_checked_proposal_modal(jio_id)
+      {
+         $.ajax({
+          url: '/lawyer-checked-proposal-modal',
+          type: 'GET',
+          data: {jio_id: jio_id},
+          dataType: 'json',
+          success:  function(event){
+            $(".proposal-show-class").html(event);
+            $("#proposal-particular-modal").modal('show');
+          }, error:  function(event){
+
+          }
+         })
+      }
+
+      function chat_insert_id_function()
+      {
+        var main_job_posted_id = "<?= $get_arg_id; ?>";
+        $.ajax({
+          url: '/chat-insert-id-function',
+          type: 'GET',
+          data: {main_id: main_job_posted_id },
+          dataType: 'json',
+          success: function(event)
+          {
+            console.log(event); 
+          },
+          error:  function(event)
+          {
+
+          }
         })
       }
    </script>

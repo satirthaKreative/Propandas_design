@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use App\ProposalSendModel;
 use App\NotificationModel;
 use App\JobAnswerClinetDescModel;
+use App\Models\chat_before_accept\ChatAndAcceptModel;
 use App\User;
 
 class LawyerDashboardAjaxController extends Controller
@@ -21,6 +22,7 @@ class LawyerDashboardAjaxController extends Controller
      
       $data = $_GET['data'];
       $url_encode_id = base64_encode($data);
+      $url_actual_enc_id = $data;
       $html = '';
     	$selectResultQuery = DB::table('jobanswerclinetdesc')->where('id',$data)->get();
     	foreach($selectResultQuery as $newQ)
@@ -198,15 +200,78 @@ class LawyerDashboardAjaxController extends Controller
 
           $job_push_check = ProposalSendModel::where(['project_id'=>$newQ->id,'lawyer_id'=>Auth::user()->id,'active_status'=>1])->get();
           if(count($job_push_check) > 0){
-              $actual_check_status = '<a href="javascript: ;" onclick="coming_soon_modal()" class="dt-btn">View Proposal </a>';
+              $actual_check_status = '<a href="javascript: ;" onclick="lawyer_checked_proposal_modal('.$url_actual_enc_id.')" class="dt-btn">View Proposal </a>';
           }else{
               $actual_check_status = '<a href="/apply-job/'.$url_encode_id.'" class="dt-btn">Apply</a>';
           }
 
     	}
     	
-    	$html1 = $html.'<p><span>'.$actual_check_status.'</span><span><a href="javascript:void(0)" class="dt-btn">Decline</a></span><span><a href="javascript: ;" class="dt-btn">Chat</a></span></p></div>';
+    	$html1 = $html.'<p><span>'.$actual_check_status.'</span><span><a href="javascript:void(0)" onclick="decline_status_check()" class="dt-btn">Decline</a></span><span><a href="javascript: ;" class="dt-btn" onclick="chat_insert_id_function()">Chat</a></span></p></div>';
       echo  json_encode($html1);
+    }
+
+    // decline project by particular client 
+
+    public function decline_project_by_particular_client()
+    {
+      $get_version = $_GET['get_arg01'];
+      $user_session_id = Auth::user()->id;
+      $getQuery = JobAnswerClinetDescModel::where(['id' => $get_version])->get();
+
+      foreach($getQuery as $getV01)
+      {
+
+        // insert ids
+        $blank_Arr = array();
+        $explode_arr = explode(",",$getV01->inserted_ids);
+        // 
+        foreach($explode_arr as $got_arr)
+        {
+          if($got_arr != $user_session_id)
+          {
+            $blank_Arr[] = $got_arr;
+          }
+          
+        }
+
+        $new_insert_ids = implode(',',$blank_Arr);
+        // chat or insert ids
+        $blank_Arr2 = array();
+        $explode_arr2 = explode(",",$getV01->chat_Or_act_ids);
+        // 
+        foreach($explode_arr2 as $got_arr2)
+        {
+          if($got_arr2 != $user_session_id)
+          {
+            $blank_Arr2[] = $got_arr2;
+          }
+          
+        }
+        $new_chat_ids = implode(',',$blank_Arr2);
+
+        // not action id
+        $blank_Arr3 = array();
+        $explode_arr3 = explode(",",$getV01->not_action_ids);
+        // 
+        foreach($explode_arr3 as $got_arr3)
+        {
+          
+            $blank_Arr3[] = $got_arr3;
+        }
+        $blank_Arr3[] = $user_session_id;
+        $new_not_ids = implode(',',$blank_Arr3);
+
+        $insert_arr_make_new = [
+          'inserted_ids' => $new_insert_ids,
+          'not_action_ids' => $new_not_ids,
+          'chat_Or_act_ids' => $new_chat_ids
+        ];
+
+        $final_insert_query = JobAnswerClinetDescModel::where('id',$get_version)->update($insert_arr_make_new);
+
+      }
+      echo json_encode("success");
     }
 
 
@@ -444,7 +509,7 @@ class LawyerDashboardAjaxController extends Controller
 
           $job_push_check = ProposalSendModel::where(['project_id'=>$newQ->id,'lawyer_id'=>Auth::user()->id,'active_status'=>1])->get();
           if(count($job_push_check) > 0){
-            $actual_check_status = '<a href="javascript: ;" onclick="coming_soon_modal()" class="shrt-btn vw-btn">View Proposal </a>';
+            $actual_check_status = '<a href="javascript: ;" onclick="lawyer_checked_proposal_modal('.$newQ->id.')" class="shrt-btn vw-btn">View Proposal </a>';
           }else{
             $main_date_occur = date('Y-m-d H:i:s',strtotime($newQ->updated_at.'+2 days'));
             $today_date = date('Y-m-d H:i:s');
@@ -463,15 +528,15 @@ class LawyerDashboardAjaxController extends Controller
             // 
 
             if(in_array(Auth::user()->id, $ele_arr2)){
-              $day_class_data = "(".$main_date_reflect.")";
+              $day_class_data = "(chat started)";
             }
             else if(!in_array(Auth::user()->id, $ele_arr2))
             {
-              $day_class_data = "(chat started)";
+              $day_class_data = "(".$main_date_reflect.")";
             }
             
 
-            $actual_check_status = '<a href="/apply-job/'.$mydata.'" class="shrt-btn vw-btn">Apply<span id="day-class"><br>'.$day_class_data.' </span></a>';
+            $actual_check_status = '<a href="/apply-job/'.$mydata.'" class="shrt-btn vw-btn">Apply<span id="day-class">'.$day_class_data.' </span></a>';
           }
 
           $html .= '</div></div>';
@@ -615,5 +680,109 @@ class LawyerDashboardAjaxController extends Controller
         $succ_msg = 0;
       }
       echo json_encode($succ_msg);
+    }
+
+    public function lawyer_checked_proposal_modal()
+    {
+      $proposal_id = $_GET['jio_id'];
+
+      $sQuery = ProposalSendModel::where(['project_id' => $proposal_id, 'lawyer_id' => Auth::user()->id])->get();
+      $html = '';
+      foreach($sQuery as $s_query)
+      {
+        $projQuery = JobAnswerClinetDescModel::where(['id' => $proposal_id])->get();
+        foreach($projQuery as $pQuery)
+        {
+          $projectID = $pQuery->projectId;
+        }
+
+        if($s_query->billing_option == 0)
+        {
+          $price_in_type = '/ fixed price';
+        }else if($s_query->billing_option == 1){
+          $price_in_type = '/ hour';
+        }
+
+
+        $html .= '<p class="project-name-class"><b>Project Name : '.$projectID.'</b></p><p class="project-price-class"><b>project price : </b> $'.$s_query->billing_rate.$price_in_type.'</p><p class="project-des-class"><b>Lawyer Description : </b>'.$s_query->lawyer_des.'</p><p class="project-full-class"><b>Summary : </b>'.$s_query->lawyer_comment.'</p>';
+      }
+      $new_html = $html;
+      echo json_encode($new_html);
+    }
+
+
+    // chat id insert joblawyerclient table
+
+    public function chat_insert_id_function()
+    {
+      $main_id = $_GET['main_id'];
+      $user_id = Auth::user()->id;
+
+      $find_query = JobAnswerClinetDescModel::where(['id' => $main_id])->get();
+      foreach ($find_query as $key_value1) {
+        // client id 
+        $main_client = $key_value1->client_id;
+        $main_project = $key_value1->projectId;
+
+        // insert ids 
+        $got_insert_ids = $key_value1->inserted_ids;
+
+        $empty_array1 = array();
+        $explode_arr1 = explode(',',$got_insert_ids);
+        foreach($explode_arr1 as $separated_ids)
+        {
+          $empty_array1[] = $separated_ids; 
+        }
+
+        // id exist or not 
+        if(in_array(Auth::user()->id, $empty_array1))
+        {
+          $got_chat_ids = $key_value1->chat_Or_act_ids;
+
+              
+              $empty_array2 = array();
+              if($got_chat_ids != '' || $got_chat_ids != null)
+              {
+                $explode_arr2 = explode(',',$got_chat_ids);
+                foreach($explode_arr2 as $separated_ids2)
+                {
+                  $empty_array2[] = $separated_ids2; 
+                }
+              }
+
+              // already exist or not 
+              if(!in_array(Auth::user()->id, $empty_array2))
+              {
+                $empty_array2[] = $user_id;
+              }
+          
+
+          // implode the actual chat ids 
+          $main_chat_implode_ids =  implode(',',$empty_array2);
+
+
+          $update_arr = [
+            'chat_Or_act_ids' => $main_chat_implode_ids
+          ];
+
+          $update_find_query = JobAnswerClinetDescModel::where(['id' => $main_id])->update($update_arr);
+
+
+          // update in new 
+
+          $count_show_query = ChatAndAcceptModel::where(['client_id' => $main_client, 'lawyer_id' => $user_id, 'project_id' => $main_id, 'project_name' => $main_project ])->count();
+          if($count_show_query == 0)
+          {
+            $insert_show_query = ChatAndAcceptModel::insert(['client_id' => $main_client, 'lawyer_id' => $user_id, 'project_id' => $main_id, 'total_users_ids' => $user_id.','.$main_client, 'project_name' => $main_project, 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s') ]);
+          }
+
+          //  end of update in new
+
+          echo json_encode("successfully chat id inserted");
+        }
+        // end of id array exist
+
+      }
+
     }
 }

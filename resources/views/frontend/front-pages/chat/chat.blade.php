@@ -15,10 +15,19 @@
       </div>
       <div class="message-content">
          <div class="inbox_people">
-            <div class="nav nav-tabs " id="nav-tab" role="tablist">
-               <a class="nav-item nav-link active show" data-toggle="tab" data-target="#all-tab" href="javascript:void(0)" role="tab" aria-selected="true">All</a>
-               <a class="nav-item nav-link" data-toggle="tab" data-target="#active-tab" href="javascript:void(0)" role="tab" aria-selected="false">Active Project</a>
-               <a class="nav-item nav-link" data-toggle="tab" data-target="#jobs-tab" href="javascript:void(0)" role="tab" aria-selected="false">Complete Project </a>                        
+            @if(Auth::user()->is_lawyer == 1)
+           <div class="all-prj-list">
+            <div class="nav nav-tabs " id="nav-tab" role="tablist"> 
+               <div class="pj-staus">                                  
+                  <select name="" id="" class="form-control" aria-hidden="true">
+                     <option selected="selected" value="">Projects Status</option>
+                     <option value="">echo Initiated</option>
+                     <option value="">Proposal</option>
+                     <option value="">In Progress </option>
+                     <option value="">Completed</option>
+                     <option value="">Closed</option>      
+                  </select>
+               </div>                  
             </div>
             <div class="tab-content">
                <div id="all-tab" class="tab-pane fade show active">
@@ -39,7 +48,7 @@
                            </div>
                         </a>
                      </div> -->
-                     <div class="chat_list">
+                     <div class="chat_list prject-line ">
                         <a href="#">
                            <div class="chat_ib">
                               <h5><i class="fa fa-spinner" aria-hidden="true"></i>Loading conversations</h5>
@@ -70,6 +79,89 @@
                   </div>
                </div>
             </div>
+          </div>
+          @else
+          <div class="all-prj-list">
+             
+             <div class="nav nav-tabs " id="nav-tab" role="tablist"> 
+                         <div class="pj-staus">                                  
+                                           <select name="" id="" class="form-control" aria-hidden="true">
+                                              <option selected="selected" value="">Projects Status</option>
+                                              <option value="">Initiated</option>
+                                              <option value="">Proposal</option>
+                                              <option value="">In Progress </option>
+                                              <option value="">Completed</option>
+                                              <option value="">Closed</option>                                      
+                                           </select>
+                                        </div>
+                                        
+                   </div>
+
+                   <div class="tab-content">
+                      <div id="all-tab" class="tab-pane fade show active">
+                         <div class="inbox_chat "  id="active-input-projects">
+                         <div class="chat_list prject-line active_chat">
+                               <a href="#">
+                                  <div class="chat_ib">
+                                     <h5><i class="fa fa-spinner" aria-hidden="true"></i>Loading conversations</h5>
+                                  </div>
+                               </a>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+
+          </div> 
+
+
+          <div class="single-project">
+             <div class="nav nav-tabs " id="nav-tab" role="tablist"> 
+                         <div class="pj-staus">                                  
+                                          <p id="project-new-class-name">Project Name</p>
+                                        </div>
+                                        
+                   </div>
+
+                   <div class="tab-content">
+                      <div id="all-tab" class="tab-pane fade show active">
+                         <div class="inbox_chat " id="new-project-view-with-lawyer-id">
+                           <div class="no-convertion"><p>No conversation started</p></div>
+                            <!-- <div class="chat_list ">
+                               <a href="#">
+                                  <div class="chat_people">               
+                                <div class="chat_ib">
+                                  <h5>Labore et dolore magna aliqua.labore et dolore magna aliqua. <span class="chat_date">Dec 25</span></h5>                  
+                                </div>
+                               </div>
+                               </a>              
+                               </div> -->
+                            
+                         </div>
+                      </div>
+                      <div id="active-tab" class="tab-pane fade">
+                         <div class="inbox_chat">
+                            <div class="no-convertion">
+                               <p>No conversation selected</p>
+                            </div>
+                         </div>
+                      </div>
+                      <div id="jobs-tab" class="tab-pane fade">
+                         <div class="inbox_chat">
+                            <div class="no-convertion">
+                               <p>No conversation selected</p>
+                            </div>
+                         </div>
+                      </div>
+                      <div id="unread-tab" class="tab-pane fade">
+                         <div class="inbox_chat">
+                            <div class="no-convertion">
+                               <p>No conversation selected</p>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+          </div>
+          @endif
          </div>
          <div class="mesgs chat-main-mesgs">
             <div class="mesg-top">
@@ -499,23 +591,23 @@
             <div class="modal-body ">
                <div class="center-part">
                   <h3>Add People</h3>
-                  <p>Please Enter lawyer Name for add</p>
-                  <form id="adding-members-form-chat">
+                  <p>Please Select User Type</p>
+                  <form id="chat-invitation-form">
                      <div class="form-group">
-                        <label>Select Client</label> 
-                        <select name="chat_rest_client_name[]" multiple="multiple" class="form-control" id="chat-rest-client-id">
-                           
+                        <label>Select User</label> 
+                        <select name="" class="form-control" id="choose-invite-user-type-id">
+                           <option value="">Choose User Type</option>
+                           <option value="0">Client</option>
+                           <option value="1">Lawyer</option>                          
                         </select>
                      </div>
                      <div class="form-group">
-                        <label>Select Lawyer</label> 
-                        <select name="chat_rest_lawyer_name[]" multiple="multiple" class="form-control" id="chat-rest-lawyer-id">
-                           
-                        </select>
+                        <label>User Email </label> 
+                        <input type="email" name="" id="user-invite-email-id" class="form-control">
                      </div>
-                     <input type="button" onclick="adding_members_form_chatting()" name="" value="Add people" class="cnt-btn">
-                     <p class="text-center add-people-all-msg"></p>
+                     <input type="button" name="" onclick="send_chat_invite_btn()" value="Send Invite" class="cnt-btn">
                   </form>
+                  <p class="text-center chat-invite-msg"></p>
                </div>
             </div>
          </div>
@@ -578,6 +670,45 @@
    </script>
 <!-- /Paypal End -->
 <script>
+  // chat invite 
+  function send_chat_invite_btn()
+  {
+    var invite_user_type = $("#choose-invite-user-type-id").val();
+    var invite_user_email = $("#user-invite-email-id").val();
+    var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+
+    if(invite_user_type == "" || invite_user_type == null)
+    {
+      $(".chat-invite-msg").html("<strong class='text-danger'><i class='fa fa-times'></i> Choose atleast one type</strong>").fadeIn().delay(3000).fadeOut('slow');
+    }
+    else if(invite_user_email == "" || invite_user_email == null)
+    {
+      $(".chat-invite-msg").html("<strong class='text-danger'><i class='fa fa-times'></i> Enter atleast a user email address</strong>").fadeIn().delay(3000).fadeOut('slow');
+    }
+    else if(!emailReg.test(invite_user_email))
+    {
+      $(".chat-invite-msg").html("<strong class='text-danger'><i class='fa fa-times'></i> Enter atleast a valid email address</strong>").fadeIn().delay(3000).fadeOut('slow');
+    }
+    else
+    {
+      $.ajax({
+        url: '/chat-invite-send',
+        type: 'GET',
+        data: {invite_user_type: invite_user_type, invite_user_email: invite_user_email},
+        dataType: 'json',
+        success: function(event_res)
+        {
+          $(".chat-invite-msg").html(event_res).fadeIn().delay(3000).fadeOut('slow');
+          setTimeout(function(){ $("#add-people").modal('hide'); }, 3000);
+        },
+        error: function(event_res)
+        {
+
+        }
+      })
+    }
+  }
+  // end of chat invite
    function paypal_add_file_size()
    {
       var proj_name = $("#project-name-hide-id").val();
@@ -688,6 +819,10 @@
           
      });
 
+     // $(".dots-drop").click(function(){
+     //   $("#has-menu").toggleClass("show-dropdown");
+     // });  
+
      chat_chat_sideboard_check();
      chat_active_proj_sideboard_ajax();
      chat_completed_proj_sideboard_ajax();
@@ -772,18 +907,7 @@
          type: 'GET',
          dataType: 'json',
          success: function(event){
-            console.log(event);
-            if(event.length > 0){
-               var html = '';
-               for(var i = 0; i < event.length; i++){
-                  html += '<div class="chat_list"><a href="javascript:;" onclick=project_chat_click('+event[i].id+',"'+event[i].project_name+'")><div class="chat_ib"><h5><i class="fa fa fa-lock" aria-hidden="true"></i>'+event[i].project_name+'</h5></div></a></div>';
-               }
-               $("#active-input-projects").html(html);
-            }else{
-               $("#active-input-projects").html('<div class="no-convertion"><p>No conversation selected</p></div>');
-
-            }
-            
+            $("#active-input-projects").html(event);
          }, error: function(event){
 
          }
@@ -841,6 +965,7 @@
 
    function project_chat_click(project_id, project_name)
    {
+    // alert("<?= Auth::user()->is_lawyer ?>");
       $(".message-content").removeClass("side-reply");
       $(".accept-project").html('<h6>'+project_name+' <input type="hidden" class="project-name-hidden-class" name="project_name_hidden" value="" /></h6><input type="hidden" name="chat_fill_hide_id" id="chat-main-hidden-p-id" /><input type="hidden" name="chat_fill_hide_name" id="chat-main-hidden-p-name" />');
 
@@ -879,7 +1004,9 @@
                   dataType: 'json',
                   success: function(response){
                      $("#msg-top-user-class").show();
-                     $("#msg-top-user-class").html('<li><a data-toggle="tooltip" data-placement="top" title="'+response.count_total+' Member" href="#" ><i class="fa fa-user-o" aria-hidden="true"></i><label>'+response.count_total+'</label></a></li><li><a href="#" data-toggle="modal" data-target="#add-people" >Add Member</a></li>');
+                     // $("#msg-top-user-class").html('<li><a data-toggle="tooltip" data-placement="top" title="'+response.count_total+' Member" href="#" ><i class="fa fa-user-o" aria-hidden="true"></i><label>'+response.count_total+'</label></a></li><li><a href="#" data-toggle="modal" data-target="#add-people" >Add Member</a></li>');
+
+                     $("#msg-top-user-class").html('<li><a  href="#" data-toggle="modal" data-target="#member-modal"><i class="fa fa-user-o" aria-hidden="true"></i><label>'+response.count_total+'</label></a></li><li><div class="dots-drop" onclick="my_toggle_chat_control()"><span></span><span></span><span></span><div class="drop-menu" id="has-menu" ><ul><li><a href="single-proposal.php"  ><i class="fa fa-paper-plane" aria-hidden="true"></i>Accept a Proposal</a></li><li><a href="#" data-toggle="modal" data-target="#add-people" ><i class="fa fa-user" aria-hidden="true"></i>Add a Member</a></li><li><a href="#"><i class="fa fa-file-text" aria-hidden="true"></i>Settle an Invoice</a></li><li><a href="#"><i class="fa fa-stop-circle" aria-hidden="true"></i>End the Chat</a></li></ul></div></li>');
                      $('[data-toggle="tooltip"]').tooltip();
                      $('.chat-main-mesgs .msg_history').scrollTop($('.chat-main-mesgs .msg_history')[0].scrollHeight);
                   }, error: function(response){
@@ -1015,6 +1142,36 @@
             }
          })
       } 
+   }
+
+   function project_click_for_client_to_lawyers_view(client_actual_id, project_actual_name)
+   {
+      $(".inbox_people").addClass("show-single-project");
+      $("#project-new-class-name").html(project_actual_name);
+      var var_head_html = '<div class="chat_list active_chat "><div class="chat_ib"><h5><span class="prv-arow"><a href="javascript: ;" onclick="back_to_main_client_project()"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></span><span class="pj-title"><a href="javascript: ;"  onclick="back_to_main_client_project()" id="new-project-name-class">Lawyers</a></span></h5></div></div>'; 
+      $.ajax({
+         url: '/chat-sideboard-client-new-ajax',
+         type: 'GET',
+         data: {client_actual_id: client_actual_id, project_actual_name: project_actual_name},
+         dataType: 'json',
+         success: function(event){
+            $("#new-project-view-with-lawyer-id").html(var_head_html+event);
+         }, error: function(event){
+
+         }
+      })
+   }
+
+   
+
+   function back_to_main_client_project()
+   {
+      $(".inbox_people").removeClass("show-single-project");
+   }
+
+   function my_toggle_chat_control()
+   {
+      $(".drop-menu").toggleClass("show-dropdown");
    }
 </script>
 @endsection

@@ -51,7 +51,7 @@
                      
                   </form>
                </div>
-               <ul class="filter-result all-job-show-share">
+               <ul class="filter-result all-job-show-share post-full-job-class">
                   <p class="pre-loading text-info text-center"><i class="fa fa-spinner"></i> Loading Posted Jobs ... </p>
                   <!-- <li>
                   	<div class="left-step">
@@ -77,6 +77,31 @@
             </div>
          </div>
       </div>
+   </div>
+
+   <!-- The proposal Modal -->
+   <div class="modal" id="proposal-particular-modal">
+     <div class="modal-dialog">
+       <div class="modal-content">
+
+         <!-- Modal Header -->
+         <div class="modal-header">
+           <h4 class="modal-title">Proposal View</h4>
+           <button type="button" class="close" data-dismiss="modal">&times;</button>
+         </div>
+
+         <!-- Modal body -->
+         <div class="modal-body proposal-show-class">
+           
+         </div>
+
+         <!-- Modal footer -->
+         <div class="modal-footer">
+           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+         </div>
+
+       </div>
+     </div>
    </div>
 </section>
 <!-- end of dshbord-theme -->
@@ -193,6 +218,22 @@
                }
             })
          }
+      }
+
+      function lawyer_checked_proposal_modal(jio_id)
+      {
+         $.ajax({
+          url: '/lawyer-checked-proposal-modal',
+          type: 'GET',
+          data: {jio_id: jio_id},
+          dataType: 'json',
+          success:  function(event){
+            $(".proposal-show-class").html(event);
+            $("#proposal-particular-modal").modal('show');
+          }, error:  function(event){
+
+          }
+         })
       }
    </script>
 @endsection

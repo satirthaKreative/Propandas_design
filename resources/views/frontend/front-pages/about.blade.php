@@ -5,7 +5,7 @@
 	      <h1>About Us</h1>
 	      <div class="breadcum-top">
 	         <ul class="breadcrumb">
-	            <li><a href="#">Home</a></li>
+	            <li><a href="{{ url('/') }}">Home</a></li>
 	            <li>About Us </li>
 	         </ul>
 	      </div>

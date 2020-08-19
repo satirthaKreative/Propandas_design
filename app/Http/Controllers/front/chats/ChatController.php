@@ -17,6 +17,7 @@ use App\Models\ChatProjectModel;
 use App\Models\ChatJobQAModel;
 use App\Models\FileSizeModel;
 use App\Models\FileWithPriceModel;
+use App\Models\chat_before_accept\ChatAndAcceptModel;
 
 class ChatController extends Controller
 {
@@ -34,8 +35,8 @@ class ChatController extends Controller
     	if(session('chat_reply_hide_tbl_id') && session('project_reply_hide_tbl_name') && session('project_reply_hide_tbl_id') )
     	{
     		session()->forget('chat_reply_hide_tbl_id');  
-            session()->forget('project_reply_hide_tbl_name');
-            session()->forget('project_reply_hide_tbl_id');
+        session()->forget('project_reply_hide_tbl_name');
+        session()->forget('project_reply_hide_tbl_id');
     	}
 
     	if(session('reply_chat_lastID_session'))
@@ -48,8 +49,82 @@ class ChatController extends Controller
     // sidebar chat
     public function chat_sideboard_ajax()
     {
-        $querySidebar = ChatProjectModel::where('total_users_ids', 'like', '%'.Auth::user()->id.'%')->get();
-        echo json_encode($querySidebar);
+      if(Auth::user()->is_lawyer == 1)
+      {
+        $querySidebar = ChatAndAcceptModel::where('total_users_ids', 'like', '%'.Auth::user()->id.'%')->get();
+      }
+      else if(Auth::user()->is_lawyer == 0)
+      {
+        $querySidebar = DB::table('job_chat_before_accept_tbls')->groupBy('project_name')->pluck('project_name')->toArray();
+      }
+        
+        $countSidebar = ChatAndAcceptModel::where('total_users_ids', 'like', '%'.Auth::user()->id.'%')->count();
+        $userChecking = User::where(['id' => Auth::user()->id])->get();
+        foreach ($userChecking as $key_value) {
+          $lawyer_status = $key_value->is_lawyer;
+        }
+
+        // count sidebar
+        if($countSidebar > 0)
+        {
+          $html = '';
+          foreach($querySidebar as $qS)
+          {
+            if($lawyer_status == 1)
+            {
+              $html .= '<div class="chat_list prject-line active_chat"><a href="javascript:;" onclick=project_chat_click('.$qS->id.',"'.$qS->project_name.'")><div class="chat_ib"><h5><i class="fa fa fa-lock" aria-hidden="true"></i>'.$qS->project_name.'</h5></div></a></div>';
+            }
+            else if($lawyer_status == 0)
+            {
+              $html .= '<div class="chat_list prject-line active_chat"><a href="javascript:;" onclick=project_click_for_client_to_lawyers_view('.Auth::user()->id.',"'.$qS.'")><div class="chat_ib"><h5><i class="fa fa fa-lock" aria-hidden="true"></i>'.$qS.'</h5></div></a></div>';
+            }
+          }
+        }
+        else if($countSidebar == 0)
+        {
+          $html = '<div class="no-convertion"><p>No conversation selected</p></div>';
+        }
+        // end of count sidebar
+        echo json_encode($html);
+    }
+
+    public function chat_sideboard_client_new_ajax()
+    {
+      
+        $querySidebar = ChatAndAcceptModel::where('project_name', $_GET['project_actual_name'])->where('total_users_ids', 'like', '%'.Auth::user()->id.'%')->get();
+        
+        $countSidebar = ChatAndAcceptModel::where('project_name', $_GET['project_actual_name'])->where('total_users_ids', 'like', '%'.Auth::user()->id.'%')->count();
+        $userChecking = User::where(['id' => Auth::user()->id])->get();
+        foreach ($userChecking as $key_value) {
+          $lawyer_status = $key_value->is_lawyer;
+        }
+
+        // count sidebar
+        if($countSidebar > 0)
+        {
+          $html = '';
+          foreach($querySidebar as $qS)
+          {
+            $userQueryNew = User::where('id',$qS->lawyer_id)->get();
+            foreach($userQueryNew as $qU)
+            {
+              $new_user_name = $qU->name.' '.$qU->lname;
+            }
+              $html .= '<div class="chat_list prject-line active_chat"><a href="javascript:;" onclick=project_chat_click('.$qS->id.',"'.$qS->project_name.'")><div class="chat_ib includ-member">
+                                     <h5>
+                                         <span class="member-img">
+                                          <img src="https://image.freepik.com/free-photo/smiling-mature-lawyer-working-courtroom_23-2147898545.jpg" alt="'.$new_user_name.'"> 
+                                         </span> '.$new_user_name.'</h5>
+                                  </div></a></div>';
+            
+          }
+        }
+        else if($countSidebar == 0)
+        {
+          $html = '<div class="no-convertion"><p>No conversation started</p></div>';
+        }
+        // end of count sidebar
+        echo json_encode($html);
     }
 
     // side bar active project
@@ -360,9 +435,9 @@ class ChatController extends Controller
     {
     	$project_id = $_GET['project_id'];
     	$project_name = $_GET['project_name'];
-    	$countQuery = ChatProjectModel::where(['id'=>$project_id, 'project_name'=>$project_name])->count();
+    	$countQuery = ChatAndAcceptModel::where(['id'=>$project_id, 'project_name'=>$project_name])->count();
     	if($countQuery > 0){
-    		$queryGet = ChatProjectModel::where(['id'=>$project_id, 'project_name'=>$project_name])->get();
+    		$queryGet = ChatAndAcceptModel::where(['id'=>$project_id, 'project_name'=>$project_name])->get();
     		foreach($queryGet as $queryOne)
     		{
     			$myData = $queryOne->total_users_ids;
@@ -391,7 +466,7 @@ class ChatController extends Controller
     	$project_name = $_GET['proj_name'];
     	$main_text = $_GET['main_text'];
 
-    	$getProjectUserIds = ChatProjectModel::where(['id'=>$project_id, 'project_name'=>$project_name])->get();
+    	$getProjectUserIds = ChatAndAcceptModel::where(['id'=>$project_id, 'project_name'=>$project_name])->get();
     	foreach ($getProjectUserIds as $get_user_ids) {
     		$user_ids = $get_user_ids->total_users_ids;
     	}
@@ -423,7 +498,7 @@ class ChatController extends Controller
     		$project_name = $request->input('project_name_hide');
     		$project_id = $request->input('project_id_hide');
 
-    		$getProjectUserIds = ChatProjectModel::where(['id'=>$project_id, 'project_name'=>$project_name])->get();
+    		$getProjectUserIds = ChatAndAcceptModel::where(['id'=>$project_id, 'project_name'=>$project_name])->get();
     		foreach ($getProjectUserIds as $get_user_ids) {
     			$user_ids = $get_user_ids->total_users_ids;
     		}
@@ -555,7 +630,7 @@ class ChatController extends Controller
     		$lawyer_Arr = array();
     	// end of members of array
 
-    	$chat_full_query = ChatProjectModel::where(['id' => $project_id, 'project_name' => $project_name])->get();
+    	$chat_full_query = ChatAndAcceptModel::where(['id' => $project_id, 'project_name' => $project_name])->get();
     	foreach($chat_full_query as $main_content)
     	{
     		$explode_content = explode(",",$main_content->total_users_ids);
@@ -608,7 +683,7 @@ class ChatController extends Controller
     		$project_id = Session::get('project_chat_session_id');
     		$project_name = Session::get('project_chat_session_name');
 
-    		$chat_full_query = ChatProjectModel::where(['id' => $project_id, 'project_name' => $project_name])->get();
+    		$chat_full_query = ChatAndAcceptModel::where(['id' => $project_id, 'project_name' => $project_name])->get();
     		foreach($chat_full_query as $chatOne){
     			$pre_ids = $chatOne->total_users_ids;
     		}
@@ -632,10 +707,10 @@ class ChatController extends Controller
     		$mine = implode(',', $elements);
     		
     		// update data 
-    		$updateQueries = ChatProjectModel::where(['id' => $project_id, 'project_name' => $project_name])->update(['total_users_ids' => $mine]);
+    		$updateQueries = ChatAndAcceptModel::where(['id' => $project_id, 'project_name' => $project_name])->update(['total_users_ids' => $mine]);
 
     		// main data
-    		$mainQueryData = ChatProjectModel::where(['id' => $project_id, 'project_name' => $project_name])->get();
+    		$mainQueryData = ChatAndAcceptModel::where(['id' => $project_id, 'project_name' => $project_name])->get();
     		foreach($mainQueryData as $qData)
     		{
     			$users_all_id = $qData->total_users_ids;
@@ -826,7 +901,7 @@ class ChatController extends Controller
     	$chat_tbl_id = $_GET['chat_tbl_id'];
 
 
-    	$getProjectUserIds = ChatProjectModel::where(['id'=>$project_id, 'project_name'=>$project_name])->get();
+    	$getProjectUserIds = ChatAndAcceptModel::where(['id'=>$project_id, 'project_name'=>$project_name])->get();
     	foreach ($getProjectUserIds as $get_user_ids) {
     		$user_ids = $get_user_ids->total_users_ids;
     	}
@@ -894,7 +969,7 @@ class ChatController extends Controller
     		}else{
     			$chat_type_data = "txt";
     		}
-    	$getProjectUserIds = ChatProjectModel::where(['id'=>$project_id, 'project_name'=>$project_name])->get();
+    	$getProjectUserIds = ChatAndAcceptModel::where(['id'=>$project_id, 'project_name'=>$project_name])->get();
     	foreach ($getProjectUserIds as $get_user_ids) {
     		$user_ids = $get_user_ids->total_users_ids;
     	}

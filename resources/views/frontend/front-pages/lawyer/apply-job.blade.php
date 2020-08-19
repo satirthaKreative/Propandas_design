@@ -93,7 +93,9 @@
                 $("#success-modal h3").html('<span><i class="fa fa-check-circle" aria-hidden="true"></i></span> <span>Applied Successfully</span>');
                 $("#success-modal p").html('<span><i class="fa fa-check-circle" aria-hidden="true"></i></span> <span>Your proposal send to client</span>');
                 $(".dsbrd-qststep").load(location.href + " .dsbrd-qststep");
-                setTimeout(function(){ $("#success-modal").modal('hide'); },3000);
+
+                setTimeout(function(){ $("#success-modal").modal('hide'); chat_insert_id_function(); },3000);
+
               }else{
                 $("#Error-modal").modal('show');
                 $("#Error-modal h3").html('<span><i class="fa fa-exclamation-circle" aria-hidden="true"></i></span> <span>Something Wrong</span>');
@@ -138,6 +140,25 @@
           $("input[name=billing_rate]").css({'border':'1px solid green','box-shadow':'0 0 3px 0 green'});
           $("input[name=billing_rate]").removeAttr('title');
         }
+      }
+
+      function chat_insert_id_function()
+      {
+        var main_job_posted_id = "<?= $get_arg_id; ?>";
+        $.ajax({
+          url: '/chat-insert-id-function',
+          type: 'GET',
+          data: {main_id: main_job_posted_id },
+          dataType: 'json',
+          success: function(event)
+          {
+            console.log(event); 
+          },
+          error:  function(event)
+          {
+
+          }
+        })
       }
    </script>
 @endsection

@@ -146,3 +146,21 @@ li.profile-dropdown:hover ul.dropdown-profile{
     background: #eeeeee;
 }
 /*End of satirtha css*/
+
+.dsbrd-content .post-full-job-class .left-step {   
+    width: 100%;   
+}
+
+.dsbrd-content .post-full-job-class .right-step{
+  width: 100%;   
+}
+
+.dsbrd-content .post-full-job-class .right-step span#day-class {
+    display: inline-block;
+    font-size: 11px;
+    margin-left: 4px;
+}
+
+.dsbrd-content .post-full-job-class a.shrt-btn {   
+    margin-right: 10px;
+}
