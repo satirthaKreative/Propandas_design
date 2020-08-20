@@ -15,6 +15,7 @@
    <li <?php if($page == 'notification'){ ?> class="active" <?php } ?>><a href="/notification" id="noti-fication-test"><i class="fa fa-bell" aria-hidden="true"></i>Notification <span class="unread-notify-count-class"></span></a></li>
    <li <?php if($page == 'my-job' || $page == 'my-job-full-view' || $page == 'my-job-full-view' || $page == 'all-proposal' || $page == 'proposal-view' || $page == 'my-current-job'){ ?> class="active" <?php } ?>><a href="/my-job"><i class="fa fa-briefcase" aria-hidden="true"></i>My Jobs </a></li>
    <li <?php if($page == 'chat' ){ ?> class="active" <?php } ?>><a href="/chat"><i class="fa fa-comments" aria-hidden="true"></i>Chat </a></li>
+   <li <?php if($page == 'chat-invites' ){ ?> class="active" <?php } ?>><a href="/chat-invites"><i class="fa fa-comments" aria-hidden="true"></i>Chat Invitation</a></li>
    <li <?php if($page == 'my-project-status' ){ ?> class="active" <?php } ?>><a href="/my-project-status"><i class="fa fa-area-chart" aria-hidden="true"></i>Project Status</a></li>
    <li><a href="javascript:void(0)" onclick="coming_soon_modal()"><i class="fa fa-comments" aria-hidden="true"></i>Messages</a></li>
    <li><a href="javascript:void(0)" onclick="coming_soon_modal()"><i class="fa fa-file-text" aria-hidden="true"></i>Documents</a></li>

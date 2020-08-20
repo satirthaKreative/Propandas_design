@@ -390,4 +390,9 @@ Route::GET('/admin-career-delete-ajax','front\CareerController@admin_career_del_
 
 // chat invite
 Route::GET('/chat-invite-send','front\chats\ChatInvitationsController@index');
+Route::GET('/chat-invites','front\chats\ChatInvitationsController@check_invite_page_show_function');
+Route::GET('/list-content-load','front\chats\ChatInvitationsController@list_content_load');
+Route::GET('/chat-invite-unread-on-load','front\chats\ChatInvitationsController@unread_on_load');
+Route::GET('/chat-invite-accept','front\chats\ChatInvitationsController@chat_invite_accept');
+Route::GET('/chat-invite-decline','front\chats\ChatInvitationsController@chat_invite_decline');
 // chat invite end 

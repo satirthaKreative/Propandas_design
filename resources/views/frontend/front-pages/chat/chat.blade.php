@@ -21,7 +21,7 @@
                <div class="pj-staus">                                  
                   <select name="" id="" class="form-control" aria-hidden="true">
                      <option selected="selected" value="">Projects Status</option>
-                     <option value="">echo Initiated</option>
+                     <option value="">Initiated</option>
                      <option value="">Proposal</option>
                      <option value="">In Progress </option>
                      <option value="">Completed</option>
@@ -604,6 +604,8 @@
                      <div class="form-group">
                         <label>User Email </label> 
                         <input type="email" name="" id="user-invite-email-id" class="form-control">
+                        <input type="hidden" name="" value="" id="add-people-hidden-project-id" />
+                        <input type="hidden" name="" value="" id="add-people-hidden-project-name" />
                      </div>
                      <input type="button" name="" onclick="send_chat_invite_btn()" value="Send Invite" class="cnt-btn">
                   </form>
@@ -675,6 +677,9 @@
   {
     var invite_user_type = $("#choose-invite-user-type-id").val();
     var invite_user_email = $("#user-invite-email-id").val();
+    var member_proj_id = $("#add-people-hidden-project-id").val();
+    var member_proj_name = $("#add-people-hidden-project-name").val();
+
     var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 
     if(invite_user_type == "" || invite_user_type == null)
@@ -694,7 +699,7 @@
       $.ajax({
         url: '/chat-invite-send',
         type: 'GET',
-        data: {invite_user_type: invite_user_type, invite_user_email: invite_user_email},
+        data: {invite_user_type: invite_user_type, invite_user_email: invite_user_email, member_proj_id: member_proj_id, member_proj_name: member_proj_name},
         dataType: 'json',
         success: function(event_res)
         {
@@ -967,6 +972,8 @@
    {
     // alert("<?= Auth::user()->is_lawyer ?>");
       $(".message-content").removeClass("side-reply");
+      $("#add-people-hidden-project-id").val(project_id);
+      $("#add-people-hidden-project-name").val(project_name);
       $(".accept-project").html('<h6>'+project_name+' <input type="hidden" class="project-name-hidden-class" name="project_name_hidden" value="" /></h6><input type="hidden" name="chat_fill_hide_id" id="chat-main-hidden-p-id" /><input type="hidden" name="chat_fill_hide_name" id="chat-main-hidden-p-name" />');
 
       $("#chat-main-hidden-p-id").val(project_id);

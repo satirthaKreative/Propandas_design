@@ -7065,3 +7065,64 @@ a.rear-link{
 .unseen-notify {
     background: #e8f0ff;
 }
+
+
+.back-page {
+    text-align: right;
+    font-size: 13px;
+    color: #0d2c67;
+    font-weight: 400;
+    display: inline-block;
+    text-transform: capitalize;
+    width: 100%;
+    margin-bottom: 10px;
+    float: none;
+}
+
+.dsbrd-content{
+	position:relative;
+		.loding-spinn {
+	    position: absolute;
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    width: 100%;
+	    height: 100%;
+	    background: #fff;
+	    z-index: 1;
+	    top: 0;
+	    left: 0;
+	        color: #272727;
+    font-size: 18px;
+	    i{margin-right: 5px;
+	    	-webkit-animation: spin 2s linear infinite;
+             animation: spin 2s linear infinite;
+	    }
+	    @-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+	  }
+}
+
+
+
+.dshbrd-inner{
+	position:relative;
+	min-height:250px;	
+
+	.no-data {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    display: flex;
+    }
+}
