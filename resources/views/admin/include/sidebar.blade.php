@@ -169,7 +169,18 @@
                         <li><a href="{{ url('/legal-info/1') }}"><i class="fa fa-angle-double-right"></i>View Legal Info</a></li>
                     </ul>
                 </li>
-                <!-- Legal Info -->
+                <!-- Legal Documents -->
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-file-text"></i>
+                        <span>Legal Document</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ url('/admin/legal-documents') }}"><i class="fa fa-angle-double-right"></i>View Legal Document</a></li>
+                    </ul>
+                </li>
+                <!-- System Messages -->
                 <li class="treeview">
                     <a href="#">
                         <i class="fa fa-comments-o "></i>

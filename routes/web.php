@@ -395,4 +395,26 @@ Route::GET('/list-content-load','front\chats\ChatInvitationsController@list_cont
 Route::GET('/chat-invite-unread-on-load','front\chats\ChatInvitationsController@unread_on_load');
 Route::GET('/chat-invite-accept','front\chats\ChatInvitationsController@chat_invite_accept');
 Route::GET('/chat-invite-decline','front\chats\ChatInvitationsController@chat_invite_decline');
+Route::GET('/chat-invite-closing','front\chats\ChatInvitationsController@closing_invite');
 // chat invite end 
+
+
+// Rental Agree-ment
+Route::GET('/legal-documents','front\RentalAgreementController@index');
+Route::GET('/legal-docx-sidebar-category-load','front\RentalAgreementController@legal_docx_sidebar_category_load');
+Route::GET('/all-legal-docx-and-article','front\RentalAgreementController@all_legal_documents');
+Route::GET('/all-legal-docx','front\RentalAgreementController@all_legal_document_type');
+Route::GET('/all-legal-article','front\RentalAgreementController@all_legal_article_type');
+Route::GET('/legal-category-active-show','front\RentalAgreementController@legal_category_active_show');
+Route::GET('/all-legal-search','front\RentalAgreementController@all_legal_search');
+
+Route::GET('/admin/legal-documents','Admin\RentalAgreementController@index');
+Route::GET('/load-rental-agreement','Admin\RentalAgreementController@load_rental_agreement');
+Route::POST('/insert-data','Admin\RentalAgreementController@insert_data');
+Route::GET('/category-load-for-icons','Admin\RentalAgreementController@category_load_for_icons');
+Route::GET('/icon-field-manipulate','Icons\CategoryIconsController@icon_field_manipulate');
+Route::GET('/deleting-legal-docx','Admin\RentalAgreementController@deleting_legal_docx');	
+
+	// agreement page show
+	Route::GET('/agreement','Admin\RentalAgreementController@show_agreement_page');
+// end of rental agreement

@@ -47,7 +47,7 @@ class ChatInvitationsController extends Controller
     			}
 
     			// count chat invitation
-    			$countInvite = ChatInvitationModel::where(['sender_id' => Auth::user()->id, 'receiver_id' => $receiver_id ])->count();
+    			$countInvite = ChatInvitationModel::where(['sender_id' => Auth::user()->id, 'receiver_id' => $receiver_id, 'project_name' => $member_proj_name ])->count();
     			// end count chat invitation
 
     			if($countInvite > 0 )
@@ -149,10 +149,10 @@ class ChatInvitationsController extends Controller
     			$html .= '<li class="'.$show_li_class.'">
                         <div class="left-step">
                            <div class="media">
-                              <div class="close-circle"><a href="javascript: ;"><i class="fa fa-times" aria-hidden="true"></i></a> </div>
+                              <div class="close-circle"><a href="javascript: ;" onclick=closing_invite('.$gData->project_id.',"'.$gData->project_name.'")><i class="fa fa-times" aria-hidden="true"></i></a> </div>
                               <img class="md-img" src="'.$img_view.'" alt="image">                  
                               <div class="media-body">
-                                 <h5><a href="javascript: ;">'.$gData->project_name.'</a></h5>
+                                 <h5><a href="javascript: ;" onclick=chat_invite_decline('.$gData->project_id.',"'.$gData->project_name.'")>'.$gData->project_name.'</a></h5>
                                  <p>you got an invitation from <b>'.$userName.'</b> </p>
                               </div>
                            </div>
@@ -237,6 +237,20 @@ class ChatInvitationsController extends Controller
     // chat invite decline
 
     public function chat_invite_decline()
+    {
+    	$project_id = $_GET['p_id'];
+    	$project_name = $_GET['p_name'];
+    	$receiver_id = Auth::user()->id;
+
+    	$updateDecline = ChatInvitationModel::where(['receiver_id' => $receiver_id, 'project_id' => $project_id, 'project_name' => $project_name])->update(['status' => 1]);
+
+    	echo json_encode("success");
+
+    }
+
+    // closing invite
+
+    public function closing_invite()
     {
     	$project_id = $_GET['p_id'];
     	$project_name = $_GET['p_name'];

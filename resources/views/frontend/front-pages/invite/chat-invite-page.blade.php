@@ -40,7 +40,7 @@
          <!-- Modal body -->
          <div class="modal-body text-center">
             <div class="center-part">
-               <h3><span><img src="frontAssets/images/logo.png" alt="logo" class="modal-logo"></span>Thanks for Accpet</h3>
+               <h3><span><img src="frontAssets/images/logo.png" alt="logo" class="modal-logo"></span>Thanks for Accept</h3>
                <h6>You are succesfully added to that project for chat  </h6>
             </div>
          </div>
@@ -171,8 +171,27 @@
 			data: {p_id: proj_id, p_name: proj_name},
 			dataType: 'json',
 			success:  function(response){
-				$("#success-modal").modal('show');
-				setTimeout(function(){ $("#success-modal").modal('hide'); }, 3000);
+				$("#accept_modal").modal('hide');
+				setTimeout(function(){ $("#success-modal").modal('show'); }, 500);
+				setTimeout(function(){ $("#success-modal").modal('hide'); page_invites_show(); }, 3000);
+			}, error:  function(response){
+
+			}
+		})
+	}
+
+	function closing_invite(p_id, p_name)
+	{
+		var proj_id = p_id;
+		var proj_name = p_name;
+
+		$.ajax({
+			url: "/chat-invite-closing",
+			type: 'GET',
+			data: {p_id: proj_id, p_name: proj_name},
+			dataType: 'json',
+			success:  function(response){
+				setTimeout(function(){ page_invites_show(); }, 3000);
 			}, error:  function(response){
 
 			}

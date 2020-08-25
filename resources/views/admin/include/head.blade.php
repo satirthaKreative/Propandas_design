@@ -7,7 +7,7 @@
         <!-- bootstrap 3.0.2 -->
         <link href="{{ asset('backendAssets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- font Awesome -->
-        <link href="{{ asset('backendAssets/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"  />
         
         <!-- Theme style -->
         <link href="{{ asset('backendAssets/css/AdminLTE.css') }}" rel="stylesheet" type="text/css" />
