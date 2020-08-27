@@ -416,5 +416,10 @@ Route::GET('/icon-field-manipulate','Icons\CategoryIconsController@icon_field_ma
 Route::GET('/deleting-legal-docx','Admin\RentalAgreementController@deleting_legal_docx');	
 
 	// agreement page show
-	Route::GET('/agreement','Admin\RentalAgreementController@show_agreement_page');
+	Route::GET('/agreement/{agreement_id}','front\RentalAgreementController@show_agreement_page');
+	Route::GET('/loading-agreement-full-page-data','front\RentalAgreementController@full_page_data_show');
+	Route::GET('/admin/legal-agreement-add','Admin\RentalAgreementController@rental_agreement_load');
+	Route::GET('/legal-agreement-show','Admin\RentalAgreementController@view_show_rental_agreement');
+	Route::GET('/submit-legal-agreement-part','Admin\RentalAgreementController@submit_legal_agreement');
+	Route::GET('/agreement-all-title','Admin\RentalAgreementController@agreement_all_title');
 // end of rental agreement

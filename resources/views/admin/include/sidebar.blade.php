@@ -178,6 +178,7 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="{{ url('/admin/legal-documents') }}"><i class="fa fa-angle-double-right"></i>View Legal Document</a></li>
+                        <li><a href="{{ url('/admin/legal-agreement-add') }}"><i class="fa fa-angle-double-right"></i>Legal Agreement Add</a></li>
                     </ul>
                 </li>
                 <!-- System Messages -->

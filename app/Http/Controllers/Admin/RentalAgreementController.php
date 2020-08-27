@@ -206,6 +206,66 @@ class RentalAgreementController extends Controller
 
     
 
-   
+
+
+
+
+
+
+                    // --------------Rental Agreement----------- \\
+
+    public function rental_agreement_load()
+    {
+        return view('admin.legal-docx.agreement-download');
+    }
+
+
+    public function view_show_rental_agreement()
+    {
+        $query = LegalDocumentModel::get();
+        $html  = '<tr>
+                    <th style="width: 10px">#</th>
+                    <th>Title</th>
+                    <th>Type</th>
+                    <th>Action</th>
+                 </tr>';
+                 $i = 1;
+        foreach($query as $q1)
+        {
+            $html .= '<tr><td>'.$i.'</td><td>'.$q1->agreement_title.'</td><td>'.$q1->legal_cate_type.'</td><td><a href="javascript: ;" onclick="asking_modal('.$q1->id.')" class="text-danger"><i class="fa fa-trash"></i></a></td></tr>';
+            $i++;
+        }
+
+        echo json_encode($html);
+    }
+
+
+    public function submit_legal_agreement()
+    {
+        $query_insert = LegalDocumentModel::where(['id' => $_GET['title_id']])->update(['agreement_full_details' => $_GET['editor1']]);
+        if($query_insert)
+        {
+            $html = "success";
+        }
+        else
+        {
+            $html = "error";
+        }
+        echo json_encode($html);
+    }
+
+    public function agreement_all_title()
+    {
+        $query = LegalDocumentModel::get();
+        $html = '<option value="">Choose a title</option>';
+
+        foreach($query as $qm)
+        {
+            $html .= '<option value="'.$qm->id.'">'.$qm->agreement_title.'</option>';
+        }
+
+        echo json_encode($html);
+    }
+
 
 }

@@ -87,7 +87,7 @@ class RentalAgreementController extends Controller
     				}else if($adquery->legal_cate_type == "Article"){
     					$type_of_doc = "Free Legal Article";
     					$data_html = '<span class="right-step">
-    		               <a href="#" class="cta-link">Read more</a>
+    		               <a href="agreement/'.base64_encode($adquery->id).'" class="cta-link">Read more</a>
     		            </span>';
     				}
 
@@ -95,13 +95,13 @@ class RentalAgreementController extends Controller
     				$html .= '<li>               
     		            <span class="left-step">
     		               <h5>
-    		                <a href="#">'.$adquery->agreement_title.' </a>
+    		                <a href="agreement/'.base64_encode($adquery->id).'" >'.$adquery->agreement_title.' </a>
     		              </h5>
     		               <p><em>'.$type_of_doc.' </em></p>
     		            </span>
     		            '.$data_html.'
     		            <div class="more-info">
-    		               <p>'.$adquery->agreement_short_desc.' <a href="#" class="rear-link">read more</a></p>
+    		               <p>'.$adquery->agreement_short_desc.' <a href="agreement/'.base64_encode($adquery->id).'"  class="rear-link">read more</a></p>
     		            </div>
     		          </li>';
     			}
@@ -137,7 +137,7 @@ class RentalAgreementController extends Controller
     				}else if($adquery->legal_cate_type == "Article"){
     					$type_of_doc = "Free Legal Article";
     					$data_html = '<span class="right-step">
-    		               <a href="#" class="cta-link">Read more</a>
+    		               <a href="agreement/'.base64_encode($adquery->id).'" class="cta-link">Read more</a>
     		            </span>';
     				}
 
@@ -145,13 +145,13 @@ class RentalAgreementController extends Controller
     				$html .= '<li>               
     		            <span class="left-step">
     		               <h5>
-    		                <a href="#">'.$adquery->agreement_title.' </a>
+    		                <a href="agreement/'.base64_encode($adquery->id).'">'.$adquery->agreement_title.' </a>
     		              </h5>
     		               <p><em>'.$type_of_doc.' </em></p>
     		            </span>
     		            '.$data_html.'
     		            <div class="more-info">
-    		               <p>'.$adquery->agreement_short_desc.' <a href="#" class="rear-link">read more</a></p>
+    		               <p>'.$adquery->agreement_short_desc.' <a href="agreement/'.base64_encode($adquery->id).'" class="rear-link">read more</a></p>
     		            </div>
     		          </li>';
     			}
@@ -187,7 +187,7 @@ class RentalAgreementController extends Controller
     				}else if($adquery->legal_cate_type == "Article"){
     					$type_of_doc = "Free Legal Article";
     					$data_html = '<span class="right-step">
-    		               <a href="#" class="cta-link">Read more</a>
+    		               <a href="agreement/'.base64_encode($adquery->id).'" class="cta-link">Read more</a>
     		            </span>';
     				}
 
@@ -195,13 +195,13 @@ class RentalAgreementController extends Controller
     				$html .= '<li>               
     		            <span class="left-step">
     		               <h5>
-    		                <a href="#">'.$adquery->agreement_title.' </a>
+    		                <a href="agreement/'.base64_encode($adquery->id).'">'.$adquery->agreement_title.' </a>
     		              </h5>
     		               <p><em>'.$type_of_doc.' </em></p>
     		            </span>
     		            '.$data_html.'
     		            <div class="more-info">
-    		               <p>'.$adquery->agreement_short_desc.' <a href="#" class="rear-link">read more</a></p>
+    		               <p>'.$adquery->agreement_short_desc.' <a href="agreement/'.base64_encode($adquery->id).'" class="rear-link">read more</a></p>
     		            </div>
     		          </li>';
     			}
@@ -270,7 +270,7 @@ class RentalAgreementController extends Controller
     				}else if($allQuery->legal_cate_type == "Article"){
     					$type_of_doc = "Free Legal Article";
     					$data_html = '<span class="right-step">
-    		               <a href="#" class="cta-link">Read more</a>
+    		               <a href="agreement/'.base64_encode($allQuery->id).'" class="cta-link">Read more</a>
     		            </span>';
     				}
 
@@ -278,13 +278,13 @@ class RentalAgreementController extends Controller
     				$html['all_document'] .= '<li>               
     		            <span class="left-step">
     		               <h5>
-    		                <a href="#">'.$allQuery->agreement_title.' </a>
+    		                <a href="agreement/'.base64_encode($allQuery->id).'">'.$allQuery->agreement_title.' </a>
     		              </h5>
     		               <p><em>'.$type_of_doc.' </em></p>
     		            </span>
     		            '.$data_html.'
     		            <div class="more-info">
-    		               <p>'.$allQuery->agreement_short_desc.' <a href="#" class="rear-link">read more</a></p>
+    		               <p>'.$allQuery->agreement_short_desc.' <a href="agreement/'.base64_encode($allQuery->id).'" class="rear-link">read more</a></p>
     		            </div>
     		          </li>';
     		}
@@ -313,7 +313,7 @@ class RentalAgreementController extends Controller
     				}else if($docxQuery->legal_cate_type == "Article"){
     					$type_of_doc = "Free Legal Article";
     					$data_html = '<span class="right-step">
-    		               <a href="#" class="cta-link">Read more</a>
+    		               <a href="agreement/'.base64_encode($docxQuery->id).'" class="cta-link">Read more</a>
     		            </span>';
     				}
 
@@ -321,13 +321,13 @@ class RentalAgreementController extends Controller
     				$html['only_docx'] .= '<li>               
     		            <span class="left-step">
     		               <h5>
-    		                <a href="#">'.$docxQuery->agreement_title.' </a>
+    		                <a href="agreement/'.base64_encode($docxQuery->id).'">'.$docxQuery->agreement_title.' </a>
     		              </h5>
     		               <p><em>'.$type_of_doc.' </em></p>
     		            </span>
     		            '.$data_html.'
     		            <div class="more-info">
-    		               <p>'.$docxQuery->agreement_short_desc.' <a href="#" class="rear-link">read more</a></p>
+    		               <p>'.$docxQuery->agreement_short_desc.' <a href="agreement/'.base64_encode($docxQuery->id).'" class="rear-link">read more</a></p>
     		            </div>
     		          </li>';
     		}
@@ -355,7 +355,7 @@ class RentalAgreementController extends Controller
     				}else if($articleQuery->legal_cate_type == "Article"){
     					$type_of_doc = "Free Legal Article";
     					$data_html = '<span class="right-step">
-    		               <a href="#" class="cta-link">Read more</a>
+    		               <a href="agreement/'.base64_encode($articleQuery->id).'" class="cta-link">Read more</a>
     		            </span>';
     				}
 
@@ -363,13 +363,13 @@ class RentalAgreementController extends Controller
     				$html['only_article'] .= '<li>               
     		            <span class="left-step">
     		               <h5>
-    		                <a href="#">'.$articleQuery->agreement_title.' </a>
+    		                <a href="agreement/'.base64_encode($articleQuery->id).'">'.$articleQuery->agreement_title.' </a>
     		              </h5>
     		               <p><em>'.$type_of_doc.' </em></p>
     		            </span>
     		            '.$data_html.'
     		            <div class="more-info">
-    		               <p>'.$articleQuery->agreement_short_desc.' <a href="#" class="rear-link">read more</a></p>
+    		               <p>'.$articleQuery->agreement_short_desc.' <a href="agreement/'.base64_encode($articleQuery->id).'" class="rear-link">read more</a></p>
     		            </div>
     		          </li>';
     		}
@@ -399,7 +399,7 @@ class RentalAgreementController extends Controller
     					}else if($allQuery->legal_cate_type == "Article"){
     						$type_of_doc = "Free Legal Article";
     						$data_html = '<span class="right-step">
-    			               <a href="#" class="cta-link">Read more</a>
+    			               <a href="agreement/'.base64_encode($allQuery->id).'" class="cta-link">Read more</a>
     			            </span>';
     					}
 
@@ -407,13 +407,13 @@ class RentalAgreementController extends Controller
     					$html['all_document'] .= '<li>               
     			            <span class="left-step">
     			               <h5>
-    			                <a href="#">'.$allQuery->agreement_title.' </a>
+    			                <a href="agreement/'.base64_encode($allQuery->id).'">'.$allQuery->agreement_title.' </a>
     			              </h5>
     			               <p><em>'.$type_of_doc.' </em></p>
     			            </span>
     			            '.$data_html.'
     			            <div class="more-info">
-    			               <p>'.$allQuery->agreement_short_desc.' <a href="#" class="rear-link">read more</a></p>
+    			               <p>'.$allQuery->agreement_short_desc.' <a href="agreement/'.base64_encode($allQuery->id).'" class="rear-link">read more</a></p>
     			            </div>
     			          </li>';
     			
@@ -436,7 +436,7 @@ class RentalAgreementController extends Controller
     					}else if($docxQuery->legal_cate_type == "Article"){
     						$type_of_doc = "Free Legal Article";
     						$data_html = '<span class="right-step">
-    			               <a href="#" class="cta-link">Read more</a>
+    			               <a href="agreement/'.base64_encode($docxQuery->id).'" class="cta-link">Read more</a>
     			            </span>';
     					}
 
@@ -444,13 +444,13 @@ class RentalAgreementController extends Controller
     					$html['only_docx'] .= '<li>               
     			            <span class="left-step">
     			               <h5>
-    			                <a href="#">'.$docxQuery->agreement_title.' </a>
+    			                <a href="agreement/'.base64_encode($docxQuery->id).'">'.$docxQuery->agreement_title.' </a>
     			              </h5>
     			               <p><em>'.$type_of_doc.' </em></p>
     			            </span>
     			            '.$data_html.'
     			            <div class="more-info">
-    			               <p>'.$docxQuery->agreement_short_desc.' <a href="#" class="rear-link">read more</a></p>
+    			               <p>'.$docxQuery->agreement_short_desc.' <a href="agreement/'.base64_encode($docxQuery->id).'" class="rear-link">read more</a></p>
     			            </div>
     			          </li>';
     			 
@@ -471,7 +471,7 @@ class RentalAgreementController extends Controller
     					}else if($articleQuery->legal_cate_type == "Article"){
     						$type_of_doc = "Free Legal Article";
     						$data_html = '<span class="right-step">
-    			               <a href="#" class="cta-link">Read more</a>
+    			               <a href="agreement/'.base64_encode($articleQuery->id).'" class="cta-link">Read more</a>
     			            </span>';
     					}
 
@@ -479,13 +479,13 @@ class RentalAgreementController extends Controller
     					$html['only_article'] .= '<li>               
     			            <span class="left-step">
     			               <h5>
-    			                <a href="#">'.$articleQuery->agreement_title.' </a>
+    			                <a href="agreement/'.base64_encode($articleQuery->id).'">'.$articleQuery->agreement_title.' </a>
     			              </h5>
     			               <p><em>'.$type_of_doc.' </em></p>
     			            </span>
     			            '.$data_html.'
     			            <div class="more-info">
-    			               <p>'.$articleQuery->agreement_short_desc.' <a href="#" class="rear-link">read more</a></p>
+    			               <p>'.$articleQuery->agreement_short_desc.' <a href="agreement/'.base64_encode($articleQuery->id).'" class="rear-link">read more</a></p>
     			            </div>
     			          </li>';
     		}
@@ -518,7 +518,7 @@ class RentalAgreementController extends Controller
     				}else if($allQuery->legal_cate_type == "Article"){
     					$type_of_doc = "Free Legal Article";
     					$data_html = '<span class="right-step">
-    		               <a href="#" class="cta-link">Read more</a>
+    		               <a href="agreement/'.base64_encode($allQuery->id).'" class="cta-link">Read more</a>
     		            </span>';
     				}
 
@@ -526,13 +526,13 @@ class RentalAgreementController extends Controller
     				$html['all_document'] .= '<li>               
     		            <span class="left-step">
     		               <h5>
-    		                <a href="#">'.$allQuery->agreement_title.' </a>
+    		                <a href="agreement/'.base64_encode($allQuery->id).'">'.$allQuery->agreement_title.' </a>
     		              </h5>
     		               <p><em>'.$type_of_doc.' </em></p>
     		            </span>
     		            '.$data_html.'
     		            <div class="more-info">
-    		               <p>'.$allQuery->agreement_short_desc.' <a href="#" class="rear-link">read more</a></p>
+    		               <p>'.$allQuery->agreement_short_desc.' <a href="agreement/'.base64_encode($allQuery->id).'" class="rear-link">read more</a></p>
     		            </div>
     		          </li>';
     		}
@@ -561,7 +561,7 @@ class RentalAgreementController extends Controller
     				}else if($docxQuery->legal_cate_type == "Article"){
     					$type_of_doc = "Free Legal Article";
     					$data_html = '<span class="right-step">
-    		               <a href="#" class="cta-link">Read more</a>
+    		               <a href="agreement/'.base64_encode($docxQuery->id).'" class="cta-link">Read more</a>
     		            </span>';
     				}
 
@@ -569,13 +569,13 @@ class RentalAgreementController extends Controller
     				$html['only_docx'] .= '<li>               
     		            <span class="left-step">
     		               <h5>
-    		                <a href="#">'.$docxQuery->agreement_title.' </a>
+    		                <a href="agreement/'.base64_encode($docxQuery->id).'">'.$docxQuery->agreement_title.' </a>
     		              </h5>
     		               <p><em>'.$type_of_doc.' </em></p>
     		            </span>
     		            '.$data_html.'
     		            <div class="more-info">
-    		               <p>'.$docxQuery->agreement_short_desc.' <a href="#" class="rear-link">read more</a></p>
+    		               <p>'.$docxQuery->agreement_short_desc.' <a href="agreement/'.base64_encode($docxQuery->id).'" class="rear-link">read more</a></p>
     		            </div>
     		          </li>';
     		}
@@ -603,7 +603,7 @@ class RentalAgreementController extends Controller
     				}else if($articleQuery->legal_cate_type == "Article"){
     					$type_of_doc = "Free Legal Article";
     					$data_html = '<span class="right-step">
-    		               <a href="#" class="cta-link">Read more</a>
+    		               <a href="agreement/'.base64_encode($articleQuery->id).'" class="cta-link">Read more</a>
     		            </span>';
     				}
 
@@ -611,13 +611,13 @@ class RentalAgreementController extends Controller
     				$html['only_article'] .= '<li>               
     		            <span class="left-step">
     		               <h5>
-    		                <a href="#">'.$articleQuery->agreement_title.' </a>
+    		                <a href="agreement/'.base64_encode($articleQuery->id).'">'.$articleQuery->agreement_title.' </a>
     		              </h5>
     		               <p><em>'.$type_of_doc.' </em></p>
     		            </span>
     		            '.$data_html.'
     		            <div class="more-info">
-    		               <p>'.$articleQuery->agreement_short_desc.' <a href="#" class="rear-link">read more</a></p>
+    		               <p>'.$articleQuery->agreement_short_desc.' <a href="agreement/'.base64_encode($articleQuery->id).'" class="rear-link">read more</a></p>
     		            </div>
     		          </li>';
     		}
@@ -649,6 +649,41 @@ class RentalAgreementController extends Controller
     public function show_agreement_page()
     {
     	return view('frontend.front-pages.show-actual-agreement');
+    }
+
+
+    public function full_page_data_show()
+    {
+    	$html['first_part'] = '';
+    	$html['second_part'] = '';
+    	$html['third_part'] = '';
+
+    	$mainQuery = LegalDocumentModel::where(['id' => $_GET['legal_id']])->get();
+    	foreach($mainQuery as $mQuery)
+    	{
+    		$html['first_part'] .= '<h3 class="fs-title">'.$mQuery->agreement_title.'</h3>
+                <p>'.$mQuery->agreement_short_desc.'.</p>
+                <div class="link-group">
+                  <a href="javascript:void(0)" class="dwn-btn">Share this document</a>
+
+                  <a href="'.$mQuery->agreement_file_upload.'" class="dwn-btn blk-btn" download>Download for free</a>
+                </div>';
+
+            $html['second_part'] .= '<p>'.$mQuery->agreement_full_desc.'</p>';
+
+            if($mQuery->agreement_full_details != null)
+            {
+            	$html['third_part'] .= $mQuery->agreement_full_details;
+            }
+            else
+            {
+            	$html['third_part'] .= "";
+            }
+            
+
+
+    	}
+    	echo json_encode($html);
     }
 
 }
