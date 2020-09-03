@@ -6934,6 +6934,7 @@ color: #ea0202 !important ;
 }
 
 
+
 .agreement-text {
     padding: 25px;
     background: #fdfdfd;
@@ -7461,7 +7462,7 @@ a.rear-link{
 	border-bottom:0px;
 	button {
     margin: 10px 0px;
-    min-width: 100px;
+    min-width: 50%;
     background: #f1eff0;
     border: solid 1px #0d2c67;
     margin-left: 0px;
@@ -7472,6 +7473,7 @@ a.rear-link{
     padding: 5px 10px;
     outline: none;
     border-radius: 0px;
+        height: 40px;
     &.active {
     background: #0d2c67;
     color: #fff;
@@ -7485,4 +7487,125 @@ a.rear-link{
 	.tab-pane{
         position:relative;
    }
+}
+
+
+.top-filter{
+	.table-tab {
+		button{
+			margin:0px;
+		}		
+	}
+
+	.form-group {
+    margin-bottom: 5px;
+    }
+
+    .form-control{
+    	margin-bottom: 0px;
+    }
+
+}
+
+a.flt-search.creat-btn {
+    text-align: center;
+    text-decoration: none;
+    line-height: normal;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.seen-status {
+    background: #31415f;
+    color: #fff;
+}
+
+.show-single-project{
+
+}
+
+
+.chat-content .message-content .show-single-project .single-project .chat_list .chat_ib h5{
+	    display: flex;
+    align-items: center;
+}
+
+
+.invoice-view {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    ul{
+    	display: flex;
+    list-style-type: none;
+    flex-wrap: wrap;
+    padding-left: 0;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    	li{ width: 46%;
+		    margin: 6px;
+		    padding: 7px 5px;
+		    margin-bottom: 8px;
+		    background: #eaecf1;
+		    border: solid 1px #e2e3e6;
+    		.table-name{min-width: auto;
+    display: inline-block;
+    text-align: left;
+    margin-right: 0;
+    font-size: 12px !important;
+    line-height: 23px;
+    font-weight: 500;
+    margin-bottom: 3px;
+    }
+    .table_info {
+    color: #071634;
+    font-weight: 600;
+    display:block;
+}
+
+    	}
+    }
+
+    
+}
+
+.block-width {
+    display: block;
+    width: 100%;
+}
+
+
+.theme-modal .modal-body {
+	 .wide-space{
+	 	p{
+	 		    width: 100%;
+	 	}
+	 }
+}
+
+
+
+.not-type-msg {
+    z-index: 2;
+    border-top: 1px solid #e0dfdf;
+    position: absolute;
+    bottom: 0;
+    top: inherit;
+    width: 100%;
+    left: 0;
+    height: 65px;
+    background: #eee;
+    font-size: 13px;
+    padding: 15px;
+    color: #5f5f5f;
+}
+
+.reply-box{
+	.not-type-msg {
+		background: #f5f5f5 !important;
+    border: 1px solid #e3e3e3 !important;
+    position: relative !important;
+	}
 }

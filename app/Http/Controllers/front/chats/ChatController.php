@@ -105,15 +105,25 @@ class ChatController extends Controller
           $html = '';
           foreach($querySidebar as $qS)
           {
+            $actual_profile_img = 'frontAssets/images/no-img.jpg';
             $userQueryNew = User::where('id',$qS->lawyer_id)->get();
             foreach($userQueryNew as $qU)
             {
               $new_user_name = $qU->name.' '.$qU->lname;
+
+              if($qU->profileImg == null)
+              {
+                $actual_profile_img = 'frontAssets/images/no-img.jpg';
+              }
+              else
+              {
+                $actual_profile_img = $qU->profileImg;
+              }
             }
               $html .= '<div class="chat_list prject-line active_chat"><a href="javascript:;" onclick=project_chat_click('.$qS->id.',"'.$qS->project_name.'")><div class="chat_ib includ-member">
                                      <h5>
                                          <span class="member-img">
-                                          <img src="https://image.freepik.com/free-photo/smiling-mature-lawyer-working-courtroom_23-2147898545.jpg" alt="'.$new_user_name.'"> 
+                                          <img src="'.$actual_profile_img.'" alt="'.$new_user_name.'"> 
                                          </span> '.$new_user_name.'</h5>
                                   </div></a></div>';
             
@@ -285,7 +295,7 @@ class ChatController extends Controller
                      '.$mainCountReply.'
                      <div class="shrt-view">
                         <ul>
-                           <li><a href="#" data-toggle="tooltip" data-placement="top" title="Remove"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></li>
+                           <li><a href="javascript: ;" data-toggle="tooltip" data-placement="top" title="Remove"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></li>
                            <li><a href="javascript: ;" onclick=reply_thread_function('.$mainChat->id.','.$mainChat->projectID.',"'.$mainChat->projectNameID.'") class="reply-thread"  data-toggle="tooltip" data-placement="top" title="Start a Reply"><i class="fa fa-commenting-o" aria-hidden="true"></i></a></li>
                            <li><a href="javascript: ;" data-toggle="tooltip" data-placement="top" title="42kb"><i class="fa fa-file-image-o" aria-hidden="true"></i></a></li>
                         </ul>
@@ -450,9 +460,12 @@ class ChatController extends Controller
     				array_push($my_data_arr0, $key_value);
     				$k++;
     			}
+
+          
     			$my_data_arr['client_and_lawyer_id'] = $my_data_arr0;
     			$my_data_arr['count_total'] = $k;
     		}
+        $my_data_arr['all_users_details'] = $queryGet;
     	}else{
 
     	}

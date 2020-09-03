@@ -423,3 +423,10 @@ Route::GET('/deleting-legal-docx','Admin\RentalAgreementController@deleting_lega
 	Route::GET('/submit-legal-agreement-part','Admin\RentalAgreementController@submit_legal_agreement');
 	Route::GET('/agreement-all-title','Admin\RentalAgreementController@agreement_all_title');
 // end of rental agreement
+
+// chat side proposal 
+Route::GET('/accepting-proposal-checking','front\proposal\ChatProposalController@accepting_proposal_checking');
+Route::GET('/submit-chat-proposal-from-client','front\proposal\ChatProposalController@submit_chat_proposal_from_client');
+Route::GET('/submit-acceptation-proposal','front\proposal\ChatProposalController@submit_acceptation_proposal');
+
+// end of chat side proposal

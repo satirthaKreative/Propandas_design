@@ -183,272 +183,7 @@
                </div>
             </div>
             <div class="msg_history">
-               <div class="front-msg">
-                  <div class="usg-img">
-                     <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> 
-                  </div>
-                  <div class="cont-msg">
-                     <div class="usg-name">
-                        <h6><a href="#"><strong>User Name</strong></a> <span class="date-usg">11:01 AM | June 9</span></h6>
-                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-                           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
-                        <p><a href="#">https://www.cupidatat.com/images/excepteur.png</a></p>
-                        <ul>
-                           <li>Excepteur sint occaecat cupidatat non proident</li>
-                           <li>Aute irure dolor in reprehenderit in voluptate velit esse</li>
-                           <li>Sed do eiusmod tempor incididunt ut labore</li>
-                        </ul>
-                        <div class="upload-kit">
-                           <ul>
-                              <li>
-                                 <img src="images/blog-2.jpg" alt="images" class="img-fluid">
-                                 <div class="upld-btn">
-                                    <span><a href="javascript:void(0)"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
-                                 </div>
-                              </li>
-                              <li>
-                                 <video controls>
-                                    <source src="https://files.slack.com/files-pri/TKJL2HUJK-F014HJVN64T/untitled__may_29_2020_8_38_pm.webm" type="video/mp4">
-                                 </video>
-                                 <div class="upld-btn">
-                                    <span><a href="javascript:void(0)"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
-                                 </div>
-                              </li>
-                           </ul>
-                        </div>
-                     </div>
-                     <div class="shrt-view">
-                        <ul>
-                           <li><a href="#" data-toggle="tooltip" data-placement="top" title="Remove"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></li>
-                           <li><a href="#" data-toggle="tooltip" data-placement="top" title="Start a Reply"><i class="fa fa-commenting-o" aria-hidden="true"></i></a></li>
-                           <li><a href="#" data-toggle="tooltip" data-placement="top" title="42kb"><i class="fa fa-file-image-o" aria-hidden="true"></i></a></li>
-                        </ul>
-                     </div>
-                  </div>
-                  <div class="reply-box">
-                     <div class="rply-content">
-                        <div class="front-msg">
-                           <div class="usg-img">
-                              <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> 
-                           </div>
-                           <div class="cont-msg">
-                              <div class="usg-name">
-                                 <h6><a href="#"><strong>User Name</strong></a> <span class="date-usg">11:01 AM | June 9</span></h6>
-                                 <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                 </p>
-                                 <p><a href="#">https://www.cupidatat.com/images/excepteur.png</a></p>
-                                 <ul>
-                                    <li>Excepteur sint occaecat cupidatat non proident</li>
-                                    <li>Aute irure dolor in reprehenderit in voluptate velit esse</li>
-                                    <li>Sed do eiusmod tempor incididunt ut labore</li>
-                                 </ul>
-                                 <div class="upload-kit">
-                                    <ul>
-                                       <li>
-                                          <img src="images/blog-2.jpg" alt="images" class="img-fluid">
-                                          <div class="upld-btn">
-                                             <span><a href="javascript:void(0)"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
-                                          </div>
-                                       </li>
-                                       <li>
-                                          <video controls>
-                                             <source src="https://files.slack.com/files-pri/TKJL2HUJK-F014HJVN64T/untitled__may_29_2020_8_38_pm.webm" type="video/mp4">
-                                          </video>
-                                          <div class="upld-btn">
-                                             <span><a href="javascript:void(0)"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
-                                          </div>
-                                       </li>
-                                    </ul>
-                                 </div>
-                              </div>
-                              <div class="shrt-view">
-                                 <ul>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="Remove"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="42kb"><i class="fa fa-file-image-o" aria-hidden="true"></i></a></li>
-                                 </ul>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="front-msg">
-                           <div class="reply-count">
-                              <p>1 replies</p>
-                              <hr>
-                           </div>
-                           <div class="usg-img">
-                              <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> 
-                           </div>
-                           <div class="cont-msg">
-                              <div class="usg-name">
-                                 <h6><a href="#"><strong>User Name</strong></a> <span class="date-usg">11:01 AM | June 9</span></h6>
-                                 <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat.
-                                 </p>
-                                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                 </p>
-                              </div>
-                              <div class="shrt-view">
-                                 <ul>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remove"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="42kb"><i class="fa fa-file-image-o" aria-hidden="true"></i></a></li>
-                                 </ul>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="type_msg">
-                        <div class="input_msg_write">
-                           <form action="">
-                              <textarea name="" class="form-control write_msg" placeholder="Type your message..."></textarea>
-                              <div class="setd-tag">
-                                 <div class="attach-icn" data-toggle="tooltip" data-placement="top" title="Attach file">
-                                    <input type="file" name="">
-                                    <span class="file-span"><i class="fa fa-paperclip" aria-hidden="true"></i></span>
-                                 </div>
-                                 <button class="msg_send_btn" type="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
-                              </div>
-                           </form>
-                        </div>
-                     </div>
-                  </div>  <!-- end of reply-box -->
-               </div>
-               <div class="front-msg">
-                  <div class="usg-img">
-                     <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> 
-                  </div>
-                  <div class="cont-msg">
-                     <div class="usg-name">
-                        <h6><a href="#"><strong>User Name2</strong></a> <span class="date-usg">11:01 AM | June 9</span></h6>
-                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                           consequat.
-                        </p>
-                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-                           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
-                        <div class="upload-kit">
-                           <ul>
-                              <li>
-                                 <audio controls>
-                                    <source src="horse.mp3" type="audio/mpeg">
-                                 </audio>
-                                 <div class="upld-btn">
-                                    <span><a href="javascript:void(0)"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
-                                 </div>
-                              </li>
-                              <li>
-                                 <object data="images/pdf-file.pdf" width="300" height="200"></object>                       
-                                 <div class="upld-btn">
-                                    <span><a href="javascript:void(0)"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
-                                 </div>
-                              </li>
-                              <li>
-                                 <iframe src="/uploads/media/default/0001/01/540cb75550adf33f281f29132dddd14fded85bfc.pdf" height="200" width="300"></iframe>
-                                 <div class="upld-btn">
-                                    <span><a href="javascript:void(0)"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
-                                 </div>
-                              </li>
-                           </ul>
-                        </div>
-                     </div>
-                     <div class="rpl-box">                 
-                        <a href="#">
-                        <span class="rptext"><i class="fa fa-user" aria-hidden="true"></i>8 replies</span> <span class="date-usg">Last reply 2 days ago</span>
-                        </a>                   
-                     </div>
-                     <div class="shrt-view">
-                        <ul>
-                           <li><a href="#" data-toggle="tooltip" data-placement="top" title="Remove"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></li>
-                           <li><a href="#" data-toggle="tooltip" data-placement="top" title="Start a Reply"><i class="fa fa-commenting-o" aria-hidden="true"></i></a></li>
-                           <li><a href="#" data-toggle="tooltip" data-placement="top" title="42kb"><i class="fa fa-file-image-o" aria-hidden="true"></i></a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-               <div class="front-msg">
-                  <div class="usg-img">
-                     <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> 
-                  </div>
-                  <div class="cont-msg">
-                     <div class="usg-name">
-                        <h6><a href="#"><strong>User Name</strong></a> <span class="date-usg">11:01 AM | June 9</span></h6>
-                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                           consequat.
-                        </p>
-                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-                           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
-                     </div>
-                     <div class="shrt-view">
-                        <ul>
-                           <li><a href="#" data-toggle="tooltip" data-placement="top" title="Remove"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></li>
-                           <li><a href="#" data-toggle="tooltip" data-placement="top" title="Start a Reply"><i class="fa fa-commenting-o" aria-hidden="true"></i></a></li>
-                           <li><a href="#" data-toggle="tooltip" data-placement="top" title="42kb"><i class="fa fa-file-image-o" aria-hidden="true"></i></a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-               <div class="front-msg">
-                  <div class="usg-img">
-                     <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> 
-                  </div>
-                  <div class="cont-msg">
-                     <div class="usg-name">
-                        <h6><a href="#"><strong>User Name</strong></a> <span class="date-usg">11:01 AM | June 9</span></h6>
-                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                           consequat.
-                        </p>
-                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-                           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
-                     </div>
-                     <div class="shrt-view">
-                        <ul>
-                           <li><a href="#" data-toggle="tooltip" data-placement="top" title="Remove"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></li>
-                           <li><a href="#" data-toggle="tooltip" data-placement="top" title="Start a Reply"><i class="fa fa-commenting-o" aria-hidden="true"></i></a></li>
-                           <li><a href="#" data-toggle="tooltip" data-placement="top" title="42kb"><i class="fa fa-file-image-o" aria-hidden="true"></i></a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-               <div class="front-msg">
-                  <div class="usg-img">
-                     <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> 
-                  </div>
-                  <div class="cont-msg">
-                     <div class="usg-name">
-                        <h6><a href="#"><strong>User Name</strong></a> <span class="date-usg">11:01 AM | June 9</span></h6>
-                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                           consequat.
-                        </p>
-                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-                           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
-                     </div>
-                     <div class="shrt-view">
-                        <ul>
-                           <li><a href="#" data-toggle="tooltip" data-placement="top" title="Remove"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></li>
-                           <li><a href="#" data-toggle="tooltip" data-placement="top" title="Start a Reply"><i class="fa fa-commenting-o" aria-hidden="true"></i></a></li>
-                           <li><a href="#" data-toggle="tooltip" data-placement="top" title="42kb"><i class="fa fa-file-image-o" aria-hidden="true"></i></a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
+               <div class="no-convertion"><p><i class="fa fa-spinner"></i> Loading chat panel</p></div>
             </div>
             <div class="type_msg">
                <div class="input_msg_write">
@@ -488,94 +223,7 @@
                </div>
             </div>
                      <div class="msg_history rply-content">
-                        <div class="front-msg">
-                           <div class="usg-img">
-                              <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> 
-                           </div>
-                           <div class="cont-msg">
-                              <div class="usg-name">
-                                 <h6><a href="#"><strong>User Name</strong></a> <span class="date-usg">11:01 AM | June 9</span></h6>
-                                 <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                 </p>
-                                 <p><a href="#">https://www.cupidatat.com/images/excepteur.png</a></p>
-                                 <ul>
-                                    <li>Excepteur sint occaecat cupidatat non proident</li>
-                                    <li>Aute irure dolor in reprehenderit in voluptate velit esse</li>
-                                    <li>Sed do eiusmod tempor incididunt ut labore</li>
-                                 </ul>
-                                 <div class="upload-kit">
-                                    <ul>
-                                       <li>
-                                          <img src="images/blog-2.jpg" alt="images" class="img-fluid">
-                                          <div class="upld-btn">
-                                             <span><a href="javascript:void(0)"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
-                                          </div>
-                                       </li>
-                                       <li>
-                                          <video controls>
-                                             <source src="https://files.slack.com/files-pri/TKJL2HUJK-F014HJVN64T/untitled__may_29_2020_8_38_pm.webm" type="video/mp4">
-                                          </video>
-                                          <div class="upld-btn">
-                                             <span><a href="javascript:void(0)"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
-                                          </div>
-                                       </li>
-                                    </ul>
-                                 </div>
-                              </div>
-                              <div class="shrt-view">
-                                 <ul>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="Remove"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="42kb"><i class="fa fa-file-image-o" aria-hidden="true"></i></a></li>
-                                 </ul>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="front-msg">
-                           <div class="reply-count">
-                              <p>1 replies</p>
-                              <hr>
-                           </div>
-                           <div class="usg-img">
-                              <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> 
-                           </div>
-                           <div class="cont-msg">
-                              <div class="usg-name">
-                                 <h6><a href="#"><strong>User Name</strong></a> <span class="date-usg">11:01 AM | June 9</span></h6>
-                                 <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat.
-                                 </p>
-                                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                 </p>
-                              </div>
-                              <div class="shrt-view">
-                                 <ul>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="Remove"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="42kb"><i class="fa fa-file-image-o" aria-hidden="true"></i></a></li>
-                                 </ul>
-                              </div>
-                           </div>
-                        </div>
-
-                     <div class="type_msg">
-                        <div class="input_msg_write">
-                           <form action="">
-                              <textarea name="" class="form-control write_msg" placeholder="Type your message..."></textarea>
-                              <div class="setd-tag">
-                                 <div class="attach-icn" data-toggle="tooltip" data-placement="top" title="Attach file">
-                                    <input type="file" name="">
-                                    <span class="file-span"><i class="fa fa-paperclip" aria-hidden="true"></i></span>
-                                 </div>
-                                 <button class="msg_send_btn" type="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
-                              </div>
-                           </form>
-                        </div>
-                     </div>
+                        <div class="no-convertion"><p>No conversation selected</p></div>
                      </div>
                      
                   </div>
@@ -644,6 +292,101 @@
       </div>
    </div>
    <!-- end of model -->
+   <!-- submit-proposal Modal -->
+   <div class="modal fade theme-modal show" id="submit-chat-proposal-modal" >
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <!-- Modal body -->
+               <div class="modal-body ">
+                  <div class="center-part">
+                     <h3>Submit Proposal</h3>                
+                     <form id="submit-chat-proposal-from">
+                      
+                      <input type="hidden" name="proposal_project_id" id="proposal-project-id" value="" />
+                      <input type="hidden" name="proposal_project_name" id="proposal-project-name" value="" />
+                      <input type="hidden" name="proposal_project_client_id" id="proposal-project-client-id" value="" />
+                      <input type="hidden" name="proposal_project_lawyer_id" id="proposal-project-lawyer-id" value="" />
+
+                        <div class="proposal-form">
+                           <div class="form-group">
+                           <label>Lawyer Description</label> 
+                            <input type="text" name="proposal_project_lawyer_description" class="form-control">
+                        </div>
+                        <div class="form-group">
+                           <label>Lawyer Comments</label> 
+                           <textarea class="form-control" name="proposal_project_lawyer_comments"></textarea>                        
+                        </div>
+                        <div class="form-group">
+                                    <label class="title-lable">Billing Option</label>                                                                 
+                                        <label><input type="radio" name="proposal_project_billing_type" value="0" checked="">Fixed Rate</label> 
+                                        <label><input type="radio" value="1" name="proposal_project_billing_type">Hourly Rate</label>  
+                                 </div>
+
+                        <div class="form-group">                                    
+                                       <label class="title-lable">Billing Rate</label>  
+                                       <input type="text" name="proposal_project_billing_rate" value="">   
+                        </div>
+
+                        <input type="button" name="" value="Submit Proposal " onclick="proposal_project_submit_proposal()" class="cnt-btn">
+                        </div>
+                        
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- chatting unaccepting -->
+      <div class="modal fade theme-modal  show" id="unaccept_modal">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <!-- Modal body -->          
+               <div class="modal-body text-center">
+                  <div class="center-part wide-space">
+                     <span><img src="http://propandas.com/frontAssets/images/logo.png" alt="logo" class="modal-logo"></span>
+                     <p>This perticuler lawyer did not sent any proposal for this job. <br>
+                      So you are un able to accept that proposal.</p>
+                     
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- chatting unaccepting -->
+      <div class="modal fade theme-modal  show" id="job-fade-modal-accepting">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <!-- Modal body -->          
+               <div class="modal-body text-center">
+                  <div class="center-part ">
+                     <span><img src="http://propandas.com/frontAssets/images/logo.png" alt="logo" class="modal-logo"></span>
+                     <p>Please try again later to accepting this job !</p>               
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+  <!-- ttttt -->
+  <div class="modal fade theme-modal green-mdl-text show" id="accept-chat-proposal" >
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <!-- Modal body -->  
+            <div class="modal-body text-center">
+               <div class="center-part">
+                  <h3><span><img src="http://propandas.com/frontAssets/images/logo.png" alt="logo" class="modal-logo"></span></h3>   
+                   <h6>Are you sure To accept this proposal for this job?</h6>
+                   <p>
+                    <span><a href="javascript: ;" id="accept-proposal-yes-job-id" class="short-anchr">Yes</a></span>
+                    <span><a href="Javascript:void(0)" class="short-anchr transparent-anchr close-modal" data-dismiss="modal">No</a></span>
+                  </p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
 </section>
 
 <!-- end of dshbord-theme -->
@@ -864,6 +607,7 @@
          console.log("no log event calls");
       }
    } 
+
    // loading replied
    function every_sec_ajax_reply()
    {
@@ -888,6 +632,7 @@
          }
       })
    }
+
    // end of side reply chat
    function rly_chat_proj(chat_tbl_id, proj_id, proj_name)
    {
@@ -970,6 +715,8 @@
 
    function project_chat_click(project_id, project_name)
    {
+    var user_main_type = '<?php echo Auth::user()->is_lawyer; ?>';
+    var main_user_id = '<?php echo Auth::user()->id; ?>';
     // alert("<?= Auth::user()->is_lawyer ?>");
       $(".message-content").removeClass("side-reply");
       $("#add-people-hidden-project-id").val(project_id);
@@ -1010,10 +757,18 @@
                   data: {project_id: project_id, project_name: project_name},
                   dataType: 'json',
                   success: function(response){
+                     console.log();
                      $("#msg-top-user-class").show();
                      // $("#msg-top-user-class").html('<li><a data-toggle="tooltip" data-placement="top" title="'+response.count_total+' Member" href="#" ><i class="fa fa-user-o" aria-hidden="true"></i><label>'+response.count_total+'</label></a></li><li><a href="#" data-toggle="modal" data-target="#add-people" >Add Member</a></li>');
-
-                     $("#msg-top-user-class").html('<li><a  href="#" data-toggle="modal" data-target="#member-modal"><i class="fa fa-user-o" aria-hidden="true"></i><label>'+response.count_total+'</label></a></li><li><div class="dots-drop" onclick="my_toggle_chat_control()"><span></span><span></span><span></span><div class="drop-menu" id="has-menu" ><ul><li><a href="single-proposal.php"  ><i class="fa fa-paper-plane" aria-hidden="true"></i>Accept a Proposal</a></li><li><a href="#" data-toggle="modal" data-target="#add-people" ><i class="fa fa-user" aria-hidden="true"></i>Add a Member</a></li><li><a href="#"><i class="fa fa-file-text" aria-hidden="true"></i>Settle an Invoice</a></li><li><a href="#"><i class="fa fa-stop-circle" aria-hidden="true"></i>End the Chat</a></li></ul></div></li>');
+                     if(user_main_type == 0)
+                     {
+                      $("#msg-top-user-class").html('<li><a  href="#" data-toggle="modal" data-target="#member-modal"><i class="fa fa-user-o" aria-hidden="true"></i><label>'+response.count_total+'</label></a></li><li><div class="dots-drop" onclick="my_toggle_chat_control()"><span></span><span></span><span></span><div class="drop-menu" id="has-menu" ><ul><li><a href=javascript: ;"  onclick=proposal_send_checking('+response.all_users_details[0].client_id+','+response.all_users_details[0].project_id+',"'+response.all_users_details[0].project_name+'",'+response.all_users_details[0].id+','+response.all_users_details[0].lawyer_id+')><i class="fa fa-paper-plane" aria-hidden="true"></i>Accept a Proposal</a></li><li><a href="#" data-toggle="modal" data-target="#add-people" ><i class="fa fa-user" aria-hidden="true"></i>Add a Member</a></li><li><a href="#"><i class="fa fa-file-text" aria-hidden="true"></i>Settle an Invoice</a></li><li><a href="#"><i class="fa fa-stop-circle" aria-hidden="true"></i>End the Chat</a></li></ul></div></li>');
+                     }
+                     else if(user_main_type == 1)
+                     {
+                      $("#msg-top-user-class").html('<li><a  href="#" data-toggle="modal" data-target="#member-modal"><i class="fa fa-user-o" aria-hidden="true"></i><label>'+response.count_total+'</label></a></li><li><div class="dots-drop" onclick="my_toggle_chat_control()"><span></span><span></span><span></span><div class="drop-menu" id="has-menu" ><ul><li><a href="javascript: ;" onclick=submit_a_proposal('+response.all_users_details[0].client_id+','+response.all_users_details[0].project_id+',"'+response.all_users_details[0].project_name+'",'+response.all_users_details[0].id+','+response.all_users_details[0].lawyer_id+')><i class="fa fa-paper-plane" aria-hidden="true"></i>Submit a Proposal</a></li><li><a href="#" data-toggle="modal" data-target="#add-people" ><i class="fa fa-user" aria-hidden="true"></i>Add a Member</a></li><li><a href="#"><i class="fa fa-file-text" aria-hidden="true"></i>Raise an Invoice</a></li><li><a href="#"><i class="fa fa-stop-circle" aria-hidden="true"></i>End the Project</a></li></ul></div></li>');
+                     }
+                     
                      $('[data-toggle="tooltip"]').tooltip();
                      $('.chat-main-mesgs .msg_history').scrollTop($('.chat-main-mesgs .msg_history')[0].scrollHeight);
                   }, error: function(response){
@@ -1026,6 +781,8 @@
          }
       })
    }
+
+   
 
    // every second chat loading section
    function every_second_chat_loading()
@@ -1180,5 +937,129 @@
    {
       $(".drop-menu").toggleClass("show-dropdown");
    }
+
+
+
+   // checking proposal 
+
+   function proposal_send_checking(clientID, projectID, projectName, jobBeforeID, lawyerID)
+   {
+      $.ajax({
+        url: '/accepting-proposal-checking',
+        type: 'GET',
+        data: {clientID: clientID, projectID: projectID, projectName: projectName, jobBeforeID: jobBeforeID, lawyerID: lawyerID},
+        dataType: 'JSON',
+        success:  function(event)
+        {
+          if(event == 'no_data')
+          {
+            $("#unaccept_modal").modal('show');
+            setTimeout(function(){ $("#unaccept_modal").modal('hide'); }, 5000);
+          }
+          else if(event == 'yes_data')
+          {
+            $("#accept-proposal-yes-job-id").attr('onclick','myAcceptProposalCheck('+clientID+','+projectID+',"'+projectName+'",'+jobBeforeID+','+lawyerID+')');
+            $("#accept-chat-proposal").modal('show');
+          }
+          else if(event == 'error')
+          {
+            console.log('try again later');
+          }
+          else
+          {
+            $("#Error-modal").modal('show');
+            $("#Error-modal").find('.modal-body .center-part').html('<h3><span><i class="fa fa-exclamation-circle" aria-hidden="true"></i></span> <span>Server down ! Try again sometime later</span> </h3>');
+            setTimeout(function(){ $("#Error-modal").modal('hide'); }, 3000);
+          }
+        }, 
+        error:  function(event)
+        {
+
+        }
+      })
+   }
+
+   // submit a proposal 
+   function submit_a_proposal(clientID, projectID, projectName, jobBeforeID, lawyerID)
+   {
+      $("#proposal-project-id").val(projectID);
+      $("#proposal-project-name").val(projectName);
+      $("#proposal-project-client-id").val(clientID);
+      $("#proposal-project-lawyer-id").val(lawyerID);
+
+      $("#submit-chat-proposal-modal").modal('show');
+   }
+
+   // submit form proposal
+   function proposal_project_submit_proposal()
+   {      
+      var proposal_project_id = $("#proposal-project-id").val();
+      var proposal_project_name = $("#proposal-project-name").val();
+      var proposal_project_client_id = $("#proposal-project-client-id").val();
+      var proposal_project_lawyer_id = $("#proposal-project-lawyer-id").val();
+
+      var proposal_project_lawyer_description = $("input[name='proposal_project_lawyer_description']").val();
+      var proposal_project_lawyer_comments = $("textarea[name='proposal_project_lawyer_comments']").val();
+      var proposal_project_billing_type = $("input[name='proposal_project_billing_type']:checked").val();
+      var proposal_project_billing_rate = $("input[name='proposal_project_billing_rate']").val();
+
+      $.ajax({
+        url : "/submit-chat-proposal-from-client",
+        type: "GET",
+        data: {
+            proposal_project_id: proposal_project_id, 
+            proposal_project_name: proposal_project_name, 
+            proposal_project_client_id: proposal_project_client_id,
+            proposal_project_lawyer_id: proposal_project_lawyer_id,
+            proposal_project_lawyer_description: proposal_project_lawyer_description,
+            proposal_project_lawyer_comments:  proposal_project_lawyer_comments,
+            proposal_project_billing_type: proposal_project_billing_type,
+            proposal_project_billing_rate: proposal_project_billing_rate  
+          },
+        dataType: "json",
+        success: function(event){
+          if(event == "success")
+          {
+            $("#submit-chat-proposal-modal").modal('hide');
+            $("#success-modal").modal('show');
+            $("#success-modal").find('.modal-body .center-part').html('<h3><span><i class="fa fa-exclamation-circle" aria-hidden="true"></i></span> <span>Successfully sent the proposal</span> </h3>');
+            setTimeout(function(){ $("#success-modal").modal('hide'); }, 3000);
+          }
+          else if(event == "error")
+          {
+            $("#submit-chat-proposal-modal").modal('hide');
+            $("#Error-modal").modal('show');
+            $("#Error-modal").find('.modal-body .center-part').html('<h3><span><i class="fa fa-exclamation-circle" aria-hidden="true"></i></span> <span>Proposal did not submitted</span> </h3>');
+            setTimeout(function(){ $("#Error-modal").modal('hide'); $("#submit-chat-proposal-modal").modal('show'); }, 3000);
+          }
+          else if(event == "already_exist")
+          {
+            $("#submit-chat-proposal-modal").modal('hide');
+            $("#Error-modal").modal('show');
+            $("#Error-modal").find('.modal-body .center-part').html('<h3><span><i class="fa fa-exclamation-circle" aria-hidden="true"></i></span> <span>You Already Send A Proposal</span> </h3>');
+            setTimeout(function(){ $("#Error-modal").modal('hide'); }, 3000);
+          }
+        }, error:  function(event){
+
+        }
+      })
+   }
+
+   // 
+
+  function myAcceptProposalCheck(clientID, projectID, projectName, jobBeforeID, lawyerID)
+  {
+    $.ajax({
+      url: "/submit-acceptation-proposal",
+      type: "GET",
+      data: { clientID: clientID, projectID: projectID, projectName: projectName, jobBeforeID: jobBeforeID, lawyerID: lawyerID },
+      dataType: "json",
+      success:  function(event){
+        
+      }, error:  function(event){
+
+      }
+    })
+  }
 </script>
 @endsection

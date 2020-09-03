@@ -26,9 +26,7 @@
                <ul>
                   <li><a href="{{ url('/how-it-works') }}">How it Works</a></li>
                   <li><a href="#">For Lawyers</a></li>
-                  <li><a href="#">Free Legal Documents</a></li>
-                  <li><a href="#">Blog </a></li>
-                  <li><a href="#">Sitemap</a></li>
+                  <li><a href="{{ url('/legal-documents') }}">Free Legal Documents</a></li>
                </ul>
             </div>
          </div>
