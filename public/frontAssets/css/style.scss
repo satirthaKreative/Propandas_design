@@ -7609,3 +7609,34 @@ a.flt-search.creat-btn {
     position: relative !important;
 	}
 }
+
+
+
+
+
+.alert-box{
+	margin-top: 15px;    
+    padding: 7px 5px;
+	 p {
+	    font-size: 12px !important;
+	    line-height: 19px !important;
+	    margin-bottom: 0 !important;
+	    font-weight: 500;
+	    color: #171717 !important;
+     }
+
+     &.success-alert{
+     	background: #ddf3dd;
+     	p{
+     		color: #286328 !important;
+     	}     	
+     }
+
+     &.error-alert {
+		    background: #ffc7c7;		   
+		    p{
+     		color: #7b3030 !important;
+     	   } 
+		}
+
+}

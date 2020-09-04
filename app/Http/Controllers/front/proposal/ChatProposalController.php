@@ -18,7 +18,6 @@ use App\Models\ChatProjectModel;
 use App\Models\ChatJobQAModel;
 use App\Models\FileSizeModel;
 use App\Models\FileWithPriceModel;
-use App\Models\ChatProjectModel;
 use App\Models\chat_before_accept\ChatAndAcceptModel;
 
 
@@ -112,7 +111,7 @@ class ChatProposalController extends Controller
         // checking column : "propoal_act"
 
 
-        $checkingProposal = ProposalSendModel::where(['project_id' => $projectID, 'client_id' => $clientID, 'lawyer_id' => $lawyerID, 'propoal_act' => 'not_accepting' ])->count();
+        $checkingProposal = ProposalSendModel::where(['project_id' => $projectID, 'client_id' => $clientID, 'lawyer_id' => $lawyerID])->count();
         if($checkingProposal > 0)
         {
             $returnData = 'yes_data';
@@ -191,35 +190,78 @@ class ChatProposalController extends Controller
         $jobBeforeID = $_GET['jobBeforeID'];
         $lawyerID = $_GET['lawyerID'];
 
-        // get proposal details
-        $get_proposal_details = ProposalSendModel::where(['project_id' => $projectID, 'client_id' => $clientID, 'lawyer_id' => $lawyerID])->get();
-        foreach($get_proposal_details as $get_propo)
+        $checkingQuery = ProposalSendModel::where(['project_id' => $projectID, 'client_id' => $clientID, 'lawyer_id' => $lawyerID, 'propoal_act' => 'accepting'])->count();
+        if($checkingQuery > 0)
         {
-            $price = $get_propo->billing_rate;
-            if($get_propo->billing_option == 1)
-            {
-                $main_price = ' / hrs';
-            }
-            else if($get_propo->billing_option == 0)
-            {
-                $main_price = ' / fixed';
-            }
+            $msg = "already_exists";
         }
-        // proposal get
+        else if($checkingQuery == 0)
+        {
+            // get proposal details
+            $get_proposal_details = ProposalSendModel::where(['project_id' => $projectID, 'client_id' => $clientID, 'lawyer_id' => $lawyerID])->get();
+            foreach($get_proposal_details as $get_propo)
+            {
+                $price = $get_propo->billing_rate;
+                if($get_propo->billing_option == 1)
+                {
+                    $main_price = ' / hrs';
+                }
+                else if($get_propo->billing_option == 0)
+                {
+                    $main_price = ' / fixed';
+                }
+            }
+            // proposal get
 
-        $my_implode = $clientID.",".$lawyerID;
-        $mainInsertArr = [
-            'client_id' =>$clientID,
-            'lawyer_id' =>$projectID,
-            'project_id' =>$lawyerID,
-            'project_name' =>$projectName,
-            'budget_of_project' => $price.$main_price,
-            'work_status' => 'started',
-            'project_start_date' => date('Y-m-d'),
-            'created_at' =>date('Y-m-d'),
-            'updated_at' =>date('Y-m-d'),
-            'total_users_ids' =>$my_implode
-        ];
+
+            $my_implode = $clientID.",".$lawyerID;
+            $mainInsertArr = [
+                'client_id' =>$clientID,
+                'lawyer_id' =>$lawyerID,
+                'project_id' =>$projectID,
+                'project_name' =>$projectName,
+                'budget_of_project' => $price.$main_price,
+                'work_status' => 'started',
+                'project_start_date' => date('Y-m-d'),
+                'created_at' =>date('Y-m-d'),
+                'updated_at' =>date('Y-m-d'),
+                'total_users_ids' =>$my_implode
+            ];
+
+            // updating accepting on particular project
+
+            $updateQuery = $get_proposal_details = ProposalSendModel::where(['project_id' => $projectID, 'client_id' => $clientID, 'lawyer_id' => $lawyerID])->update(['propoal_act' => 'accepting']);
+
+            // main insert details 
+
+            $mainInsertQuery = ChatProjectModel::insert($mainInsertArr);
+
+            if($mainInsertArr)
+            {
+                $msg = "success";
+            }
+            else
+            {
+                $msg = "error";
+            }
+
+        } 
+        else
+        {
+            $msg = "server_error";
+        }
+        
+        echo json_encode($msg);
 
     }
+
+    // chat
+
+    public function chatInvitation()
+    {
+        
+    } 
+
+
+     
 }

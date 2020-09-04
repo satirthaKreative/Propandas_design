@@ -15,6 +15,10 @@
       </div>
       <div class="message-content">
          <div class="inbox_people">
+          <input type="hidden" name="" id="for-chat-hidden-job-before-id" value="" />
+          <input type="hidden" name="" id="for-chat-hidden-job-before-name" value="" />
+          <input type="hidden" name="" id="for-chat-hidden-job-before-client-id" value="" />
+          <input type="hidden" name="" id="for-chat-hidden-job-before-lawyer-id" value="" />
             @if(Auth::user()->is_lawyer == 1)
            <div class="all-prj-list">
             <div class="nav nav-tabs " id="nav-tab" role="tablist"> 
@@ -27,6 +31,7 @@
                      <option value="">Completed</option>
                      <option value="">Closed</option>      
                   </select>
+                  
                </div>                  
             </div>
             <div class="tab-content">
@@ -186,6 +191,8 @@
                <div class="no-convertion"><p><i class="fa fa-spinner"></i> Loading chat panel</p></div>
             </div>
             <div class="type_msg">
+              <div class="not-type-msg" style="display: none;"><label>You Are Not able to chat</label></div>
+
                <div class="input_msg_write">
                   <form id="main-chat-file-id" enctype="multipart/form-data" method="POST" action="{{ url('/main-chat-file-insert-ajax') }}">
                      <textarea name="write_msg_text" id="write-msg-text-id" class="form-control write_msg" placeholder="Type your message..."></textarea>
@@ -222,13 +229,12 @@
                   </div>
                </div>
             </div>
-                     <div class="msg_history rply-content">
-                        <div class="no-convertion"><p>No conversation selected</p></div>
-                     </div>
+            <div class="msg_history rply-content">
+              <div class="no-convertion"><p>No conversation selected</p></div>
+            </div>
                      
-                  </div>
-
-                  <!-- end of reply-box -->
+          </div>
+          <!-- end of reply-box -->
       </div>
    </div>
    <!-- add Modal -->
@@ -246,7 +252,7 @@
                         <select name="" class="form-control" id="choose-invite-user-type-id">
                            <option value="">Choose User Type</option>
                            <option value="0">Client</option>
-                           <option value="1">Lawyer</option>                          
+                           <option value="1">Lawyer</option>                        
                         </select>
                      </div>
                      <div class="form-group">
@@ -285,7 +291,6 @@
                <div class="center-part">
                   <h3><span><img src="{{ asset('frontAssets/images/logo.png') }}" alt="logo" class="modal-logo"></span>Thank You </h3>
                   <h6>For buy more space, start your chat now</h6>
-                  
                </div>
             </div>
          </div>
@@ -313,21 +318,21 @@
                             <input type="text" name="proposal_project_lawyer_description" class="form-control">
                         </div>
                         <div class="form-group">
-                           <label>Lawyer Comments</label> 
-                           <textarea class="form-control" name="proposal_project_lawyer_comments"></textarea>                        
+                          <label>Lawyer Comments</label> 
+                          <textarea class="form-control" name="proposal_project_lawyer_comments"></textarea>          
                         </div>
+
                         <div class="form-group">
-                                    <label class="title-lable">Billing Option</label>                                                                 
-                                        <label><input type="radio" name="proposal_project_billing_type" value="0" checked="">Fixed Rate</label> 
-                                        <label><input type="radio" value="1" name="proposal_project_billing_type">Hourly Rate</label>  
-                                 </div>
+                          <label class="title-lable">Billing Option</label>          <label><input type="radio" name="proposal_project_billing_type" value="0" checked="" />Fixed Rate</label> 
+                          <label><input type="radio" value="1" name="proposal_project_billing_type" />Hourly Rate</label>  
+                        </div>
 
                         <div class="form-group">                                    
-                                       <label class="title-lable">Billing Rate</label>  
-                                       <input type="text" name="proposal_project_billing_rate" value="">   
+                          <label class="title-lable">Billing Rate</label>  
+                          <input type="number" name="proposal_project_billing_rate" value="" />   
                         </div>
 
-                        <input type="button" name="" value="Submit Proposal " onclick="proposal_project_submit_proposal()" class="cnt-btn">
+                        <input type="button" name="" value="Submit Proposal " onclick="proposal_project_submit_proposal()" class="cnt-btn" />
                         </div>
                         
                      </form>
@@ -368,7 +373,7 @@
          </div>
       </div>
 
-  <!-- ttttt -->
+  <!-- job proposal accepting panel confirmation -->
   <div class="modal fade theme-modal green-mdl-text show" id="accept-chat-proposal" >
       <div class="modal-dialog">
          <div class="modal-content">
@@ -387,6 +392,68 @@
       </div>
    </div>
 
+   <!-- error-on-accepting-modal -->
+   <div class="modal fade theme-modal  show" id="error-on-accepting-modal">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <!-- Modal body -->          
+            <div class="modal-body text-center">
+               <div class="center-part ">
+                  <span><img src="http://propandas.com/frontAssets/images/logo.png" alt="logo" class="modal-logo"></span>
+                  <p>Please try again later to accepting this job !</p>               
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+   <!-- add raise invoice Modal -->
+   <div class="modal fade theme-modal" id="raise-invoice-modal-id">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <!-- Modal body -->
+            <div class="modal-body ">
+               <div class="center-part">
+                  <h3>Raise an Invoice</h3>                
+                  <form id="raise-an-invoice-form-id">
+                    <!-- input hidden field -->
+                    <input type="hidden" name="raise_invoice_on_project_id" id="raise-invoice-on-project-id" />
+                    <input type="hidden" name="raise_invoice_on_project_name" id="raise-invoice-on-project-name" />
+                    <input type="hidden" name="raise_invoice_on_project_jobBefore_id" id="raise-invoice-on-project-jobBefore-id" />
+                    <input type="hidden" name="raise_invoice_on_project_client_id" id="raise-invoice-on-project-client-id" />
+                    <input type="hidden" name="raise_invoice_on_project_lawyer_id" id="raise-invoice-on-project-lawyer-id" />
+                    <!-- end of input hidden field -->
+                     <div class="form-group">
+                        <label>Amount</label> 
+                        <input type="text" name="raise_amount" id="raise-amount" class="form-control">
+                     </div>
+                     <div class="form-group">
+                        <label>Description</label> 
+                        <textarea class="form-control" name="raise_description" id="raise-description"></textarea>                        
+                     </div>
+                     <input type="button" onclick="final_create_invoice_by_lawyer()" name="raise_chat_invoice_by_lawyer_end" value="Create Invoices " class="cnt-btn" />
+                     
+                  </form>
+               </div>
+               <!-- alert type -->
+                <div class="alert-sign">
+                  <!-- success type  -->
+                  <div class="alert-box success-alert raise-success" style="display: none;">
+                      <p>Invoice successfully created ! please check invoice section on your dashboard panel</p>
+                  </div>
+
+                  <!-- Error type -->
+                  <div class="alert-box error-alert raise-danger" style="display: none;">
+                      <p>Some thing went wrong on server ! Try again later.</p>
+                  </div>
+                </div>
+               <!-- /alert type -->
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- /add raise invoice modal -->
 </section>
 
 <!-- end of dshbord-theme -->
@@ -418,6 +485,7 @@
   // chat invite 
   function send_chat_invite_btn()
   {
+    
     var invite_user_type = $("#choose-invite-user-type-id").val();
     var invite_user_email = $("#user-invite-email-id").val();
     var member_proj_id = $("#add-people-hidden-project-id").val();
@@ -574,6 +642,7 @@
      chat_chat_sideboard_check();
      chat_active_proj_sideboard_ajax();
      chat_completed_proj_sideboard_ajax();
+     chat_send_blocking();
 
 
      first_chat_popup_without_project_select(); 
@@ -583,6 +652,7 @@
       setInterval(function(){ 
          every_second_chat_loading(); 
          every_second_ajax_check_reply_class();
+         chat_send_blocking();
       }, 30000);
      // end of loading seconds       
       
@@ -757,20 +827,30 @@
                   data: {project_id: project_id, project_name: project_name},
                   dataType: 'json',
                   success: function(response){
-                     console.log();
-                     $("#msg-top-user-class").show();
+                    
+                    // hidden field fill up
+
+                    $("#for-chat-hidden-job-before-id").val(response.all_users_details[0].project_id);
+                    $("#for-chat-hidden-job-before-name").val(response.all_users_details[0].project_name);
+                    $("#for-chat-hidden-job-before-client-id").val(response.all_users_details[0].client_id);
+                    $("#for-chat-hidden-job-before-lawyer-id").val(response.all_users_details[0].lawyer_id);
+
+                    // end of the hidden section
+
+                    $("#msg-top-user-class").show();
                      // $("#msg-top-user-class").html('<li><a data-toggle="tooltip" data-placement="top" title="'+response.count_total+' Member" href="#" ><i class="fa fa-user-o" aria-hidden="true"></i><label>'+response.count_total+'</label></a></li><li><a href="#" data-toggle="modal" data-target="#add-people" >Add Member</a></li>');
                      if(user_main_type == 0)
                      {
-                      $("#msg-top-user-class").html('<li><a  href="#" data-toggle="modal" data-target="#member-modal"><i class="fa fa-user-o" aria-hidden="true"></i><label>'+response.count_total+'</label></a></li><li><div class="dots-drop" onclick="my_toggle_chat_control()"><span></span><span></span><span></span><div class="drop-menu" id="has-menu" ><ul><li><a href=javascript: ;"  onclick=proposal_send_checking('+response.all_users_details[0].client_id+','+response.all_users_details[0].project_id+',"'+response.all_users_details[0].project_name+'",'+response.all_users_details[0].id+','+response.all_users_details[0].lawyer_id+')><i class="fa fa-paper-plane" aria-hidden="true"></i>Accept a Proposal</a></li><li><a href="#" data-toggle="modal" data-target="#add-people" ><i class="fa fa-user" aria-hidden="true"></i>Add a Member</a></li><li><a href="#"><i class="fa fa-file-text" aria-hidden="true"></i>Settle an Invoice</a></li><li><a href="#"><i class="fa fa-stop-circle" aria-hidden="true"></i>End the Chat</a></li></ul></div></li>');
+                      $("#msg-top-user-class").html('<li><a  href="#" data-toggle="modal" data-target="#member-modal"><i class="fa fa-user-o" aria-hidden="true"></i><label>'+response.count_total+'</label></a></li><li><div class="dots-drop" onclick="my_toggle_chat_control()"><span></span><span></span><span></span><div class="drop-menu" id="has-menu" ><ul><li><a href=javascript: ;"  onclick=proposal_send_checking('+response.all_users_details[0].client_id+','+response.all_users_details[0].project_id+',"'+response.all_users_details[0].project_name+'",'+response.all_users_details[0].id+','+response.all_users_details[0].lawyer_id+')><i class="fa fa-paper-plane" aria-hidden="true"></i>Accept a Proposal</a></li><li><a href="#" data-toggle="modal" data-target="#add-people" ><i class="fa fa-user" aria-hidden="true"></i>Add a Member</a></li><li><a href="javascript: ;" ><i class="fa fa-file-text" aria-hidden="true"></i>Settle an Invoice</a></li><li><a href="#"><i class="fa fa-stop-circle" aria-hidden="true"></i>End the Chat</a></li></ul></div></li>');
                      }
                      else if(user_main_type == 1)
                      {
-                      $("#msg-top-user-class").html('<li><a  href="#" data-toggle="modal" data-target="#member-modal"><i class="fa fa-user-o" aria-hidden="true"></i><label>'+response.count_total+'</label></a></li><li><div class="dots-drop" onclick="my_toggle_chat_control()"><span></span><span></span><span></span><div class="drop-menu" id="has-menu" ><ul><li><a href="javascript: ;" onclick=submit_a_proposal('+response.all_users_details[0].client_id+','+response.all_users_details[0].project_id+',"'+response.all_users_details[0].project_name+'",'+response.all_users_details[0].id+','+response.all_users_details[0].lawyer_id+')><i class="fa fa-paper-plane" aria-hidden="true"></i>Submit a Proposal</a></li><li><a href="#" data-toggle="modal" data-target="#add-people" ><i class="fa fa-user" aria-hidden="true"></i>Add a Member</a></li><li><a href="#"><i class="fa fa-file-text" aria-hidden="true"></i>Raise an Invoice</a></li><li><a href="#"><i class="fa fa-stop-circle" aria-hidden="true"></i>End the Project</a></li></ul></div></li>');
+                      $("#msg-top-user-class").html('<li><a  href="#" data-toggle="modal" data-target="#member-modal"><i class="fa fa-user-o" aria-hidden="true"></i><label>'+response.count_total+'</label></a></li><li><div class="dots-drop" onclick="my_toggle_chat_control()"><span></span><span></span><span></span><div class="drop-menu" id="has-menu" ><ul><li><a href="javascript: ;" onclick=submit_a_proposal('+response.all_users_details[0].client_id+','+response.all_users_details[0].project_id+',"'+response.all_users_details[0].project_name+'",'+response.all_users_details[0].id+','+response.all_users_details[0].lawyer_id+')><i class="fa fa-paper-plane" aria-hidden="true"></i>Submit a Proposal</a></li><li><a href="#" data-toggle="modal" data-target="#add-people" ><i class="fa fa-user" aria-hidden="true"></i>Add a Member</a></li><li><a href="javascript: ;" onclick=chatRaiseInvoice('+response.all_users_details[0].client_id+','+response.all_users_details[0].project_id+',"'+response.all_users_details[0].project_name+'",'+response.all_users_details[0].id+','+response.all_users_details[0].lawyer_id+')><i class="fa fa-file-text" aria-hidden="true"></i>Raise an Invoice</a></li><li><a href="#"><i class="fa fa-stop-circle" aria-hidden="true"></i>End the Project</a></li></ul></div></li>');
                      }
                      
                      $('[data-toggle="tooltip"]').tooltip();
                      $('.chat-main-mesgs .msg_history').scrollTop($('.chat-main-mesgs .msg_history')[0].scrollHeight);
+                     chat_send_blocking();
                   }, error: function(response){
 
                   }
@@ -1045,7 +1125,7 @@
       })
    }
 
-   // 
+   // accept proposal check
 
   function myAcceptProposalCheck(clientID, projectID, projectName, jobBeforeID, lawyerID)
   {
@@ -1055,11 +1135,169 @@
       data: { clientID: clientID, projectID: projectID, projectName: projectName, jobBeforeID: jobBeforeID, lawyerID: lawyerID },
       dataType: "json",
       success:  function(event){
-        
+        if(event == "success")
+        {
+          $("#accept-chat-proposal").modal('hide');
+          $("#success-modal").modal('show');
+          $("#success-modal").find('.modal-body .center-part').html('<h3><span><i class="fa fa-exclamation-circle" aria-hidden="true"></i></span> <span>Successfully Accepting The Proposal</span> </h3>');
+          setTimeout(function(){ 
+            $("#success-modal").modal('hide'); 
+            chat_send_blocking(); 
+          }, 3000);
+        }
+        else if(event == "error")
+        { 
+          $("#accept-chat-proposal").modal('hide');
+          $("#error-on-accepting-modal").modal('show');
+          setTimeout(function(){ $("#error-on-accepting-modal").modal('hide'); }, 3000);
+        }
+        else if(event == "already_exists")
+        { 
+          $("#accept-chat-proposal").modal('hide');
+          $("#Error-modal").modal('show');
+          $("#Error-modal").find('.modal-body .center-part').html('<h3><span><i class="fa fa-exclamation-circle" aria-hidden="true"></i></span> <span>Already accepted this proposal</span> </h3>');
+          setTimeout(function(){ $("#Error-modal").modal('hide'); }, 3000);
+        }
+        else
+        {
+          $("#accept-chat-proposal").modal('hide');
+          $("#Error-modal").modal('show');
+          $("#Error-modal").find('.modal-body .center-part').html('<h3><span><i class="fa fa-exclamation-circle" aria-hidden="true"></i></span> <span>Server down ! please try again later</span> </h3>');
+          setTimeout(function(){ $("#Error-modal").modal('hide'); }, 3000);
+        }
       }, error:  function(event){
 
       }
     })
   }
+
+  function chat_send_blocking()
+  {
+    var hide_id = $("#for-chat-hidden-job-before-id").val();
+    var hide_name = $("#for-chat-hidden-job-before-name").val();
+    var hide_client_id = $("#for-chat-hidden-job-before-client-id").val();
+    var hide_lawyer_id = $("#for-chat-hidden-job-before-lawyer-id").val();
+
+    if(hide_id != '' && hide_name != '' && hide_client_id != '' && hide_lawyer_id != '')
+    {
+    $.ajax({
+      url: "/chat-send-block-other",
+      type: "GET",
+      data: { hide_id: hide_id, hide_name: hide_name, hide_client_id: hide_client_id, hide_lawyer_id: hide_lawyer_id },
+      dataType: "json",
+      success: function(event)
+      {
+        if(event == "response_yes")
+        {
+          if($('.input_msg_write').css('display') == 'none')
+          {
+            $('.input_msg_write').css('display','block');
+            if($('.not-type-msg').css('display') != 'none')
+            {
+              $('.not-type-msg').css('display','none');
+            }
+          }
+        }
+        else if(event == "response_no")
+        {
+          if($('.not-type-msg').css('display') == 'none')
+          {
+            $('.not-type-msg').css('display','block');
+            if($('.input_msg_write').css('display') != 'none')
+            {
+              $('.input_msg_write').css('display','none');
+            }
+          }  
+        }
+        else
+        {
+          if($('.input_msg_write').css('display') == 'none')
+          {
+            $('.input_msg_write').css('display','block');
+            if($('.not-type-msg').css('display') != 'none')
+            {
+              $('.not-type-msg').css('display','none');
+            }
+          }
+        }
+      }, error: function(event){
+
+      }
+    })
+  }
+  }
+
+  // -------------------2020.09.04--------------------
+  // raise invoice from chat panel 
+    // start raise invoice 
+    function chatRaiseInvoice(client_id, project_id, project_name, jobBeforeId, lawyer_id)
+    {
+      // variable define 
+      var clientID = client_id;
+      var lawyerID = lawyer_id;
+      var projectID = project_id;
+      var projectName = project_name;
+      var jobBeforeId = jobBeforeId;
+
+      // put value on those particular hidden ids for sending data to "raise an invoice"
+
+     $("#raise-invoice-on-project-id").val(clientID);
+     $("#raise-invoice-on-project-name").val(projectName);
+     $("#raise-invoice-on-project-lawyer-id").val(lawyerID);
+     $("#raise-invoice-on-project-client-id").val(clientID);
+     $("raise-invoice-on-project-jobBefore-id").val(jobBeforeId);
+
+
+      // modal shown after clicking 
+      $("#raise-invoice-modal-id").modal('show');
+      
+
+    }
+    // end of start raise invoice
+
+    // final create invoice by lawyer
+
+    function final_create_invoice_by_lawyer()
+    {
+      // hidden field's value taken
+      var raise_project_id = $("#raise-invoice-on-project-id").val();
+      var raise_project_name = $("#raise-invoice-on-project-name").val();
+      var raise_project_job_before_id = $("#raise-invoice-on-project-jobBefore-id").val();
+      var raise_client_id = $("#raise-invoice-on-project-client-id").val();
+      var raise_lawyer_id = $("#raise-invoice-on-project-lawyer-id").val();
+
+      // end of hidden field's value taken
+
+      // visible field's values stored in variable
+      var raise_amount = $("#raise-amount").val();
+      var raise_description = $("#raise-description").val();
+
+      // end of visible field's values stored in variable
+
+      if(raise_amount == "")
+      {
+        $(".raise-error").html('<p>You must add a minimum amount </p>');
+        $(".raise-error").css('display','block');
+        setTimeout(function(){ $(".raise-error").css('display','none'); }, 3000);
+      }
+      else
+      {
+        $.ajax({
+          url: "/final-invoice-lawyer-create",
+          type: "GET",
+          data: {raise_project_id: raise_project_id, raise_project_name: raise_project_name, raise_project_job_before_id: raise_project_job_before_id, raise_client_id: raise_client_id, raise_lawyer_id: raise_lawyer_id, raise_amount: raise_amount, raise_description: raise_description},
+          dataType: 'json',
+          success:  function(event){
+
+          }, error:  function(event){
+
+          }
+        })
+      }
+
+
+    }
+
+    // end of final create invoice lawyer 
 </script>
 @endsection

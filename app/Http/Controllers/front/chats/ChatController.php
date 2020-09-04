@@ -1238,4 +1238,38 @@ class ChatController extends Controller
     	echo json_encode("success");
     }
     // paypal end
+
+    // proposal after chat send part blocking for others
+
+    public function chat_send_blocking()
+    {
+        $projectID = $_GET['hide_id'];
+        $projectName = $_GET['hide_name'];
+        $clientID = $_GET['hide_client_id'];
+        $lawyerID = $_GET['hide_lawyer_id'];
+
+        $mainChecking = ChatProjectModel::where(['project_id' => $projectID, 'project_name' => $projectName ])->get();
+
+        if(count($mainChecking) > 0)
+        {
+          foreach($mainChecking as $mc)
+          {
+            $get_lawyer_main_id = $mc->lawyer_id;
+            if($get_lawyer_main_id == $lawyerID)
+            {
+              $msg = "response_yes";
+            }
+            else if($get_lawyer_main_id != $lawyerID)
+            {
+              $msg = "response_no";
+            }
+          }
+        }
+        else
+        {
+          $msg = "response_yes";
+        }
+        echo json_encode($msg);
+    }
+
 }

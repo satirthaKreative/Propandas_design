@@ -429,4 +429,7 @@ Route::GET('/accepting-proposal-checking','front\proposal\ChatProposalController
 Route::GET('/submit-chat-proposal-from-client','front\proposal\ChatProposalController@submit_chat_proposal_from_client');
 Route::GET('/submit-acceptation-proposal','front\proposal\ChatProposalController@submit_acceptation_proposal');
 
+	// after blocking one othe automatically disabled fom chat panel
+	Route::GET('/chat-send-block-other','front\chats\ChatController@chat_send_blocking');
+
 // end of chat side proposal
