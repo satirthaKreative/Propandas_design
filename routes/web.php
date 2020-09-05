@@ -354,7 +354,7 @@ Route::GET('/give-client-review-ajax-submit','front\projectStatus\ProjectStatusC
 
 // Invoice page
 Route::GET('/invoice','front\invoice\InvoiceController@index');
-Route::GET('/lawyer-invoice','front\invoice\InvoiceController@lawyer_index');
+
 
 Route::GET('/client_page_invoice_load','front\invoice\InvoiceController@client_page_invoice_load');
 Route::GET('/lawyer_page_invoice_load','front\invoice\InvoiceController@lawyer_page_invoice_load');
@@ -431,5 +431,14 @@ Route::GET('/submit-acceptation-proposal','front\proposal\ChatProposalController
 
 	// after blocking one othe automatically disabled fom chat panel
 	Route::GET('/chat-send-block-other','front\chats\ChatController@chat_send_blocking');
-
+	
 // end of chat side proposal
+
+// Invoice 
+	// invoice raise by Lawyer
+	Route::GET('/final-invoice-lawyer-create','front\invoice\LawyerInvoiceController@index');
+
+	// lawyer 
+	Route::GET('/lawyer-invoice','front\invoice\LawyerInvoiceController@lawyer_index');
+	Route::GET('/lawyer-invoice-page-onload','front\invoice\LawyerInvoiceController@lawyer_index_page_onload');
+// end of invoice

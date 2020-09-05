@@ -444,7 +444,7 @@
                   </div>
 
                   <!-- Error type -->
-                  <div class="alert-box error-alert raise-danger" style="display: none;">
+                  <div class="alert-box error-alert raise-error" style="display: none;">
                       <p>Some thing went wrong on server ! Try again later.</p>
                   </div>
                 </div>
@@ -1241,11 +1241,11 @@
 
       // put value on those particular hidden ids for sending data to "raise an invoice"
 
-     $("#raise-invoice-on-project-id").val(clientID);
+     $("#raise-invoice-on-project-id").val(projectID);
      $("#raise-invoice-on-project-name").val(projectName);
      $("#raise-invoice-on-project-lawyer-id").val(lawyerID);
      $("#raise-invoice-on-project-client-id").val(clientID);
-     $("raise-invoice-on-project-jobBefore-id").val(jobBeforeId);
+     $("#raise-invoice-on-project-jobBefore-id").val(jobBeforeId);
 
 
       // modal shown after clicking 
@@ -1288,12 +1288,34 @@
           data: {raise_project_id: raise_project_id, raise_project_name: raise_project_name, raise_project_job_before_id: raise_project_job_before_id, raise_client_id: raise_client_id, raise_lawyer_id: raise_lawyer_id, raise_amount: raise_amount, raise_description: raise_description},
           dataType: 'json',
           success:  function(event){
-
+              if(event == "success")
+              {
+                $("#raise-amount").val("");
+                $("#raise-description").val("");
+                $(".raise-success").css('display','block');
+                setTimeout(function(){ $(".raise-success").css('display','none'); $("#raise-invoice-modal-id").modal('hide'); }, 3000);
+              }
+              else if(event == "error")
+              {
+                $(".raise-error").css('display','block');
+                setTimeout(function(){ $(".raise-error").css('display','none'); $("#raise-invoice-modal-id").modal('hide'); }, 3000);
+              }
+              else
+              {
+                $("#raise-amount").val("");
+                $("#raise-description").val("");
+                $("#Error-modal").find('.modal-body .center-part').html('<h3><span><i class="fa fa-exclamation-circle" aria-hidden="true"></i></span> <span>Server down ! Try again sometime later</span> </h3>');
+                setTimeout(function(){ $("#Error-modal").modal('hide'); }, 3000);
+              }
           }, error:  function(event){
 
           }
-        })
+        });
       }
+
+
+      // invoice 
+
 
 
     }
