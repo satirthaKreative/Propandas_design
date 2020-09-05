@@ -440,5 +440,5 @@ Route::GET('/submit-acceptation-proposal','front\proposal\ChatProposalController
 
 	// lawyer 
 	Route::GET('/lawyer-invoice','front\invoice\LawyerInvoiceController@lawyer_index');
-	Route::GET('/lawyer-invoice-page-onload','front\invoice\LawyerInvoiceController@lawyer_index_page_onload');
+	Route::GET('/client-invoice','front\invoice\LawyerInvoiceController@client_invoice_index');
 // end of invoice

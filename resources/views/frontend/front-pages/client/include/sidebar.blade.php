@@ -17,9 +17,9 @@
    <li <?php if($page == 'chat' ){ ?> class="active" <?php } ?>><a href="/chat"><i class="fa fa-comments" aria-hidden="true"></i>Chat </a></li>
    <li <?php if($page == 'chat-invites' ){ ?> class="active" <?php } ?>><a href="/chat-invites"><i class="fa fa-comments" aria-hidden="true"></i>Chat Invitation</a></li>
    <li <?php if($page == 'my-project-status' ){ ?> class="active" <?php } ?>><a href="/my-project-status"><i class="fa fa-area-chart" aria-hidden="true"></i>Project Status</a></li>
-   <li><a href="javascript:void(0)" onclick="coming_soon_modal()"><i class="fa fa-comments" aria-hidden="true"></i>Messages</a></li>
-   <li><a href="javascript:void(0)" onclick="coming_soon_modal()"><i class="fa fa-file-text" aria-hidden="true"></i>Documents</a></li>
-   <li <?php if($page == 'invoice' ){ ?> class="active" <?php } ?>><a href="/invoice"><i class="fa fa-file" aria-hidden="true"></i>Invoices</a></li>
-   <li><a href="javascript:void(0)" onclick="coming_soon_modal()"><i class="fa fa-exchange" aria-hidden="true"></i>Transactions</a></li>
+   <!-- <li><a href="javascript:void(0)" onclick="coming_soon_modal()"><i class="fa fa-comments" aria-hidden="true"></i>Messages</a></li>
+   <li><a href="javascript:void(0)" onclick="coming_soon_modal()"><i class="fa fa-file-text" aria-hidden="true"></i>Documents</a></li> -->
+   <li <?php if($page == 'client-invoice' ){ ?> class="active" <?php } ?>><a href="/client-invoice"><i class="fa fa-file" aria-hidden="true"></i>Invoices</a></li>
+   <!-- <li><a href="javascript:void(0)" onclick="coming_soon_modal()"><i class="fa fa-exchange" aria-hidden="true"></i>Transactions</a></li> -->
    <li  <?php if($page == 'system-message' || $page == 'current-system-message-details'){ ?> class="active" <?php } ?>><a href="/system-message"><i class="fa fa-comment" aria-hidden="true"></i>System Messages <span class="unread-system-msg-count-class"></span></a></li>
 </ul>

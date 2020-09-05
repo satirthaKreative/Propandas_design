@@ -147,4 +147,17 @@ class LawyerInvoiceController extends Controller
     	}
     	echo json_encode($html);
     } 
+
+
+
+    // client viewer
+
+    // invoice viewer
+
+    public function client_invoice_index()
+    {
+    	return view('frontend.front-pages.front-invoice.client-invoice');
+    }
+
+    // by invoic viewer
 }
