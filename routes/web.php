@@ -440,5 +440,31 @@ Route::GET('/submit-acceptation-proposal','front\proposal\ChatProposalController
 
 	// lawyer 
 	Route::GET('/lawyer-invoice','front\invoice\LawyerInvoiceController@lawyer_index');
+	Route::GET('/lawyer-invoice-page-onload','front\invoice\LawyerInvoiceController@lawyer_index_page_onload');
+
+	// client
 	Route::GET('/client-invoice','front\invoice\LawyerInvoiceController@client_invoice_index');
+
+	Route::GET('/client-invoice-page-onload','front\invoice\LawyerInvoiceController@client_invoice_page_onload');
+
+	// invoice (client type) modal view show 
+
+	Route::GET('/invoice-preview-section-from-client-end','front\invoice\LawyerInvoiceController@client_type_invoice_modal_show');
+	Route::GET('/raise-invoice-by-client','front\invoice\LawyerInvoiceController@raise_an_invoice_by_client');
+
 // end of invoice
+
+
+
+
+
+
+
+
+
+// all page footer address and contact page address
+
+Route::GET('/all-page-email-and-address-function','front\invoice\LawyerInvoiceController@all_page_email_and_address_function');
+
+// end of all page footer address and contact page address
+

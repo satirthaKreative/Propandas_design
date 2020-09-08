@@ -7,7 +7,7 @@
                <div class="ft_addr">
                   <p class="icon-text">
                      <span class="icon-div"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                     Wiedner Hauptstrasse 120
+                     <span class="all-page-footer-address">Wiedner Hauptstrasse 120</span>
                   </p>
                   <!-- <p class="icon-text">
                      <span class="icon-div"><i class="fa fa-phone" aria-hidden="true"></i></span>
@@ -15,7 +15,7 @@
                   </p> -->
                   <p class="icon-text">
                      <span class="icon-div"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                     Office@propandas.com
+                     <span class="all-page-footer-email">Office@propandas.com</span>
                   </p>
                </div>
             </div>
@@ -159,6 +159,7 @@
   @if(Auth::user()->is_lawyer == 0)
   <script>
     $(function(){
+      all_page_email_And_address_function();
       count_system_msg();
       unread_notify_count();
       unread_system_msg_count();
@@ -167,6 +168,25 @@
          unread_system_msg_count();
       },1000);
    })
+
+    // footer loaded
+
+     // main 07.09.2020 //
+
+     function all_page_email_And_address_function()
+     {
+       $.ajax({
+         url: "/all-page-email-and-address-function",
+         type: "GET",
+         dataType: "json",
+         success:  function(event){
+           $(".all-page-footer-address").html(event.main_Address);
+           $(".all-page-footer-email").html(event.main_email); 
+         }, error:  function(event){
+
+         }
+       })
+     }
 
     // notification show
 
@@ -229,6 +249,7 @@
   @else
   <script>
      $(function(){
+      all_page_email_And_address_function();
        lawyer_profile_speacialization_function();
        count_system_msg();
        unread_system_msg_count();
@@ -237,6 +258,24 @@
           notifying_lawyer_count();
        },1000);
     })
+     // footer loaded
+
+     // main 07.09.2020 //
+
+     function all_page_email_And_address_function()
+     {
+       $.ajax({
+         url: "/all-page-email-and-address-function",
+         type: "GET",
+         dataType: "json",
+         success:  function(event){
+           $(".all-page-footer-address").html(event.main_Address);
+           $(".all-page-footer-email").html(event.main_email); 
+         }, error:  function(event){
+
+         }
+       })
+     }
      // my specialization profile
      function lawyer_profile_speacialization_function()
      {
@@ -679,6 +718,7 @@ $(function(){
 jQuery(document).ready(function() {
   showAboutData();
    change_country_wishDashboard();
+   
 
 });
 
@@ -706,4 +746,7 @@ jQuery(document).ready(function() {
     $("#coming-modal").modal('show');
     setTimeout(function(){ $("#coming-modal").modal('hide'); }, 3000);
   }
+
+
+
   </script>

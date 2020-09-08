@@ -41,47 +41,8 @@
                                  <th>&nbsp;</th>
                               </tr>
                            </thead>
-                           <tbody>
-                              <tr>
-                                 <td>01</td>
-                                 <td>PROP-101</td>
-                                 <td>PROPANNEW</td>
-                                 <td>June 30,2020</td>
-                                 <td><span class="job-status paid">Paid</span></td>
-                                 <td><a href="javascript:void(0)" class="shrt-btn short-link-btn  ">Download</a></td>
-                                 <td><a href="javascript:void(0)" class="shrt-btn short-link-btn  ">Pay</a></td>
-                                 <td> <a href="javascript:void(0)"  class="dlt-icn" data-toggle="modal" data-target="#View_invoice"><i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="View"></i></a></td>
-                              </tr>
-                              <tr>
-                                 <td>02</td>
-                                 <td>PROP-101</td>
-                                 <td>PROPANNEW</td>
-                                 <td>June 24,2020</td>
-                                 <td><span class="job-status paid">Paid</span></td>
-                                 <td><a href="javascript:void(0)" class="shrt-btn short-link-btn  ">Download</a></td>
-                                 <td><a href="javascript:void(0)" class="shrt-btn short-link-btn  ">Pay</a></td>
-                                 <td> <a href="javascript:void(0)"  class="dlt-icn" data-toggle="modal" data-target="#View_invoice"><i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="View"></i></a></td>
-                              </tr>
-                              <tr>
-                                 <td>03</td>
-                                 <td>PROP-101</td>
-                                 <td>PROPANNEW</td>
-                                 <td>may 30,2020</td>
-                                 <td><span class="job-status paid">Paid</span></td>
-                                 <td><a href="javascript:void(0)" class="shrt-btn short-link-btn  ">Download</a></td>
-                                 <td><a href="javascript:void(0)" class="shrt-btn short-link-btn  ">Pay</a></td>
-                                 <td> <a href="javascript:void(0)"  class="dlt-icn" data-toggle="modal" data-target="#View_invoice"><i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="View"></i></a></td>
-                              </tr>
-                              <tr>
-                                 <td>04</td>
-                                 <td>PROP-101</td>
-                                 <td>PROPANNEW</td>
-                                 <td>may 20,2020</td>
-                                 <td><span class="job-status paid">Paid</span></td>
-                                 <td><a href="javascript:void(0)" class="shrt-btn short-link-btn  ">Download</a></td>
-                                 <td><a href="javascript:void(0)" class="shrt-btn short-link-btn  ">Pay</a></td>
-                                 <td> <a href="javascript:void(0)"  class="dlt-icn" data-toggle="modal" data-target="#View_invoice"><i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="View"></i></a></td>
-                              </tr>
+                           <tbody id="client-invoice-front-page-show-paid-part">
+                              <tr><td colspan='8' class='text-info text-center'><i class='fa fa-spinner'></i> Loading invoices</td></tr>
                            </tbody>
                         </table>
                      </div>
@@ -101,37 +62,8 @@
                                  <th>&nbsp;</th>
                               </tr>
                            </thead>
-                           <tbody>
-                              <tr>
-                                 <td>01</td>
-                                 <td>PROP-101</td>
-                                 <td>PROPANNEW</td>
-                                 <td>June 21,2020</td>
-                                 <td><span class="job-status unpaid">UnPaid</span></td>
-                                 <td><a href="javascript:void(0)" class="shrt-btn short-link-btn  ">Download</a></td>
-                                 <td><a href="javascript:void(0)" class="shrt-btn short-link-btn  ">Pay</a></td>
-                                 <td> <a href="javascript:void(0)"  class="dlt-icn" data-toggle="modal" data-target="#View_invoice"><i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="View"></i></a></td>
-                              </tr>
-                              <tr>
-                                 <td>02</td>
-                                 <td>PROP-101</td>
-                                 <td>PROPANNEW</td>
-                                 <td>June 15,2020</td>
-                                 <td><span class="job-status unpaid">UnPaid</span></td>
-                                 <td><a href="javascript:void(0)" class="shrt-btn short-link-btn  ">Download</a></td>
-                                 <td><a href="javascript:void(0)" class="shrt-btn short-link-btn  ">Pay</a></td>
-                                 <td> <a href="javascript:void(0)"  class="dlt-icn" data-toggle="modal" data-target="#View_invoice"><i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="View"></i></a></td>
-                              </tr>
-                              <tr>
-                                 <td>03</td>
-                                 <td>PROP-101</td>
-                                 <td>PROPANNEW</td>
-                                 <td>June 05,2020</td>
-                                 <td><span class="job-status unpaid">UnPaid</span></td>
-                                 <td><a href="javascript:void(0)" class="shrt-btn short-link-btn  ">Download</a></td>
-                                 <td><a href="javascript:void(0)" class="shrt-btn short-link-btn  ">Pay</a></td>
-                                 <td> <a href="javascript:void(0)"  class="dlt-icn" data-toggle="modal" data-target="#View_invoice"><i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="View"></i></a></td>
-                              </tr>
+                           <tbody id="client-invoice-front-page-show-unpaid-part">
+                              <tr><td colspan='8' class='text-info text-center'><i class='fa fa-spinner'></i> Loading invoices</td></tr>
                            </tbody>
                         </table>
                      </div>
@@ -151,13 +83,10 @@
          <div class="modal-body ">
             <h3 class="text-left"><span><img src="<?= url('/frontAssets/images/logo.png') ?>" alt="logo" class="modal-logo"></span></h3>
             <div class="table-view invoice-view text-center">
-               <ul>
-                  <li><span class="table-name">Invoice Number</span><span class="table_info">PROPAN441013</span></li>
-                  <li><span class="table-name">Date</span><span class="table_info"> June 30,2020</span></li>
-                  <li><span class="table-name">Attorney Name</span><span class="table_info">James Roger</span></li>
-                  <li><span class="table-name">Status</span><span class="table_info">Paid</span></li>
-                  <li><span class="table-name">Amount</span><span class="table_info"> $200.00</span></li>
-                  <span class="block-width"><a href="javascript:void(0)" class="cnt-btn text-center">Download</a></span>
+               <ul class="ps-relative" id="invoice-review-modal">
+                  <div class="data-loding">
+                  	<i class="fa fa-spinner"></i> Loading Data's
+                  </div>
                </ul>
             </div>
          </div>
@@ -167,6 +96,73 @@
 @endsection
 @section('pagewishjs')
 <script type="text/javascript">
-	
+	$(function(){
+		onload_client_invoice();
+	})
+	function onload_client_invoice()
+	{
+		$.ajax({
+			url: "/client-invoice-page-onload",
+			type: "GET",
+			dataType: "JSON",
+			success:  function(event){
+				console.log(event);
+				if(event.main_msg == "success")
+				{
+					if(event.paid_type != "")
+					{
+						$("#client-invoice-front-page-show-paid-part").html(event.paid_type);
+					}
+					else
+					{
+						$("#client-invoice-front-page-show-paid-part").html("<tr><td colspan='8' class='text-danger text-center'><i class='fa fa-times'></i> No data</td></tr>");
+					}
+
+					if(event.unpaid_type != "")
+					{
+						$("#client-invoice-front-page-show-unpaid-part").html(event.unpaid_type);
+					}
+					else
+					{
+						$("#client-invoice-front-page-show-unpaid-part").html("<tr><td colspan='8' class='text-danger text-center'><i class='fa fa-times'></i> No data</td></tr>");
+					}
+					
+				}
+				else if(event.main_msg == "error")
+				{
+					$("#client-invoice-front-page-show-paid-part").html("<tr><td colspan='8' class='text-danger text-center'><i class='fa fa-times'></i> No data</td></tr>");
+					$("#client-invoice-front-page-show-unpaid-part").html("<tr><td colspan='8' class='text-danger text-center'><i class='fa fa-times'></i> No data</td></tr>");
+				}
+				
+			}, error: function(event){
+
+			}
+		})
+	}
+
+
+	// client invoice page preview modal
+
+	function invoice_preview_Section_function(invoice_tbl_id, invoice_id, project_id, project_name, client_id, lawyer_id, status_date, pay_amount, paid_status)
+	{
+		// modal places values
+		$.ajax({
+			url: '/invoice-preview-section-from-client-end',
+			type: 'GET',
+			data: {lawyer_id: lawyer_id, invoice_tbl_id: invoice_tbl_id},
+			dataType: 'JSON',
+			success:  function(event){
+				$("#invoice-review-modal").html('<li><span class="table-name">Invoice Number</span><span class="table_info project">'+invoice_id+'</span></li><li><span class="table-name">Date</span><span class="table_info">'+event.status_date+'</span></li><li><span class="table-name">Attorney Name</span><span class="table_info">'+event.status_user_name+'</span></li><li><span class="table-name">Status</span><span class="table_info">'+paid_status+'</span></li><li><span class="table-name">Amount</span><span class="table_info"> $'+pay_amount+'</span></li><span class="block-width"><a href="javascript:void(0)" class="cnt-btn text-center">Download</a></span>');
+			}, error:  function(event){
+
+			}
+		})
+		
+
+
+		// modal show part 
+
+		$("#View_invoice").modal('show');
+	}
 </script>
 @endsection

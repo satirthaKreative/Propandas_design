@@ -454,6 +454,43 @@
       </div>
    </div>
    <!-- /add raise invoice modal -->
+
+
+   <!-- settle an invoice client -->
+   <div class="modal fade theme-modal  show" id="settle-an-invoice-client-modal">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <!-- Modal body -->          
+            <div class="modal-body text-center">
+               <div class="center-part wide-space">
+                  <span><img src="http://propandas.com/frontAssets/images/logo.png" alt="logo" class="modal-logo"></span>
+                  <p>Lawyer did not create any invoice right now !  <br>
+                   So you are not able to raise invoice </p>
+                  
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- /settle an invoice client -->
+
+   <div class="modal fade theme-modal  show" id="settle-an-invoice-client-modal">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <!-- Modal body -->          
+            <div class="modal-body text-center">
+               <div class="center-part wide-space">
+                  <span><img src="http://propandas.com/frontAssets/images/logo.png" alt="logo" class="modal-logo"></span>
+                  <p>You are already pay every payment !  <br>
+                   No new invoice created by lawyer </p>
+                  
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
 </section>
 
 <!-- end of dshbord-theme -->
@@ -841,7 +878,7 @@
                      // $("#msg-top-user-class").html('<li><a data-toggle="tooltip" data-placement="top" title="'+response.count_total+' Member" href="#" ><i class="fa fa-user-o" aria-hidden="true"></i><label>'+response.count_total+'</label></a></li><li><a href="#" data-toggle="modal" data-target="#add-people" >Add Member</a></li>');
                      if(user_main_type == 0)
                      {
-                      $("#msg-top-user-class").html('<li><a  href="#" data-toggle="modal" data-target="#member-modal"><i class="fa fa-user-o" aria-hidden="true"></i><label>'+response.count_total+'</label></a></li><li><div class="dots-drop" onclick="my_toggle_chat_control()"><span></span><span></span><span></span><div class="drop-menu" id="has-menu" ><ul><li><a href=javascript: ;"  onclick=proposal_send_checking('+response.all_users_details[0].client_id+','+response.all_users_details[0].project_id+',"'+response.all_users_details[0].project_name+'",'+response.all_users_details[0].id+','+response.all_users_details[0].lawyer_id+')><i class="fa fa-paper-plane" aria-hidden="true"></i>Accept a Proposal</a></li><li><a href="#" data-toggle="modal" data-target="#add-people" ><i class="fa fa-user" aria-hidden="true"></i>Add a Member</a></li><li><a href="javascript: ;" ><i class="fa fa-file-text" aria-hidden="true"></i>Settle an Invoice</a></li><li><a href="#"><i class="fa fa-stop-circle" aria-hidden="true"></i>End the Chat</a></li></ul></div></li>');
+                      $("#msg-top-user-class").html('<li><a  href="#" data-toggle="modal" data-target="#member-modal"><i class="fa fa-user-o" aria-hidden="true"></i><label>'+response.count_total+'</label></a></li><li><div class="dots-drop" onclick="my_toggle_chat_control()"><span></span><span></span><span></span><div class="drop-menu" id="has-menu" ><ul><li><a href=javascript: ;"  onclick=proposal_send_checking('+response.all_users_details[0].client_id+','+response.all_users_details[0].project_id+',"'+response.all_users_details[0].project_name+'",'+response.all_users_details[0].id+','+response.all_users_details[0].lawyer_id+')><i class="fa fa-paper-plane" aria-hidden="true"></i>Accept a Proposal</a></li><li><a href="#" data-toggle="modal" data-target="#add-people" ><i class="fa fa-user" aria-hidden="true"></i>Add a Member</a></li><li><a href="javascript: ;" onclick=settle_an_invoice_function('+response.all_users_details[0].client_id+','+response.all_users_details[0].project_id+',"'+response.all_users_details[0].project_name+'",'+response.all_users_details[0].id+','+response.all_users_details[0].lawyer_id+') ><i class="fa fa-file-text" aria-hidden="true"></i>Settle an Invoice</a></li><li><a href="#"><i class="fa fa-stop-circle" aria-hidden="true"></i>End the Chat</a></li></ul></div></li>');
                      }
                      else if(user_main_type == 1)
                      {
@@ -1321,5 +1358,48 @@
     }
 
     // end of final create invoice lawyer 
+
+
+    // settle invoice of client
+
+    function settle_an_invoice_function(client_id, project_id, project_name, jobBeforeId, lawyer_id)
+    {
+      $.ajax({
+        url: "/raise-invoice-by-client",
+        type: "GET",
+        data: {client_id: client_id, project_id: project_id, project_name: project_name, jobBeforeId: jobBeforeId, lawyer_id: lawyer_id},
+        dataType: "json",
+        success: function(event){
+          if(event == "success")
+          {
+            window.location.href = "<?php echo url("/client-invoice") ?>";
+          }
+          else if(event == "already_pay")
+          {
+            $("#settle-an-invoice-client-modal").modal('show');
+
+            setTimeout(function(){ $("#settle-an-invoice-client-modal").modal('hide'); }, 3000);
+          }
+          else if(event == "error")
+          {
+            $("#settle-an-invoice-client-modal").modal('show');
+
+            setTimeout(function(){ $("#settle-an-invoice-client-modal").modal('hide'); }, 3000);
+          }
+          else
+          {
+            $("#Error-modal").find(".center-part").html('<h3><span><i class="fa fa-exclamation-circle" aria-hidden="true"></i></span> <span>Server Error !!! </span> </h3>');
+
+            $("#Error-modal").modal('show');
+
+            setTimeout(function(){ $("#Error-modal").modal('hide'); }, 3000);
+          }
+        }, error: function(event){
+
+        }
+      })
+    }
+
+    // end of settle invoice of client
 </script>
 @endsection
