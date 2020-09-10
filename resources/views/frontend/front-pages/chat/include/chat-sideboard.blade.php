@@ -21,7 +21,7 @@
    <li <?php if($page == 'notification'){ ?> class="active" <?php } ?>><a href="/notification" id="noti-fication-test">Notification <span class="unread-notify-count-class"></span></a></li>
    <li <?php if($page == 'my-job' || $page == 'my-job-full-view' || $page == 'my-job-full-view' || $page == 'all-proposal' || $page == 'proposal-view' || $page == 'my-current-job'){ ?> class="active" <?php } ?>><a href="/my-job">My Jobs </a></li>
    <li <?php if($page == 'chat' ){ ?> class="active" <?php } ?>><a href="/chat">Chat </a></li>
-   <li <?php if($page == 'my-project-status' ){ ?> class="active" <?php } ?>><a href="/my-project-status">Project Status </a></li>
+   <li <?php if($page == 'client-project-status' ){ ?> class="active" <?php } ?>><a href="/client-project-status">Project Status </a></li>
    <!-- <li><a href="javascript:void(0)" onclick="coming_soon_modal()">Messages</a></li>
    <li><a href="javascript:void(0)" onclick="coming_soon_modal()">Documents</a></li> -->
    <li <?php if($page == 'client-invoice' ){ ?> class="active" <?php } ?>><a href="/client-invoice">Invoices</a></li>
@@ -35,7 +35,7 @@
    <li <?php if($page == 'lawyer-notification' ){ ?> class="active" <?php } ?>><a href="/lawyer-notification">Notification <span class="lawyer-notify-class"></span></a></li>
    <li <?php if($page == 'chat' ){ ?> class="active" <?php } ?>><a href="/chat">Chat </a></li>
    <li <?php if($page == 'project-status' ){ ?> class="active" <?php } ?>><a href="/project-status">Project Status </a></li>
-   <li <?php if($page == 'lawyer-invoice' ){ ?> class="active" <?php } ?>><a href="/lawyer-invoice">Invoices</a></li>
+   <li <?php if($page == 'lawyer-project-status' ){ ?> class="active" <?php } ?>><a href="/lawyer-project-status">Invoices</a></li>
    <!-- <li><a href="javascript:void(0)" onclick="coming_soon_modal()">Income Report</a></li> -->
    <li  <?php if($page == 'system-message' || $page == 'current-system-message-details'){ ?> class="active" <?php } ?>><a href="/system-message">System Messages <span class="unread-system-msg-count-class"></span></a></li>
 </ul>

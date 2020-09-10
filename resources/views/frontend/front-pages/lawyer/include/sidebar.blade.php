@@ -14,7 +14,7 @@
    <li <?php if($page == 'posted-jobs' || $page == 'job-full-view' || $page == 'apply-job'){ ?> class="active" <?php } ?>><a href="/posted-jobs"><i class="fa fa-briefcase" aria-hidden="true"></i>Posted Jobs</a></li>
    <li <?php if($page == 'lawyer-notification' ){ ?> class="active" <?php } ?>><a href="/lawyer-notification"><i class="fa fa-bell" aria-hidden="true"></i>Notification <span class="lawyer-notify-class"></span></a></li>
 
-   <li <?php if($page == 'project-status' ){ ?> class="active" <?php } ?>><a href="/project-status"><i class="fa fa-area-chart" aria-hidden="true"></i>Project Status</a></li>
+   <li <?php if($page == 'lawyer-project-status' ){ ?> class="active" <?php } ?>><a href="/lawyer-project-status"><i class="fa fa-area-chart" aria-hidden="true"></i>Project Status</a></li>
 
    <li <?php if($page == 'chat' ){ ?> class="active" <?php } ?>><a href="/chat"><i class="fa fa-comments" aria-hidden="true"></i>Chat </a></li>
    <li <?php if($page == 'chat-invites' ){ ?> class="active" <?php } ?>><a href="/chat-invites"><i class="fa fa-comments" aria-hidden="true"></i>Chat Invitation</a></li>

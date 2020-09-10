@@ -145,6 +145,14 @@ li.profile-dropdown:hover ul.dropdown-profile{
 .unread-notify{
     background: #eeeeee;
 }
+
+.not-started{
+    background-color: #0f2b7b !important;
+}
+
+.not-accepted{
+    background-color: #ff4e4e ! important;
+}
 /*End of satirtha css*/
 
 .dsbrd-content .post-full-job-class .left-step {   
@@ -164,3 +172,4 @@ li.profile-dropdown:hover ul.dropdown-profile{
 .dsbrd-content .post-full-job-class a.shrt-btn {   
     margin-right: 10px;
 }
+

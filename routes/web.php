@@ -456,6 +456,22 @@ Route::GET('/submit-acceptation-proposal','front\proposal\ChatProposalController
 
 
 
+// project status pages
+
+	// client project status 
+	Route::GET('/client-project-status','front\new_project_status\ProjectStatusController@client_project_status_index');
+	Route::GET('/client-project-status-all-data','front\new_project_status\ProjectStatusController@client_project_status_all_data');
+	Route::GET('/client-page-lawyer-wish-project-status-change','front\new_project_status\ProjectStatusController@client_page_lawyer_wish_project_status_change');
+	Route::GET('/changing-client-project-status','front\new_project_status\ProjectStatusController@changing_client_project_status_function');
+
+	// lawyer project status
+	Route::GET('/lawyer-project-status','front\new_project_status\ProjectStatusController@lawyer_project_status_index');
+
+
+// end of project status pages 
+
+
+
 
 
 

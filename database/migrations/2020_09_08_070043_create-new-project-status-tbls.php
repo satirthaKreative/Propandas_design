@@ -15,6 +15,12 @@ class CreateNewProjectStatusTbls extends Migration
     {
         Schema::create('project_status_tbls', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('project_name');
+            $table->string('project_id');
+            $table->string('client_id');
+            $table->string('lawyer_id');
+            $table->longText('project_status')->nullable();
+            $table->integer('active_status')->default(0);
             $table->timestamps();
         });
     }
