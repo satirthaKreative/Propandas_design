@@ -466,6 +466,7 @@ Route::GET('/submit-acceptation-proposal','front\proposal\ChatProposalController
 
 	// lawyer project status
 	Route::GET('/lawyer-project-status','front\new_project_status\ProjectStatusController@lawyer_project_status_index');
+	Route::GET('/lawyer-project-status-onload-page-data','front\new_project_status\ProjectStatusController@lawyer_project_status_all_data');
 
 
 // end of project status pages 

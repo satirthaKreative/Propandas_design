@@ -65,74 +65,20 @@
          <div class="table-responsive theme-table prj-list-table">
          	<table class="table table-striped ">
          		<thead>
-                        <tr>
-                           <th>Sr No</th>
-                           <th>Project Name</th>
-                           <th>Client Name</th>
-                           <th>Start Date</th>
-                           <th>Status</th> 
-                        </tr>
-                     </thead>
-            <tbody> 
+              <tr>
+                <th>Sr No</th>
+                <th>Project Name</th>
+                <th>Client Name</th>
+                <th>Start Date</th>
+                <th>Status</th> 
+              </tr>
+            </thead>
+            <tbody id="lawyer-project-status-full-view-onload"> 
               <tr class="table-data-loding">
-                                <td colspan="6">
-                                    <i class="fa fa-spinner"></i> Loading Data's
-                                </td>
-                              </tr>
-
-            <tr>
-           <td>01</td>
-            <td>PROPAN441010</td>
-            <td>Roger</td>
-            <td>July 05,2020</td>
-            <td><span class="job-status in-progress">In Progress</span></td> 
-                        
-          </tr>
-
-          <tr>
-           <td>02</td>
-            <td>PROPAN441010</td>
-            <td>Robert Hooks</td>
-            <td>July 05,2020</td>
-            <td><span class="job-status completed">Completed</span></td> 
-                        
-          </tr>
-
-          <tr>
-           <td>03</td>
-            <td>PROPAN441010</td>
-            <td>William David</td>
-            <td>July 05,2020</td>
-            <td><span class="job-status initiated">Initiated</span></td> 
-                        
-          </tr>
-
-          <tr>
-           <td>04</td>
-            <td>PROPAN441010</td>
-            <td>Sara Najjar</td>
-            <td>July 05,2020</td>
-            <td><span class="job-status proposal">Proposal</span></td> 
-                        
-          </tr>
-          <tr>
-           <td>05</td>
-            <td>PROPAN441010</td>
-            <td>Mitri Valentine</td>
-            <td>July 05,2020</td>
-            <td><span class="job-status closed">Closed</span></td> 
-                        
-          </tr>
-
-
-          
-
-          
-
-       
-
-         
-          
+                  <td colspan="6">
+                      <i class="fa fa-spinner"></i> Loading Data's
+                  </td>
+              </tr>
             </tbody>
 
          	</table>
@@ -148,7 +94,24 @@
 @section('pagewishjs')
 <script type="text/javascript">
   $(document).ready(function(){
-     $('[data-toggle="tooltip"]').tooltip();     
+     $('[data-toggle="tooltip"]').tooltip();
+     lawyer_project_status_show_table_data();     
    });
+
+  // show data on load time
+
+  function lawyer_project_status_show_table_data()
+  {
+    $.ajax({
+      url: "/lawyer-project-status-onload-page-data",
+      type: "GET",
+      dataType: "json",
+      success:  function(event){
+        $("#lawyer-project-status-full-view-onload").html(event.view_project_status);
+      }, error :  function(event){
+
+      }
+    })
+  }
 </script>
 @endsection

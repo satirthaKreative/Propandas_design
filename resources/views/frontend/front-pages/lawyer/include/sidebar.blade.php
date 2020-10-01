@@ -17,7 +17,7 @@
    <li <?php if($page == 'lawyer-project-status' ){ ?> class="active" <?php } ?>><a href="/lawyer-project-status"><i class="fa fa-area-chart" aria-hidden="true"></i>Project Status</a></li>
 
    <li <?php if($page == 'chat' ){ ?> class="active" <?php } ?>><a href="/chat"><i class="fa fa-comments" aria-hidden="true"></i>Chat </a></li>
-   <li <?php if($page == 'chat-invites' ){ ?> class="active" <?php } ?>><a href="/chat-invites"><i class="fa fa-comments" aria-hidden="true"></i>Chat Invitation</a></li>
+   <li <?php if($page == 'chat-invites' ){ ?> class="active" <?php } ?>><a href="/chat-invites"><i class="fa fa-info-circle" aria-hidden="true"></i>Chat Invitation</a></li>
    <li <?php if($page == 'lawyer-invoice' ){ ?> class="active" <?php } ?>><a href="/lawyer-invoice"><i class="fa fa-file" aria-hidden="true"></i>Invoices</a></li>
    <!-- <li><a href="javascript:void(0)" onclick="coming_soon_modal()"><i class="fa fa-exchange" aria-hidden="true"></i>Income Report</a></li> -->
    <li  <?php if($page == 'system-message' || $page == 'current-system-message-details'){ ?> class="active" <?php } ?>><a href="/system-message"><i class="fa fa-comment" aria-hidden="true"></i>System Messages <span class="unread-system-msg-count-class"></span></a></li>

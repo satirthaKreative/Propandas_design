@@ -375,11 +375,150 @@ class ProjectStatusController extends Controller
 
 
 
+    // -------------------------------2020.09.10------------------------------
+
+
 
     // lawyer project page status table view
 
     public function lawyer_project_status_all_data()
     {
-    	
+    	// project status taking by lawyer
+
+    	$projectQuery = ChatAndAcceptModel::where(['lawyer_id' => Auth::user()->id])->get();
+    	$html['view_project_status'] = "";
+
+    	// first checking : chat started
+    	if(count($projectQuery) > 0)
+    	{
+    		$j = 1;
+    		foreach($projectQuery as $projectOne)
+    		{
+    			
+    			// main checking on job accept table 
+
+    			$jobAcceptQuery = ChatProjectModel::where(['project_id' => $projectOne->project_id, 'project_name' => $projectOne->project_name, 'lawyer_id' => Auth::user()->id])->get();
+
+    			// checking job accept 
+
+    			if(count($jobAcceptQuery) > 0)
+    			{
+    				foreach($jobAcceptQuery as $jobAcceptCheck)
+    				{
+    					if($jobAcceptCheck->work_status == "started")
+    					{
+    						$actual_project_date = strtotime($jobAcceptCheck->project_start_date);
+
+    						$today_date = strtotime(date('Y-m-d'));
+
+    						if($today_date == $actual_project_date)
+    						{
+    							$dateQ = date('M d,y', strtotime($jobAcceptCheck->project_start_date));
+    							$actual_work_status_class = "initiated";
+    							$working_status = "Initiated";
+    						}
+    						else if($today_date > $actual_project_date)
+    						{
+    							$dateQ = date('M d,y', strtotime($jobAcceptCheck->project_start_date));
+    							$actual_work_status_class = "in-progress";
+    							$working_status = "In Progress";
+    						}
+    					}
+    					else if($jobAcceptCheck->work_status == "completed")
+    					{
+    						$dateQ = date('M d,y', strtotime($jobAcceptCheck->project_start_date));
+    						$actual_work_status_class = "completed";
+    						$working_status = "Completed";
+    					}
+    					else if($jobAcceptCheck->work_status == "closed")
+    					{
+    						$dateQ = date('M d,y', strtotime($jobAcceptCheck->project_start_date));
+    						$actual_work_status_class = "closed";
+    						$working_status = "Closed";
+    					}
+    				}
+    			}
+    			else
+    			{
+    				$dateQ = '<span class="no-lawyer">No date</span>';
+    				$actual_work_status_class = "not-started";
+    				$working_status = "Not Started";
+    			}
+
+    			// get client name
+    			$userQuery = User::where('id',$projectOne->client_id)->get();
+    			foreach($userQuery as $uQuery)
+    			{
+    				$main_full_user_name = $uQuery->name." ".$uQuery->lname;
+    			}
+    			//  end of get client name
+
+    			$html['view_project_status'] .= '<tr>
+           											<td>'.$j.'</td>
+            										<td>'.$projectOne->project_name.'</td>
+            										<td>'.$main_full_user_name.'</td>
+            										<td>'.$dateQ.'</td>
+            										<td><span class="job-status '.$actual_work_status_class.'">'.$working_status.'</span></td>
+          										</tr>';
+          		$j++;
+    		}
+    	}
+    	else
+    	{
+    		// proposal query 
+    		$proposalQuery = ProposalSendModel::where(['lawyer_id' => Auth::user()->id])->get();
+
+    		// checking proposal having 
+    		if(count($proposalQuery) > 0)
+    		{
+    			$j = 1;
+    			foreach($proposalQuery as $projOne)
+    			{
+
+    				// project name getting 
+    				$JobAnswerClinetDescModelQuery = JobAnswerClinetDescModel::where(['id' => $projOne->project_id])->get();
+    				foreach($JobAnswerClinetDescModelQuery as $mainJobQ)
+    				{
+    					$project_main_name = $manJobQ->projectId;
+    				}
+
+    				// get client name
+    				$userQuery = User::where('id',$projOne->client_id)->get();
+    				foreach($userQuery as $uQuery)
+    				{
+    					$main_full_user_name = $userQuery->name." ".$userQuery->lname;
+    				}
+    				//  end of get client name
+
+    				// end of project name getting
+
+    				$dateQ = date('M d,y',strtotime($projOne->created_at));
+    				$actual_work_status_class = "proposal";
+    				$working_status = "Proposal";
+
+    				$html['view_project_status'] .= '<tr>
+           												<td>'.$j.'</td>
+            											<td>'.$project_main_name.'</td>
+            											<td>'.$main_full_user_name.'</td>
+            											<td>'.$dateQ.'</td>
+            											<td><span class="job-status '.$actual_work_status_class.'">'.$working_status.'</span></td>
+          											</tr>';
+
+         			$j++;
+    			}
+    		}
+    		else
+    		{
+    			$dateQ = '<span class="no-lawyer">No date</span>';
+    			$actual_work_status_class = "not-started";
+    			$working_status = "Not Started";
+
+    			$html['view_project_status'] .= '<tr class="no-data"><td colspan="6">  No data found regarding current search </td></tr>';
+    		}
+    		
+    	}
+
+
+    	echo json_encode($html);
     }
 }
